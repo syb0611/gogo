@@ -36,11 +36,10 @@ public class MemberController {
 	public String login(@RequestParam("email") String email, @RequestParam("pw") String pw){
 		MemberVo memberInfo = dao.getMember(email, pw);
 		
-		/* ÀÏÄ¡ÇÏ´Â È¸¿ø Á¤º¸°¡ ¾ø´Â °æ¿ì */
 		if(memberInfo == null){
 			return "redirect:/member/loginform";
 		}
-		/* ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ÀÖ´Â °æ¿ì */
+		/* ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ */
 		else{
 			session.setAttribute("memberInfo", memberInfo);
 			return "redirect:/home";

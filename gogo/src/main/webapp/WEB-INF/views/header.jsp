@@ -28,6 +28,9 @@
      
         <style>
             table,tr,td {border:1px solid #000000}
+            #top-header{
+            	height: 70px;
+            }
         </style>
     
 </head>
@@ -66,7 +69,7 @@
                   <li><a href="#">고객센터</a></li>
                </ul>
                -->
-               <hr>
+              
                
                       <script src="js/vendor/jquery-1.11.0.min.js"></script>
                        <script src="js/vendor/jquery.gmap3.min.js"></script>

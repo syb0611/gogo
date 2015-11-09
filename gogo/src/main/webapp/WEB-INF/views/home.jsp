@@ -52,7 +52,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                 <div class="main-menu">
                                     <ul>
                                     
-                                        <li><a href="${contextPath}/board/main"><font size = 3>단기카풀</font></a></li>
+                                        <li><a href="${contextPath}/dan"><font size = 3>단기카풀</font></a></li>
                                         
                                         <li><a href="jang"><font size = 3>장기카풀</font></a></li>
                                         
