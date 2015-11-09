@@ -41,7 +41,8 @@ http://www.templatemo.com/free-website-templates/417-grill
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="logo">
-                                    <a href="index.html"><img src="images/pool2.jpeg" title="withGoe" alt="Grill Website Template" ></a>
+                                
+                                    <a href="${contextPath}/home"><img src="images/pool2.jpeg" title="withGoe" alt="Grill Website Template" ></a>
                                
                                 </div>
                             </div>
@@ -51,7 +52,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                 <div class="main-menu">
                                     <ul>
                                     
-                                        <li><a href="dan"><font size = 3>단기카풀</font></a></li>
+                                        <li><a href="${contextPath}/board/main"><font size = 3>단기카풀</font></a></li>
                                         
                                         <li><a href="jang"><font size = 3>장기카풀</font></a></li>
                                         
@@ -83,14 +84,33 @@ http://www.templatemo.com/free-website-templates/417-grill
                 <div class="flexslider">
                   <ul class="slides">
                     <li>
-                        <div class="slider-caption">
-                            <h1></h1>
-                            <p>
-                            </p>
-                           
-                        </div>
-                     
-                      <img src="images/car6.jpg" width="300" height="500"alt="" />
+					<div class="slider-caption">
+						<h1></h1>
+						<p></p>
+
+					</div>
+					<!-- <div background-image:url('images/car6.jpg')></div> -->
+					<div style = "background-image:url('images/car6.jpg'); width:2000px; height:1000px;">
+						<form method="post" action="">
+						<div style="padding-top:140px">
+							<table border="1" align="center">
+								<tr>
+									<td>출발지</td>
+									<td><input type="text" name="departure"></td>
+								</tr>
+								<tr>
+									<td>도착지</td>
+									<td><input type="text" name="arrival"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><input type="submit" value="검색"></td>
+								</tr>
+							</table>
+							</div>
+						</form>
+					 
+						<!-- <img src="images/car6.jpg" width="300" height="500"alt="" /> -->
+						</div>
                     </li>
                     
                   
