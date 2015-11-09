@@ -140,7 +140,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= 'assets/images/ico_spot.png'></img>",
+													"<img src= 'images/ico_spot.png'></img>",
 													size, offset);
 											markerp1 = new Tmap.Marker(lonlat,
 													icon);
@@ -188,7 +188,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= 'assets/images/ico_spot.png'></img>",
+													"<img src= 'images/ico_spot.png'></img>",
 													size, offset);
 											markerp2 = new Tmap.Marker(lonlat,
 													icon);
@@ -236,7 +236,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= 'assets/images/ico_spot.png'></img>",
+													"<img src= 'images/ico_spot.png'></img>",
 													size, offset);
 											markerp3 = new Tmap.Marker(lonlat,
 													icon);
@@ -333,7 +333,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= 'assets/images/ico_spot.png'></img>",
+													"<img src= 'images/ico_spot.png'></img>",
 													size, offset);
 											markerp5 = new Tmap.Marker(lonlat,
 													icon);
@@ -380,7 +380,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= 'assets/images/ico_spot.png'></img>",
+													"<img src= 'images/ico_spot.png'></img>",
 													size, offset);
 											marker3 = new Tmap.Marker(lonlat,
 													icon);
@@ -584,11 +584,23 @@ $(function() {
 			"lon" : marker1.lonlat.lon,
 			"lat" : marker1.lonlat.lat
 		}, {
+			"lon" : markerp1.lonlat.lon,
+			"lat" : markerp1.lonlat.lat 
+		}, {
+			"lon" : markerp2.lonlat.lon,
+			"lat" : markerp2.lonlat.lat 
+		}, {
+			"lon" : markerp3.lonlat.lon,
+			"lat" : markerp3.lonlat.lat 
+		}, {
+			"lon" : markerp4.lonlat.lon,
+			"lat" : markerp4.lonlat.lat 
+		}, {
+			"lon" : markerp5.lonlat.lon,
+			"lat" : markerp5.lonlat.lat 
+		}, {
 			"lon" : marker3.lonlat.lon,
 			"lat" : marker3.lonlat.lat
-		}, {
-			"lon" : 2345.1203,
-			"lat" : 9280.31202
 		}, {
 			"name" : "kickscar",
 			"email" : "kickscar@gmail.com",
@@ -596,13 +608,13 @@ $(function() {
 				"lon" : 2345.1203,
 				"lat" : 9280.31202
 			}
-		} ];
+		}];
 		
 		$.ajax({
-			url : "/gogo/upload/markertest",
+			url : "/withgo/markertest",
 			type : "post",
 			dataType : "json",
-			contentType : 'application/json',
+			contentType : "application/json",
 			data : JSON.stringify(arrayData),
 			success : function(response) {
 				if (response.result == "fail") {
@@ -616,23 +628,7 @@ $(function() {
 				console.error(status + " : " + e);
 			}
 		});
-	});
-	/*
-	 * $('#getResult').click( function() { // $('#result').html(''); //
-	 * console.log( JSON.stringify( marker1.lonlat ) ); // $.ajax({ //
-	 * url:'upload/marker', // data: JSON.parse( JSON.stringify( marker1.lonlat ) ), //
-	 * dataType:'json', // type:'GET', // success:function( response ){ //
-	 * console.log(response); // } // });
-	 * 
-	 * var data = { "list": [ { "lon": 10.1, "lat": 22.3 }, { "lon": 10.1,
-	 * "lat": 22.3 } ] };
-	 * 
-	 * $.ajax({ url:'upload/markerList', data: JSON.parse( JSON.stringify( data ) ),
-	 * dataType:'json', type:'POST', success:function( response ){
-	 * console.log(response); } });
-	 * 
-	 * });
-	 */
+	});	
 });
 
 function initialize() {
@@ -647,7 +643,6 @@ function initialize() {
 	map.addLayer(markerLayer);
 	var lonlat = new Tmap.LonLat(lon1, lat1);
 	map.setCenter(lonlat, 15);
-
 }
 
 $('document').ready(function() {
