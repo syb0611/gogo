@@ -72,17 +72,17 @@ body {
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-								<li><a href="dan"><font size=3>단기카풀</font></a></li>
+								<li><a href="${contextPath}/dan"><font size=3>단기카풀</font></a></li>
 
-								<li><a href="jang"><font size=3>장기카풀</font></a></li>
+								<li><a href="${contextPath}/jang"><font size=3>장기카풀</font></a></li>
 
-								<li><a href="goschool"><font size=3>고 스쿨</font></a></li>
+								<li><a href="${contextPath}/goschool"><font size=3>고 스쿨</font></a></li>
 
-								<li><a href="taxi"><font size=3>택시카풀</font></a></li>
+								<li><a href="${contextPath}/taxi"><font size=3>택시카풀</font></a></li>
 
-								<li><a href="community"><font size=3>커뮤니티</font></a></li>
+								<li><a href="${contextPath}/community"><font size=3>커뮤니티</font></a></li>
 
-								<li><a href="customer"><font size=3>고객센터</font></a></li>
+								<li><a href="${contextPath}/customer"><font size=3>고객센터</font></a></li>
 							</ul>
 						</div>
 					</div>
