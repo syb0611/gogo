@@ -65,7 +65,7 @@ body {
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="index.html"><img src="images/pool2.jpeg"
+							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
 								title="Grill Template" alt="Grill Website Template"></a>
 						</div>
 					</div>
