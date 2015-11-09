@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="messageSQL">
+	<insert id="send">
+		insert into message(msgno, fromname, toname, title, memo)
+		values(msg_seq.nextval, #{fromname}, #{toname}, #{title}, #{memo})
+	</insert>
+	
+	<select id="getSendMsg" resultType="com.gogo.withgo.vo.MessageVo">
+		select * from message
+		where fromname=#{fromname}
+		order by msgno desc
+	</select>
+	
+	<select id="getReceiveMsg" resultType="com.gogo.withgo.vo.MessageVo">
+		select * from message
+		where toname=#{toname}
+		order by msgno desc
+	</select>
+	
+	<select id="read" resultType="com.gogo.withgo.vo.MessageVo">
+		select * from message
+		where msgno=#{msgno}
+	</select>
+	
+	<update id="check" parameterType="int">
+		update message set checked=1 
+		where msgno=#{msgno}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from message
+		where msgno=#{msgno}
+	</delete>
+</mapper>

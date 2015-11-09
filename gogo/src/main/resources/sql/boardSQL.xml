@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardSQL">
+	<insert id="write">
+		insert into board(bno, category, nickname, title, content) 
+		values(b_seq.nextval, #{category}, #{nickname}, #{title}, #{content})		
+	</insert>
+	
+	<select id="list" resultType="com.gogo.withgo.vo.BoardVo">
+		select * from board where category=#{category} order by bno desc
+	</select>
+	
+	
+	
+	<select id="read" resultType="com.gogo.withgo.vo.BoardVo">
+		select * from board where bno=#{bno}
+	</select>
+	
+	<update id="uphit">
+		update board set hit=hit+1 where bno=#{bno}
+	</update>
+	
+	<delete id="delete">
+		delete from board where bno=#{bno}
+	</delete>
+	
+	<update id="update">
+		update board set title=#{title}, content=#{content} where bno=#{bno}
+	</update>
+	
+	<select id="categoryList" resultType="com.gogo.withgo.vo.BoardVo">
+		select * from board
+		where category=#{category} order by bno desc
+	</select>
+</mapper>
+
+
