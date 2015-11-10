@@ -65,8 +65,8 @@ table tr th:last-child{
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-								<li><a href="dan"><font size=3>단기카풀</font></a></li>
-								<li><a href="jang"><font size=3>장기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=dan"><font size=3>단기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=jang"><font size=3>장기카풀</font></a></li>
 								<li><a href="goschool"><font size=3>고 스쿨</font></a></li>
 								<li><a href="taxi"><font size=3>택시카풀</font></a></li>
 								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
@@ -96,7 +96,7 @@ table tr th:last-child{
 	<div class="content">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-2">
 						<div class="list-group">
