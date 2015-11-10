@@ -53,4 +53,10 @@ public class CarpoolController {
 		
 		return "carpool/list";
 	}
+	
+	@RequestMapping("/read")
+	public String read(@RequestParam("category") String category, @RequestParam("carno") int carno, Model model){
+		model.addAttribute("carno", carno);
+		return "carpool/read";
+	}
 }

@@ -38,6 +38,12 @@ body {
 #timeline-post{
 	margin-top: 30px;
 }
+
+.listTR:hover {
+	background-color: #EAEAEA;
+}
+
+.listTR:
 </style>
 </head>
 <body>
@@ -141,7 +147,7 @@ body {
 							</c:when>
 							<c:otherwise>
 							<c:forEach items="${list }" var="vo">
-							<tr>
+							<tr class="listTR" onclick="location.href='${contextPath}/carpool/read?category=${category}&carno=${vo.carno }'">
 								<td>${vo.carno}</td>
 								<td>${vo.name }</td>
 								<td>${vo.departure}</td>
