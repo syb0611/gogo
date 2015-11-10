@@ -4,4 +4,14 @@
     <select id="getMember" resultType="com.gogo.withgo.vo.MemberVo">
     	select * from member where email=#{email} and pw=#{pw}
     </select>
+    <select id="findEmail" resultType="String">
+    	select email from member where email=#{email}
+    </select>
+    <select id="findNickname" resultType="String">
+    	select nickname from member where nickname=#{nickname}
+    </select>
+    <insert id="join">
+    	insert into member(mno, email, pw, nickname, name, phone, birth, gender)
+    	values(mem_seq.nextval, #{email}, #{pw}, #{nickname}, #{name}, #{phone}, #{birth}, #{gender})
+    </insert>
 </mapper>

@@ -37,10 +37,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-9">
 						<div class="subscribe-form">
 							<span>"위드고"</span>
-							<form method="get" class="subscribeForm">
-								<input id="subscribe" type="text" /> <input type="submit"
-									id="submitButton" />
-							</form>
+							
 						</div>
 					</div>
 					<div class="col-md-3">

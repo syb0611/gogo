@@ -587,17 +587,17 @@ p {
   text-transform: uppercase;
 }
 
-input, textarea {
-  padding: 10px;
-  border: 1px solid #e2e2e2;
-  width: 100%;
-  margin-top: 25px;
-  font-size: 13px;
-  font-style: italic;
-  font-weight: 300;
-  color: #aaa;
-  outline: none; 
-}
+/* input, textarea { */
+/*   padding: 10px; */
+/*   border: 1px solid #e2e2e2; */
+/*   width: 100%; */
+/*   margin-top: 25px; */
+/*   font-size: 13px; */
+/*   font-style: italic; */
+/*   font-weight: 300; */
+/*   color: #aaa; */
+/*   outline: none;  */
+/* } */
 
 textarea {
   height: 165px;

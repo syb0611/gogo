@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.MessageDao;
@@ -34,7 +35,7 @@ public class MessageController {
 	public String send(MessageVo vo){
 		dao.send(vo);
 		
-		return "redirect:/message/mymsg";  //쪽지보낸 후 쪽지함으로 이동 -> 이동 페이지 수정
+		return "redirect:/message/mymsg"; 
 	}
 	
 	@RequestMapping("/mymsg")
@@ -52,10 +53,11 @@ public class MessageController {
 		return "message/mymsg";
 	}
 	
-	@RequestMapping("/read/{type}/{msgno}")
-	public String read(@PathVariable("type") String type, @PathVariable("msgno") int msgno, Model model){
+	@RequestMapping("/read")
+	public String read(@RequestParam("type") String type, @RequestParam("msgno") int msgno, Model model){
 		MessageVo vo = dao.read(msgno);
 		model.addAttribute("vo", vo);
+		model.addAttribute("type", type);
 		
 		if(type.equals("receive")){
 			dao.check(msgno);
@@ -63,8 +65,8 @@ public class MessageController {
 		return "message/read";
 	}
 	
-	@RequestMapping("/delete/{msgno}")
-	public String delete(@PathVariable("msgno") int msgno){
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("msgno") int msgno){
 		dao.delete(msgno);
 		
 		return "redirect:/message/mymsg";

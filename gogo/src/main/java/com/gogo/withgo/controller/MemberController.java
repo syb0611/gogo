@@ -1,13 +1,19 @@
 package com.gogo.withgo.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gogo.withgo.dao.MemberDao;
 import com.gogo.withgo.vo.MemberVo;
@@ -20,7 +26,7 @@ public class MemberController {
 	private MemberDao dao;
 	
 	@Autowired
-	private HttpSession session;   //////////////////////////////////
+	private HttpSession session;  
 	
 	@RequestMapping("/loginform")
 	public String loginform(){
@@ -39,7 +45,6 @@ public class MemberController {
 		if(memberInfo == null){
 			return "redirect:/member/loginform";
 		}
-		/* ��ġ�ϴ� ȸ���� �ִ� ��� */
 		else{
 			session.setAttribute("memberInfo", memberInfo);
 			return "redirect:/home";
@@ -50,5 +55,33 @@ public class MemberController {
 	public String logout(){
 		session.setAttribute("memberInfo", null);
 		return "redirect:/home";
+	}
+	
+	@RequestMapping("/join")
+	public String join(MemberVo vo){
+		dao.join(vo);
+		return "redirect:/member/loginform";
+	}
+	
+	@RequestMapping("/emailCheck")
+	public void emailCheck(@RequestParam("email") String email, HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		
+		String checkEmail = dao.findEmail(email);
+		if(checkEmail == null) out.print("false");
+		else out.print("true");
+		
+		out.close();
+	}
+	
+	@RequestMapping("/nicknameCheck")
+	public void nicknameCheck(@RequestParam("nickname") String nickname, HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		
+		String checkNickname = dao.findNickname(nickname);
+		if(checkNickname == null) out.print("false");
+		else out.print("true");
+		
+		out.close();
 	}
 }

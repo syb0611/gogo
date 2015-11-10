@@ -1,20 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<!-- <html class="no-js"> -->
-<!--<![endif]-->
-<!-- 
-
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
-
 
 <head>
 <meta charset="utf-8">
@@ -54,10 +40,6 @@ body {
 </style>
 </head>
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-
 	<header>
 		<%@ include file="header.jsp"%>
 		<div id="main-header">
@@ -80,7 +62,7 @@ body {
 
 								<li><a href="${contextPath}/taxi"><font size=3>택시카풀</font></a></li>
 
-								<li><a href="${contextPath}/community"><font size=3>커뮤니티</font></a></li>
+								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
 
 								<li><a href="${contextPath}/customer"><font size=3>고객센터</font></a></li>
 							</ul>
