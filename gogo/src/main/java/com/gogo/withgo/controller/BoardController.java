@@ -32,8 +32,8 @@ public class BoardController {
 		return "board/main";
 	} 
 	
-	@RequestMapping("/list/{category}")
-	public String list(@PathVariable String category, Model model){
+	@RequestMapping("/list")
+	public String list(@RequestParam("category") String category, Model model){
 		List<BoardVo> list = dao.list(category);
 		
 		model.addAttribute("category", category);
@@ -42,8 +42,8 @@ public class BoardController {
 		return "board/list";
 	}
 	
-	@RequestMapping("/writeform/{category}")
-	public String writeform(@PathVariable String category, Model model){
+	@RequestMapping("/writeform")
+	public String writeform(@RequestParam("category") String category, Model model){
 		model.addAttribute("category", category);
 		
 		return "board/writeform";
@@ -53,11 +53,11 @@ public class BoardController {
 	public String write(BoardVo vo){
 		dao.write(vo);
 		
-		return "redirect:/board/list/"+vo.getCategory();
+		return "redirect:/board/list?category="+vo.getCategory();
 	}
 
-	@RequestMapping("/read/{bno}")
-	public String read(@PathVariable int bno, Model model){
+	@RequestMapping("/read")
+	public String read(@RequestParam("bno") int bno, Model model){
 		BoardVo vo = dao.read(bno);
 		model.addAttribute("vo", vo);
 
@@ -68,7 +68,7 @@ public class BoardController {
 	public String delete(@PathVariable String category, @PathVariable int bno){
 		dao.delete(bno);
 		
-		return "redirect:/board/list/"+category;
+		return "redirect:/board/list?category="+category;
 	}
 	
 	@RequestMapping("/updateform")
@@ -82,7 +82,7 @@ public class BoardController {
 	public String update(BoardVo vo){
 		dao.update(vo);
 		
-		return "redirect:/board/read/"+vo.getBno(); 
+		return "redirect:/board/read?bno="+vo.getBno(); 
 	}
 
 }

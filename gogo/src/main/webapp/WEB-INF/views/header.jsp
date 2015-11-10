@@ -27,7 +27,6 @@
         
      
         <style>
-            table,tr,td {border:1px solid #000000}
             #top-header{
             	height: 70px;
             }
