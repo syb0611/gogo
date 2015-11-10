@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.CarpoolDao;
 import com.gogo.withgo.vo.CarpoolVo;
+import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Controller
 @RequestMapping("/carpool")
@@ -20,14 +22,14 @@ public class CarpoolController {
 	@Autowired
 	private CarpoolDao dao;
 	
-	@RequestMapping("/{category}/list")
-	public String list(@PathVariable("category") String category, Model model){
-		List<CarpoolVo> list = dao.list(category);
-		model.addAttribute("list", list);
-		model.addAttribute("category", category);
-		
-		return "carpool/list";
-	}
+//	@RequestMapping("/{category}/list")
+//	public String list(@PathVariable("category") String category, Model model){
+//		List<CarpoolVo> list = dao.list(category);
+//		model.addAttribute("list", list);
+//		model.addAttribute("category", category);
+//		
+//		return "carpool/list";
+//	}
 	
 	@RequestMapping("/{category}/writeform")
 	public String writeform(@PathVariable("category") String category, Model model){
@@ -40,6 +42,15 @@ public class CarpoolController {
 	public String write(CarpoolVo vo){
 		dao.write(vo);
 		
-		return "redirect:/carpool/"+vo.getCategory()+"/list";  //read 페이지로 수정
+		return "redirect:/carpool/"+vo.getCategory()+"/list";  
+	}
+	
+	@RequestMapping("/list")
+	public String list(@RequestParam("category") String category, Model model){
+		List<CarpoolMemberVo> list = dao.carpoolList(category);
+		model.addAttribute("list", list);
+		model.addAttribute("category", category);
+		
+		return "carpool/list";
 	}
 }

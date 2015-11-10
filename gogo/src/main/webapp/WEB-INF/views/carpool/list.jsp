@@ -37,7 +37,7 @@
 		<c:forEach items="${list }" var="vo">
 		<tr>
 			<td>${vo.carno}</td>
-			<td></td>
+			<td>${vo.name }</td>
 			<td>${vo.departure}</td>
 			<td>${vo.arrival}</td>
 			<td>

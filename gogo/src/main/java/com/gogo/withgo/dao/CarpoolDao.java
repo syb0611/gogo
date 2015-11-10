@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.CarpoolVo;
+import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Repository
 public class CarpoolDao {
@@ -22,5 +23,10 @@ public class CarpoolDao {
 	
 	public void write(CarpoolVo vo){
 		template.insert(sql+".write", vo);
+	}
+	
+	
+	public List<CarpoolMemberVo> carpoolList(String category){
+		return template.selectList(sql+".carpoolList", category);
 	}
 }
