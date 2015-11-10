@@ -28,6 +28,21 @@ http://www.templatemo.com/free-website-templates/417-grill
         <link rel="stylesheet" href="css/testimonails-slider.css">
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        
+        <style>
+        #formDiv{
+			margin-top: 200px;
+		}
+		
+		#searchForm{
+			width: 80%;
+			margin: 0 auto;
+		}
+		
+		#searchForm input{
+			margin: 3px;
+		}
+        </style>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -61,14 +76,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="search-box">  
-                                    <form name="search_form" method="get" class="search_form">
-                                        <input id="search" type="text" />
-                                        <input type="submit" id="search-button" />
-                                    </form>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -85,22 +93,14 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 					</div>
 					<!-- <div background-image:url('images/car6.jpg')></div> -->
-					<div style = "background-image:url('images/car6.jpg'); width:2000px; height:1000px;">
-						<form method="post" action="">
-						<div style="padding-top:140px">
-							<table border="1" align="center">
-								<tr>
-									<td>출발지</td>
-									<td><input type="text" name="departure"></td>
-								</tr>
-								<tr>
-									<td>도착지</td>
-									<td><input type="text" name="arrival"></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="submit" value="검색"></td>
-								</tr>
-							</table>
+					<div style = "background-image:url('images/car6.jpg'); width:100%px; height:1000px;">
+						<form method="post" action="" id="searchForm">
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-4" id="formDiv">
+									<input type="text" class="form-control" name="departure" placeholder="출발지">
+									<input type="text" class="form-control" name="arrival" placeholder="도착지">
+									<input type="button" class="btn btn-default form-control" value="검색">
+								</div>
 							</div>
 						</form>
 					 

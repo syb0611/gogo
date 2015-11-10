@@ -52,8 +52,8 @@
                   </c:when>
                   <c:otherwise>
                      <u>${memberInfo.nickname }</u>님&nbsp;
-                     <a href="#">내정보</a>&nbsp;
-                     <a href="${contextPath}/message/mymsg">쪽지함</a>&nbsp;
+                     <a href="${contextPath}/member/myInfo">내정보</a>
+                     <a href="${contextPath}/message/mymsg">쪽지함</a>
                      <a href="${contextPath}/member/logout">로그아웃</a>
                   </c:otherwise>
                </c:choose>

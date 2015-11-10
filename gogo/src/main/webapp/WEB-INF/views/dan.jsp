@@ -69,7 +69,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                         
                                         <li><a href="taxi"><font size = 3>택시카풀</font></a></li>
                                         
-                                        <li><a href="community"><font size = 3>커뮤니티</font></a></li>
+                                        <li><a href="${contextPath}/board/main"><font size = 3>커뮤니티</font></a></li>
                                         
                                         <li><a href="customer"><font size = 3>고객센터</font></a></li>
                                     </ul>

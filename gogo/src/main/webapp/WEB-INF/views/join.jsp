@@ -229,7 +229,7 @@ function formCheck(){
 
 	<div class="content">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">	
+			<div class="col-md-5 col-md-offset-4">	
 				<h2>회원가입</h2>
 				<form method="post" action="${contextPath}/member/join" name="joinform">
 				<table class="table table-condensed">	
