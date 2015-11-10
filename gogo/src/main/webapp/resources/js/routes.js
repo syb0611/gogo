@@ -601,13 +601,6 @@ $(function() {
 		}, {
 			"lon" : marker3.lonlat.lon,
 			"lat" : marker3.lonlat.lat
-		}, {
-			"name" : "kickscar",
-			"email" : "kickscar@gmail.com",
-			"marker" : {
-				"lon" : 2345.1203,
-				"lat" : 9280.31202
-			}
 		}];
 		
 		$.ajax({
