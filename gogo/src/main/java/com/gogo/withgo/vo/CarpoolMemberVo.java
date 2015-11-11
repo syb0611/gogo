@@ -5,13 +5,15 @@ import java.sql.Date;
 public class CarpoolMemberVo {
 	private int carno;			
 	private String category;	
-	private int mno;			
+	private int mno;		
 	private String departure;	
 	private String arrival;		
-	private String usertype;  	
-	private int seat;  		
+	private String stops;
+	private String usertype;  
+	private int seat;  			
 	private String memo;		
-	private Date wdate;		
+	private Date departuredate;		
+	private int price;
 	private String email;
 	private String pw;
 	private String nickname;
@@ -24,24 +26,27 @@ public class CarpoolMemberVo {
 	private Date jdate;
 	private String profile;
 	private String auth;
+	private int authphone;
+	private int authemail;
 	
-	public CarpoolMemberVo() {
-		// TODO Auto-generated constructor stub
-	}
+	public CarpoolMemberVo() {}
 
-	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String usertype, int seat,
-			String memo, Date wdate, String email, String pw, String nickname, String name, String phone, String birth,
-			int gender, int hascar, String image, Date jdate, String profile, String auth) {
+	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String stops,
+			String usertype, int seat, String memo, Date departuredate, int price, String email, String pw, String nickname,
+			String name, String phone, String birth, int gender, int hascar, String image, Date jdate, String profile,
+			String auth, int authphone, int authemail) {
 		super();
 		this.carno = carno;
 		this.category = category;
 		this.mno = mno;
 		this.departure = departure;
 		this.arrival = arrival;
+		this.stops = stops;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.memo = memo;
-		this.wdate = wdate;
+		this.departuredate = departuredate;
+		this.price = price;
 		this.email = email;
 		this.pw = pw;
 		this.nickname = nickname;
@@ -54,6 +59,8 @@ public class CarpoolMemberVo {
 		this.jdate = jdate;
 		this.profile = profile;
 		this.auth = auth;
+		this.authphone = authphone;
+		this.authemail = authemail;
 	}
 
 	public int getCarno() {
@@ -96,6 +103,14 @@ public class CarpoolMemberVo {
 		this.arrival = arrival;
 	}
 
+	public String getStops() {
+		return stops;
+	}
+
+	public void setStops(String stops) {
+		this.stops = stops;
+	}
+
 	public String getUsertype() {
 		return usertype;
 	}
@@ -120,12 +135,20 @@ public class CarpoolMemberVo {
 		this.memo = memo;
 	}
 
-	public Date getWdate() {
-		return wdate;
+	public Date getDeparturedate() {
+		return departuredate;
 	}
 
-	public void setWdate(Date wdate) {
-		this.wdate = wdate;
+	public void setDeparturedate(Date departuredate) {
+		this.departuredate = departuredate;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getEmail() {
@@ -222,6 +245,22 @@ public class CarpoolMemberVo {
 
 	public void setAuth(String auth) {
 		this.auth = auth;
+	}
+
+	public int getAuthphone() {
+		return authphone;
+	}
+
+	public void setAuthphone(int authphone) {
+		this.authphone = authphone;
+	}
+
+	public int getAuthemail() {
+		return authemail;
+	}
+
+	public void setAuthemail(int authemail) {
+		this.authemail = authemail;
 	}
 	
 }

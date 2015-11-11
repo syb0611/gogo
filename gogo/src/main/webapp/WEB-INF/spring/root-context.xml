@@ -16,6 +16,7 @@
 	<bean id="boardController" class="com.gogo.withgo.controller.BoardController" />
 	<bean id="messageController" class="com.gogo.withgo.controller.MessageController" />
 	<bean id="carpoolController" class="com.gogo.withgo.controller.CarpoolController" />
+	<bean id="myinfoController" class="com.gogo.withgo.controller.MyinfoController" />
 	
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

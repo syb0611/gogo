@@ -7,10 +7,10 @@
 <!-- 		order by carno desc -->
 <!-- 	</select> -->
 	
-	<insert id="write">
-		insert into carpool(carno, category, mno, usertype, departure, arrival, seat, memo)
-		values(car_seq.nextval, #{category}, #{mno}, #{usertype}, #{departure}, #{arrival}, #{seat}, #{memo})
-	</insert>
+<!-- 	<insert id="write"> -->
+<!-- 		insert into carpool(carno, category, mno, usertype, departure, arrival, seat, memo) -->
+<!-- 		values(car_seq.nextval, #{category}, #{mno}, #{usertype}, #{departure}, #{arrival}, #{seat}, #{memo}) -->
+<!-- 	</insert> -->
 	
 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.* 

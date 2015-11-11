@@ -16,6 +16,8 @@ public class MemberVo {
 	private Date jdate;
 	private String profile;
 	private String auth;
+	private int authphone;
+	private int authemail;
 	
 	public MemberVo() {}
 
@@ -25,7 +27,7 @@ public class MemberVo {
 	}
 	
 	public MemberVo(int mno, String email, String pw, String nickname, String name, String phone, String birth,
-			int gender, int hascar, String image, Date jdate, String profile, String auth) {
+			int gender, int hascar, String image, Date jdate, String profile, String auth, int authphone, int authemail) {
 		super();
 		this.mno = mno;
 		this.email = email;
@@ -40,6 +42,8 @@ public class MemberVo {
 		this.jdate = jdate;
 		this.profile = profile;
 		this.auth = auth;
+		this.authphone = authphone;
+		this.authemail = authemail;
 	}
 
 	public int getMno() {
@@ -145,4 +149,21 @@ public class MemberVo {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
+
+	public int getAuthphone() {
+		return authphone;
+	}
+
+	public void setAuthphone(int authphone) {
+		this.authphone = authphone;
+	}
+
+	public int getAuthemail() {
+		return authemail;
+	}
+
+	public void setAuthemail(int authemail) {
+		this.authemail = authemail;
+	}
+	
 }

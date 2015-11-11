@@ -39,11 +39,18 @@ body {
 	margin-top: 30px;
 }
 
-.listTR:hover {
+.listTable{
+	width: 100%;
+}
+
+.listTable tr td{
+	padding: 5px;
+}
+.listTable:hover {
 	background-color: #EAEAEA;
 }
 
-.listTR:
+
 </style>
 </head>
 <body>
@@ -132,34 +139,47 @@ body {
 					</c:choose>
 					
 					<table class="table table-condensed">
-						<tr>
-							<th>번호</th>
-							<th>이름</th>
-							<th>출발지</th>
-							<th>도착지</th>
-							<th>유형</th>
-							<th>예약좌석/보유좌석</th>
-							<th>작성일</th>
-						</tr>
 						<c:choose>
 							<c:when test="${list == '[]' }">
 								<td colspan="7">등록된 글이 없습니다.</td>
 							</c:when>
 							<c:otherwise>
 							<c:forEach items="${list }" var="vo">
-							<tr class="listTR" onclick="location.href='${contextPath}/carpool/read?category=${category}&carno=${vo.carno }'">
-								<td>${vo.carno}</td>
-								<td>${vo.name }</td>
-								<td>${vo.departure}</td>
-								<td>${vo.arrival}</td>
+							<tr>
 								<td>
-									<c:choose>
-										<c:when test="${vo.usertype == 'driver' }">타세요</c:when>
-										<c:otherwise>태워주세요</c:otherwise>
-									</c:choose>
+									<table class="listTable">				
+										<tr>	
+											<td width="20%">
+												<c:if test="${vo.authemail == 1 }">이메일인증</c:if>
+												<c:if test="${vo.authphone == 1 }">핸드폰인증</c:if>
+											</td>
+											<td width="50%">${vo.departuredate }</td>
+											<td width="30%">
+											<c:choose>
+												<c:when test="${category == 'dan' }">단기카풀</c:when>
+												<c:when test="${category == 'jang' }">장기카풀</c:when>
+												<c:otherwise>택시카풀</c:otherwise>									
+											</c:choose>/
+											<c:choose>
+												<c:when test="${vo.usertype == 'driver' }">타세요</c:when>
+												<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when>
+												<c:otherwise>함께타요</c:otherwise>									
+											</c:choose>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>사진</td>
+											<td>${vo.departure } -> ${vo.arrival }</td>
+											<td>예상시간/금액</td>
+										</tr>
+										<tr>
+											<td>${vo.name }</td>
+											<td>경유지</td>
+											<td>예약좌석/${vo.seat }</td>
+										</tr>
+									</table>
 								</td>
-								<td>*/${vo.seat}</td>
-								<td>${vo.wdate }</td>
 							</tr>
 							</c:forEach>
 							</c:otherwise>

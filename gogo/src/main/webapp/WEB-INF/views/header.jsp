@@ -52,7 +52,7 @@
                   </c:when>
                   <c:otherwise>
                      <u>${memberInfo.nickname }</u>님&nbsp;
-                     <a href="${contextPath}/member/myInfo">내정보</a>
+                     <a href="${contextPath}/mypage/profile">마이페이지</a>
                      <a href="${contextPath}/message/mymsg">쪽지함</a>
                      <a href="${contextPath}/member/logout">로그아웃</a>
                   </c:otherwise>

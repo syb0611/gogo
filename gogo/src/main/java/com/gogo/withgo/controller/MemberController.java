@@ -79,9 +79,5 @@ public class MemberController {
 		
 		out.close();
 	}
-	
-	@RequestMapping("/myInfo")
-	public String myInfo(){
-		return "myInfo";
-	}
+
 }

@@ -3,30 +3,34 @@ package com.gogo.withgo.vo;
 import java.sql.Date;
 
 public class CarpoolVo {
-	private int carno;			//Ä«Ç®±Û¹øÈ£
-	private String category;	//ºĞ·ù(´Ü±â/Àå±â)
-	private int mno;			//±Û µî·ÏÇÑ È¸¿ø¹øÈ£
-	private String departure;	//Ãâ¹ßÁö
-	private String arrival;		//µµÂøÁö
-	private String usertype;  	//¿îÀüÀÚ(driver) or Å¾½ÂÀÚ(rider)
-	private int seat;  			//ÁÂ¼® ¼ö
-	private String memo;		//Ãß°¡³»¿ë
-	private Date wdate;			//ÀÛ¼ºÀÏ
+	private int carno;			
+	private String category;	
+	private int mno;		
+	private String departure;	
+	private String arrival;		
+	private String stops;
+	private String usertype;  	//driver(íƒ€ì„¸ìš”) or rider(íƒœì›Œì£¼ì„¸ìš”) or together(í•¨ê»˜íƒ€ìš”)
+	private int seat;  			
+	private String memo;		
+	private Date departuredate;			
+	private int price;
 	
 	public CarpoolVo() {}
 
-	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String usertype, int seat,
-			String memo, Date wdate) {
+	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stops,
+			String usertype, int seat, String memo, Date departuredate, int price) {
 		super();
 		this.carno = carno;
 		this.category = category;
 		this.mno = mno;
 		this.departure = departure;
 		this.arrival = arrival;
+		this.stops = stops;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.memo = memo;
-		this.wdate = wdate;
+		this.departuredate = departuredate;
+		this.price = price;
 	}
 
 	public int getCarno() {
@@ -69,6 +73,14 @@ public class CarpoolVo {
 		this.arrival = arrival;
 	}
 
+	public String getStops() {
+		return stops;
+	}
+
+	public void setStops(String stops) {
+		this.stops = stops;
+	}
+
 	public String getUsertype() {
 		return usertype;
 	}
@@ -93,12 +105,20 @@ public class CarpoolVo {
 		this.memo = memo;
 	}
 
-	public Date getWdate() {
-		return wdate;
+	public Date getDeparturedate() {
+		return departuredate;
 	}
 
-	public void setWdate(Date wdate) {
-		this.wdate = wdate;
+	public void setDeparturedate(Date departuredate) {
+		this.departuredate = departuredate;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 }
