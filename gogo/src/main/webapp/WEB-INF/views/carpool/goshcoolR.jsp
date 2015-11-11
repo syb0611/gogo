@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-carno: ${carno }
+고스쿨, 
 </body>
 </html>
