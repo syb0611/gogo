@@ -14,6 +14,17 @@ var markerLayer = new Tmap.Layer.Markers();
 var miter1 = null;
 var sec1 = null;
 var tmoney = null;
+var start = null;
+var end = null;
+var p1 = null;
+var p2 = null;
+var p3 = null;
+var p4 = null;
+var p5 = null;
+
+
+
+
 
 $(function() {
 	$("#loc1").focusin(function() {
@@ -59,8 +70,8 @@ $(function() {
 							markerLayer.removeMarker(marker1);
 							marker1 = null;
 						}
-						var a1 = document.getElementById('loc1').value;
-						if (a1 != "") {
+						start = document.getElementById('loc1').value;
+						if (start != "") {
 							$
 									.ajax({
 										beforeSend : function(request) {
@@ -75,7 +86,7 @@ $(function() {
 										type : "get",
 										dataType : "json",
 										data : "centerLon=&areaLMCode=&count=&multiPoint=&bizAppId=&searchType=&version=1&page=&reqCoordType=&searchKeyword="
-												+ a1
+												+ start
 												+ "&areaLLCode=&callback=&searchtypCd=&radius=&resCoordType=",
 										contentType : 'application/json',
 										success : function(response) {
@@ -108,7 +119,7 @@ $(function() {
 							markerLayer.removeMarker(markerp1);
 							markerp1 = null;
 						}
-						var p1 = document.getElementById('pass1').value;
+						p1 = document.getElementById('pass1').value;
 						if (p1 != "") {
 							$
 									.ajax({
@@ -156,7 +167,7 @@ $(function() {
 							markerLayer.removeMarker(markerp2);
 							markerp2 = null;
 						}
-						var p2 = document.getElementById('pass2').value;
+						p2 = document.getElementById('pass2').value;
 						if (p2 != "") {
 							$
 									.ajax({
@@ -204,7 +215,7 @@ $(function() {
 							markerLayer.removeMarker(markerp3);
 							markerp3 = null;
 						}
-						var p3 = document.getElementById('pass3').value;
+						p3 = document.getElementById('pass3').value;
 						if (p3 != "") {
 							$
 									.ajax({
@@ -252,7 +263,7 @@ $(function() {
 							markerLayer.removeMarker(markerp4);
 							markerp4 = null;
 						}
-						var p4 = document.getElementById('pass4').value;
+						p4 = document.getElementById('pass4').value;
 						if (p4 != "") {
 							$
 									.ajax({
@@ -300,7 +311,7 @@ $(function() {
 							markerLayer.removeMarker(markerp5);
 							markerp5 = null;
 						}
-						var p5 = document.getElementById('pass5').value;
+						p5 = document.getElementById('pass5').value;
 						if (p5 != "") {
 							$
 									.ajax({
@@ -349,8 +360,8 @@ $(function() {
 							markerLayer.removeMarker(marker3);
 							marker3 = null;
 						}
-						var a3 = document.getElementById('loc3').value;
-						if (a3 != "") {
+						end = document.getElementById('loc3').value;
+						if (end != "") {
 							$
 									.ajax({
 										beforeSend : function(request) {
@@ -365,7 +376,7 @@ $(function() {
 										type : "get",
 										dataType : "json",
 										data : "centerLon=&areaLMCode=&count=&multiPoint=&bizAppId=&searchType=&version=1&page=&reqCoordType=&searchKeyword="
-												+ a3
+												+ end
 												+ "&areaLLCode=&callback=&searchtypCd=&radius=&resCoordType=",
 										contentType : 'application/json',
 										success : function(response) {
@@ -492,7 +503,9 @@ $(function() {
 									+ marker1.lonlat.lon
 									+ "&startY="
 									+ marker1.lonlat.lat;
-						} else if (markerp5 != null) {
+						} else if (markerp1 != null && markerp2 != null
+								&& markerp3 != null && markerp4 != null
+								&& markerp5 != null) {
 							data = "callback=&bizAppId=5d5accbf-7745-315f-9ccc-fedc53a0f0b1&version=1&passList="
 									+ markerp1.lonlat.lon
 									+ ","
@@ -580,28 +593,144 @@ $(function() {
 
 
 	$("#example3").click(function() {
-		var arrayData = [ {
-			"lon" : marker1.lonlat.lon,
-			"lat" : marker1.lonlat.lat
+		var arrayData ="";
+		if(markerp1 == null){	
+		arrayData=	[ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
 		}, {
-			"lon" : markerp1.lonlat.lon,
-			"lat" : markerp1.lonlat.lat 
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
 		}, {
-			"lon" : markerp2.lonlat.lon,
-			"lat" : markerp2.lonlat.lat 
-		}, {
-			"lon" : markerp3.lonlat.lon,
-			"lat" : markerp3.lonlat.lat 
-		}, {
-			"lon" : markerp4.lonlat.lon,
-			"lat" : markerp4.lonlat.lat 
-		}, {
-			"lon" : markerp5.lonlat.lon,
-			"lat" : markerp5.lonlat.lat 
-		}, {
-			"lon" : marker3.lonlat.lon,
-			"lat" : marker3.lonlat.lat
-		}];
+			"출발지" : start,
+			"도착지" : end
+		} ];}
+		
+		else if(markerp1 != null && markerp2 == null){	
+			arrayData=	[ {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat 
+			},{
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1": p1
+			} ];}
+		
+		else if(markerp1 != null && markerp2 != null
+				&& markerp3 == null){	
+			arrayData=	[ {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat 
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat 
+			}, {
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1": p1,
+				"경유지2": p2
+			} ];}
+		
+		else if(markerp1 != null && markerp2 != null
+				&& markerp3 != null && markerp4 == null){	
+			arrayData=	[ {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat 
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat 
+			}, {
+				"p3lon" : markerp3.lonlat.lon,
+				"p3lat" : markerp3.lonlat.lat 
+			}, {
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1": p1,
+				"경유지2": p2,
+				"경유지3": p3
+			} ];}
+		
+		else if(markerp1 != null && markerp2 != null
+				&& markerp3 != null && markerp4 != null
+				&& markerp5 == null){	
+			arrayData=	[ {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat 
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat 
+			}, {
+				"p3lon" : markerp3.lonlat.lon,
+				"p3lat" : markerp3.lonlat.lat 
+			}, {
+				"p4lon" : markerp4.lonlat.lon,
+				"p4lat" : markerp4.lonlat.lat 
+			},{
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1": p1,
+				"경유지2": p2,
+				"경유지3": p3,
+				"경유지4": p4
+			}];}
+		
+		else if(markerp1 != null && markerp2 != null
+				&& markerp3 != null && markerp4 != null
+				&& markerp5 != null){	
+			arrayData=	[ {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat 
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat 
+			}, {
+				"p3lon" : markerp3.lonlat.lon,
+				"p3lat" : markerp3.lonlat.lat 
+			}, {
+				"p4lon" : markerp4.lonlat.lon,
+				"p4lat" : markerp4.lonlat.lat 
+			}, {
+				"p5lon" : markerp5.lonlat.lon,
+				"p5lat" : markerp5.lonlat.lat 
+			},{
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1": p1,
+				"경유지2": p2,
+				"경유지3": p3,
+				"경유지4": p4,
+				"경유지5": p5
+			} ];}
 		
 		$.ajax({
 			url : "/withgo/markertest",
@@ -627,12 +756,9 @@ $(function() {
 function initialize() {
 	map = new Tmap.Map({
 		div : "map_div",
-		width : '700px',
+		width : '500px',
 		height : '500px'
 	});
-	map.addControls([ new Tmap.Control.KeyboardDefaults(),
-			new Tmap.Control.MousePosition() ]);
-
 	map.addLayer(markerLayer);
 	var lonlat = new Tmap.LonLat(lon1, lat1);
 	map.setCenter(lonlat, 15);
