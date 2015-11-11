@@ -11,29 +11,22 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
-	@RequestMapping(value = {"dan"})
+	@RequestMapping(value = {"carpoolF"})
 	public String dan() {
-		return "dan";
+		return "carpool/carpoolF";
 	}
-	@RequestMapping(value = {"jang"})
+	@RequestMapping(value = {"carpoolR"})
 	public String jang() {
-		return "jang";
+		return "carpool/carpoolR";
 	}
-	@RequestMapping(value = {"taxi"})
+	@RequestMapping(value = {"goschoolF"})
 	public String taxi() {
-		return "taxi";
+		return "carpool/goschoolF";
 	}
-	@RequestMapping(value = {"goschool"})
+	@RequestMapping(value = {"taxiF"})
 	public String goschool() {
-		return "goschool";
+		return "carpool/taxiF";
 	}
-	@RequestMapping(value = {"community"})
-	public String community() {
-		return "community";
-	}
-	@RequestMapping(value = {"customer"})
-	public String customer() {
-		return "customer";
-	}
+
 	
 }
