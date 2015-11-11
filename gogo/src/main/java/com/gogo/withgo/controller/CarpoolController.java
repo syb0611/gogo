@@ -31,8 +31,8 @@ public class CarpoolController {
 //		return "carpool/list";
 //	}
 	
-	@RequestMapping("/{category}/writeform")
-	public String writeform(@PathVariable("category") String category, Model model){
+	@RequestMapping("/writeform")
+	public String writeform(@RequestParam("category") String category, Model model){
 		model.addAttribute("category", category);
 		
 		return "carpool/writeform";
