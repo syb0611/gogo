@@ -113,7 +113,63 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								회원탈퇴
+								
+								<div id="container">
+
+									<div id="content">
+										<div class="c_header">
+											<legend>회원탈퇴</legend>
+											<p class="contxt">회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.</p>
+										</div>
+			
+										<div class="section_delete">
+											<p class="h_dropout">
+														     	  사용하고 계신 아이디는 탈퇴할 경우 재사용 및 복구가 불가능합니다.</p>
+											<p class="dropout_dsc">
+														     	탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</p>
+											<p class="h_dropout">탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.</p><br>
+										</div>
+									</div>
+								</div>
+								
+								
+								<div id="container">
+								<div id="content">
+									<div class="section_pwconfirm">
+										<div class="spc_header">
+											<h2></h2>
+											
+										</div>
+										<form id="fm" name="fm" action="/user2/help/myInfoPasswd.nhn?m=actionInputPasswd" method="post" onSubmit="return mainSubmit();">
+										<input type="hidden" id="token_help" name="token_help" value="NUnEbFMpljHfTug1" />
+										<input type="hidden" id="encPasswd" name="encPasswd">
+										<input type="hidden" id="encNm" name="encNm">
+										<div class="spc_content">
+											<fieldset>
+												<legend>비밀번호 재확인 입력</legend>
+												<p>안전한 탈퇴를 위해 비밀번호를 다시 한 번 입력해주세요.</p><br>
+											    <p class="spc_row"><span class="txt_userid"></span></p>
+												<p class="spc_row2">
+													<label id="lb_upw" for="upw">비밀번호</label>
+													<input type="password" id="upw" name="upw" maxlength="16" 
+													       onkeyup="checkShiftUp(event);" 
+													       onFocus="convertDiv('upw', 'none')"
+													       onBlur="convertDiv('upw', 'block');hideCapsLock('help2_1');"					 
+													       onkeypress="capslock(event);showCapslock();" 
+													       onkeydown="checkShiftDown(event);" style="width:336px">
+			
+												</p>
+												<p class="btn_area_btm">
+													<button type="submit" class="btn-group btn-group-lg" >확인</button>
+												</p>
+											</fieldset>
+										</div>
+									</div>
+								
+								
+								
+								
+								
 							</div>
 						</div>			
 					</div>		

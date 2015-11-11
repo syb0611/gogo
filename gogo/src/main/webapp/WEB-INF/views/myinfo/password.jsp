@@ -31,7 +31,21 @@ http://www.templatemo.com/free-website-templates/417-grill
 <link rel="stylesheet" href="../css/flexslider.css">
 <link rel="stylesheet" href="../css/testimonails-slider.css">
 
-<style>
+
+<style type="text/css">
+/* GNB Common */
+body,p,h1,h2,h3,h4,h5,h6,menu,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+img,fieldset{border:0}
+menu,ul,ol{list-style:none}
+em,address{font-style:normal}
+a{text-decoration:none}
+a:hover,a:active,a:focus{text-decoration:underline}
+button{cursor:pointer}
+button.disabled{cursor:default}
+.blind{display:block;overflow:hidden;*position:absolute;top:0;left:0;width:0;height:0;border:0;background:none;font-size:0;line-height:0}
+#gnb{float:right;right:3px} 
+
+
 #heading {
 /* 	background-image: url(images/community.png); */
 	background-color: gray;
@@ -46,8 +60,19 @@ http://www.templatemo.com/free-website-templates/417-grill
 	float: left;
 }
 
+
 </style>
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
+<meta name="decorator" content="NEW_USER_MYINFO">
+<script type="text/javascript" src="https://nid.naver.com/inc/common/js/ko/passwdAjax.js?20140718"></script>
+<script type="text/javascript" src="https://nid.naver.com/inc/common/js/rsaAll.js"></script>
+<script type="text/javascript" src="https://nid.naver.com/inc/user/js/soundCaptcha.js?20140313"></script>
+<script type="text/javascript"></script>
+<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js">
+
+</script>
+
+
 </head>
 <body>
 	<!--[if lt IE 7]>
@@ -113,7 +138,79 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								비밀번호변경
+								<div id="container">
+									<div id="content">
+									<div class="row">
+										<div class="col-md-6 col-md-offset-3">
+										<div class="section_pwconfirm">
+											<div class="spc_header">
+											
+												<p class="contxt"><a href="https://help.naver.com/support/contents/contents.nhn?serviceNo=532&categoryNo=2154" target="_blank" class="link">안전한 비밀번호로 내정보를 보호</a>하세요!</p>
+												<br>
+											</div>
+												
+											
+											<fieldset>
+											<legend>비밀번호 변경</legend>
+											<p class="spc_row">
+												<br>
+												<table>
+												<tr>
+												<label id="lb_now_pw" for="now_pw">현재 비밀번호</label>
+												</tr>
+												
+												<input type="password" name="now_pw" id="now_pw" maxlength="16" style="width:336px" title="현재 비밀번호 입력"
+														onFocus="convertDiv('now_pw', 'none')"
+														onBlur="convertDiv('now_pw', 'block');showCapslockForNowPw(-1);"
+														onkeyup="showCapslockForNowPw(1);"
+														onkeypress="capslock(event);">
+											</p>
+											<div id="help0_1" class="help left" style="top:9px; right:-122px">
+												<span class="shadow1"></span>
+												<span class="shadow2"></span>
+												<span class="arrow"></span>
+											</div>
+											<p class="spc_row2">
+												<br>
+												<tr>
+												<label id="lb_new_pw" for="new_pw">새 비밀번호</label><br>
+												</tr>
+												
+												<input type="password" id="new_pw" name="new_pw" maxlength="17" style="width:260px" title="새 비밀번호 입력"
+														onFocus="convertDiv('new_pw','none');checkpwd_login('new_pw','now_pw');"
+														onBlur="convertDiv('new_pw','block');showhelpmsg(-1);" 
+														onkeyup="checkShiftUp(event);checkpwd_login('new_pw','now_pw');"
+														onkeypress="capslock(event);"
+														onkeydown="checkShiftDownNoMsg(event);">
+												
+											</p>
+											<p class="spc_row3">
+												<br>
+												<tr>
+												<label id="lb_conf_pw" for="conf_pw">새 비밀번호 확인</label><br>
+												</tr>
+												
+												<input type="password" id="conf_pw" maxlength="16" style="width:260px" title="새 비밀번호 확인 입력"
+														onFocus="convertDiv('conf_pw','none');"
+														onBlur="convertDiv('conf_pw','block');">
+																					
+											</p>
+											
+												
+											<p class="btn_area_btm">
+											<br>
+											<br>
+											<button type="submit" class="btn btn-default form-control" id="changeSubmit" onclick="clickcr(this,'npw.confirm','','',event);">확인</button>
+											<button type="button" class="btn btn-default form-control" onclick="cancel();clickcr(this,'npw.reload','','',event);">취소</button>
+											</p>
+											
+											</table>
+											</fieldset>
+										</div>
+										</div>
+									</div>	
+									</div>
+								</div>
 							</div>
 						</div>			
 					</div>		
