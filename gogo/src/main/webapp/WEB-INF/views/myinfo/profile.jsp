@@ -174,12 +174,19 @@ fieldset {
 																     </div>
 															</th>
 															<td>
+																<div class="col-md-8">
+																
 																<div class="tdcell">
 																	<p class="contxt_tit">최경미</p>
 																			<p class="contxt_desc">개명으로 이름이 변경된 경우에 한하여 변경이 가능합니다.</p>
 																			<p class="btn_area_btm">
 																				<a href="javascript:changeName();" class="btn_model"><b class="btn2">[이름변경]</b></a><br><br><br>
 																			</p>
+																</div>
+																</div>
+																
+																<div class="col-md-4">
+																	<input type=file size=40>
 																</div>
 															</td>
 														</tr>
