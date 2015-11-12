@@ -11,8 +11,10 @@
 .h_dropout{margin-top:30px;margin-bottom:0 !important;padding-left:13px;background:url(https://static.nid.naver.com/images/web/user/sp_ico.png) no-repeat 0 3px;font-size:12px;color:#333} 
 .dropout_dsc{padding:5px 0 0 13px;font-size:12px;color:#666;line-height:18px} 
 .dropout_dsc{color:#FF6000} 
-
-
+.tbl_model{position:relative;width:100%;border:0;border-bottom:1px solid #e5e5e5;border-spacing:0;border-collapse:collapse;table-layout:fixed;word-break:keep-all;word-wrap:break-word}
+.btn_model{display:inline-block;font-size:12px;line-height:14px;vertical-align:top;text-decoration:none !important} 
+.tbl_model .btn_area_btm a{float:left;margin-left:8px}
+.tbl_model .contxt_desc{padding-top:11px;color:#999;line-height:19px}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
