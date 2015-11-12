@@ -18,7 +18,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("jang")
-	public String aboutUs(){
+	public String jang(){
 		return "jang";
 	}
 	
