@@ -591,22 +591,22 @@ $(function() {
 			function() {
 				var arrayData = "";
 				if (markerp1 == null) {
-					arrayData = [ {
+					arrayData =  {
 						"start" : {
 							"lon" : marker1.lonlat.lon,
 							"lat" : marker1.lonlat.lat
-						}
-					}, {
+						},
+					
 						"end" : {
 							"lon" : marker3.lonlat.lon,
 							"lat" : marker3.lonlat.lat
 						}
-					}, {
+					}/*, {
 						"location" : {
 							"출발지" : start,
 							"도착지" : end
 						}
-					} ];
+					}*/ ;
 				}
 
 				else if (markerp1 != null && markerp2 == null) {

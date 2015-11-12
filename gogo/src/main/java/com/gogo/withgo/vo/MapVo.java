@@ -1,26 +1,31 @@
 package com.gogo.withgo.vo;
 
-public class MapVo {
-	
-	
-	private double lon;
-	private double lat;
+import org.json.JSONObject;
 
-	public double getLon() {
-		return lon;
+public class MapVo extends JSONObject{
+	
+	private String name;
+	private double value;
+	
+	public String getName() {
+		return name;
 	}
-	public void setLon(double lon) {
-		this.lon = lon;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public double getLat() {
-		return lat;
+
+	public double getValue() {
+		return value;
 	}
-	public void setLat(double lat) {
-		this.lat = lat;
+
+	public void setValue(double value) {
+		this.value = value;
+	}
+
+	public MapVo(String name, double value){
+		this.name = name;
+		this.value = value;
 	}
 	
-	@Override
-	public String toString() {
-		return "MapVo [lon=" + lon + ", lat=" + lat + "]";
-	}
 }

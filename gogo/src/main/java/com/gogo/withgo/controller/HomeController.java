@@ -12,7 +12,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("dan")
+	/*@RequestMapping("dan")
 	public String dan(){
 		return "dan";
 	}
@@ -35,7 +35,7 @@ public class HomeController {
 	@RequestMapping("community")
 	public String community(){
 		return "community";
-	}
+	}*/
 	
 	@RequestMapping("customer")
 	public String customer(){
