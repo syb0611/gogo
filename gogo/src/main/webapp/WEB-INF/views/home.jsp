@@ -69,12 +69,13 @@ http://www.templatemo.com/free-website-templates/417-grill
                                     
                                         <li><a href="${contextPath}/carpool/list?category=dan"><font size = 3>단기카풀</font></a></li>
                                         <li><a href="${contextPath}/carpool/list?category=jang"><font size = 3>장기카풀</font></a></li> 
-                                        <li><a href="goschool"><font size = 3>고 스쿨</font></a></li>
-                                        <li><a href="taxi"><font size = 3>택시카풀</font></a></li>
+                                        <li><a href="${contextPath}/carpool/list?category=goschool"><font size = 3>고 스쿨</font></a></li>
+                                        <li><a href="${contextPath}/carpool/list?category=taxi"><font size = 3>택시카풀</font></a></li>
                                         <li><a href="${contextPath}/board/main"><font size = 3>커뮤니티</font></a></li>
                                         <li><a href="customer"><font size = 3>고객센터</font></a></li>
                                     </ul>
                                 </div>
+                                
                             </div>
 
                         </div>
@@ -109,7 +110,6 @@ http://www.templatemo.com/free-website-templates/417-grill
                     </li>
                     
                   
-                  </ul>
                 </div>
              
             </div>
