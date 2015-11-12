@@ -11,20 +11,52 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
+	
+	@RequestMapping("dan")
+	public String dan(){
+		return "dan";
+	}
+	
+	@RequestMapping("jang")
+	public String aboutUs(){
+		return "jang";
+	}
+	
+	@RequestMapping("goschool")
+	public String goschool(){
+		return "goschool";
+	}
+	
+	@RequestMapping("taxi")
+	public String taxi(){
+		return "taxi";
+	}
+	
+	@RequestMapping("community")
+	public String community(){
+		return "community";
+	}
+	
+	@RequestMapping("customer")
+	public String customer(){
+		return "customer";
+	}	
+	
+	
 	@RequestMapping(value = {"carpoolF"})
-	public String dan() {
+	public String carpoolF() {
 		return "carpool/carpoolF";
 	}
 	@RequestMapping(value = {"carpoolR"})
-	public String jang() {
+	public String carpoolR() {
 		return "carpool/carpoolR";
 	}
 	@RequestMapping(value = {"goschoolF"})
-	public String taxi() {
+	public String goschoolF() {
 		return "carpool/goschoolF";
 	}
 	@RequestMapping(value = {"taxiF"})
-	public String goschool() {
+	public String taxiF() {
 		return "carpool/taxiF";
 	}
 
