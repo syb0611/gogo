@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +32,13 @@ public class MapMongoController {
 	@ResponseBody
 	@RequestMapping( "/markertest" )
 	public Object apiExample3( @RequestBody ArrayList< Map<String, Object> > requestData ) {
-		
-		System.out.println( requestData );
+		JSONArray jsons = new JSONArray();
+		jsons.put(requestData);
+		System.out.println( jsons.toString() );
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "result", "success" );
-		map.put( "data", null );
+		map.put( "data", jsons );
 		
 		return map;
 	}

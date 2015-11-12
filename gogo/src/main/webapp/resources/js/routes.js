@@ -22,10 +22,6 @@ var p3 = null;
 var p4 = null;
 var p5 = null;
 
-
-
-
-
 $(function() {
 	$("#loc1").focusin(function() {
 		if (vectorLayer != null && mLineFeature != null) {
@@ -591,166 +587,178 @@ $(function() {
 								});
 					});
 
-
-	$("#example3").click(function() {
-		var arrayData ="";
-		if(markerp1 == null){	
-		arrayData=	[ {
-			"startlon" : marker1.lonlat.lon,
-			"startlat" : marker1.lonlat.lat
-		}, {
-			"endlon" : marker3.lonlat.lon,
-			"endlat" : marker3.lonlat.lat
-		}, {
-			"출발지" : start,
-			"도착지" : end
-		} ];}
-		
-		else if(markerp1 != null && markerp2 == null){	
-			arrayData=	[ {
-				"startlon" : marker1.lonlat.lon,
-				"startlat" : marker1.lonlat.lat
-			}, {
-				"endlon" : marker3.lonlat.lon,
-				"endlat" : marker3.lonlat.lat
-			}, {
-				"p1lon" : markerp1.lonlat.lon,
-				"p1lat" : markerp1.lonlat.lat 
-			},{
-				"출발지" : start,
-				"도착지" : end,
-				"경유지1": p1
-			} ];}
-		
-		else if(markerp1 != null && markerp2 != null
-				&& markerp3 == null){	
-			arrayData=	[ {
-				"startlon" : marker1.lonlat.lon,
-				"startlat" : marker1.lonlat.lat
-			}, {
-				"endlon" : marker3.lonlat.lon,
-				"endlat" : marker3.lonlat.lat
-			}, {
-				"p1lon" : markerp1.lonlat.lon,
-				"p1lat" : markerp1.lonlat.lat 
-			}, {
-				"p2lon" : markerp2.lonlat.lon,
-				"p2lat" : markerp2.lonlat.lat 
-			}, {
-				"출발지" : start,
-				"도착지" : end,
-				"경유지1": p1,
-				"경유지2": p2
-			} ];}
-		
-		else if(markerp1 != null && markerp2 != null
-				&& markerp3 != null && markerp4 == null){	
-			arrayData=	[ {
-				"startlon" : marker1.lonlat.lon,
-				"startlat" : marker1.lonlat.lat
-			}, {
-				"endlon" : marker3.lonlat.lon,
-				"endlat" : marker3.lonlat.lat
-			}, {
-				"p1lon" : markerp1.lonlat.lon,
-				"p1lat" : markerp1.lonlat.lat 
-			}, {
-				"p2lon" : markerp2.lonlat.lon,
-				"p2lat" : markerp2.lonlat.lat 
-			}, {
-				"p3lon" : markerp3.lonlat.lon,
-				"p3lat" : markerp3.lonlat.lat 
-			}, {
-				"출발지" : start,
-				"도착지" : end,
-				"경유지1": p1,
-				"경유지2": p2,
-				"경유지3": p3
-			} ];}
-		
-		else if(markerp1 != null && markerp2 != null
-				&& markerp3 != null && markerp4 != null
-				&& markerp5 == null){	
-			arrayData=	[ {
-				"startlon" : marker1.lonlat.lon,
-				"startlat" : marker1.lonlat.lat
-			}, {
-				"endlon" : marker3.lonlat.lon,
-				"endlat" : marker3.lonlat.lat
-			}, {
-				"p1lon" : markerp1.lonlat.lon,
-				"p1lat" : markerp1.lonlat.lat 
-			}, {
-				"p2lon" : markerp2.lonlat.lon,
-				"p2lat" : markerp2.lonlat.lat 
-			}, {
-				"p3lon" : markerp3.lonlat.lon,
-				"p3lat" : markerp3.lonlat.lat 
-			}, {
-				"p4lon" : markerp4.lonlat.lon,
-				"p4lat" : markerp4.lonlat.lat 
-			},{
-				"출발지" : start,
-				"도착지" : end,
-				"경유지1": p1,
-				"경유지2": p2,
-				"경유지3": p3,
-				"경유지4": p4
-			}];}
-		
-		else if(markerp1 != null && markerp2 != null
-				&& markerp3 != null && markerp4 != null
-				&& markerp5 != null){	
-			arrayData=	[ {
-				"startlon" : marker1.lonlat.lon,
-				"startlat" : marker1.lonlat.lat
-			}, {
-				"endlon" : marker3.lonlat.lon,
-				"endlat" : marker3.lonlat.lat
-			}, {
-				"p1lon" : markerp1.lonlat.lon,
-				"p1lat" : markerp1.lonlat.lat 
-			}, {
-				"p2lon" : markerp2.lonlat.lon,
-				"p2lat" : markerp2.lonlat.lat 
-			}, {
-				"p3lon" : markerp3.lonlat.lon,
-				"p3lat" : markerp3.lonlat.lat 
-			}, {
-				"p4lon" : markerp4.lonlat.lon,
-				"p4lat" : markerp4.lonlat.lat 
-			}, {
-				"p5lon" : markerp5.lonlat.lon,
-				"p5lat" : markerp5.lonlat.lat 
-			},{
-				"출발지" : start,
-				"도착지" : end,
-				"경유지1": p1,
-				"경유지2": p2,
-				"경유지3": p3,
-				"경유지4": p4,
-				"경유지5": p5
-			} ];}
-		
-		$.ajax({
-			url : "/withgo/markertest",
-			type : "post",
-			dataType : "json",
-			contentType : "application/json",
-			data : JSON.stringify(arrayData),
-			success : function(response) {
-				if (response.result == "fail") {
-					console.error(response.message);
-					return;
+	$("#example3").click(
+			function() {
+				var arrayData = "";
+				if (markerp1 == null) {
+					arrayData = [ {
+						"start" : {
+							"lon" : marker1.lonlat.lon,
+							"lat" : marker1.lonlat.lat
+						}
+					}, {
+						"end" : {
+							"lon" : marker3.lonlat.lon,
+							"lat" : marker3.lonlat.lat
+						}
+					}, {
+						"location" : {
+							"출발지" : start,
+							"도착지" : end
+						}
+					} ];
 				}
 
-				console.log(response);
-			},
-			error : function(jqXHR, status, e) {
-				console.error(status + " : " + e);
-			}
-		});
-	});	
+				else if (markerp1 != null && markerp2 == null) {
+					arrayData = [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					}, {
+						"p1lon" : markerp1.lonlat.lon,
+						"p1lat" : markerp1.lonlat.lat
+					}, {
+						"출발지" : start,
+						"도착지" : end,
+						"경유지1" : p1
+					} ];
+				}
+
+				else if (markerp1 != null && markerp2 != null
+						&& markerp3 == null) {
+					arrayData = [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					}, {
+						"p1lon" : markerp1.lonlat.lon,
+						"p1lat" : markerp1.lonlat.lat
+					}, {
+						"p2lon" : markerp2.lonlat.lon,
+						"p2lat" : markerp2.lonlat.lat
+					}, {
+						"출발지" : start,
+						"도착지" : end,
+						"경유지1" : p1,
+						"경유지2" : p2
+					} ];
+				}
+
+				else if (markerp1 != null && markerp2 != null
+						&& markerp3 != null && markerp4 == null) {
+					arrayData = [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					}, {
+						"p1lon" : markerp1.lonlat.lon,
+						"p1lat" : markerp1.lonlat.lat
+					}, {
+						"p2lon" : markerp2.lonlat.lon,
+						"p2lat" : markerp2.lonlat.lat
+					}, {
+						"p3lon" : markerp3.lonlat.lon,
+						"p3lat" : markerp3.lonlat.lat
+					}, {
+						"출발지" : start,
+						"도착지" : end,
+						"경유지1" : p1,
+						"경유지2" : p2,
+						"경유지3" : p3
+					} ];
+				}
+
+				else if (markerp1 != null && markerp2 != null
+						&& markerp3 != null && markerp4 != null
+						&& markerp5 == null) {
+					arrayData = [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					}, {
+						"p1lon" : markerp1.lonlat.lon,
+						"p1lat" : markerp1.lonlat.lat
+					}, {
+						"p2lon" : markerp2.lonlat.lon,
+						"p2lat" : markerp2.lonlat.lat
+					}, {
+						"p3lon" : markerp3.lonlat.lon,
+						"p3lat" : markerp3.lonlat.lat
+					}, {
+						"p4lon" : markerp4.lonlat.lon,
+						"p4lat" : markerp4.lonlat.lat
+					}, {
+						"출발지" : start,
+						"도착지" : end,
+						"경유지1" : p1,
+						"경유지2" : p2,
+						"경유지3" : p3,
+						"경유지4" : p4
+					} ];
+				}
+
+				else if (markerp1 != null && markerp2 != null
+						&& markerp3 != null && markerp4 != null
+						&& markerp5 != null) {
+					arrayData = [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					}, {
+						"p1lon" : markerp1.lonlat.lon,
+						"p1lat" : markerp1.lonlat.lat
+					}, {
+						"p2lon" : markerp2.lonlat.lon,
+						"p2lat" : markerp2.lonlat.lat
+					}, {
+						"p3lon" : markerp3.lonlat.lon,
+						"p3lat" : markerp3.lonlat.lat
+					}, {
+						"p4lon" : markerp4.lonlat.lon,
+						"p4lat" : markerp4.lonlat.lat
+					}, {
+						"p5lon" : markerp5.lonlat.lon,
+						"p5lat" : markerp5.lonlat.lat
+					}, {
+						"출발지" : start,
+						"도착지" : end,
+						"경유지1" : p1,
+						"경유지2" : p2,
+						"경유지3" : p3,
+						"경유지4" : p4,
+						"경유지5" : p5
+					} ];
+				}
+
+				$.ajax({
+					url : "/withgo/markertest",
+					type : "post",
+					dataType : "json",
+					contentType : "application/json",
+					data : JSON.stringify(arrayData),
+					success : function(response) {
+						if (response.result == "fail") {
+							console.error(response.message);
+							return;
+						}
+
+						console.log(response);
+					},
+					error : function(jqXHR, status, e) {
+						console.error(status + " : " + e);
+					}
+				});
+			});
 });
 
 function initialize() {

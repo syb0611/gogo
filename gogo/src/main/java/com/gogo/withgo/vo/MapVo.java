@@ -1,20 +1,24 @@
 package com.gogo.withgo.vo;
 
 public class MapVo {
-	private Double lon;
-	private Double lat;
-	public Double getLon() {
+	
+	
+	private double lon;
+	private double lat;
+
+	public double getLon() {
 		return lon;
 	}
-	public void setLon(Double lon) {
+	public void setLon(double lon) {
 		this.lon = lon;
 	}
-	public Double getLat() {
+	public double getLat() {
 		return lat;
 	}
-	public void setLat(Double lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
+	
 	@Override
 	public String toString() {
 		return "MapVo [lon=" + lon + ", lat=" + lat + "]";
