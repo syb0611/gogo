@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.BoardVo;
+import com.gogo.withgo.vo.PageVo;
 
 @Repository
 public class BoardDao {
@@ -19,9 +20,9 @@ public class BoardDao {
 		template.insert(sql+".write", vo);
 	}
 	
-	public List<BoardVo> list(String category){
-		return template.selectList(sql+".list", category);
-	}
+//	public List<BoardVo> list(String category){
+//		return template.selectList(sql+".list", category);
+//	}
 	
 	public BoardVo read(int bno){
 		upHit(bno);
@@ -42,5 +43,14 @@ public class BoardDao {
 	
 	public List<BoardVo> getCategoryList(String category){
 		return template.selectList(sql+".categoryList", category);
+	}
+	
+	
+	public int getTotal(String category){
+		return template.selectOne(sql+".total", category);
+	}
+	
+	public List<BoardVo> listPage(PageVo pvo){
+		return template.selectList(sql+".listPage", pvo);
 	}
 }

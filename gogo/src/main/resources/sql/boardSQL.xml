@@ -6,11 +6,9 @@
 		values(b_seq.nextval, #{category}, #{nickname}, #{title}, #{content})		
 	</insert>
 	
-	<select id="list" resultType="com.gogo.withgo.vo.BoardVo">
-		select * from board where category=#{category} order by bno desc
-	</select>
-	
-	
+<!-- 	<select id="list" resultType="com.gogo.withgo.vo.BoardVo"> -->
+<!-- 		select * from board where category=#{category} order by bno desc -->
+<!-- 	</select> -->
 	
 	<select id="read" resultType="com.gogo.withgo.vo.BoardVo">
 		select * from board where bno=#{bno}
@@ -31,6 +29,16 @@
 	<select id="categoryList" resultType="com.gogo.withgo.vo.BoardVo">
 		select * from board
 		where category=#{category} order by bno desc
+	</select>
+	
+	<select id="total" resultType="int">
+		select count(*) from board where category=#{category}
+	</select>
+	
+	
+	<select id="listPage" resultType="com.gogo.withgo.vo.BoardVo">
+		select B.* from (select A.*, rownum rn from (select * from board where category=#{category} order by bno) A) B
+		where rn between #{bottomNum} and #{topNum} order by rn desc
 	</select>
 </mapper>
 

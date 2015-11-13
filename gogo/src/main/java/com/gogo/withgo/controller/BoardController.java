@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.BoardDao;
 import com.gogo.withgo.vo.BoardVo;
+import com.gogo.withgo.vo.PageVo;
 
 @Controller
 @RequestMapping("/board")
@@ -32,15 +33,15 @@ public class BoardController {
 		return "board/main";
 	} 
 	
-	@RequestMapping("/list")
-	public String list(@RequestParam("category") String category, Model model){
-		List<BoardVo> list = dao.list(category);
-		
-		model.addAttribute("category", category);
-		model.addAttribute("list", list);
-		
-		return "board/list";
-	}
+//	@RequestMapping("/list")
+//	public String list(@RequestParam("category") String category, Model model){
+//		List<BoardVo> list = dao.list(category);
+//		
+//		model.addAttribute("category", category);
+//		model.addAttribute("list", list);
+//		
+//		return "board/list";
+//	}
 	
 	@RequestMapping("/writeform")
 	public String writeform(@RequestParam("category") String category, Model model){
@@ -85,4 +86,20 @@ public class BoardController {
 		return "redirect:/board/read?bno="+vo.getBno(); 
 	}
 
+	
+	
+	@RequestMapping("/list")
+	public String ex(@RequestParam("category") String category, @RequestParam(value="page", defaultValue="1") int page, Model model){
+		int listTotal = dao.getTotal(category);
+		
+		PageVo pvo = new PageVo();
+		pvo.setCategory(category);
+		pvo.setPage(listTotal, page);
+
+		List<BoardVo> list = dao.listPage(pvo);
+		model.addAttribute("list", list);
+		model.addAttribute("pvo", pvo);
+
+		return "board/list";
+	}
 }

@@ -132,9 +132,11 @@ http://www.templatemo.com/free-website-templates/417-grill
 											<td colspan="5" align="center">등록된 글이 없습니다.</td>
 										</c:when>
 										<c:otherwise>
+											<c:set var="no" value="${pvo.topNum }" />
 											<c:forEach items="${list }" var="vo">
 												<tr>
-													<td>${vo.bno }</td>
+													<td>${no }</td>
+													<c:set var="no" value="${no-1 }" />
 													<td><a href="${contextPath}/board/read?bno=${vo.bno}">${vo.title }</a></td>
 													<td>${vo.nickname }</td>
 													<td>${vo.wdate }</td>
@@ -142,27 +144,40 @@ http://www.templatemo.com/free-website-templates/417-grill
 												</tr>
 											</c:forEach>
 										</c:otherwise>
-									</c:choose>		
-									<tr>
-										<td colspan="5">
-											<span class="wBtn">
-											<c:if test="${memberInfo != null }">
-												<input type="button" class="btn btn-default btn-xs" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${category }'">
-											</c:if>	
-											</span>
-<!-- 											<div id="search"> -->
-<!-- 												<form method="get"> -->
-<!-- 													<select name="type"> -->
-<!-- 														<option value="subject" selected="selected">제목</option> -->
-<!-- 														<option value="nickname">작성자</option> -->
-<!-- 													</select> -->
-<!-- 													<input type="text" size="10" name="input" required> -->
-<!-- 													<input type="submit" value="검색"> -->
-<!-- 												</form> -->
-<!-- 											</div> -->
-										</td>
-									</tr>	
-								</table>	
+									</c:choose>	
+								</table>		
+								<div>
+									<span class="page">
+										<c:if test="${pvo.curPage <= pvo.totalPage }">
+										<ul class="pagination">
+											<c:if test="${pvo.curBlock != 1 }">
+												<li><a href="${contextPath}/board/list?category=${pvo.category}&page=${pvo.firstPage-1}">&laquo;</a></li>
+											</c:if>
+											<c:forEach var="pageno" begin="${pvo.firstPage }" end="${pvo.lastPage }">
+												<c:if test="${pageno <= pvo.totalPage }">
+													<c:choose>
+														<c:when test="${pageno == pvo.curPage }">
+															<li class="active"><a href="#">${pageno }</a>
+														</c:when>
+														<c:otherwise>
+															<li><a href="${contextPath}/board/list?category=${pvo.category}&page=${pageno}">${pageno }</a></li>
+														</c:otherwise>
+													</c:choose>
+													
+												</c:if>
+											</c:forEach>
+											<c:if test="${pvo.curBlock != pvo.lastBlock }">
+												<li><a href="${contextPath}/board/list?category=${pvo.category}&page=${pvo.lastPage+1}">&raquo;</a></li>
+											</c:if>
+										</ul>
+										</c:if>
+									</span>
+									<span class="wBtn">
+										<c:if test="${memberInfo != null }">
+											<input type="button" class="btn btn-default btn-xs" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${category }'">
+										</c:if>	
+									</span>
+								</div>	
 							</div>
 						</div>			
 					</div>		
