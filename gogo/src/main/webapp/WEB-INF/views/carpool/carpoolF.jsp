@@ -138,331 +138,107 @@ table.t_ex2 .c1 {text-align:center}
 table.t_ex2 .c2 {text-align:left}
 /*]]>*/
 </style>
-<table class="t_ex2">
-	<tr>
-			<th>타세요</th><th>태워주세요</th>
-	</tr>
 
+
+
+
+<fieldset>
+	<article class="con_wrap reg_wrap">
+		<div class="box_reg">
+			<div class="reg_inner">
+						<dl>
+							<dt>
+								<div>유형</div>
+							</dt><!--
+							--><dd class="box_type_wrap">
+								<div class="type_inner">
+									<input type="radio" name="tikle_type" value="1" required="required" class="hidden inp_lab_bg" id="getIn">
+									<label for="getIn" class="bg_lab bg_get_in">타세요</label>
+								</div><!--
+								--><div class="type_inner">
+									<input type="radio" name="tikle_type" value="2" required="required" class="hidden inp_lab_bg" id="getRide">
+									<label for="getRide" class="bg_lab bg_get_ride">태워주세요</label>
+								</div>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<div>목적</div>
+							</dt><!--
+							--><dd>
+								<div class="ddOutOfVision" id="selCarRegPur_msddHolder" style="height: 0px; overflow: hidden; position: absolute;"><select name="tikle_purpose" title="카풀 목적 선택" required="required" id="selCarRegPur" tabindex="-1">
+									<option value="2">출퇴근</option>
+																</select></div><div class="dd ddcommon borderRadius" id="selCarRegPur_msdd" tabindex="0" style="width: 124px;"><div class="ddTitle borderRadiusTp"><span class="divider"></span><span class="ddArrow arrowoff"></span><span class="ddTitleText " id="selCarRegPur_title"><span class="ddlabel">출퇴근</span><span class="description" style="display: none;"></span></span></div><input id="selCarRegPur_titleText" type="text" autocomplete="off" class="text shadow borderRadius" style="display: none;"><div class="ddChild ddchild_ border shadow" id="selCarRegPur_child" style="z-index: 9999; position: absolute; visibility: visible; display: none; height: 31px;"><ul><li class="enabled _msddli_ selected"><span class="ddlabel">출퇴근</span><div class="clear"></div></li></ul></div></div>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<div>
+									<label for="inpStart">출발지</label>
+								</div>
+							</dt><!--
+							--><dd>
+								<div class="inp_wrap inp_place_wrap">
+									<input type="text" name="addr_start" value="" title="동(읍, 면, 리) 건물 입력" size="20" maxlength="" required="required" autocomplete="off" placeholder="위치 입력 후 아래주소 중 하나를 선택해 주세요." class="inp_txt_comm inp_start j_addr_google" id="inpStart">
+									<input type="hidden" name="addr_start_lat" value="" class="hideClass j_addr_lat">
+									<input type="hidden" name="addr_start_lng" value="" class="hideClass j_addr_lng">
+									<input type="hidden" name="addr_start_temp" value="" class="hideClass j_addr_temp">
+								</div>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<div>
+									<label for="inpArrival">도착지</label>
+								</div>
+							</dt><!--
+							--><dd>
+								<div class="inp_wrap inp_place_wrap">
+									<input type="text" name="addr_end" value="" title="동(읍, 면, 리) 건물 입력" size="20" maxlength="" required="required" autocomplete="off" placeholder="위치 입력 후 아래주소 중 하나를 선택해 주세요." class="inp_txt_comm inp_arrival j_addr_google" id="inpArrival">
+									<input type="hidden" name="addr_end_lat" value="" class="hideClass j_addr_lat">
+									<input type="hidden" name="addr_end_lng" value="" class="hideClass j_addr_lng">
+									<input type="hidden" name="addr_end_temp" value="" class="hideClass j_addr_temp">
+								</div>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<div>
+									<label>경유지</label>
+								</div>
+							</dt><!--
+							--><dd class="temp_wrap">
+								<!-- 경유지 loop -->
+								<div class="box_via" data-add="1">
+									<div class="inp_wrap inp_place_wrap">
+										<input type="text" name="addr_add_1" value="" title="경유지 입력" size="20" maxlength="20" autocomplete="off" placeholder="경유지 입력" class="inp_txt_comm j_addr_google">
+										<input type="hidden" name="addr_add_lat_1" value="" class="hideClass j_addr_lat">
+										<input type="hidden" name="addr_add_lng_1" value="" class="hideClass j_addr_lng">
+										<input type="hidden" name="addr_add_temp_1" value="" class="hideClass j_addr_temp">
+									</div>
+								</div>
+
+								<div class="item_control hideClass" style="right: -97px;">
+									<button type="button" title="경유지 항목 한개 추가" class="inp_btn_comm btn_add_via j_btn_add_via"></button><!--
+									--><button type="button" title="경유지 항목 한개 빼기" class="inp_btn_comm btn_remove_via j_btn_remove_via"></button>
+								</div>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+</fieldset>
 </table>
-<table class="t_ex2">
-<!-- 		<tr> -->
-<!-- 			<th class="c1">타세요</th><th>태워주세요</th> -->
-<!-- 			</tr> -->
-<!-- 				<input type="radio" name="usertype" value="driver" checked="checked">타세요
-<!-- 				<input type="radio" name="usertype" value="rider">태워주세요 -->
-<!-- 			</td> -->
-<!-- 		</tr> --> <tr>
-			<td>출발시간</td>
-			<td>월<select name="user_birth_year">
-					<option value="1" selected>1</option>
-					<option value="2" selected>2</option>
-					<option value="3" selected>3</option>
-					<option value="4" selected>4</option>
-					<option value="5" selected>5</option>
-					<option value="6" selected>6</option>
-					<option value="7" selected>7</option>
-					<option value="8" selected>8</option>
-					<option value="9" selected>9</option>
-					<option value="10" selected>10</option>
-					<option value="11" selected>11</option>
-					<option value="12" selected>12</option>
-			</select> 일<select name="user_birth_month">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-					
-			</select> 시 <select name="user_birth_day">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				
-					</select> 분 <select name="user_birth_day">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-					<option value="32">32</option>
-					<option value="33">33</option>
-					<option value="34">34</option>
-					<option value="35">35</option>
-					<option value="36">36</option>
-					<option value="37">37</option>
-					<option value="38">38</option>
-					<option value="39">39</option>
-					<option value="40">40</option>
-					<option value="41">41</option>
-					<option value="42">42</option>
-					<option value="43">43</option>
-					<option value="44">44</option>
-					<option value="45">45</option>
-					<option value="46">46</option>
-					<option value="47">47</option>
-					<option value="48">48</option>
-					<option value="49">49</option>
-					<option value="50">50</option>
-					<option value="51">51</option>
-					<option value="52">52</option>
-					<option value="53">53</option>
-					<option value="54">54</option>
-					<option value="55">55</option>
-					<option value="56">56</option>
-					<option value="57">57</option>
-					<option value="58">58</option>
-					<option value="59">59</option>
-					</select>　　~　　
-					
-			
-			월<select name="user_birth_year">
-					<option value="1" selected>1</option>
-					<option value="2" selected>2</option>
-					<option value="3" selected>3</option>
-					<option value="4" selected>4</option>
-					<option value="5" selected>5</option>
-					<option value="6" selected>6</option>
-					<option value="7" selected>7</option>
-					<option value="8" selected>8</option>
-					<option value="9" selected>9</option>
-					<option value="10" selected>10</option>
-					<option value="11" selected>11</option>
-					<option value="12" selected>12</option>
-			</select> 일<select name="user_birth_month">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-					
-			</select> 시 <select name="user_birth_day">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				
-					</select> 분 <select name="user_birth_day">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-					<option value="32">32</option>
-					<option value="33">33</option>
-					<option value="34">34</option>
-					<option value="35">35</option>
-					<option value="36">36</option>
-					<option value="37">37</option>
-					<option value="38">38</option>
-					<option value="39">39</option>
-					<option value="40">40</option>
-					<option value="41">41</option>
-					<option value="42">42</option>
-					<option value="43">43</option>
-					<option value="44">44</option>
-					<option value="45">45</option>
-					<option value="46">46</option>
-					<option value="47">47</option>
-					<option value="48">48</option>
-					<option value="49">49</option>
-					<option value="50">50</option>
-					<option value="51">51</option>
-					<option value="52">52</option>
-					<option value="53">53</option>
-					<option value="54">54</option>
-					<option value="55">55</option>
-					<option value="56">56</option>
-					<option value="57">57</option>
-					<option value="58">58</option>
-					<option value="59">59</option>
-					
-			</select></td>
-		</tr>
-		<tr>
-			<td>
-				출발지
-			</td>
-			<td><input type="text" name="departure"></td>
-		</tr>
-		<tr>
-			<td>도착지</td>
-			<td><input type="text" name="arrival"></td>
-		</tr>
-		<tr>
-			<td>지도검색</td>
-			<td><input type="text" name="arrival"></td>
-		</tr>
-		<tr>
-			<td>좌석수</td>
-			<td><input type="number" name="seat" value="1"></td>
-		</tr>
-		<tr>
-			<td>금액</td>
-			<td><input type="text" name="arrival"></td>
-		</tr>
-		<tr>
-<!-- 			<td colspan="2"> -->
-<!-- 				<input type="radio" name="usertype" value="driver" checked="checked">흡연자 -->
-<!-- 				<input type="radio" name="usertype" value="rider">비흡연자 -->
-<!-- 			</td> -->
-			<td>
-				흡연 여부
-			</td>
-			<td>
-				<input type="radio" name="usertype" value="driver" checked="checked">흡연자
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="usertype" value="rider">비흡연자
-			</td>
-		</tr>
-		<tr>
-<!-- 			<td colspan="2"> -->
-<!-- 				<input type="radio" name="usertype" value="driver" checked="checked">여자 -->
-<!-- 				<input type="radio" name="usertype" value="rider">남자 -->
-<!-- 			</td> -->
-			<td>
-				성별
-			</td>
-			<td>
-				<input type="radio" name="usertype" value="driver" checked="checked">여자
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="usertype" value="rider">남자
-			</td>
-		</tr>
-		
-		<tr>
-			<td>추가내용</td>
-			<td><textarea name="memo" rows="10" cols="50"></textarea></td>
-		</tr>
-		<tr>
-			<td colspan="2">
- 				<input type="submit" value="취소"> 
-			
- 				<input type="submit" value="완료"> 
-			</td>
-		</tr>
-	</table>
 </form>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+
 
 <%@ include file="../footer.jsp" %>
 

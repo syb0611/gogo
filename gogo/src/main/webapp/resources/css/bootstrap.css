@@ -14,7 +14,168 @@
 .tbl_model{position:relative;width:100%;border:0;border-bottom:1px solid #e5e5e5;border-spacing:0;border-collapse:collapse;table-layout:fixed;word-break:keep-all;word-wrap:break-word}
 .btn_model{display:inline-block;font-size:12px;line-height:14px;vertical-align:top;text-decoration:none !important} 
 .tbl_model .btn_area_btm a{float:left;margin-left:8px}
-.tbl_model .contxt_desc{padding-top:11px;color:#999;line-height:19px}
+
+
+
+
+
+
+
+
+/* input check */
+.reg_area .bg_lab{
+	color: #b1b1b1;
+	display: block;
+	background: url(/images/pc/icon.png) no-repeat;
+}
+.reg_area .inp_lab_bg:checked + .bg_lab{
+	color: #fff;
+	background: url(/images/pc/icon.png) no-repeat;
+}
+.reg_area .bg_lab,
+.reg_area .inp_lab_bg:checked + .bg_lab{
+	text-align: center;
+	font-family: "NanumGothicBold";
+	cursor: pointer;
+}
+.reg_area .box_type_wrap .type_inner,
+.reg_area .box_type2_wrap .type_inner{
+	display: inline-block;
+}
+
+/* 공통 ------------------------------------------------------ */
+.reg_area .reg_wrap{
+	margin: 0 5px;
+}
+.reg_area .box_reg,
+.reg_area .box_map,
+.reg_area dt,
+.reg_area dd{
+	display: inline-block;
+}
+.reg_area .box_reg{
+	width: 650px;
+	padding-top: 40px;
+	margin-right: 10px;
+}
+.reg_area .box_map{
+	vertical-align: top;
+	/* width: 210px;
+	height: 250px; */
+	width: 300px;
+	height: 350px;
+	margin-top: 40px;
+	border: 2px solid #4fbdc4;
+	background-color: #3f4242;
+}
+.reg_area dl{
+	margin-bottom: 35px;
+}
+.reg_area dt{
+	width: 90px;
+	vertical-align: top;
+	padding-top: 10px;
+	padding-right: 20px;
+	text-align: right;
+	font-family: "NanumGothicBold";
+	color: #303333;
+	z-index: 10;
+}
+.reg_area dd{
+	width: 428px;
+	z-index: 5;
+}
+.reg_area .box_type_wrap .type_inner{
+	position: relative;
+	width: 214px;
+	height: 170px;
+}
+.reg_area .box_type_wrap .bg_lab{
+	width: 214px;
+	height: 170px;
+	line-height: 280px;
+	background-position: 0 -405px;
+}
+.reg_area .inp_lab_bg:checked + .bg_lab{
+	background-position: 0 -234px;
+}
+.reg_area .inp_place_wrap{
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+/* 단기 정기 */
+.reg_area .box_type2_wrap .type_inner{
+	position: relative;
+	width: 214px;
+	height: 74px;
+	margin-bottom: 10px;
+}
+.reg_area .box_type2_wrap .bg_lab{
+	width: 216px;
+	height: 74px;
+	line-height: 74px;
+	text-indent: 60px;
+}
+.reg_area .box_type2_wrap .short_car{
+	background-position: -325px -431px;
+}
+.reg_area .box_type2_wrap .regular_car{
+	background-position: -539px -431px;
+}
+.reg_area .box_type2_wrap .inp_lab_bg:checked + .short_car{
+	background-position: -325px -356px;
+}
+.reg_area .box_type2_wrap .inp_lab_bg:checked + .regular_car{
+	background-position: -539px -356px;
+}
+
+/* 제목 텍스트 */
+.reg_area .title_txt{
+	padding: 10px 0  20px 0;
+	color: #303333;
+}
+
+/* 출발일시 */
+.reg_area .date_wrap,
+.reg_area .per_wrap,
+.reg_area .kakao_wrap{
+	position: relative;
+	vertical-align: top;
+	display: inline-block;
+	width: 108px;
+	margin-right: 10px;
+}
+.reg_area .per_wrap{
+	width: 85px;
+}
+.reg_area .date_wrap img{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+.reg_area .date_wrap input{
+	padding-left: 22px;
+	cursor: pointer;
+}
+.reg_area #selCarRegHour,
+.reg_area #selTaxiRegHour,
+.reg_area #selKtxRegHour{
+	margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
