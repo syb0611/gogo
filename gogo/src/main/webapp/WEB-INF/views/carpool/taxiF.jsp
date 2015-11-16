@@ -24,22 +24,22 @@ http://www.templatemo.com/free-website-templates/417-grill
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/font-awesome.css">
-<link rel="stylesheet" href="../css/templatemo_style.css">
-<link rel="stylesheet" href="../css/templatemo_misc.css">
-<link rel="stylesheet" href="../css/flexslider.css">
-<link rel="stylesheet" href="../css/testimonails-slider.css">
+<link rel="stylesheet" href="/withgo/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/withgo/resources/css/font-awesome.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_style.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_misc.css">
+<link rel="stylesheet" href="/withgo/resources/css/flexslider.css">
+<link rel="stylesheet" href="/withgo/resources/css/testimonails-slider.css">
 
-<script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="../js/routes.js"></script>
+<script src="/withgo/resources/js/routes.js"></script>
 
 <style>
 #heading {
-	background-image: url(../images/zx.jpg);
+	background-image: url(/withgo/resources/images/zx.jpg);
 	height: 140px;
 }
 #formDiv {
@@ -90,14 +90,14 @@ table.t_ex2 .c2 {
 </head>
 <body>
 	<header>
-		<%@ include file="../header.jsp"%>
+		<%@ include file="/WEB-INF/views/header.jsp"%>
 		<div id="main-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
+							<a href="${contextPath}/home"><img src="/withgo/resources/images/pool2.jpeg"
 								title="withGoe" alt="Grill Website Template"></a>
 
 						</div>
@@ -367,6 +367,6 @@ table.t_ex2 .c2 {
 			</div>
 		</div>
 	</div>
-	<%@ include file="../footer.jsp"%>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

@@ -1,40 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-
-<head>
-        <meta charset="utf-8">
-        <title>main</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
-        <link rel="stylesheet" href="css/templatemo_style.css">
-        <link rel="stylesheet" href="css/templatemo_misc.css">
-        <link rel="stylesheet" href="css/flexslider.css">
-        <link rel="stylesheet" href="css/testimonails-slider.css">
-
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-        
-     
-        <style>
-            #top-header{
-            	height: 70px;
-            }
-        </style>
-    
-</head>
-
-<body>
 
 <div id="top-header">
    <div class="container">
@@ -70,10 +36,10 @@
                -->
               
                
-                      <script src="js/vendor/jquery-1.11.0.min.js"></script>
-                       <script src="js/vendor/jquery.gmap3.min.js"></script>
-                       <script src="js/plugins.js"></script>
-                       <script src="js/main.js"></script>
+                      <script src="${contextPath}/resources/js/vendor/jquery-1.11.0.min.js"></script>
+                       <script src="${contextPath}/resources/js/vendor/jquery.gmap3.min.js"></script>
+                       <script src="${contextPath}/resources/js/plugins.js"></script>
+                       <script src="${contextPath}/resources/js/main.js"></script>
                  
             </div>
          </div>
@@ -82,11 +48,9 @@
 </div>
 
 
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script src="js/vendor/jquery.gmap3.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>           
+        <script src="${contextPath}/resources/js/vendor/jquery-1.11.0.min.js"></script>
+        <script src="${contextPath}/resources/js/vendor/jquery.gmap3.min.js"></script>
+        <script src="${contextPath}/resources/js/plugins.js"></script>
+        <script src="${contextPath}/resources/js/main.js"></script>           
 
 
-</body>
-</html>
