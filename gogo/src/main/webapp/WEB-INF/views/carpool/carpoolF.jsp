@@ -445,7 +445,7 @@ table.t_ex2 .c2 {
 									<td><input type="text" name="arrival" id="loc3"></td>
 								</tr>
 								<tr>
-									<td>지도검색<br> <button>경로검색</button></td>
+									<td>지도검색<br><input type="button" value="경로검색" id="route" /></td>
 									<td><div id="map_div"></div></td>
 								</tr>
 								<tr>

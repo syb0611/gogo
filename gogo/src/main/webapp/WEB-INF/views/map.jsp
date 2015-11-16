@@ -22,7 +22,7 @@
 	<input type="text" id="pass5">
 	<br>
 	<input type="text" id="loc3">
-	<button>경로검색</button><hr>
+	<input type="button" value="경로검색" id="route" />
 	거리 : <span id="meter"></span><br>
 	시간 : <span id="time"></span><br>
 	금액 : <span id="money"></span><br>

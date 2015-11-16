@@ -397,7 +397,7 @@ $(function() {
 						}
 					});
 
-	$("button")
+	$("#route")
 			.click(
 					function() {
 						var data = "";
