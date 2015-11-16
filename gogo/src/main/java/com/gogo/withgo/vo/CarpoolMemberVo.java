@@ -18,6 +18,8 @@ public class CarpoolMemberVo {
 	private String memo;		
 	private Date departuredate;		
 	private int price;
+	private int smoking;
+	private int genderlimit;
 	private String email;
 	private String pw;
 	private String nickname;
@@ -35,11 +37,13 @@ public class CarpoolMemberVo {
 	
 	public CarpoolMemberVo() {}
 
+	
+
 	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String stop1,
 			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, String memo,
-			Date departuredate, int price, String email, String pw, String nickname, String name, String phone,
-			String birth, int gender, int hascar, String image, Date jdate, String profile, String auth, int authphone,
-			int authemail) {
+			Date departuredate, int price, int smoking, int genderlimit, String email, String pw, String nickname, String name,
+			String phone, String birth, int gender, int hascar, String image, Date jdate, String profile, String auth,
+			int authphone, int authemail) {
 		super();
 		this.carno = carno;
 		this.category = category;
@@ -56,6 +60,8 @@ public class CarpoolMemberVo {
 		this.memo = memo;
 		this.departuredate = departuredate;
 		this.price = price;
+		this.smoking = smoking;
+		this.genderlimit = genderlimit;
 		this.email = email;
 		this.pw = pw;
 		this.nickname = nickname;
@@ -71,6 +77,32 @@ public class CarpoolMemberVo {
 		this.authphone = authphone;
 		this.authemail = authemail;
 	}
+
+
+
+	public int getGenderlimit() {
+		return genderlimit;
+	}
+
+
+
+	public void setGenderlimit(int genderlimit) {
+		this.genderlimit = genderlimit;
+	}
+
+
+
+	public int getSmoking() {
+		return smoking;
+	}
+
+
+
+	public void setSmoking(int smoking) {
+		this.smoking = smoking;
+	}
+
+
 
 	public int getCarno() {
 		return carno;

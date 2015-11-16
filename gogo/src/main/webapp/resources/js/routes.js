@@ -764,8 +764,8 @@ $(function() {
 function initialize() {
 	map = new Tmap.Map({
 		div : "map_div",
-		width : '700px',
-		height : '300px'
+		width : '100%',
+		height : '400px'
 	});
 	map.addLayer(markerLayer);
 	var lonlat = new Tmap.LonLat(lon1, lat1);

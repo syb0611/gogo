@@ -8,29 +8,50 @@ public class CarpoolVo {
 	private int mno;		
 	private String departure;	
 	private String arrival;		
-	private String stops;
+	private String stop1;
+	private String stop2;
+	private String stop3;
+	private String stop4;
+	private String stop5;
 	private String usertype;  	//driver(타세요) or rider(태워주세요) or together(함께타요)
 	private int seat;  			
 	private String memo;		
 	private Date departuredate;			
 	private int price;
+	private int smoking;
+	private int genderlimit;
 	
 	public CarpoolVo() {}
 
-	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stops,
-			String usertype, int seat, String memo, Date departuredate, int price) {
+	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
+			String stop3, String stop4, String stop5, String usertype, int seat, String memo, Date departuredate,
+			int price, int smoking, int genderlimit) {
 		super();
 		this.carno = carno;
 		this.category = category;
 		this.mno = mno;
 		this.departure = departure;
 		this.arrival = arrival;
-		this.stops = stops;
+		this.stop1 = stop1;
+		this.stop2 = stop2;
+		this.stop3 = stop3;
+		this.stop4 = stop4;
+		this.stop5 = stop5;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.memo = memo;
 		this.departuredate = departuredate;
 		this.price = price;
+		this.smoking = smoking;
+		this.genderlimit = genderlimit;
+	}
+
+	public int getGenderlimit() {
+		return genderlimit;
+	}
+
+	public void setGenderlimit(int genderlimit) {
+		this.genderlimit = genderlimit;
 	}
 
 	public int getCarno() {
@@ -73,12 +94,54 @@ public class CarpoolVo {
 		this.arrival = arrival;
 	}
 
-	public String getStops() {
-		return stops;
+	
+
+	public String getStop1() {
+		return stop1;
 	}
 
-	public void setStops(String stops) {
-		this.stops = stops;
+	public void setStop1(String stop1) {
+		this.stop1 = stop1;
+	}
+
+	public String getStop2() {
+		return stop2;
+	}
+
+	public void setStop2(String stop2) {
+		this.stop2 = stop2;
+	}
+
+	public String getStop3() {
+		return stop3;
+	}
+
+	public void setStop3(String stop3) {
+		this.stop3 = stop3;
+	}
+
+	public String getStop4() {
+		return stop4;
+	}
+
+	public void setStop4(String stop4) {
+		this.stop4 = stop4;
+	}
+
+	public String getStop5() {
+		return stop5;
+	}
+
+	public void setStop5(String stop5) {
+		this.stop5 = stop5;
+	}
+
+	public int getSmoking() {
+		return smoking;
+	}
+
+	public void setSmoking(int smoking) {
+		this.smoking = smoking;
 	}
 
 	public String getUsertype() {

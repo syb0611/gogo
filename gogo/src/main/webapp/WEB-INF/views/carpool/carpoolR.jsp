@@ -178,16 +178,50 @@ table.t_ex2 .c2 {
 							<c:otherwise>함께타요</c:otherwise>									
 						</c:choose> 
 					</div>
+					<br>
 					<div>
-						<table>
+						<table class="table table-condensed">
 							<tr>
-								<td>출발지</td>
+								<th>출발지</th>
 								<td>${vo.departure }</td>
-								<td>도착지</td>
+								<th>도착지</th>
 								<td>${vo.arrival }</td>
 							</tr>
 							<tr>
-								<td colspan="4">${vo.stop1 }</td>
+								<th>경유지</th>
+								<td colspan="3">
+									<c:if test="${vo.stop1 != null }">#${vo.stop1 }&nbsp;&nbsp;</c:if>
+									<c:if test="${vo.stop2 != null }">#${vo.stop2 }&nbsp;&nbsp;</c:if>
+									<c:if test="${vo.stop3 != null }">#${vo.stop3 }&nbsp;&nbsp;</c:if>
+									<c:if test="${vo.stop4 != null }">#${vo.stop4 }&nbsp;&nbsp;</c:if>
+									<c:if test="${vo.stop5 != null }">#${vo.stop5 }&nbsp;&nbsp;</c:if>
+								</td>
+							</tr>
+							<tr>
+								<th>출발일시</th>
+								<td colspan="3">${vo.departuredate }</td>
+							</tr>
+							<tr>
+								<th>신청수/좌석수</th>
+								<td>*/${vo.seat }</td>
+								<th>희망요금(1인)</th>
+								<td>${vo.price }</td>
+							</tr>
+							<tr>
+								<th>흡연여부</th>
+								<td>
+									<c:choose>
+										<c:when test="${vo.smoking == '0' }">비흡연</c:when>
+										<c:otherwise>흡연</c:otherwise>
+									</c:choose>
+								</td>
+								<th>성별제한</th>
+								<td>
+									<c:choose>
+										<c:when test="${vo.genderlimit == '0' }">없음</c:when>
+										<c:otherwise>여성전용</c:otherwise>
+									</c:choose>
+								</td>
 							</tr>
 						</table>
 					</div>
