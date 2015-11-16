@@ -19,4 +19,11 @@
 		and category=#{category}
 		order by carno desc
 	</select>
+	
+	<select id="read" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select C.*, M.*
+		from carpool C, member M
+		where C.mno = M.mno 
+		and carno=#{carno}
+	</select>
 </mapper>

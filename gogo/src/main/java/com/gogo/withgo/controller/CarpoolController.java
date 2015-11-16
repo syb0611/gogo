@@ -35,7 +35,13 @@ public class CarpoolController {
 	public String writeform(@RequestParam("category") String category, Model model){
 		model.addAttribute("category", category);
 		
-		return "carpool/carpoolF";
+		if(category.equals("taxi")){
+			return "carpool/taxiF";
+		}else if(category.equals("goshcool")){
+			return "carpool/goschoolF";
+		}else{
+			return "carpool/carpoolF";
+		}
 	}
 	
 	@RequestMapping("/write")
@@ -55,8 +61,9 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping("/read")
-	public String read(@RequestParam("category") String category, @RequestParam("carno") int carno, Model model){
-		model.addAttribute("carno", carno);
-		return "carpool/read";
+	public String read(@RequestParam("category") String category, @RequestParam("no") int carno, Model model){
+		CarpoolMemberVo vo = dao.read(carno);
+		model.addAttribute("vo", vo);
+		return "carpool/carpoolR";
 	}
 }

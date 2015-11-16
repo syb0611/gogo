@@ -157,7 +157,7 @@ body {
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<table class="listTable">		
+									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
 												<div><img src="../images/blankimage.png" width="80px"></div>

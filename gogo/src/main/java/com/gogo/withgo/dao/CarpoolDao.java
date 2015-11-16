@@ -17,9 +17,9 @@ public class CarpoolDao {
 	
 	private static final String sql = "carpoolSQL"; 
 	
-	public List<CarpoolVo> list(String category){
-		return template.selectList(sql+".list", category);
-	}
+//	public List<CarpoolVo> list(String category){
+//		return template.selectList(sql+".list", category);
+//	}
 	
 	public void write(CarpoolVo vo){
 		template.insert(sql+".write", vo);
@@ -28,5 +28,9 @@ public class CarpoolDao {
 	
 	public List<CarpoolMemberVo> carpoolList(String category){
 		return template.selectList(sql+".carpoolList", category);
+	}
+	
+	public CarpoolMemberVo read(int carno){
+		return template.selectOne(sql+".read", carno);
 	}
 }

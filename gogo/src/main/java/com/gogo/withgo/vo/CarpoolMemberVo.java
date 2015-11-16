@@ -8,7 +8,11 @@ public class CarpoolMemberVo {
 	private int mno;		
 	private String departure;	
 	private String arrival;		
-	private String stops;
+	private String stop1;
+	private String stop2;
+	private String stop3;
+	private String stop4;
+	private String stop5;
 	private String usertype;  
 	private int seat;  			
 	private String memo;		
@@ -31,17 +35,22 @@ public class CarpoolMemberVo {
 	
 	public CarpoolMemberVo() {}
 
-	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String stops,
-			String usertype, int seat, String memo, Date departuredate, int price, String email, String pw, String nickname,
-			String name, String phone, String birth, int gender, int hascar, String image, Date jdate, String profile,
-			String auth, int authphone, int authemail) {
+	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String stop1,
+			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, String memo,
+			Date departuredate, int price, String email, String pw, String nickname, String name, String phone,
+			String birth, int gender, int hascar, String image, Date jdate, String profile, String auth, int authphone,
+			int authemail) {
 		super();
 		this.carno = carno;
 		this.category = category;
 		this.mno = mno;
 		this.departure = departure;
 		this.arrival = arrival;
-		this.stops = stops;
+		this.stop1 = stop1;
+		this.stop2 = stop2;
+		this.stop3 = stop3;
+		this.stop4 = stop4;
+		this.stop5 = stop5;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.memo = memo;
@@ -103,12 +112,46 @@ public class CarpoolMemberVo {
 		this.arrival = arrival;
 	}
 
-	public String getStops() {
-		return stops;
+	
+
+	public String getStop1() {
+		return stop1;
 	}
 
-	public void setStops(String stops) {
-		this.stops = stops;
+	public void setStop1(String stop1) {
+		this.stop1 = stop1;
+	}
+
+	public String getStop2() {
+		return stop2;
+	}
+
+	public void setStop2(String stop2) {
+		this.stop2 = stop2;
+	}
+
+	public String getStop3() {
+		return stop3;
+	}
+
+	public void setStop3(String stop3) {
+		this.stop3 = stop3;
+	}
+
+	public String getStop4() {
+		return stop4;
+	}
+
+	public void setStop4(String stop4) {
+		this.stop4 = stop4;
+	}
+
+	public String getStop5() {
+		return stop5;
+	}
+
+	public void setStop5(String stop5) {
+		this.stop5 = stop5;
 	}
 
 	public String getUsertype() {
