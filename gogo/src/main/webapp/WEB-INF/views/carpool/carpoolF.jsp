@@ -32,6 +32,10 @@ http://www.templatemo.com/free-website-templates/417-grill
 <link rel="stylesheet" href="css/testimonails-slider.css">
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/routes.js"></script>
 
 <style>
 #heading {
@@ -434,15 +438,15 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td>출발지</td>
-									<td><input type="text" name="departure"></td>
+									<td><input type="text" name="departure" id="loc1"></td>
 								</tr>
 								<tr>
 									<td>도착지</td>
-									<td><input type="text" name="arrival"></td>
+									<td><input type="text" name="arrival" id="loc3"></td>
 								</tr>
 								<tr>
-									<td>지도검색</td>
-									<td><input type="text" name="arrival"></td>
+									<td>지도검색<br> <button>경로검색</button></td>
+									<td><div id="map_div"></div></td>
 								</tr>
 								<tr>
 									<td>좌석수</td>
