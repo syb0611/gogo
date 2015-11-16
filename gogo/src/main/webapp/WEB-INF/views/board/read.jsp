@@ -160,12 +160,7 @@ table tr th:last-child{
 										</tr>
 									</table>
 								</form>
-								<c:if test="${(memberInfo != null) && (memberInfo.nickname != vo.nickname) }">
-									<form method="post" action="${contextPath}/message/form">
-										<input type="hidden" name="toname" value="${vo.nickname }">
-										<input type="submit" class="btn btn-default btn-xs" value="쪽지보내기">			
-									</form>			
-								</c:if>
+								
 							</div>
 						</div>			
 					</div>		

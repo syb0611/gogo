@@ -85,9 +85,10 @@
 				<form method="post" action="${contextPath}/message/send">	
 					<input type="hidden" name="toname" value="${toname }">
 					<input type="hidden" name="fromname" value="${memberInfo.nickname }">  
+					<input type="hidden" name="prevUrl" value="${prevUrl }">
 					<table class="table table-condensed">
 						<tr>
-							<th>보내는사람</th>
+							<th width="20%">보내는사람</th>
 							<td>${memberInfo.nickname }</td>
 						</tr>
 						<tr>
@@ -103,8 +104,8 @@
 							<td><textarea class="form-control input-sm" rows="15" name="memo"></textarea></td>
 						</tr>
 						<tr>
-							<td colspan="2">	
-								<input type="submit" class="btn btn-primary btn-xs" value="등록">
+							<td colspan="2" style="text-align: right">	
+								<input type="submit" class="btn btn-primary" value="등록">
 							</td>
 						</tr>
 					</table>

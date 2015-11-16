@@ -14,7 +14,8 @@ public class CarpoolMemberVo {
 	private String stop4;
 	private String stop5;
 	private String usertype;  
-	private int seat;  			
+	private int seat; 
+	private int bookedseat;
 	private String memo;		
 	private Date departuredate;		
 	private int price;
@@ -40,7 +41,7 @@ public class CarpoolMemberVo {
 	
 
 	public CarpoolMemberVo(int carno, String category, int mno, String departure, String arrival, String stop1,
-			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, String memo,
+			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo,
 			Date departuredate, int price, int smoking, int genderlimit, String email, String pw, String nickname, String name,
 			String phone, String birth, int gender, int hascar, String image, Date jdate, String profile, String auth,
 			int authphone, int authemail) {
@@ -57,6 +58,7 @@ public class CarpoolMemberVo {
 		this.stop5 = stop5;
 		this.usertype = usertype;
 		this.seat = seat;
+		this.bookedseat = bookedseat;
 		this.memo = memo;
 		this.departuredate = departuredate;
 		this.price = price;
@@ -76,6 +78,18 @@ public class CarpoolMemberVo {
 		this.auth = auth;
 		this.authphone = authphone;
 		this.authemail = authemail;
+	}
+
+
+
+	public int getBookedseat() {
+		return bookedseat;
+	}
+
+
+
+	public void setBookedseat(int bookedseat) {
+		this.bookedseat = bookedseat;
 	}
 
 

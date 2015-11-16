@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -44,6 +45,7 @@
 }
 </style>
 <style type="text/css">
+
 table.t_ex2 {
 	background: #;
 	width: 90%;
@@ -73,7 +75,7 @@ table.t_ex2 .c2 {
 	text-align: left
 }
 #timeline-post{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 
 
@@ -133,97 +135,123 @@ table.t_ex2 .c2 {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<fieldset>
-						<legend> </legend>
-						<form action="./example2.php" method="GET">
-							<p>
-								카풀 : <select name="type">
-									<option value="short">단기카풀</option>
-									<option value="long">장기카풀</option>
-									<option value="taxi">택시카풀</option>
-									<option value="school">고스쿨</option>
-								</select>
-							<div>
-								성별 : <input name="ss" id="ss" type="radio" checked="" value="1"><span>남자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>여자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>모두</span>
-								<br> <br> 인증 여부 : <input name="sss" id="sss"
-									type="checkbox" checked="" value="3"><span>휴대전화
-									인증</span> <input name="sss" id="sss" type="checkbox" value="3"><span>페이스북
-									인증</span><br> <br> 흡연 여부 : <input name="ss" id="ss"
-									type="radio" checked="" value="2"><span>흡연 가능</span> <input
-									name="ss" id="ss" type="radio" value="2"><span>흡연
-									불가</span> <br>
-							</div>
-							</p>
-							<input type="submit" value="검색하기" />
-						</form>
-					</fieldset>
-				</div>
-				<div class="col-md-9">
-					<div style="float:left; margin-right: 20px">
-						<c:choose>
-							<c:when test="${vo.category == 'dan'}">
-								<h3>단기카풀</h3>
-							</c:when>
-							<c:when test="${vo.category == 'jang'}">
-								<h3>장기카풀</h3>
-							</c:when>
-						</c:choose>
-					</div>
-					<div>
-						<c:choose>
-							<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
-							<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
-							<c:otherwise>함께타요</c:otherwise>									
-						</c:choose> 
-					</div>
-					<br>
-					<div>
-						<table class="table table-condensed">
+					<div style="width:100%; height:250px; border:1px solid #C6C6C6">
+						<table style="width:80%; margin: 0 auto; margin-top: 20px;">
 							<tr>
-								<th>출발지</th>
-								<td>${vo.departure }</td>
-								<th>도착지</th>
-								<td>${vo.arrival }</td>
+								<td rowspan="2" style="padding-right: 5px"><img src="../images/blankimage.png" width="80px;"></td>
+								<td>${vo.name }</td>
 							</tr>
 							<tr>
-								<th>경유지</th>
-								<td colspan="3">
-									<c:if test="${vo.stop1 != null }">#${vo.stop1 }&nbsp;&nbsp;</c:if>
-									<c:if test="${vo.stop2 != null }">#${vo.stop2 }&nbsp;&nbsp;</c:if>
-									<c:if test="${vo.stop3 != null }">#${vo.stop3 }&nbsp;&nbsp;</c:if>
-									<c:if test="${vo.stop4 != null }">#${vo.stop4 }&nbsp;&nbsp;</c:if>
-									<c:if test="${vo.stop5 != null }">#${vo.stop5 }&nbsp;&nbsp;</c:if>
-								</td>
+								<td>인증</td>
 							</tr>
 							<tr>
-								<th>출발일시</th>
-								<td colspan="3">${vo.departuredate }</td>
+								<td colspan="2">&nbsp;</td>
 							</tr>
+							<form method="post" action="">
 							<tr>
-								<th>신청수/좌석수</th>
-								<td>*/${vo.seat }</td>
-								<th>희망요금(1인)</th>
-								<td>${vo.price }</td>
-							</tr>
-							<tr>
-								<th>흡연여부</th>
 								<td>
-									<c:choose>
-										<c:when test="${vo.smoking == '0' }">비흡연</c:when>
-										<c:otherwise>흡연</c:otherwise>
-									</c:choose>
+									<select class="form-control input-sm" name="seatNum">
+										<c:forEach begin="1" end="${vo.seat }" var="num">
+											<option value="${num }">${num }명</option>
+										</c:forEach>
+									</select>
 								</td>
-								<th>성별제한</th>
-								<td>
-									<c:choose>
-										<c:when test="${vo.genderlimit == '0' }">없음</c:when>
-										<c:otherwise>여성전용</c:otherwise>
-									</c:choose>
+								<td style="text-align: right"><input type="submit" class="btn btn-primary btn-sm" value="예약신청"></td>
+							</tr>
+							</form>
+							<tr>
+								<td colspan="2">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<form method="post" action="${contextPath}/message/form">
+										<input type="hidden" name="toname" value="${vo.nickname }">
+										<input type="hidden" name="prevUrl" value="/carpool/read?category=${vo.category}&no=${vo.carno }">
+										<input type="submit" class="btn btn-warning form-control" value="쪽지보내기">			
+									</form>				
 								</td>
 							</tr>
 						</table>
+						
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="col-md-11 col-md-offset-1">
+						<div style="float:left; margin-right: 20px; margin-bottom: 20px;">
+							<c:choose>
+								<c:when test="${vo.category == 'dan'}">
+									<h3>단기카풀</h3>
+								</c:when>
+								<c:when test="${vo.category == 'jang'}">
+									<h3>장기카풀</h3>
+								</c:when>
+							</c:choose>
+						</div>
+						<div>
+							<c:choose>
+								<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+								<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+								<c:otherwise>함께타요</c:otherwise>									
+							</c:choose> 
+						</div>
+						<br>
+						<div>
+							<table class="table table-condensed">
+								<tr>
+									<th width="20%">출발지</th>
+									<td width="30%">${vo.departure }</td>
+									<th width="20%">도착지</th>
+									<td width="30%">${vo.arrival }</td>
+								</tr>
+								<tr>
+									<th>경유지</th>
+									<td colspan="3">
+										<c:if test="${vo.stop1 != null }">#${vo.stop1 }&nbsp;&nbsp;</c:if>
+										<c:if test="${vo.stop2 != null }">#${vo.stop2 }&nbsp;&nbsp;</c:if>
+										<c:if test="${vo.stop3 != null }">#${vo.stop3 }&nbsp;&nbsp;</c:if>
+										<c:if test="${vo.stop4 != null }">#${vo.stop4 }&nbsp;&nbsp;</c:if>
+										<c:if test="${vo.stop5 != null }">#${vo.stop5 }&nbsp;&nbsp;</c:if>
+									</td>
+								</tr>
+								<tr>
+									<th>출발일시</th>
+									<td colspan="3">${vo.departuredate }</td>
+								</tr>
+								<tr>
+									<th>신청수/좌석수</th>
+									<td>${vo.bookedseat}/${vo.seat }</td>
+									<th>희망요금(1인)</th>
+									<td><fmt:formatNumber value="${vo.price }" type="number"/>원</td>
+								</tr>
+								<tr>
+									<th>흡연여부</th>
+									<td>
+										<c:choose>
+											<c:when test="${vo.smoking == '0' }">비흡연</c:when>
+											<c:otherwise>흡연</c:otherwise>
+										</c:choose>
+									</td>
+									<th>성별제한</th>
+									<td>
+										<c:choose>
+											<c:when test="${vo.genderlimit == '0' }">없음</c:when>
+											<c:otherwise>여성전용</c:otherwise>
+										</c:choose>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<div style="height:300px">지도</div>
+									</td>
+								</tr>
+								<tr>
+									<th>추가내용</th>
+									<td colspan="3">
+										<textarea rows="15" cols="40" readonly="readonly" style="border:1px solid #D8D8D8">${vo.memo }</textarea>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

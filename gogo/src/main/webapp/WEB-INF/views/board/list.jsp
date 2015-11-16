@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js">
 <!--<![endif]-->
 <!-- 
@@ -44,8 +41,12 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 .categoryTitle{
 	float: left;
+	margin-bottom: 10px;
 }
-
+.wBtn{
+	float: right;
+	padding-top: 20px;
+}
 </style>
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 </head>
@@ -111,11 +112,18 @@ http://www.templatemo.com/free-website-templates/417-grill
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
 								<div class="category">
+									<div class="categoryTitle">
 									<c:choose>
-										<c:when test="${category == 'greeting' }"><h4>가입인사</h4></c:when>
-										<c:when test="${category == 'free' }"><h4>자유게시판</h4></c:when>
-										<c:otherwise><h4>카풀이용후기</h4></c:otherwise>
+										<c:when test="${category == 'greeting' }"><h3>가입인사</h3></c:when>
+										<c:when test="${category == 'free' }"><h3>자유게시판</h3></c:when>
+										<c:otherwise><h3>카풀이용후기</h3></c:otherwise>
 									</c:choose>
+									</div>
+									<div class="wBtn">
+										<c:if test="${memberInfo != null }">
+											<input type="button" class="btn btn-default btn-sm" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${category }'">
+										</c:if>	
+									</div>
 								</div>
 								<table class="table table-condensed">
 									<div class="row">
@@ -172,11 +180,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 										</ul>
 										</c:if>
 									</span>
-									<span class="wBtn">
-										<c:if test="${memberInfo != null }">
-											<input type="button" class="btn btn-default btn-xs" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${category }'">
-										</c:if>	
-									</span>
+									
 								</div>	
 							</div>
 						</div>			

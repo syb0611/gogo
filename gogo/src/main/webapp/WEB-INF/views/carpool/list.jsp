@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
 @import
 url
@@ -50,7 +50,10 @@ body {
 	background-color: #EAEAEA;
 }
 
-
+#bookmarkck{
+	position: absolute;
+	margin-left: 93%;
+}
 </style>
 </head>
 <body>
@@ -157,6 +160,7 @@ body {
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
+									<input type="checkbox" id="bookmarkck">
 									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
@@ -181,7 +185,7 @@ body {
 														<c:otherwise>함께타요</c:otherwise>									
 													</c:choose> 
 												</div>
-												<div><font size="5">${vo.price }원</font></div>
+												<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
 												<div>예약좌석/${vo.seat }</div>
 											</td>
 										</tr>		
@@ -191,6 +195,7 @@ body {
 <%-- 												<c:if test="${vo.authphone == 1 }">핸드폰인증</c:if> --%>
 <!-- 											</td> -->
 									</table>
+									
 								</td>
 							</tr>
 							</c:forEach>

@@ -25,17 +25,18 @@ public class MessageController {
 	private MessageDao dao;
 	
 	@RequestMapping("/form")
-	public String form(@RequestParam("toname") String toname, Model model){
+	public String form(@RequestParam("toname") String toname, @RequestParam("prevUrl") String prevUrl, Model model){
 		model.addAttribute("toname", toname);
+		model.addAttribute("prevUrl", prevUrl);
 		
 		return "message/msgform";
 	}
 	
 	@RequestMapping("/send")
-	public String send(MessageVo vo){
+	public String send(@RequestParam("prevUrl") String prevUrl, MessageVo vo){
 		dao.send(vo);
 		
-		return "redirect:/message/mymsg"; 
+		return "redirect:"+prevUrl; 
 	}
 	
 	@RequestMapping("/mymsg")
