@@ -29,6 +29,12 @@ public class MemberDao {
 	public void join(MemberVo vo){
 		template.insert(sql+".join", vo);
 	}
+	
+	public void withdraw(String email){
+		template.delete(sql+".withdraw", email);
+	}
+	
+
 //	public MemberVo getMember(String email, String pw){
 //		String query = "select * from member where email = ? and pw = ?";
 //		MemberVo member = new MemberVo();

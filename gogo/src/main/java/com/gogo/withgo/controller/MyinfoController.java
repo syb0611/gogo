@@ -36,4 +36,10 @@ public class MyinfoController {
 	public String withdraw(){
 		return "myinfo/withdraw";
 	}
+	
+	
+	
+	
+	
+	
 }

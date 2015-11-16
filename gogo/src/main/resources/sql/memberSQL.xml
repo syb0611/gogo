@@ -14,4 +14,9 @@
     	insert into member(mno, email, pw, nickname, name, phone, birth, gender)
     	values(mem_seq.nextval, #{email}, #{pw}, #{nickname}, #{name}, #{phone}, #{birth}, #{gender})
     </insert>
+    <delete id="withdraw">
+    	delete from member 
+    	where email=#{email}
+    </delete>
+    
 </mapper>

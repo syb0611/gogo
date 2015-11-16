@@ -80,4 +80,26 @@ public class MemberController {
 		out.close();
 	}
 
+	@RequestMapping("/withdraw")
+	public String withdraw(@RequestParam("email") String email){
+		dao.withdraw(email);
+		session.setAttribute("memberInfo", null);
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping("/pwChange")
+	public String pwChange(@RequestParam("email") String email, @RequestParam("newpw") String newpw){
+//		dao.pwChange(email, newpw);
+//		session.setAttribute("memberInfo.pw", newpw);
+		
+		return "redirect:/mypage/password";
+	}
+	
+	@RequestMapping("/updateProfile")
+	public String updateProfile(MemberVo vo){
+		
+		//////////////////
+		return "redirect:/mypage/profile";
+	}
 }

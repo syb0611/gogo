@@ -35,7 +35,7 @@ public class CarpoolController {
 	public String writeform(@RequestParam("category") String category, Model model){
 		model.addAttribute("category", category);
 		
-		return "carpool/writeform";
+		return "carpool/carpoolF";
 	}
 	
 	@RequestMapping("/write")

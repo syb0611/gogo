@@ -1,19 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-<!-- 
 
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
 <head>
 <meta charset="utf-8">
 <title>Contact - Grill Template</title>
@@ -48,12 +37,19 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 </style>
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script>
+function checkPW(){
+	if(document.getElementById("mypw").value == document.getElementById("pwck").value){
+		document.getElementById("pwform").submit();
+	}else{
+		alert("비밀번호가 일치하지 않습니다.");
+		document.getElementById("pwck").focus();
+		return;
+	}
+}
+</script>
 </head>
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -132,44 +128,33 @@ http://www.templatemo.com/free-website-templates/417-grill
 									</div>
 								</div>
 								
+								<input type="hidden" id="mypw" value="${memberInfo.pw }">
 								
 								<div id="container">
 								<div id="content">
 									<div class="section_pwconfirm">
-										<div class="spc_header">
-											<h2></h2>
-											
-										</div>
-										<form id="fm" name="fm" action="/user2/help/myInfoPasswd.nhn?m=actionInputPasswd" method="post" onSubmit="return mainSubmit();">
-										<input type="hidden" id="token_help" name="token_help" value="NUnEbFMpljHfTug1" />
-										<input type="hidden" id="encPasswd" name="encPasswd">
-										<input type="hidden" id="encNm" name="encNm">
-										<div class="spc_content">
-											<fieldset>
-												<legend>비밀번호 재확인 입력</legend>
-												<p>안전한 탈퇴를 위해 비밀번호를 다시 한 번 입력해주세요.</p><br>
-											    <p class="spc_row"><span class="txt_userid"></span></p>
-												<p class="spc_row2">
-													<label id="lb_upw" for="upw">비밀번호</label>
-													<input type="password" id="upw" name="upw" maxlength="16" 
-													       onkeyup="checkShiftUp(event);" 
-													       onFocus="convertDiv('upw', 'none')"
-													       onBlur="convertDiv('upw', 'block');hideCapsLock('help2_1');"					 
-													       onkeypress="capslock(event);showCapslock();" 
-													       onkeydown="checkShiftDown(event);" style="width:336px">
-			
-												</p>
-												<p class="btn_area_btm">
-													<button type="submit" class="btn-group btn-group-lg" >확인</button>
-												</p>
-											</fieldset>
-										</div>
+										<form id="pwform" name="pwform" action="${contextPath}/member/withdraw">
+											<input type="hidden" name="email" value="${memberInfo.email }">
+											<div class="spc_content">
+												<fieldset>
+													<legend>비밀번호 재확인 입력</legend>
+													<p>안전한 탈퇴를 위해 비밀번호를 다시 한 번 입력해주세요.</p><br>
+												    <p class="spc_row"><span class="txt_userid"></span></p>
+													<p class="spc_row2">
+														<div class="row">
+															<div class="col-sm-6">
+																<label id="lb_upw" for="upw">비밀번호</label>
+																<input type="password" id="pwck" name="pwck" class="form-control">
+															</div>
+														</div>
+													</p>
+													<p class="btn_area_btm">
+														<button type="button" class="btn btn-default" onclick="checkPW()">확인</button>
+													</p>
+												</fieldset>
+											</div>
+										</form>
 									</div>
-								
-								
-								
-								
-								
 							</div>
 						</div>			
 					</div>		

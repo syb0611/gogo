@@ -1,19 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-<!-- 
-
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
 <head>
 <meta charset="utf-8">
 <title>main</title>
@@ -24,22 +12,22 @@ http://www.templatemo.com/free-website-templates/417-grill
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/templatemo_style.css">
-<link rel="stylesheet" href="css/templatemo_misc.css">
-<link rel="stylesheet" href="css/flexslider.css">
-<link rel="stylesheet" href="css/testimonails-slider.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/templatemo_style.css">
+<link rel="stylesheet" href="../css/templatemo_misc.css">
+<link rel="stylesheet" href="../css/flexslider.css">
+<link rel="stylesheet" href="../css/testimonails-slider.css">
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/routes.js"></script>
+<script src="../js/routes.js"></script>
 
 <style>
 #heading {
-	background-image: url(images/zx.jpg);
+	background-image: url(../images/zx.jpg);
 	height: 140px;
 }
 #formDiv {
@@ -89,7 +77,6 @@ table.t_ex2 .c2 {
 }
 
 
-/*]]>*/
 </style>
 </head>
 <body>
@@ -101,7 +88,7 @@ table.t_ex2 .c2 {
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="images/pool2.jpeg"
+							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
 								title="withGoe" alt="Grill Website Template"></a>
 
 						</div>
@@ -145,7 +132,7 @@ table.t_ex2 .c2 {
 	<div id="timeline-post">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<fieldset>
 						<legend> </legend>
 						<form action="./example2.php" method="GET">
@@ -175,11 +162,9 @@ table.t_ex2 .c2 {
 						</form>
 					</fieldset>
 				</div>
-				<div class="col-md-10">
+				<div class="col-md-9">
 				
-					<h2></h2>
-					<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CarPool</h3>
-					<h4></h4>
+					<h2>카풀글쓰기</h2>
 					
 					<form method="post" action="${contextPath}/carpool/write">
 						<input type="hidden" name="category" value="${category }">

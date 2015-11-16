@@ -74,12 +74,13 @@ fieldset {
 
 </style>
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script>
+function formck(){
+	
+}
+</script>
 </head>
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -138,11 +139,8 @@ fieldset {
 					</div>		
 					<div class="col-md-10">
 						<div class="row">
-							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								
-						
-								
-											<div id="container">
+							<div class="col-md-offset-1 col-md-10 col-sm-12">	
+							<div id="container">
 												<!-- CONTENTS -->
 												<div id="content"> 
 										        <div class="c_header"> 
@@ -150,14 +148,8 @@ fieldset {
 													<p class="contxt"><strong>회원님</strong>의 회원정보입니다.<br>
 													회원정보는 개인정보취급방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다. <a href="http://www.naver.com/rules/privacy.html" target="_blank" onclick="clickcr(this,'inf.privacy','','',event);"><br>개인정보취급방침</a></p>
 												</div>
-												<form id="fm" name="fm">
-													<input type="hidden" name="token_help" id="token_help" value="AahabmOGBjcFqkP2" />
-													<input type="hidden" name="isEmailYn" id="isEmailYn" value="Y" />
-													<input type="hidden" name="isPhoneYn" id="isPhoneYn" value="Y" />
-													<input type="hidden" name="bEmail" id="bEmail" value="rudal6121@hanmail.net" />
-													<input type="hidden" name="phoneAuthYn" id="phoneAuthYn" value="N" />
-													<input type="hidden" name="mobileYn" id="mobileYn" value="N" />
-													
+												<form id="myform" method="post" action="${contextPath}/member/updateProfile">
+													<input type="hidden" name="email" value="${memberInfo.email }">
 													<fieldset>
 														<table border="0" class="tbl_model">
 														<br>
@@ -177,7 +169,9 @@ fieldset {
 																<div class="col-md-8">
 																
 																<div class="tdcell">
-																	<p class="contxt_tit">최경미</p>
+																	<p class="contxt_tit">
+																		<input type="text" name="name" value="${memberInfo.name }">
+																	</p>
 																			<p class="contxt_desc">개명으로 이름이 변경된 경우에 한하여 변경이 가능합니다.</p>
 																			<p class="btn_area_btm">
 																				<a href="javascript:changeName();" class="btn_model"><b class="btn2">[이름변경]</b></a><br><br><br>
@@ -186,7 +180,7 @@ fieldset {
 																</div>
 																
 																<div class="col-md-4">
-																	<input type=file size=40>
+																	<input type="file" name="imgfile" size=40>
 																</div>
 															</td>
 														</tr>
@@ -201,8 +195,8 @@ fieldset {
 																<div class="tdcell">
 																	<p class="contxt_tit"></p>
 																			<p class="contxt_desc"></p>
-																			<input name="ss" id="ss" type="radio" checked="" value="1"><span>있음      </span>
-								   											<input name="ss" id="ss" type="radio" value="1"><span>없음 </span><br><br>
+																			<input name="hascar" type="radio" value="1"><span>있음      </span>
+								   											<input name="hascar" type="radio" value="0" checked="checked"><span>없음 </span><br><br>
 																			
 																			<p class="btn_area_btm">
 																				<a href="javascript:changeName();" class="btn_model"><b class="btn2">[차량유무 변경]</b></a><br><br><br>
@@ -219,7 +213,9 @@ fieldset {
 															</th>
 															<td>
 																<div class="tdcell">
-																	<p class="contxt_tit">개똥이</p>
+																	<p class="contxt_tit">
+																		<input type="text" name="nickname" value="${memberInfo.nickname }">
+																	</p>
 																			<p class="contxt_desc">위드고 서비스 이용시 사용할 닉네임입니다.</p>
 																			<p class="btn_area_btm">
 																				<a href="javascript:changeName();" class="btn_model"><b class="btn2">[닉네임 변경]</b></a><br><br><br>
@@ -235,21 +231,11 @@ fieldset {
 															</th>
 															<td>
 																<div class="tdcell">
-																	<p id="p_txt_phoneNo" class="contxt_tit">010-1111-5454</p>
+																	<p id="p_txt_phoneNo" class="contxt_tit">
+																		<input type="text" name="phone" value="${memberInfo.phone }">
+																	</p>
 																	<p class="contxt_desc">아이디, 비밀번호 찾기 등 본인확인이 필요한 경우 사용할 휴대전화입니다.</p>
-																	<div id="d_phoneNo" style="display:none">
-																		<p id="p_txt_phoneNo_changeYn" class="contxt_tit2">변경할 휴대전화</p>
-																		<p class="contxt_webctrl">
-																			<select id="internationalCode" name="internationalCode" class="country_drop" onchange="javascript:setInternationalCode('internationalCode','input_internationalCode', '');">
-																				  	 	<option value="82">대한민국</option>
-																				  	 	<option value="1">미국</option>
-																				  	 	<option value="81">일본</option>
-																				  	 	<option value="86">중국</option>
-																			</select>	
-																		    
-																		</p>
-																		
-																	</div>
+																	
 																	<p id="p_phoneNo" class="btn_area_btm">
 																		<a href="#" onclick="display('phoneNo');return false;" class="btn_model"><b class="btn2">[수정]</b></a><br><br><br>
 																	</p>
@@ -265,39 +251,18 @@ fieldset {
 															</th>
 															<td>
 																<div class="tdcell">
-																	
-																				<textarea name="memo" rows="5" cols="30"></textarea><br><br>
+																				<textarea name="memo" rows="5" cols="30">${memberInfo.memo }</textarea><br><br>
 																				<a href="javascript:changeName();" class="btn_model"><b class="btn2">[수정]</b></a><br><br><br>
-																			</p>
 																</div>
 															</td>
 														</tr>
 														
 													</tbody>
 													</table>
-													<button type="submit" class="btn btn-default form-control" id="changeSubmit" onclick="clickcr(this,'npw.confirm','','',event);">확인</button>
-													<button type="button" class="btn btn-default form-control" onclick="cancel();clickcr(this,'npw.reload','','',event);">취소</button>
+													<button type="button" class="btn btn-default form-control" onclick="formck">확인</button>
 												</fieldset>
 											</form>
 										</div>						
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
 							</div>
 						</div>			
 					</div>		

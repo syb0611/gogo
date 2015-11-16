@@ -99,7 +99,7 @@ body {
 	<div id="timeline-post">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<fieldset>
 						<legend> 빠른검색 </legend>
 						<form action="./example2.php" method="GET">
@@ -116,8 +116,8 @@ body {
 								<input name="gender" id="gender" type="radio" value="1"><span>남자</span>
 								<input name="gender" id="gender" type="radio" value="2"><span>여자</span>	<br><br> 
 								인증 여부 : 
-								<input name="auth" id="auth" type="checkbox" value="phone"><span>휴대전화인증</span> 
-								<input name="auth" id="auth" type="checkbox" value="facebook"><span>페이스북인증</span><br><br> 
+								<input name="auth" id="auth" type="checkbox" value="phone"><span>휴대전화</span> 
+								<input name="auth" id="auth" type="checkbox" value="facebook"><span>페이스북</span><br><br> 
 								흡연 여부 : 
 								<input name="smoking" id="smoking" type="radio" checked="checked" value="N"><span>흡연불가</span>
 								<input name="smoking" id="smoking" type="radio" value="Y"><span>흡연가능</span> 
@@ -128,15 +128,25 @@ body {
 					</fieldset>
 				</div>
 				
-				<div class="col-md-8">
-					<c:choose>
-						<c:when test="${category == 'dan'}">
-							<h4>단기카풀</h4>
-						</c:when>
-						<c:when test="${category == 'jang'}">
-							<h4>장기카풀</h4>
-						</c:when>
-					</c:choose>
+				<div class="col-md-9">
+					<div>
+						<div style="float: left;">
+						<c:choose>
+							<c:when test="${category == 'dan'}">
+								<h4>단기카풀</h4>
+							</c:when>
+							<c:when test="${category == 'jang'}">
+								<h4>장기카풀</h4>
+							</c:when>
+						</c:choose>
+						</div>
+						<div style="float: right;">
+						<c:if test="${memberInfo != null }">
+							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${category }'">
+						</c:if>
+						</div>
+					</div>
+					
 					
 					<table class="table table-condensed">
 						<c:choose>
@@ -147,50 +157,46 @@ body {
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<table class="listTable">				
-										<tr>	
-											<td width="20%">
-												<c:if test="${vo.authemail == 1 }">이메일인증</c:if>
-												<c:if test="${vo.authphone == 1 }">핸드폰인증</c:if>
-											</td>
-											<td width="50%">${vo.departuredate }</td>
-											<td width="30%">
-											<c:choose>
-												<c:when test="${category == 'dan' }">단기카풀</c:when>
-												<c:when test="${category == 'jang' }">장기카풀</c:when>
-												<c:otherwise>택시카풀</c:otherwise>									
-											</c:choose>/
-											<c:choose>
-												<c:when test="${vo.usertype == 'driver' }">타세요</c:when>
-												<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when>
-												<c:otherwise>함께타요</c:otherwise>									
-											</c:choose>
-											</td>
-										</tr>
-										
+									<table class="listTable">		
 										<tr>
-											<td>사진</td>
-											<td>${vo.departure } -> ${vo.arrival }</td>
-											<td>예상시간/금액</td>
-										</tr>
-										<tr>
-											<td>${vo.name }</td>
-											<td>경유지</td>
-											<td>예약좌석/${vo.seat }</td>
-										</tr>
+											<td width="15%" align="center">
+												<div><img src="../images/blankimage.png" width="80px"></div>
+												<div style="margin-top: 5px">${vo.name }</div>
+											</td>
+											<td width="65%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
+												<div style="padding: 10px">${vo.departuredate } 출발</div>
+												<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
+												<div style="padding: 10px">경유지</div>
+											</td>
+											<td width="20%" style="text-align: right">
+												<div>
+													<c:choose>
+														<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
+														<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
+														<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+													</c:choose>
+													<c:choose>
+		 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+														<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+														<c:otherwise>함께타요</c:otherwise>									
+													</c:choose> 
+												</div>
+												<div><font size="5">${vo.price }원</font></div>
+												<div>예약좌석/${vo.seat }</div>
+											</td>
+										</tr>		
+<!-- 										<tr>	 -->
+<!-- 											<td width="20%"> -->
+<%-- 												<c:if test="${vo.authemail == 1 }">이메일인증</c:if> --%>
+<%-- 												<c:if test="${vo.authphone == 1 }">핸드폰인증</c:if> --%>
+<!-- 											</td> -->
 									</table>
 								</td>
 							</tr>
 							</c:forEach>
 							</c:otherwise>
-						</c:choose>
-						
+						</c:choose>		
 					</table>
-					
-					
-					<c:if test="${memberInfo != null }">
-						<input type="button" value="글쓰기" onclick="location.href='${contextPath}/carpool/${category}/writeform'">
-					</c:if>
 				</div>
 			</div>
 
