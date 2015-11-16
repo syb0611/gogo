@@ -24,18 +24,22 @@ http://www.templatemo.com/free-website-templates/417-grill
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/templatemo_style.css">
-<link rel="stylesheet" href="css/templatemo_misc.css">
-<link rel="stylesheet" href="css/flexslider.css">
-<link rel="stylesheet" href="css/testimonails-slider.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/templatemo_style.css">
+<link rel="stylesheet" href="../css/templatemo_misc.css">
+<link rel="stylesheet" href="../css/flexslider.css">
+<link rel="stylesheet" href="../css/testimonails-slider.css">
 
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../js/routes.js"></script>
 
 <style>
 #heading {
-	background-image: url(images/zx.jpg);
+	background-image: url(../images/zx.jpg);
 	height: 140px;
 }
 #formDiv {
@@ -92,7 +96,7 @@ table.t_ex2 .c2 {
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="images/pool2.jpeg"
+							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
 								title="withGoe" alt="Grill Website Template"></a>
 
 						</div>
@@ -200,7 +204,7 @@ table.t_ex2 .c2 {text-align:left}
 							<table class="table table-condensed" >
 								<tr>
 			<td>출발일</td>
-			<td>월<select name="user_birth_year">
+			<td colspan ="4">월<select name="user_birth_year">
 					<option value="1" selected>1</option>
 					<option value="2" selected>2</option>
 					<option value="3" selected>3</option>
@@ -323,24 +327,28 @@ table.t_ex2 .c2 {text-align:left}
 			</select></td>
 		</tr>
 								<tr>
-									<td>출발지</td>
-									<td><input type="text" name="departure"></td>
+									<td colspan ="5">출발지 <input type="text"  id="loc1">
+									도착지<input type="text"  id="loc3">
+									<input type="button" value="경로검색" id="route" /></td>
 								</tr>
 								<tr>
-									<td>도착지</td>
-									<td><input type="text" name="arrival"></td>
+									<td colspan ="6">경유지
+									<input type="text" id="pass1">
+									<input type="text" id="pass2">
+									<input type="text" id="pass3">
+									<input type="text" id="pass4">
+									<input type="text" id="pass5"></td>
 								</tr>
 								<tr>
-									<td>지도검색</td>
-									<td><input type="text" name="arrival"></td>
+									<td colspan ="5"><div id="map_div"></div></td>
 								</tr>
 								<tr>
 									<td>좌석수</td>
-									<td><input type="number" name="seat" value="1"></td>
+									<td colspan ="4"><input type="number" name="seat" value="1"></td>
 								</tr>
 								<tr>
 									<td>금액</td>
-									<td><input type="text" name="arrival"></td>
+									<td colspan ="4"><input type="text" name="arrival"></td>
 								</tr>
 								<tr>
 									<!-- 			<td colspan="2"> -->
@@ -348,7 +356,7 @@ table.t_ex2 .c2 {text-align:left}
 									<!-- 				<input type="radio" name="usertype" value="rider">비흡연자 -->
 									<!-- 			</td> -->
 									<td>흡연 여부</td>
-									<td><input type="radio" name="usertype" value="driver"
+									<td colspan ="4"><input type="radio" name="usertype" value="driver"
 										checked="checked">흡연자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 										type="radio" name="usertype" value="rider">비흡연자</td>
 								</tr>
@@ -358,17 +366,17 @@ table.t_ex2 .c2 {text-align:left}
 									<!-- 				<input type="radio" name="usertype" value="rider">남자 -->
 									<!-- 			</td> -->
 									<td>성별</td>
-									<td><input type="radio" name="usertype" value="driver"
+									<td colspan ="4"><input type="radio" name="usertype" value="driver"
 										checked="checked">여자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 										type="radio" name="usertype" value="rider">남자</td>
 								</tr>
 
 								<tr>
 									<td>추가내용</td>
-									<td><textarea name="memo" rows="10" cols="50"></textarea></td>
+									<td colspan ="4"><textarea name="memo" rows="10" cols="40"></textarea></td>
 								</tr>
 								<tr>
-									<td colspan="2" align="right"><input type="submit" value="취소"> <input
+									<td colspan="5" align="right"><input type="submit" value="취소"> <input
 										type="submit" value="완료"></td>
 								</tr>
 							</table>
