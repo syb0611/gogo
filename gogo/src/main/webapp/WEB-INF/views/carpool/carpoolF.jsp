@@ -274,7 +274,7 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><br></td>
-									<td><div id="map_div"></div><br><input type="button" class="btn_type5" value="경로검색" id="route" /></td>
+									<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">좌석수</p></td>
@@ -309,8 +309,8 @@ table.t_ex2 .c2 {
 								</tr>
 								
 								<tr>
-									<td colspan="2" align="center"><input type="submit" class="btn_type2" value="취소"><input
-										type="submit" class="btn_type1" class="btn_type1" value="완료"></td>
+									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;<input
+										type="submit"  class="btn_comm" value="완료"></td>
 								</tr>
 							</table>
 							</article>
