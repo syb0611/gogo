@@ -86,7 +86,29 @@ table.t_ex2 .c2 {
 }
 /*]]>*/
 </style>
+<script>
+var xhr;
 
+function checkChange(){
+	xhr= new XMLHttpRequest();
+   	xhr.onreadystatechange=callback;
+   var id=document.getElementById("sel1").value;
+   xhr.open("get","${pageContext.request.contextPath}/school/list?type="+id,true);
+   xhr.send(null);
+}
+
+function callback(){
+	if(xhr.readyState==4){
+      if(xhr.status==200){
+    	  var result = xhr.responseText;
+    	  document.getElementById("sel2").innerHTML = result;
+        // document.getElementById("view").innerHTML=
+      }else if(xhr.status==404){
+       //  document.getElementById("view").innerHTML="서버프로그램 없음";
+      }
+   }
+}
+</script>
 </head>
 <body>
 	<header>
@@ -306,9 +328,30 @@ table.t_ex2 .c2 {
 											</select></td>
 										</tr>
 										<tr>
-											<td colspan ="5">출발지 <input type="text"  id="loc1">
-											도착지<input type="text"  id="loc3">
-											<input type="button" value="경로검색" id="route" /></td>
+											<td colspan ="5">
+												출발지 <input type="text"  id="loc1">
+												<input type="button" value="경로검색" id="route" />
+												도착지
+												<span>
+													<select name="sel1" id="sel1" onchange="checkChange()">
+														<option value="">선택</option>
+														<option value="seoul">서울특별시</option>
+														<option value="rhkd">6대광역시</option>
+														<option value="kyung">경기도</option>
+														<option value="kang">강원도</option>
+														<option value="chung">충청도</option>
+														<option value="jeon">전라도</option>
+														<option value="kyusang">경상도</option>
+														<option value="jeju">제주도</option>
+														
+													</select>
+												</span>
+												<span>
+													<select name="sel2" id="sel2">
+														<option value="seoul"></option>
+													</select>
+												</span>
+											</td>
 										</tr>
 										<tr>
 											<td colspan ="6">경유지
