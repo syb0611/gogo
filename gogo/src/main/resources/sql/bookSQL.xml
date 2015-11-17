@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bookSQL">
+	<select id="checkBooking" resultType="int">
+		select count(*) from booking
+		where carno=#{carno} and mno=#{mno}
+	</select>
+	
+	<select id="getLeftSeat" resultType="int">
+		select seat - bookedseat
+		from carpool
+		where carno=#{carno}
+	</select>
+
+	<insert id="book">
+		insert into booking(bookno, carno, mno, seatnum)
+		values(book_seq.nextval, #{carno}, #{mno}, #{seatnum})
+	</insert>
+	
+	<update id="seatUpdate">
+	
+	</update>
+</mapper>

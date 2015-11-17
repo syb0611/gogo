@@ -77,9 +77,51 @@ table.t_ex2 .c2 {
 #timeline-post{
 	margin-top: 50px;
 }
-
-
 </style>
+<script>
+var xhr;
+
+function checkBooking(){
+	var myMNO = document.getElementById("mno").value;
+	var writerMNO = document.getElementById("writerMNO").value;
+	
+	if(myMNO == null || myMNO == ""){
+		alert("로그인하세요.");
+		return;
+	}else if(myMNO == writerMNO){
+		alert("이 글의 작성자는 예약할 수 없습니다.");
+		return;
+	}
+	else{
+		if(confirm("예약신청하시겠습니까?") == true){
+			goBooking();
+		}else{
+			return;	
+		}
+	}
+}
+
+function goBooking(){
+	var carno = document.getElementById("carno").value;
+	var mno = document.getElementById("mno").value;
+	var seatnum = document.getElementById("seatnum").value;
+	
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/booking/bookRequest";
+	xhr.open("POST", url, true);
+	xhr.onreadystatechange = bookResult;
+	xhr.send("carno="+carno+"&mno="+mno+"&seatnum="+seatnum);
+}
+
+function bookResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var result = xhr.responseText;
+			alert(result);
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -147,18 +189,19 @@ table.t_ex2 .c2 {
 							<tr>
 								<td colspan="2">&nbsp;</td>
 							</tr>
-							<form method="post" action="">
 							<tr>
 								<td>
-									<select class="form-control input-sm" name="seatNum">
+									<input type="hidden" name="mno" id="myMNO" value="${memberInfo.mno }">
+									<input type="hidden" id="writerMNO" value="${vo.mno }">
+									<input type="hidden" name="carno" id="carno" value="${vo.carno }">
+									<select class="form-control input-sm" name="seatnum" id="seatnum">
 										<c:forEach begin="1" end="${vo.seat }" var="num">
 											<option value="${num }">${num }명</option>
 										</c:forEach>
 									</select>
 								</td>
-								<td style="text-align: right"><input type="submit" class="btn btn-primary btn-sm" value="예약신청"></td>
+								<td style="text-align: right"><input type="button" class="btn btn-primary btn-sm" value="예약신청" onclick="checkBooking()"></td>	
 							</tr>
-							</form>
 							<tr>
 								<td colspan="2">&nbsp;</td>
 							</tr>

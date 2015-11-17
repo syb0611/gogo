@@ -186,7 +186,14 @@ body {
 													</c:choose> 
 												</div>
 												<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
-												<div>예약좌석/${vo.seat }</div>
+												<div>
+													<font size="4">
+													<c:choose>
+														<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+														<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+													</c:choose>
+													</font>
+												</div>
 											</td>
 										</tr>		
 <!-- 										<tr>	 -->
