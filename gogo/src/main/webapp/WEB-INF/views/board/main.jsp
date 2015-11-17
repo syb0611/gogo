@@ -33,8 +33,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-/* 	background-image: url(images/community.png); */
-	background-color: gray;
+	background-image: url(../images/slide2.jpg);
 	height: 140px;
 }
 

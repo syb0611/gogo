@@ -8,11 +8,6 @@ url
 body {
 	font-family: '맑은 고딕';
 }
-
-#heading {
-	background-image: url(../images/slide1.jpg);
-	height: 140px;
-}
 </style>
 
 <head>
@@ -85,34 +80,68 @@ body {
 		</div>
 	</header>
 
-	<div id="heading">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="heading-content">
-						<c:choose>
-							<c:when test="${category == 'dan'}">
+	<c:choose>
+		<c:when test="${category == 'dan'}">
+			<div id="heading"
+				style="background-image: url(../images/slide4.jpg); height: 140px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading-content">
 								<h2>short-term carpool</h2>
-								<span>Home / <a href="jang.html">단기카풀</a></span>
-							</c:when>
-							<c:when test="${category == 'jang'}">
-								<h2>Long-term carpool</h2>
-								<span>Home / <a href="jang.html">장기카풀</a></span>
-							</c:when>
-							<c:when test="${category == 'goschool'}">
-								<h2>goschool</h2>
-								<span>Home / <a href="goschool.html">고스쿨</a></span>
-							</c:when>
-							<c:when test="${category == 'taxi'}">
-								<h2>TAXI CARPOOL</h2>
-								<span>Home / <a href="taxi.html">TAXI</a></span>
-							</c:when>
-						</c:choose>
+								<span>Home / <a href="${contextPath}/carpool/list?category=dan">단기카풀</a></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</c:when>
+		<c:when test="${category == 'jang'}">
+			<div id="heading"
+				style="background-image: url(../images/slide1.jpg); height: 140px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading-content">
+								<h2>Long-term carpool</h2>
+								<span>Home / <a href="${contextPath}/carpool/list?category=jang">장기카풀</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="${category == 'goschool'}">
+			<div id="heading"
+				style="background-image: url(../images/slide5.jpg); height: 140px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading-content">
+								<h2>goschool</h2>
+								<span>Home / <a href="${contextPath}/carpool/list?category=goschool">고스쿨</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="${category == 'taxi'}">
+			<div id="heading"
+				style="background-image: url(../images/slide3.jpg); height: 140px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading-content">
+								<h2>TAXI CARPOOL</h2>
+								<span>Home / <a href="${contextPath}/carpool/list?category=taxi">TAXI</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+	</c:choose>
 
 	<div id="timeline-post">
 		<div class="container">
