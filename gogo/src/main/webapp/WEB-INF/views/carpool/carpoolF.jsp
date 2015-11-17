@@ -145,42 +145,7 @@ table.t_ex2 .c2 {
 	<div id="timeline-post">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2">
-					<fieldset>
-						<legend> </legend>
-						<form action="./example2.php" method="GET">
-							<p>
-								카풀 : <select name="type">
-									<option value="short">단기카풀</option>
-									<option value="long">장기카풀</option>
-									<option value="taxi">택시카풀</option>
-									<option value="school">고스쿨</option>
-								</select>
-							<div>
-								성별 : <input name="ss" id="ss" type="radio" checked="" value="1"><span>남자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>여자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>모두</span>
-								<br> <br> 인증 여부 : <input name="sss" id="sss"
-									type="checkbox" checked="" value="3"><span>휴대전화
-									인증</span> <input name="sss" id="sss" type="checkbox" value="3"><span>페이스북
-									인증</span><br> <br> 흡연 여부 : <input name="ss" id="ss"
-									type="radio" checked="" value="2"><span>흡연 가능</span> <input
-									name="ss" id="ss" type="radio" value="2"><span>흡연
-									불가</span> <br>
-
-
-							</div>
-							</p>
-							<input type="submit" value="검색하기" />
-						</form>
-					</fieldset>
-				</div>
-				<div class="col-md-10">
-				
-					<h2></h2>
-					<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-					<h4></h4>
-					
+			<div class="col-md-8 col-md-offset-2">
 					<form method="post" action="${contextPath}/carpool/write">
 						<input type="hidden" name="category" value="${category }">
 						<input type="hidden" name="mno" value="${memberInfo.mno}">
@@ -194,6 +159,7 @@ table.t_ex2 .c2 {
 							<br><br><br>
 						</table>
 						</center>
+						<article class="con_wrap reg_wrap">
 						<table class="table table-condensed" >
 							<tr>
 								<td><p class="reg_area dt">희망기간<p></td>
@@ -295,16 +261,16 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">출발지</p></td>
-									<td><input type="text" name="departure" id="loc1">&nbsp;</td>
+									<td><input type="text" name="departure" id="loc1" size="17">&nbsp;</td>
 									
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">도착지</p></td>
-									<td><input type="text" name="arrival" id="loc3"></td>
+									<td><input type="text" name="arrival" id="loc3" size="17"></td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">경유지</p></td>
-									<td><input type="text" name="pass" id="loc2">&nbsp;&nbsp;<input type="text" name="pass" id="loc2">&nbsp;&nbsp;<input type="text" name="pass" id="loc2">&nbsp;&nbsp;<input type="text" name="pass" id="loc2"></td>
+									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2"></td>
 								</tr>
 								<tr>
 									<td><br></td>
@@ -312,11 +278,12 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">좌석수</p></td>
-									<td><input type="number" name="seat" value="1"></td>
+									<td>
+									<input type="number" name="seat" value="1"></td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">금액</p></td>
-									<td><input type="text" name="arrival"></td>
+									<td><input type="text" name="arrival" size="20"></td>
 								</tr>
 								<tr>
 								
@@ -330,26 +297,29 @@ table.t_ex2 .c2 {
 								<tr>
 									
 									<td><p class="reg_area dt">성별</p></td>
-									<td><p class="reg_area dt"><input type="radio" name="usertype" value="gender"
+									
+									<td><p class="reg_area dt"><input type="radio" name="usertype2" value="gender"
 										checked="checked"> 여자 <input
-										type="radio" name="usertype" value="gender"> 남자 </p></td>
+										type="radio" name="usertype2" value="gender"> 남자 </p></td>
 								</tr>
 
 								<tr>
 									<td><p class="reg_area dt">추가내용</p></td>
 									<td><textarea name="memo" rows="10" cols="50"></textarea></td>
 								</tr>
+								
 								<tr>
 									<td colspan="2" align="center"><input type="submit" class="btn_type2" value="취소"><input
 										type="submit" class="btn_type1" class="btn_type1" value="완료"></td>
 								</tr>
 							</table>
+							</article>
 							</form>
 					
 				</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	<%@ include file="../footer.jsp"%>
 </body>
 </html>
