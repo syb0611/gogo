@@ -106,7 +106,6 @@ table.t_ex2 .c2 {
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-
 								<li><a href="${contextPath}/carpool/list?category=dan"><font
 										size=3>단기카풀</font></a></li>
 								<li><a href="${contextPath}/carpool/list?category=jang"><font

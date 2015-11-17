@@ -13,12 +13,18 @@
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/font-awesome.css">
-<link rel="stylesheet" href="../css/templatemo_style.css">
-<link rel="stylesheet" href="../css/templatemo_misc.css">
-<link rel="stylesheet" href="../css/flexslider.css">
-<link rel="stylesheet" href="../css/testimonails-slider.css">
+     <link rel="stylesheet" href="/withgo/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/withgo/resources/css/font-awesome.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_style.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_misc.css">
+<link rel="stylesheet" href="/withgo/resources/css/flexslider.css">
+<link rel="stylesheet" href="/withgo/resources/css/testimonails-slider.css">
+
+<script src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="/withgo/resources/js/vendor/jquery-1.11.0.min.js"></script>
+<script src="/withgo/resources/js/vendor/jquery.gmap3.min.js"></script>
+<script src="/withgo/resources/js/plugins.js"></script>
+<script src="/withgo/resources/js/main.js"></script>
 
 <style>
 #heading {
@@ -36,7 +42,7 @@
 }
 
 </style>
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
 <script>
 function checkPW(){
 	if(document.getElementById("mypw").value == document.getElementById("pwck").value){
@@ -63,10 +69,14 @@ function checkPW(){
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-								<li><a href="${contextPath}/carpool/list?category=dan"><font size=3>단기카풀</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=jang"><font size=3>장기카풀</font></a></li>
-								<li><a href="goschool"><font size=3>고 스쿨</font></a></li>
-								<li><a href="taxi"><font size=3>택시카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=dan"><font
+										size=3>단기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=jang"><font
+										size=3>장기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=goschool"><font
+										size=3>고 스쿨</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=taxi"><font
+										size=3>택시카풀</font></a></li>
 								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
 								<li><a href="customer"><font size=3>고객센터</font></a></li>
 							</ul>
@@ -164,11 +174,6 @@ function checkPW(){
 	</div>
 	</div>
 	<%@ include file="../footer.jsp"%>
-
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="js/vendor/jquery.gmap3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
 
 </body>
 </html>
