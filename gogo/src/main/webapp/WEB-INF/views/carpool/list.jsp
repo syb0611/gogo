@@ -85,14 +85,29 @@ body {
 		</div>
 	</header>
 
-
 	<div id="heading">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>CARPOOL</h2>
-						<span>Home / <a href="#">카풀</a></span>
+						<c:choose>
+							<c:when test="${category == 'dan'}">
+								<h2>short-term carpool</h2>
+								<span>Home / <a href="jang.html">단기카풀</a></span>
+							</c:when>
+							<c:when test="${category == 'jang'}">
+								<h2>Long-term carpool</h2>
+								<span>Home / <a href="jang.html">장기카풀</a></span>
+							</c:when>
+							<c:when test="${category == 'goschool'}">
+								<h2>goschool</h2>
+								<span>Home / <a href="goschool.html">고스쿨</a></span>
+							</c:when>
+							<c:when test="${category == 'taxi'}">
+								<h2>TAXI CARPOOL</h2>
+								<span>Home / <a href="taxi.html">TAXI</a></span>
+							</c:when>
+						</c:choose>
 					</div>
 				</div>
 			</div>
