@@ -28,7 +28,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 <link rel="stylesheet" href="/withgo/resources/css/flexslider.css">
 <link rel="stylesheet" href="/withgo/resources/css/testimonails-slider.css">
 
-
+<script src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <script src="/withgo/resources/js/vendor/jquery-1.11.0.min.js"></script>
 <script src="/withgo/resources/js/vendor/jquery.gmap3.min.js"></script>
 <script src="/withgo/resources/js/plugins.js"></script>
@@ -53,7 +53,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 	padding-top: 20px;
 }
 </style>
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
 </head>
 <body>
 	<!--[if lt IE 7]>

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <!-- 
 
 Grill Template 
@@ -12,237 +14,169 @@ Grill Template
 http://www.templatemo.com/free-website-templates/417-grill
 
 -->
-    <head>
-        <meta charset="utf-8">
-        <title>Blog - Grill Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<head>
+<meta charset="utf-8">
+<title>Blog - Grill Template</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/withgo/resources/css/bootstrap.css">
 <link rel="stylesheet" href="/withgo/resources/css/font-awesome.css">
 <link rel="stylesheet" href="/withgo/resources/css/templatemo_style.css">
 <link rel="stylesheet" href="/withgo/resources/css/templatemo_misc.css">
 <link rel="stylesheet" href="/withgo/resources/css/flexslider.css">
-<link rel="stylesheet" href="/withgo/resources/css/testimonails-slider.css">
+<link rel="stylesheet"
+	href="/withgo/resources/css/testimonails-slider.css">
 
-<script src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script
+	src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <script src="/withgo/resources/js/vendor/jquery-1.11.0.min.js"></script>
 <script src="/withgo/resources/js/vendor/jquery.gmap3.min.js"></script>
 <script src="/withgo/resources/js/plugins.js"></script>
 <script src="/withgo/resources/js/main.js"></script>
 
 <style>
-
 #heading {
-		  background-image: url(images/slide2.jpg);
-		  height: 140px;
-		}
-
-
-
+	background-image: url(/withgo/resources/images/slide2.jpg);
+	height: 140px;
+}
 </style>
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+</head>
+<body>
+	<!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-            <header>
-                <%@ include file="header.jsp" %>
-                <div id="main-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="logo">
-                                    <a href="${contextPath}/home"><img src="images/pool2.jpeg" title="Grill Template" alt="Grill Website Template" ></a>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="main-menu">
-                                    <ul>
-                                     <li><a href="${contextPath}/carpool/list?category=dan"><font size = 3>단기카풀</font></a></li>
-                                     <li><a href="${contextPath}/carpool/list?category=jang"><font size = 3>장기카풀</font></a></li> 
-                                     <li><a href="${contextPath}/carpool/list?category=goschool"><font size = 3>고 스쿨</font></a></li>
-                                     <li><a href="${contextPath}/carpool/list?category=taxi"><font size = 3>택시카풀</font></a></li>
-                                     <li><a href="${contextPath}/board/main"><font size = 3>커뮤니티</font></a></li>
-                                     <li><a href="${contextPath}/customer"><font size = 3>고객센터</font></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="search-box">  
-                                    <form name="search_form" method="get" class="search_form">
-                                        <input id="search" type="text" />
-                                        <input type="submit" id="search-button" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div id="heading">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="heading-content">
-                                <h2>customer service center</h2>
-                                <span>Home / <a href="single-post.html">고객센터</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="timeline-post">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                        	<fieldset> 
-							<legend> 
-							 
-				 			</legend> 
-
-				 			<form action="./example2.php" method="GET"  role="form"> 
-
-									
-									
-									<div class="btn-group">
-									<p></p>
-									<p></p>
-									<p></p>
-									<p>조건</p>
-									<button type="button" class="btn btn-default">모두</button>
-									<button type="button" class="btn btn-default">타세요</button>
-									<button type="button" class="btn btn-default">탈래요</button>
-									</div>
-								
-								
-									
-									<div class="btn-group">
-									<p></p>
-									<p>성별</p>
-									<button type="button" class="btn btn-default">모두</button>
-									<button type="button" class="btn btn-default">남자</button>
-									<button type="button" class="btn btn-default">여자</button>
-									</div>
-									
-									
-									<div class="btn-group">
-									<p></p>
-									<p>흡연</p>
-									<button type="button" class="btn btn-default">모두</button>
-									<button type="button" class="btn btn-default">가능</button>
-									<button type="button" class="btn btn-default">불가</button>
-									</div>
-									<div class="btn-group">
-									<p></p>
-									<p>인증</p>
-									<button type="button" class="btn btn-default">모두</button>
-									<button type="button" class="btn btn-default">facebook</button>
-									<button type="button" class="btn btn-default">휴대폰</button>
-									</div>
-									
-									
-									
-									
-									
-									</form>
-
-									
-									</div>
-									
-									<div class="col-md-9">
-                        <h3>목록</h3>
-                            
-                        <p>줄줄줄~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-						
-     
-                        </div>
-	
+	<header>
+		<%@ include file="header.jsp"%>
+		<div id="main-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="logo">
+							<a href="${contextPath}/home"><img src="images/pool2.jpeg"
+								title="Grill Template" alt="Grill Website Template"></a>
 						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="main-menu">
+							<ul>
+								<li><a href="${contextPath}/carpool/list?category=dan"><font
+										size=3>단기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=jang"><font
+										size=3>장기카풀</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=goschool"><font
+										size=3>고 스쿨</font></a></li>
+								<li><a href="${contextPath}/carpool/list?category=taxi"><font
+										size=3>택시카풀</font></a></li>
+								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
+								<li><a href="${contextPath}/customer"><font size=3>고객센터</font></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="search-box">
+							<form name="search_form" method="get" class="search_form">
+								<input id="search" type="text" /> <input type="submit"
+									id="search-button" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-			
-				 		</fieldset>  
-                        </div>
+	<div id="heading">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading-content">
+						<h2>customer service center</h2>
+						<span>Home / <a href="single-post.html">고객센터</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                    </div>
-                    
-                    <div class="space50"></div>
-                    
-               
-                </div>
-            </div>
+	<div id="timeline-post">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<fieldset>
+						<legend> </legend>
 
-
-
-
-
-
-
-
-
-
-
-
+						<form action="./example2.php" method="GET" role="form">
 
 
 
+							<div class="btn-group">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p>조건</p>
+								<button type="button" class="btn btn-default">모두</button>
+								<button type="button" class="btn btn-default">타세요</button>
+								<button type="button" class="btn btn-default">탈래요</button>
+							</div>
+
+
+
+							<div class="btn-group">
+								<p></p>
+								<p>성별</p>
+								<button type="button" class="btn btn-default">모두</button>
+								<button type="button" class="btn btn-default">남자</button>
+								<button type="button" class="btn btn-default">여자</button>
+							</div>
+
+
+							<div class="btn-group">
+								<p></p>
+								<p>흡연</p>
+								<button type="button" class="btn btn-default">모두</button>
+								<button type="button" class="btn btn-default">가능</button>
+								<button type="button" class="btn btn-default">불가</button>
+							</div>
+							<div class="btn-group">
+								<p></p>
+								<p>인증</p>
+								<button type="button" class="btn btn-default">모두</button>
+								<button type="button" class="btn btn-default">facebook</button>
+								<button type="button" class="btn btn-default">휴대폰</button>
+							</div>
 
 
 
 
 
+						</form>
+					</fieldset>
+				</div>
+
+				<div class="col-md-9">
+					<h3>목록</h3>
+
+					<p>줄줄줄~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+
+				</div>
+
+			</div>
 
 
 
+		</div>
 
+	</div>
 
+	<div class="space50"></div>
 
-
-
-
-
-
-
-
-           <!--
+	<!--
             <div id="product-post">
                 <div class="container">
                     <div class="row">
@@ -454,12 +388,12 @@ http://www.templatemo.com/free-website-templates/417-grill
                 </div>
             </div>
  			-->
- 			
- 		
 
-			
-			
-			<%@ include file="footer.jsp" %>
 
-    </body>
+
+
+
+	<%@ include file="footer.jsp"%>
+
+</body>
 </html>
