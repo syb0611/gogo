@@ -17,13 +17,22 @@
 		values(book_seq.nextval, #{carno}, #{resmem}, #{reqmem}, #{seatnum})
 	</insert>
 	
-	<select id="bookingList1">
-		select * from booking
-		where reqmem = #{reqmem}
+	<update id="updateRequestNum">
+		update carpool
+		set requestseat = requestseat+1
+		where carno=#{carno}
+	</update>
+	
+	<select id="bookingList1" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select C.*, M.*
+		from carpool C, member M
+		where C.mno = M.mno
+		and C.mno=#{resmem}
+		and requestseat > 0
 	</select>
 	
 	<select id="bookingList2" resultType="com.gogo.withgo.vo.BookInfoVo">
-		select B.bookno, B.seatnum, B.status C.*, M.*
+		select B.*, C.*, M.*
 		from booking B, carpool C, member M
 		where B.carno = C.carno 
 		and B.resmem = M.mno

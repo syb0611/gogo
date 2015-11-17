@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.BookInfoVo;
 import com.gogo.withgo.vo.BookingVo;
+import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Repository
 public class BookingDao {
@@ -26,15 +27,14 @@ public class BookingDao {
 	
 	public void bookRequest(BookingVo vo){
 		template.insert(sql+".bookRequest", vo);
+		template.update(sql+".updateRequestNum", vo);
 	}
 	
-	public void bookingList1(int reqmem){
-		List<BookingVo> list = template.selectList(sql+".bookingList1", reqmem);
-		//System.out.println(list.get(0).getSeatnum());
+	public List<CarpoolMemberVo> bookingList1(int resmem){
+		return template.selectList(sql+".bookingList1", resmem);
 	}
 	
-	public void bookingList2(int reqmem){
-		List<BookInfoVo> list =  template.selectList(sql+".bookingList2", reqmem);
-		System.out.println(list.get(0).getArrival());
+	public List<BookInfoVo> bookingList2(int reqmem){
+		return template.selectList(sql+".bookingList2", reqmem);
 	}
 }

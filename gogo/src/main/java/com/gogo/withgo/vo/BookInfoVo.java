@@ -46,6 +46,7 @@ public class BookInfoVo {
 	private int price;
 	private int smoking;
 	private int genderlimit;
+	private int requestseat;
 	
 	public BookInfoVo() {}
 
@@ -55,7 +56,7 @@ public class BookInfoVo {
 			String pw, String nickname, String name, String phone, String birth, int gender, int hascar, String image,
 			Date jdate, String profile, String auth, int authphone, int authemail, String category, String departure,
 			String arrival, String stop1, String stop2, String stop3, String stop4, String stop5, String usertype,
-			int seat, int bookedseat, String memo, Date departuredate, int price, int smoking, int genderlimit) {
+			int seat, int bookedseat, String memo, Date departuredate, int price, int smoking, int genderlimit, int requestseat) {
 		super();
 		this.bookno = bookno;
 		this.carno = carno;
@@ -94,6 +95,19 @@ public class BookInfoVo {
 		this.price = price;
 		this.smoking = smoking;
 		this.genderlimit = genderlimit;
+		this.requestseat = requestseat;
+	}
+
+
+
+	public int getRequestseat() {
+		return requestseat;
+	}
+
+
+
+	public void setRequestseat(int requestseat) {
+		this.requestseat = requestseat;
 	}
 
 

@@ -21,12 +21,13 @@ public class CarpoolVo {
 	private int price;
 	private int smoking;
 	private int genderlimit;
+	private int requestseat;
 	
 	public CarpoolVo() {}
 
 	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
 			String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo, Date departuredate,
-			int price, int smoking, int genderlimit) {
+			int price, int smoking, int genderlimit, int requestseat) {
 		super();
 		this.carno = carno;
 		this.category = category;
@@ -46,9 +47,18 @@ public class CarpoolVo {
 		this.price = price;
 		this.smoking = smoking;
 		this.genderlimit = genderlimit;
+		this.requestseat = requestseat;
 	}
 
 	
+	public int getRequestseat() {
+		return requestseat;
+	}
+
+	public void setRequestseat(int requestseat) {
+		this.requestseat = requestseat;
+	}
+
 	public int getBookedseat() {
 		return bookedseat;
 	}

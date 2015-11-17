@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -46,7 +47,17 @@ http://www.templatemo.com/free-website-templates/417-grill
 	float: left;
 }
 
+.listTable{
+	width: 100%;
+}
 
+.listTable:hover {
+	background-color: #EAEAEA;
+}
+
+.listTable tr td{
+	padding: 5px;
+}
 </style>
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
@@ -115,8 +126,140 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								<button class="btn btn-default">받은 예약</button>
-								<button class="btn btn-default">한 예약</button>						
+								<c:choose>
+									<c:when test="${type == '1'}">
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'" style="background: gray; color:white">받은 예약</button>
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=2'">한 예약</button>	
+										<div>
+											<table class="table table-condensed">
+												<c:choose>
+													<c:when test="${booklist == '[]' }">
+														<tr>
+															<td colspan="4">예약 신청한 글이 없습니다.</td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${booklist }" var="vo">
+														<tr>
+															<td>
+																<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+																	<tr>
+																		<td width="15%" align="center">
+																			<div><img src="../images/blankimage.png" width="80px"></div>
+																			<div style="margin-top: 5px">${vo.name }</div>
+																		</td>
+																		<td width="50%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
+																			<div style="padding: 10px">${vo.departuredate } 출발</div>
+																			<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
+																			<div style="padding: 10px">경유지</div>
+																		</td>
+																		<td width="25%" style="text-align: right">
+																			<div>
+																				<c:choose>
+																					<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
+																					<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
+																					<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+																				</c:choose>
+																				<c:choose>
+									 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+																					<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+																					<c:otherwise>함께타요</c:otherwise>									
+																				</c:choose> 
+																			</div>
+																			<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																			<div>
+																				<font size="4">
+																				<c:choose>
+																					<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+																					<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																				</c:choose>
+																				</font>
+																			</div>
+																		</td>
+																		<td width="10%" style="text-align: center">
+																			예약요청 ${vo.requestseat }개
+																		</td>
+																	</tr>		
+																</table>
+															</td>
+														</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>		
+											</table>
+										</div>					
+									</c:when>
+									<c:otherwise>
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'">받은 예약</button>
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=2'" style="background: gray; color:white">한 예약</button>	
+										<div>
+											<table class="table table-condensed">
+												<c:choose>
+													<c:when test="${booklist == '[]' }">
+														<tr>
+															<td colspan="4">받은 예약이 없습니다.</td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${booklist }" var="vo">
+														<tr>
+															<td>
+																<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+																	<tr>
+																		<td width="15%" align="center">
+																			<div><img src="../images/blankimage.png" width="80px"></div>
+																			<div style="margin-top: 5px">${vo.name }</div>
+																		</td>
+																		<td width="50%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
+																			<div style="padding: 10px">${vo.departuredate } 출발</div>
+																			<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
+																			<div style="padding: 10px">경유지</div>
+																		</td>
+																		<td width="25%" style="text-align: right">
+																			<div>
+																				<c:choose>
+																					<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
+																					<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
+																					<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+																				</c:choose>
+																				<c:choose>
+									 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+																					<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+																					<c:otherwise>함께타요</c:otherwise>									
+																				</c:choose> 
+																			</div>
+																			<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																			<div>
+																				<font size="4">
+																				<c:choose>
+																					<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+																					<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																				</c:choose>
+																				</font>
+																			</div>
+																		</td>
+																		<td width="10%" style="text-align: center">
+																			<c:choose>
+																				<c:when test="${vo.status == 0 }">요청중</c:when>
+																				<c:when test="${vo.status == -1 }">거절</c:when>
+																				<c:otherwise>수락</c:otherwise>
+																			</c:choose>
+																		</td>
+																	</tr>		
+																</table>
+															</td>
+														</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>		
+											</table>
+										</div>
+									
+									</c:otherwise>
+								</c:choose>
+
+								
+								
 							</div>
 						</div>			
 					</div>		
