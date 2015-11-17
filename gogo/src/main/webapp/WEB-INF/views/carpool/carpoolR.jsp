@@ -82,13 +82,13 @@ table.t_ex2 .c2 {
 var xhr;
 
 function checkBooking(){
-	var myMNO = document.getElementById("mno").value;
-	var writerMNO = document.getElementById("writerMNO").value;
-	
-	if(myMNO == null || myMNO == ""){
+	var reqmem = document.getElementById("reqmem").value;  //예약신청자
+	var resmem = document.getElementById("resmem").value;  //글작성자
+
+	if(reqmem == null || reqmem == ""){
 		alert("로그인하세요.");
 		return;
-	}else if(myMNO == writerMNO){
+	}else if(reqmem == resmem){
 		alert("이 글의 작성자는 예약할 수 없습니다.");
 		return;
 	}
@@ -103,21 +103,36 @@ function checkBooking(){
 
 function goBooking(){
 	var carno = document.getElementById("carno").value;
-	var mno = document.getElementById("mno").value;
+	var reqmem = document.getElementById("reqmem").value;
+	var resmem = document.getElementById("resmem").value;
 	var seatnum = document.getElementById("seatnum").value;
-	
+
 	xhr = new XMLHttpRequest();
 	var url = "${pageContext.request.contextPath}/booking/bookRequest";
 	xhr.open("POST", url, true);
 	xhr.onreadystatechange = bookResult;
-	xhr.send("carno="+carno+"&mno="+mno+"&seatnum="+seatnum);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.send("carno="+carno+"&reqmem="+reqmem+"&resmem="+resmem+"&seatnum="+seatnum);
 }
 
 function bookResult(){
 	if(xhr.readyState == 4){
 		if(xhr.status == 200){
 			var result = xhr.responseText;
-			alert(result);
+			
+ 			if(result == "alreadyBooked"){
+ 				alert("이미 예약된 글입니다.");
+ 				return;
+ 			}else if(result == "noMoreSeat"){
+ 				alert("예약 좌석이 마감되었습니다.");
+ 				return;
+ 			}else if(result == "over"){
+ 				alert("좌석이 부족합니다.");
+ 				return;
+ 			}else if(result == "success"){
+ 				alert("예약신청되었습니다. 수락을 기다리세요.");
+ 				return;
+ 			}
 		}
 	}
 }
@@ -191,8 +206,8 @@ function bookResult(){
 							</tr>
 							<tr>
 								<td>
-									<input type="hidden" name="mno" id="myMNO" value="${memberInfo.mno }">
-									<input type="hidden" id="writerMNO" value="${vo.mno }">
+									<input type="hidden" name="reqmem" id="reqmem" value="${memberInfo.mno }">
+									<input type="hidden" id="resmem" value="${vo.mno }">
 									<input type="hidden" name="carno" id="carno" value="${vo.carno }">
 									<select class="form-control input-sm" name="seatnum" id="seatnum">
 										<c:forEach begin="1" end="${vo.seat }" var="num">

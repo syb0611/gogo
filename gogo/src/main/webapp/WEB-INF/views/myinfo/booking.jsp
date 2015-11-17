@@ -46,7 +46,9 @@ http://www.templatemo.com/free-website-templates/417-grill
 	float: left;
 }
 
+
 </style>
+
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 </head>
 <body>
@@ -113,7 +115,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								예약내역
+								<button class="btn btn-default">받은 예약</button>
+								<button class="btn btn-default">한 예약</button>						
 							</div>
 						</div>			
 					</div>		
@@ -122,6 +125,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 		</div>
 	</div>
 	</div>
+	
 	<%@ include file="../footer.jsp"%>
 
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>

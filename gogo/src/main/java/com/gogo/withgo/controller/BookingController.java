@@ -21,12 +21,12 @@ public class BookingController {
 	
 	@RequestMapping("/bookRequest")
 	public void bookRequest(BookingVo vo, HttpServletResponse response) throws IOException{
+		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		int booked = dao.checkBooking(vo); //예약되었는지 확인
 		if(booked != 0){
 			out.print("alreadyBooked");
-			return;
 		}else{
 			int leftSeat = dao.getLeftSeat(vo);
 			if(leftSeat == 0){ //좌석 마감
@@ -34,8 +34,10 @@ public class BookingController {
 			}else if(vo.getSeatnum() > leftSeat){ //좌석 부족
 				out.print("over");
 			}else{ //예약 가능
-				
+				dao.bookRequest(vo);  //예약요청
+				out.print("success");
 			}
 		}
+		out.close();
 	}
 }

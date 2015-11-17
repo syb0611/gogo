@@ -16,7 +16,7 @@
 	<bean id="boardController" class="com.gogo.withgo.controller.BoardController" />
 	<bean id="messageController" class="com.gogo.withgo.controller.MessageController" />
 	<bean id="carpoolController" class="com.gogo.withgo.controller.CarpoolController" />
-	<bean id="myinfoController" class="com.gogo.withgo.controller.MyinfoController" />
+	<bean id="mypageController" class="com.gogo.withgo.controller.MyPageController" />
 	<bean id="bookingController" class="com.gogo.withgo.controller.BookingController" />
 	
 	

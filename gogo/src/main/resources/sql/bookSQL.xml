@@ -3,7 +3,7 @@
 <mapper namespace="bookSQL">
 	<select id="checkBooking" resultType="int">
 		select count(*) from booking
-		where carno=#{carno} and mno=#{mno}
+		where carno=#{carno} and reqmem=#{reqmem}
 	</select>
 	
 	<select id="getLeftSeat" resultType="int">
@@ -12,12 +12,25 @@
 		where carno=#{carno}
 	</select>
 
-	<insert id="book">
-		insert into booking(bookno, carno, mno, seatnum)
-		values(book_seq.nextval, #{carno}, #{mno}, #{seatnum})
+	<insert id="bookRequest">
+		insert into booking(bookno, carno, resmem, reqmem, seatnum)
+		values(book_seq.nextval, #{carno}, #{resmem}, #{reqmem}, #{seatnum})
 	</insert>
 	
-	<update id="seatUpdate">
+	<select id="bookingList1">
+		select * from booking
+		where reqmem = #{reqmem}
+	</select>
 	
-	</update>
+	<select id="bookingList2" resultType="com.gogo.withgo.vo.BookInfoVo">
+		select B.bookno, B.seatnum, B.status C.*, M.*
+		from booking B, carpool C, member M
+		where B.carno = C.carno 
+		and B.resmem = M.mno
+		and B.reqmem = #{reqmem}
+	</select>
+<!-- 	<update id="seatUpdate"> -->
+<!-- 		update carpool -->
+<!-- 		set bookedseat = bookedseat+#{seatnum} -->
+<!-- 	</update> -->
 </mapper>
