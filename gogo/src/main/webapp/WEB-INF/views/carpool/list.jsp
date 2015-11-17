@@ -28,7 +28,11 @@ body {
 <link rel="stylesheet" href="../css/testimonails-slider.css">
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-
+<script src="js/vendor/jquery-1.11.0.min.js"></script>
+<script src="js/vendor/jquery.gmap3.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+	
 <style>
 #timeline-post{
 	margin-top: 30px;
@@ -264,11 +268,6 @@ body {
 
 
 	<%@ include file="../footer.jsp"%>
-
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="js/vendor/jquery.gmap3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
 
 </body>
 </html>

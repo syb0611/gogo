@@ -27,8 +27,12 @@ http://www.templatemo.com/free-website-templates/417-grill
         <link rel="stylesheet" href="css/flexslider.css">
         <link rel="stylesheet" href="css/testimonails-slider.css">
 
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script src="js/vendor/jquery.gmap3.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-        
+             
         <style>
         #formDiv{
 			margin-top: 200px;
@@ -42,6 +46,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 		#searchForm input{
 			margin: 3px;
 		}
+		
+		table,tr,td {border:1px solid #000000}
         </style>
     </head>
     <body>
@@ -83,18 +89,8 @@ http://www.templatemo.com/free-website-templates/417-grill
             </header>
             
 
-            <div id="slider">
-                <div class="flexslider">
-                  <ul class="slides">
-                    <li>
-					<div class="slider-caption">
-						<h1></h1>
-						<p></p>
-
-					</div>
-					<!-- <div background-image:url('images/car6.jpg')></div> -->
-					<div style = "background-image:url('images/car6.jpg'); width:100%px; height:1000px;">
-						<form method="post" action="" id="searchForm">
+            <div id="slider"  style = "background-image:url('images/car6.jpg');width:100%; height:700px;">
+                <form method="post" action="" id="searchForm">
 							<div class="row">
 								<div class="col-sm-4 col-sm-offset-4" id="formDiv">
 									<input type="text" class="form-control" name="departure" placeholder="출발지">
@@ -102,38 +98,10 @@ http://www.templatemo.com/free-website-templates/417-grill
 									<input type="button" class="btn btn-default form-control" value="검색">
 								</div>
 							</div>
-						</form>
-					 
-						<!-- <img src="images/car6.jpg" width="300" height="500"alt="" /> -->
-						</div>
-                    </li>
-                    
-                  
-                </div>
-             
-            </div>
-            
-          
-    <head>
-        <meta charset="utf-8">
-        <style>
-            table,tr,td {border:1px solid #000000}
-        </style>
-    </head>
-   
-    <body>
-      
-      
-      
-      
-      
-    </body>
-
-<%@ include file="footer.jsp" %>
-<script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script src="js/vendor/jquery.gmap3.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+				</form>
+			 </div>
+ 
+ <%@ include file="footer.jsp" %>		
 
 </body>
 </html>
