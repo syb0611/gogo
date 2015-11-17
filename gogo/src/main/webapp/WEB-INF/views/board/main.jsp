@@ -24,12 +24,18 @@ http://www.templatemo.com/free-website-templates/417-grill
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/font-awesome.css">
-<link rel="stylesheet" href="../css/templatemo_style.css">
-<link rel="stylesheet" href="../css/templatemo_misc.css">
-<link rel="stylesheet" href="../css/flexslider.css">
-<link rel="stylesheet" href="../css/testimonails-slider.css">
+<link rel="stylesheet" href="/withgo/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/withgo/resources/css/font-awesome.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_style.css">
+<link rel="stylesheet" href="/withgo/resources/css/templatemo_misc.css">
+<link rel="stylesheet" href="/withgo/resources/css/flexslider.css">
+<link rel="stylesheet" href="/withgo/resources/css/testimonails-slider.css">
+
+<script src="/withgo/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="/withgo/resources/js/vendor/jquery-1.11.0.min.js"></script>
+<script src="/withgo/resources/js/vendor/jquery.gmap3.min.js"></script>
+<script src="/withgo/resources/js/plugins.js"></script>
+<script src="/withgo/resources/js/main.js"></script>
 
 <style>
 #heading {
@@ -52,7 +58,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 	top: 20px;
 }
 </style>
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
 </head>
 <body>
 	<!--[if lt IE 7]>
@@ -219,37 +225,6 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 
 	<%@ include file="../footer.jsp"%>
-
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="js/vendor/jquery.gmap3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
-
-	<script
-		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false">
-		
-	</script>
-
-	<script>
-		var map;
-
-		function initialize() {
-			var map_options = {
-				center : new google.maps.LatLng(16.8496189, 96.1288854),
-				zoom : 15,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("googleMap"),
-					map_options);
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-		google.maps.event.addDomListener(window, "resize", function() {
-			var center = map.getCenter();
-			google.maps.event.trigger(map, "resize");
-			map.setCenter(center);
-		});
-	</script>
 
 </body>
 </html>
