@@ -234,7 +234,7 @@ function rej(){
 																					<td width="25%" style="text-align: right; padding-right: 15px">
 																						<div>
 																							<c:choose>
-																								<c:when test="${category == 'dan' }"><img src="${contextPath}/images/dan.png"></c:when> 
+																								<c:when test="${category == 'dan' }"><img src="/withgo/resource/images/dan.png"></c:when> 
 																								<c:when test="${category == 'jang' }"><img src="${contextPath}/images/jang.png"></c:when>
 																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
 																							</c:choose>

@@ -63,7 +63,7 @@
 		and B.carno = #{carno}
 	</select>
 	
-	<update id="acc">
+	<update id="accept">
 		update booking 
 		set status = 1
 		where carno=#{carno} and reqmem=#{reqmem}
