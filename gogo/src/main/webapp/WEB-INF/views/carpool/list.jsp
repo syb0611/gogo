@@ -181,7 +181,7 @@ body {
 				
 				<div class="col-md-9">
 					<div>
-						<div style="float: left;">
+						<%-- <div style="float: left;">
 						<c:choose>
 							<c:when test="${category == 'dan'}">
 								<h4>단기카풀</h4>
@@ -189,8 +189,14 @@ body {
 							<c:when test="${category == 'jang'}">
 								<h4>장기카풀</h4>
 							</c:when>
+							<c:when test="${category == 'goschool'}">
+								<h4>고스쿨</h4>
+							</c:when>
+							<c:when test="${category == 'taxi'}">
+								<h4>택시</h4>
+							</c:when>
 						</c:choose>
-						</div>
+						</div> --%>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
 							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${category }'">
