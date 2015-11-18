@@ -55,4 +55,17 @@
 		delete from booking
 		where carno=#{carno} and reqmem=#{reqmem}
 	</delete>
+	
+	<select id="getRequests" resultType="com.gogo.withgo.vo.BookInfoVo">
+		select B.*, M.*
+		from booking B, member M
+		where B.reqmem = M.mno
+		and B.carno = #{carno}
+	</select>
+	
+	<update id=".accept">
+		update booking 
+		set status = 1
+		where carno=#{carno}
+	</update>
 </mapper>

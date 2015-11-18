@@ -2,6 +2,7 @@ package com.gogo.withgo.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.BookingDao;
+import com.gogo.withgo.vo.BookInfoVo;
 import com.gogo.withgo.vo.BookingVo;
 
 @Controller
@@ -49,5 +51,42 @@ public class BookingController {
 		
 		model.addAttribute("type", type);
 		return "redirect:/mypage/booking/";
+	}
+	
+	@RequestMapping("/getRequests")
+	public void getRequest(HttpServletResponse response, @RequestParam("carno") int carno) throws IOException{
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		List<BookInfoVo> reqList = dao.getRequests(carno);
+		
+		out.println("<table>");
+		for(int i=0; i<reqList.size(); i++){
+			BookInfoVo vo = reqList.get(i);
+			out.println("<tr>");
+			out.println("<td style='width:10%; text-align: center'>");
+			out.println("<img src='${contextPath}/images/blankimage.png'>");
+			out.println("</td>");
+			out.println("<td style='width:25%; padding-left: 20px'>"+vo.getName()+"<br>");
+			if(vo.getGender() == 1) out.print("남자");
+			else if(vo.getGender() == 2) out.print("여자");
+			out.println("</td>");
+			out.println("<td style='width:20%;'>"+vo.getSeatnum()+"명</td>");
+			out.println("<td style='text-align: right'>");
+			out.println("<input type='button' class='btn btn-default btn-sm' value='수락' onclick='acc("+vo.getCarno()+","+vo.getReqmem()+")'>");
+			out.println("<input type='button' class='btn btn-default btn-sm' value='거절' onclick='rej()'>");
+			out.println("</td>");
+			out.println("<td style='text-align: right; width:15%'>");
+			out.println("<input type='button' class='btn btn-primary btn-sm' value='쪽지보내기'>");
+			out.println("</td>");
+			out.println("</tr>");
+		}
+		out.println("</table>");
+		out.close();
+	}
+	
+	@RequestMapping("/accept")
+	public void accept(BookingVo vo){
+		dao.accept(vo);
 	}
 }

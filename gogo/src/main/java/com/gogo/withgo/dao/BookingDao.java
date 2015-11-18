@@ -46,4 +46,12 @@ public class BookingDao {
 		template.delete(sql+".cancel", vo);
 		template.update(sql+".updateRequestNumDown", vo);
 	}
+	
+	public List<BookInfoVo> getRequests(int carno){
+		return template.selectList(sql+".getRequests", carno);
+	}
+	
+	public void accept(BookingVo vo){
+		template.update(sql+".accept", vo);
+	}
 }

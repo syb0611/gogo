@@ -1,3 +1,5 @@
+<%@page import="com.gogo.withgo.vo.BookInfoVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -55,14 +57,14 @@ table{
 	width: 100%;
 }
 
-.listTable:hover {
+.listTd:hover{
 	background-color: #EAEAEA;
+	cursor: pointer;
 }
 
 .listTable table tr td{
 	padding: 5px;
 }
-
 
 </style>
 
@@ -76,15 +78,69 @@ function cancelClick(){
 		return false;
 	}
 }
+</script>
+<script>
+var xhr;
+var no;
 
+function iconClick(carno){
+	no = carno;
+	var icon = document.getElementById("icon"+no);
 
+	var imgUp = "http://localhost:8080${pageContext.request.contextPath}/images/up.png";
+	var imgDown = "http://localhost:8080${pageContext.request.contextPath}/images/down.png";
+	
+	if(icon.src == imgDown){
+		icon.src = imgUp;
+		getRequest();
+	}else{
+		icon.src = imgDown;
+		deleteRequestTd();
+	}
+
+}
+
+function deleteRequestTd(){
+	var reqlist = document.getElementById("reqlist"+no);
+	reqlist.parentNode.removeChild(reqlist);
+}
+
+function getRequest(){
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/booking/getRequests";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = createRequestTd;
+	xhr.send("carno="+no);
+}
+
+function createRequestTd(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+			var trId = document.getElementById("tr"+no);		
+			
+	 		var tr = document.createElement("tr");
+ 	 		var td = document.createElement("td");
+
+ 	 		tr.id = "reqlist"+no;
+	 		td.innerHTML = flag;
+ 	 		tr.appendChild(td);
+ 	 		trId.appendChild(tr);
+		}
+	}
+}
+
+function acc(cno, reqmem){
+	location.href = "${pageContext.request.contextPath}/booking/accept?carno="+cno+"&reqmem="+reqmem;
+}
+
+function rej(){
+	alert("abc");
+}
 </script>
 </head>
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -158,21 +214,21 @@ function cancelClick(){
 														</tr>
 													</c:when>
 													<c:otherwise>
-														<c:forEach items="${booklist }" var="vo">
+														<c:forEach items="${booklist }" var="vo1">
 														<tr>
 															<td>
-																<table class="listTable">	
+																<table class="listTable" id="tr${vo1.carno }">	
 																	<tr>
-																		<td style="width:90%">
-																			<table onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">
+																		<td style="width:90%" class="listTd">
+																			<table onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo1.carno }'">
 																				<tr>
 																					<td width="15%" align="center">
 																						<div><img src="${contextPath}/images/blankimage.png" width="80px"></div>
-																						<div style="margin-top: 5px">${vo.name }</div>
+																						<div style="margin-top: 5px">${vo1.name }</div>
 																					</td>
 																					<td>
-																						<div style="padding: 10px">${vo.departuredate } 출발</div>
-																						<div style="padding: 10px">${vo.departure } <img src="${contextPath}/images/a.png" width="15px"> ${vo.arrival }</div>
+																						<div style="padding: 10px">${vo1.departuredate } 출발</div>
+																						<div style="padding: 10px">${vo1.departure } <img src="${contextPath}/images/a.png" width="15px"> ${vo1.arrival }</div>
 																						<div style="padding: 10px">경유지</div>
 																					</td>
 																					<td width="25%" style="text-align: right; padding-right: 15px">
@@ -183,17 +239,17 @@ function cancelClick(){
 																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
 																							</c:choose>
 																							<c:choose>
-												 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
-																								<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+												 												<c:when test="${vo1.usertype == 'driver' }">타세요</c:when> 
+																								<c:when test="${vo1.usertype == 'rider' }">태워주세요</c:when> 
 																								<c:otherwise>함께타요</c:otherwise>									
 																							</c:choose> 
 																						</div>
-																						<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																						<div><font size="5"><fmt:formatNumber value="${vo1.price }" type="number"/>원</font></div>
 																						<div>
 																							<font size="4">
 																							<c:choose>
-																								<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
-																								<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																								<c:when test="${vo1.bookedseat == vo1.seat }"><font color="red">마감</font></c:when>
+																								<c:otherwise>${vo1.bookedseat}/${vo1.seat }</c:otherwise>
 																							</c:choose>
 																							</font>
 																						</div>
@@ -202,20 +258,16 @@ function cancelClick(){
 																			</table>
 																		</td>
 																		<td style="text-align: center; border-left: 1px dotted #C3C3C3">
-																			예약요청<br>${vo.requestseat }건<br>
+																		
+																			예약요청<br>${vo1.requestseat }건<br>
 																			<div style="margin-top: 10px;">
-																				<img src="${contextPath}/images/down.png" width="30px" style="cursor: pointer;" onclick="iconClick(${vo.carno})">
-																				
-																				<script>
-																				function iconClick(carno){
-																					alert(carno);
-																				}
-																				</script>
+																				<img src="${contextPath}/images/down.png" id="icon${vo1.carno}" width="30px" style="cursor: pointer;" onclick="iconClick(${vo1.carno})">
 																			</div>
 																		</td>
 																	</tr>
 																</table>
 															</td>
+															
 														</tr>
 														</c:forEach>
 													</c:otherwise>
@@ -240,7 +292,7 @@ function cancelClick(){
 															<td>
 																<table class="listTable">	
 																	<tr>
-																		<td style="width:90%">
+																		<td style="width:90%" class="listTd">
 																			<table onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">
 																				<tr>
 																					<td align="center" width="15%">
