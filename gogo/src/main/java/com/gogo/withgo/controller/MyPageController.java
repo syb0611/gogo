@@ -23,7 +23,7 @@ public class MyPageController {
 	@Autowired
 	private BookingDao dao;
 	
-	@RequestMapping(value={"/","/profile"})	
+	@RequestMapping(value={"/profile"})	
 	public String main(){
 		return "myinfo/profile";
 	}
