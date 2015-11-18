@@ -131,12 +131,54 @@ function createRequestTd(){
 	}
 }
 
-function acc(cno, reqmem){
-	//location.href = "${pageContext.request.contextPath}/booking/accept?carno="+cno+"&reqmem="+reqmem;
+function acc(cno, reqmem, seatnum){
+	if(confirm("예약요청을 수락하시겠습니까? 수락 후 번복이 불가합니다.") == true){
+		xhr = new XMLHttpRequest();
+		var url = "/withgo/booking/accept";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		xhr.onreadystatechange = acceptResult;
+		xhr.send("carno="+cno+"&reqmem="+reqmem+"&seatnum="+seatnum);
+	}else{
+		return;
+	}
 }
 
-function rej(){
-	alert("abc");
+function acceptResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+			if(flag == "success"){
+				alert("요청이 수락되었습니다.");
+				location.href="/withgo/mypage/booking";
+			}	
+		}
+	}
+}
+
+function rej(cno, reqmem){
+	if(confirm("예약요청을 거절하시겠습니까? 거절 후 번복이 불가합니다.") == true){
+		xhr = new XMLHttpRequest();
+		var url = "${pageContext.request.contextPath}/booking/reject";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		xhr.onreadystatechange = rejectResult;
+		xhr.send("carno="+cno+"&reqmem="+reqmem);
+	}else{
+		return;
+	}
+}
+
+function rejectResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+			if(flag == "success"){
+				alert("요청을 거절했습니다.");
+				location.href="/withgo/mypage/booking";
+			}	
+		}
+	}
 }
 </script>
 </head>
@@ -196,6 +238,8 @@ function rej(){
 							<a href="${contextPath}/mypage/bookmark" class="list-group-item">즐겨찾기</a>
 							<a href="${contextPath}/mypage/withdraw" class="list-group-item">회원탈퇴</a>
 						</div>		
+
+						
 					</div>		
 					<div class="col-md-10">
 						<div class="row">
@@ -210,7 +254,7 @@ function rej(){
 												<c:choose>
 													<c:when test="${booklist == '[]' }">
 														<tr>
-															<td colspan="4">예약 신청한 글이 없습니다.</td>
+															<td colspan="4">받은 예약이 없습니다.</td>
 														</tr>
 													</c:when>
 													<c:otherwise>
@@ -283,13 +327,14 @@ function rej(){
 												<c:choose>
 													<c:when test="${booklist == '[]' }">
 														<tr>
-															<td colspan="4">받은 예약이 없습니다.</td>
+															<td colspan="4">예약 신청 내역이 없습니다.</td>
 														</tr>
 													</c:when>
 													<c:otherwise>
 														<c:forEach items="${booklist }" var="vo">
 														<tr>
 															<td>
+															
 																<table class="listTable">	
 																	<tr>
 																		<td style="width:90%" class="listTd">

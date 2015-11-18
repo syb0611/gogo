@@ -73,11 +73,22 @@ public class BookingController {
 			out.println("</td>");
 			out.println("<td style='width:20%;'>"+vo.getSeatnum()+"명</td>");
 			out.println("<td style='text-align: right'>");
-			out.println("<input type='button' class='btn btn-default btn-sm' value='수락' onclick='acc("+vo.getCarno()+","+vo.getReqmem()+")'>");
-			out.println("<input type='button' class='btn btn-default btn-sm' value='거절' onclick='rej()'>");
+			if(vo.getStatus() == 0){ //요청중
+				out.println("<input type='button' class='btn btn-default btn-sm' value='수락' onclick='acc("+vo.getCarno()+","+vo.getReqmem()+","+vo.getSeatnum()+")'>");
+				out.println("<input type='button' class='btn btn-default btn-sm' value='거절' onclick='rej("+vo.getCarno()+","+vo.getReqmem()+")'>");
+			}else if(vo.getStatus() == 1){ //수락
+				out.println("<input type='button' class='btn btn-warning btn-sm' value='수락' disabled='disabled'>");	
+			}
+			else{ //거절
+				out.println("<input type='button' class='btn btn-danger btn-sm' value='거절' disabled='disabled'>");	
+			}
 			out.println("</td>");
 			out.println("<td style='text-align: right; width:15%'>");
-			out.println("<input type='button' class='btn btn-primary btn-sm' value='쪽지보내기'>");
+			out.println("<form method='post' action='/withgo/message/form'>");
+			out.println("<input type='hidden' name='toname' value='"+vo.getNickname()+"'>");
+			out.println("<input type='hidden' name='prevUrl' value='/mypage/booking'>");
+			out.println("<input type='submit' class='btn btn-primary btn-sm' value='쪽지보내기'>");
+			out.println("</form>");
 			out.println("</td>");
 			out.println("</tr>");
 		}
@@ -86,9 +97,22 @@ public class BookingController {
 	}
 	
 	@RequestMapping("/accept")
-	public String acc(BookingVo vo){
-		System.out.println(vo.getCarno());
+	public void accept(HttpServletResponse response, BookingVo vo) throws IOException{
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		dao.accept(vo);
-		return "redirect:/home";
+		out.print("success");
+		out.close();
+	}
+	
+	@RequestMapping("/reject")
+	public void reject(HttpServletResponse response, BookingVo vo) throws IOException{
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		dao.reject(vo);
+		out.print("success");
+		out.close();
 	}
 }

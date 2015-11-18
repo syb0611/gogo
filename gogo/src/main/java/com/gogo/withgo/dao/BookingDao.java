@@ -53,5 +53,12 @@ public class BookingDao {
 	
 	public void accept(BookingVo vo){
 		template.update(sql+".accept", vo);
+		template.update(sql+".bookedSeatUp", vo);
+		template.update(sql+".requestNumDown", vo);
+	}
+	
+	public void reject(BookingVo vo){
+		template.update(sql+".reject", vo);
+		template.update(sql+".requestNumDown", vo);
 	}
 }

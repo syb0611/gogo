@@ -34,7 +34,6 @@
 		from carpool C, member M
 		where C.mno = M.mno
 		and C.mno=#{resmem}
-		and requestseat > 0
 	</select>
 	
 	<select id="bookingList2" resultType="com.gogo.withgo.vo.BookInfoVo">
@@ -69,5 +68,20 @@
 		where carno=#{carno} and reqmem=#{reqmem}
 	</update>
 	
+	<update id="bookedSeatUp">
+		update carpool 
+		set bookedseat = bookedseat + #{seatnum}
+		where carno=#{carno}
+	</update>
 	
+	<update id="requestNumDown">
+		update carpool
+		set requestseat = requestseat - 1
+		where carno=#{carno}
+	</update>
+	<update id="reject">
+		update booking 
+		set status = -1
+		where carno=#{carno} and reqmem=#{reqmem}
+	</update>
 </mapper>
