@@ -152,7 +152,7 @@ function callback(){
 				<div class="col-md-12">
 					<div class="heading-content">
 						<h2>TAXI</h2>
-						<span>Home / <a href="#">카풀</a></span>
+						<span>Home / <a href="${contextPath}/carpool/list?category=taxi">택시</a></span>
 					</div>
 				</div>
 			</div>

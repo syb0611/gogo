@@ -28,11 +28,12 @@ http://www.templatemo.com/free-website-templates/417-grill
 	rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+<link rel="stylesheet" href="/withgo/resources/css/font-awesome.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/templatemo_style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/templatemo_misc.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flexslider.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/testimonails-slider.css">
+
 
 <style>
 #heading {
@@ -68,7 +69,6 @@ table{
 
 </style>
 
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <script>
 function cancelClick(){
 	if(confirm("예약요청을 취소하시겠습니까?") == true){
@@ -236,7 +236,7 @@ function rej(){
 																							<c:choose>
 																								<c:when test="${category == 'dan' }"><img src="/withgo/resource/images/dan.png"></c:when> 
 																								<c:when test="${category == 'jang' }"><img src="${contextPath}/images/jang.png"></c:when>
-																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
+																								<c:otherwise><img src="${contextPath}/images/taxiimg.png"></c:otherwise>
 																							</c:choose>
 																							<c:choose>
 												 												<c:when test="${vo1.usertype == 'driver' }">타세요</c:when> 
@@ -370,11 +370,6 @@ function rej(){
 	</div>
 	
 	<%@ include file="../footer.jsp"%>
-
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="js/vendor/jquery.gmap3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
 
 </body>
 </html>

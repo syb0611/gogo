@@ -65,7 +65,7 @@ public class BookingController {
 			BookInfoVo vo = reqList.get(i);
 			out.println("<tr>");
 			out.println("<td style='width:10%; text-align: center'>");
-			out.println("<img src='${contextPath}/images/blankimage.png'>");
+			out.println("<img src='/withgo/resources/images/blankimage.png'>");
 			out.println("</td>");
 			out.println("<td style='width:25%; padding-left: 20px'>"+vo.getName()+"<br>");
 			if(vo.getGender() == 1) out.print("남자");
