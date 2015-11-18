@@ -85,8 +85,10 @@ public class BookingController {
 		out.close();
 	}
 	
-	@RequestMapping("/accept")
-	public void accept(BookingVo vo){
-		dao.accept(vo);
+	@RequestMapping("/acc")
+	public String acc(BookingVo vo){
+		System.out.println(vo.getCarno());
+		//dao.accept(vo);
+		return "redirect:/home";
 	}
 }

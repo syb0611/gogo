@@ -132,7 +132,7 @@ function createRequestTd(){
 }
 
 function acc(cno, reqmem){
-	location.href = "${pageContext.request.contextPath}/booking/accept?carno="+cno+"&reqmem="+reqmem;
+	//location.href = "${pageContext.request.contextPath}/booking/accept?carno="+cno+"&reqmem="+reqmem;
 }
 
 function rej(){

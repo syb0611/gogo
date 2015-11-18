@@ -51,7 +51,7 @@ public class BookingDao {
 		return template.selectList(sql+".getRequests", carno);
 	}
 	
-	public void accept(BookingVo vo){
-		template.update(sql+".accept", vo);
+	public void acc(BookingVo vo){
+		//template.update(sql+".acc", vo);
 	}
 }

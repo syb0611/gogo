@@ -63,9 +63,11 @@
 		and B.carno = #{carno}
 	</select>
 	
-	<update id=".accept">
+	<update id="acc">
 		update booking 
 		set status = 1
-		where carno=#{carno}
+		where carno=#{carno} and reqmem=#{reqmem}
 	</update>
+	
+	
 </mapper>
