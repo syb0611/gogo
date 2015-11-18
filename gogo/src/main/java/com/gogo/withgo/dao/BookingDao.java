@@ -27,7 +27,7 @@ public class BookingDao {
 	
 	public void bookRequest(BookingVo vo){
 		template.insert(sql+".bookRequest", vo);
-		template.update(sql+".updateRequestNum", vo);
+		template.update(sql+".updateRequestNumUp", vo);
 	}
 	
 	public List<CarpoolMemberVo> bookingList1(int resmem){
@@ -36,5 +36,14 @@ public class BookingDao {
 	
 	public List<BookInfoVo> bookingList2(int reqmem){
 		return template.selectList(sql+".bookingList2", reqmem);
+	}
+	
+	public int getRequestCnt(int mno){
+		return template.selectOne(sql+".getRequestCnt", mno);
+	}
+	
+	public void bookCancel(BookingVo vo){
+		template.delete(sql+".cancel", vo);
+		template.update(sql+".updateRequestNumDown", vo);
 	}
 }

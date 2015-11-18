@@ -39,6 +39,9 @@ public class MyPageController {
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		int mno = memberInfo.getMno();
 
+		int requestCnt = dao.getRequestCnt(mno);
+		model.addAttribute("requestCnt", requestCnt);
+		
 		if(type.equals("1")){	//받은 예약
 			List<CarpoolMemberVo> booklist = dao.bookingList1(mno);	
 			model.addAttribute("booklist", booklist);

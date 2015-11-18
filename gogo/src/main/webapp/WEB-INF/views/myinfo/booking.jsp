@@ -25,12 +25,12 @@ http://www.templatemo.com/free-website-templates/417-grill
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/font-awesome.css">
-<link rel="stylesheet" href="../css/templatemo_style.css">
-<link rel="stylesheet" href="../css/templatemo_misc.css">
-<link rel="stylesheet" href="../css/flexslider.css">
-<link rel="stylesheet" href="../css/testimonails-slider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/templatemo_style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/templatemo_misc.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flexslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/testimonails-slider.css">
 
 <style>
 #heading {
@@ -47,6 +47,10 @@ http://www.templatemo.com/free-website-templates/417-grill
 	float: left;
 }
 
+table{
+	width: 100%;
+}
+
 .listTable{
 	width: 100%;
 }
@@ -55,12 +59,26 @@ http://www.templatemo.com/free-website-templates/417-grill
 	background-color: #EAEAEA;
 }
 
-.listTable tr td{
+.listTable table tr td{
 	padding: 5px;
 }
+
+
 </style>
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script>
+function cancelClick(){
+	if(confirm("예약요청을 취소하시겠습니까?") == true){
+		alert("요청이 취소되었습니다.");
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+</script>
 </head>
 <body>
 	<!--[if lt IE 7]>
@@ -74,7 +92,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="${contextPath}/images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -126,9 +144,10 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
+								
 								<c:choose>
 									<c:when test="${type == '1'}">
-										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'" style="background: gray; color:white">받은 예약</button>
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'" style="background: gray; color:white">받은 예약 <span class="badge">${requestCnt }</span></button>
 										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=2'">한 예약</button>	
 										<div>
 											<table class="table table-condensed">
@@ -142,44 +161,59 @@ http://www.templatemo.com/free-website-templates/417-grill
 														<c:forEach items="${booklist }" var="vo">
 														<tr>
 															<td>
-																<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+																<table class="listTable">	
 																	<tr>
-																		<td width="15%" align="center">
-																			<div><img src="../images/blankimage.png" width="80px"></div>
-																			<div style="margin-top: 5px">${vo.name }</div>
+																		<td style="width:90%">
+																			<table onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">
+																				<tr>
+																					<td width="15%" align="center">
+																						<div><img src="${contextPath}/images/blankimage.png" width="80px"></div>
+																						<div style="margin-top: 5px">${vo.name }</div>
+																					</td>
+																					<td>
+																						<div style="padding: 10px">${vo.departuredate } 출발</div>
+																						<div style="padding: 10px">${vo.departure } <img src="${contextPath}/images/a.png" width="15px"> ${vo.arrival }</div>
+																						<div style="padding: 10px">경유지</div>
+																					</td>
+																					<td width="25%" style="text-align: right; padding-right: 15px">
+																						<div>
+																							<c:choose>
+																								<c:when test="${category == 'dan' }"><img src="${contextPath}/images/dan.png"></c:when> 
+																								<c:when test="${category == 'jang' }"><img src="${contextPath}/images/jang.png"></c:when>
+																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
+																							</c:choose>
+																							<c:choose>
+												 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+																								<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+																								<c:otherwise>함께타요</c:otherwise>									
+																							</c:choose> 
+																						</div>
+																						<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																						<div>
+																							<font size="4">
+																							<c:choose>
+																								<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+																								<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																							</c:choose>
+																							</font>
+																						</div>
+																					</td>
+																				</tr>
+																			</table>
 																		</td>
-																		<td width="50%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
-																			<div style="padding: 10px">${vo.departuredate } 출발</div>
-																			<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
-																			<div style="padding: 10px">경유지</div>
-																		</td>
-																		<td width="25%" style="text-align: right">
-																			<div>
-																				<c:choose>
-																					<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
-																					<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
-																					<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
-																				</c:choose>
-																				<c:choose>
-									 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
-																					<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
-																					<c:otherwise>함께타요</c:otherwise>									
-																				</c:choose> 
+																		<td style="text-align: center; border-left: 1px dotted #C3C3C3">
+																			예약요청<br>${vo.requestseat }건<br>
+																			<div style="margin-top: 10px;">
+																				<img src="${contextPath}/images/down.png" width="30px" style="cursor: pointer;" onclick="iconClick(${vo.carno})">
+																				
+																				<script>
+																				function iconClick(carno){
+																					alert(carno);
+																				}
+																				</script>
 																			</div>
-																			<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
-																			<div>
-																				<font size="4">
-																				<c:choose>
-																					<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
-																					<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
-																				</c:choose>
-																				</font>
-																			</div>
 																		</td>
-																		<td width="10%" style="text-align: center">
-																			예약요청 ${vo.requestseat }개
-																		</td>
-																	</tr>		
+																	</tr>
 																</table>
 															</td>
 														</tr>
@@ -190,7 +224,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 										</div>					
 									</c:when>
 									<c:otherwise>
-										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'">받은 예약</button>
+										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=1'">받은 예약 <span class="badge">${requestCnt }</span></button>
 										<button class="btn btn-default" onclick="location.href='${contextPath}/mypage/booking?type=2'" style="background: gray; color:white">한 예약</button>	
 										<div>
 											<table class="table table-condensed">
@@ -204,48 +238,62 @@ http://www.templatemo.com/free-website-templates/417-grill
 														<c:forEach items="${booklist }" var="vo">
 														<tr>
 															<td>
-																<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+																<table class="listTable">	
 																	<tr>
-																		<td width="15%" align="center">
-																			<div><img src="../images/blankimage.png" width="80px"></div>
-																			<div style="margin-top: 5px">${vo.name }</div>
+																		<td style="width:90%">
+																			<table onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">
+																				<tr>
+																					<td align="center" width="15%">
+																						<div><img src="${contextPath}/images/blankimage.png" width="80px"></div>
+																						<div style="margin-top: 5px">${vo.name }</div>
+																					</td>
+																					<td>
+																						<div style="padding: 10px">${vo.departuredate } 출발</div>
+																						<div style="padding: 10px">${vo.departure } <img src="${contextPath}/images/a.png" width="15px"> ${vo.arrival }</div>
+																						<div style="padding: 10px">경유지</div>
+																					</td>
+																					<td width="25%" style="text-align: right; padding-right: 15px">
+																						<div>
+																							<c:choose>
+																								<c:when test="${category == 'dan' }"><img src="${contextPath}/images/dan.png"></c:when> 
+																								<c:when test="${category == 'jang' }"><img src="${contextPath}/images/jang.png"></c:when>
+																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
+																							</c:choose>
+																							<c:choose>
+												 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+																								<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+																								<c:otherwise>함께타요</c:otherwise>									
+																							</c:choose> 
+																						</div>
+																						<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																						<div>
+																							<font size="4">
+																							<c:choose>
+																								<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+																								<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																							</c:choose>
+																							</font>
+																						</div>
+																					</td>
+																				</tr>
+																			</table>
 																		</td>
-																		<td width="50%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
-																			<div style="padding: 10px">${vo.departuredate } 출발</div>
-																			<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
-																			<div style="padding: 10px">경유지</div>
-																		</td>
-																		<td width="25%" style="text-align: right">
-																			<div>
-																				<c:choose>
-																					<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
-																					<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
-																					<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
-																				</c:choose>
-																				<c:choose>
-									 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
-																					<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
-																					<c:otherwise>함께타요</c:otherwise>									
-																				</c:choose> 
-																			</div>
-																			<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
-																			<div>
-																				<font size="4">
-																				<c:choose>
-																					<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
-																					<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
-																				</c:choose>
-																				</font>
-																			</div>
-																		</td>
-																		<td width="10%" style="text-align: center">
+																		<td style="text-align: center; border-left: 1px dotted #C3C3C3">
 																			<c:choose>
-																				<c:when test="${vo.status == 0 }">요청중</c:when>
+																				<c:when test="${vo.status == 0 }">
+																					<div style="margin-bottom: 5px;">요청중</div>
+																					<form name="cancelform" method="post" action="${contextPath}/booking/cancel" onsubmit="return cancelClick()">
+																						<input type="hidden" id="reqmem" name="reqmem" value="${memberInfo.mno }">
+																						<input type="hidden" id="carno" name="carno" value="${vo.carno }">
+																						<input type="hidden" id="type" name="type" value="${type }">
+																						<input type="submit" id="cancelbtn" class="btn btn-primary btn-xs" value="취소">
+																					</form>
+																				</c:when>
 																				<c:when test="${vo.status == -1 }">거절</c:when>
 																				<c:otherwise>수락</c:otherwise>
 																			</c:choose>
 																		</td>
-																	</tr>		
+																	</tr>
 																</table>
 															</td>
 														</tr>
