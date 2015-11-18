@@ -37,7 +37,7 @@ public class CarpoolController {
 		
 		if(category.equals("taxi")){
 			return "carpool/taxiF";
-		}else if(category.equals("goshcool")){
+		}else if(category.equals("goschool")){
 			return "carpool/goschoolF";
 		}else{
 			return "carpool/carpoolF";

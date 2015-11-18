@@ -42,7 +42,7 @@ public class HomeController {
 		return "customer";
 	}	
 	
-	
+	/*
 	@RequestMapping(value = {"carpoolF"})
 	public String carpoolF() {
 		return "carpool/carpoolF";
@@ -58,7 +58,7 @@ public class HomeController {
 	@RequestMapping(value = {"taxiF"})
 	public String taxiF() {
 		return "carpool/taxiF";
-	}
+	}*/
 
 	
 }
