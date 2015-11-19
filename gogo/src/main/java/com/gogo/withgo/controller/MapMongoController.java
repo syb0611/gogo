@@ -29,7 +29,7 @@ public class MapMongoController {
 	public Object apiExample3( @RequestBody List< Map<String, Object> > requestData ) {
 		
 		System.out.println( requestData );
-		
+				
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "result", "success" );
 		map.put( "data", null );
