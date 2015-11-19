@@ -591,22 +591,16 @@ $(function() {
 			function() {
 				var arrayData = "";
 				if (markerp1 == null) {
-					arrayData =  {
-						"start" : {
-							"lon" : marker1.lonlat.lon,
-							"lat" : marker1.lonlat.lat
-						},
-					
-						"end" : {
-							"lon" : marker3.lonlat.lon,
-							"lat" : marker3.lonlat.lat
-						}
-					}/*, {
-						"location" : {
-							"출발지" : start,
-							"도착지" : end
-						}
-					}*/ ;
+					arrayData =  [ {
+						"startlon" : marker1.lonlat.lon,
+						"startlat" : marker1.lonlat.lat
+					}, {
+						"endlon" : marker3.lonlat.lon,
+						"endlat" : marker3.lonlat.lat
+					},{
+						"출발지" : start,
+						"도착지" : end,
+					} ];
 				}
 
 				else if (markerp1 != null && markerp2 == null) {
@@ -741,11 +735,11 @@ $(function() {
 				}
 
 				$.ajax({
-					url : "/withgo/lonlat/markertest",
+					url : "/withgo/markertest",
 					type: "post",
 					dataType: "json",
 					contentType: 'application/json',
-					data:  arrayData, 					
+					data:  JSON.stringify( arrayData ),					
 					success: function( response ){
 						if( response.result == "fail" ) {				
 							console.error( response.message );

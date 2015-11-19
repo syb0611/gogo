@@ -9,6 +9,8 @@
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="/withgo/resources/js/routes.js"></script>
+	<script src="/withgo/resources/js/jquery-2.1.4.js"></script>
+	
 
 </head>
 <body>

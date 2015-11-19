@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gogo.withgo.dao.MongoDao;
@@ -24,7 +25,7 @@ public class MapMongoController {
 	}
 	
 	@ResponseBody
-	@RequestMapping( "/lonlat/markertest" )
+	@RequestMapping( value="/markertest",method=RequestMethod.POST )
 	public Object apiExample3( @RequestBody List< Map<String, Object> > requestData ) {
 		
 		System.out.println( requestData );
