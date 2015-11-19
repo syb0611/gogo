@@ -26,4 +26,22 @@
 		where C.mno = M.mno 
 		and carno=#{carno}
 	</select>
+	
+	<insert id="addBookMark">
+		insert into bookmark(bmno, mno, carno)
+		values(bm_seq.nextval, #{mno}, #{carno})
+	</insert>
+	
+	<delete id="delBookMark">
+		delete from bookmark
+		where mno=#{mno} and carno=#{carno}
+	</delete>
+	
+	<select id="getBookMarks" resultType="com.gogo.withgo.vo.BookmarkInfoVo">
+		select BM.*, M.*, C.*
+		from bookmark BM, member M, carpool C
+		where BM.carno = C.carno
+		and C.mno = M.mno
+		and BM.mno=#{mno}
+	</select>
 </mapper>

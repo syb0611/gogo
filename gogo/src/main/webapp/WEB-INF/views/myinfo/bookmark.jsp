@@ -1,25 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-<!-- 
-
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
 <head>
 <meta charset="utf-8">
 <title>Contact - Grill Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-
 
 <style>
 #heading {
@@ -35,15 +23,21 @@ http://www.templatemo.com/free-website-templates/417-grill
 .categoryTitle{
 	float: left;
 }
+.listTable{
+	width: 100%;
+}
+
+.listTable tr td{
+	padding: 5px;
+}
+.listTable:hover {
+	background-color: #EAEAEA;
+}
 
 </style>
 
 </head>
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -107,7 +101,60 @@ http://www.templatemo.com/free-website-templates/417-grill
 					<div class="col-md-10">
 						<div class="row">
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
-								즐겨찾기
+								<table class="table table-condensed">
+									<c:choose>
+										<c:when test="${bmList == '[]' }">
+											<tr>
+												<td colspan="2">즐겨찾기 글이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+										<c:forEach items="${bmList }" var="vo">
+											<tr>
+												<td>
+													
+													<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+														<tr>
+															<td width="15%" align="center">
+																<div><img src="../images/blankimage.png" width="80px"></div>
+																<div style="margin-top: 5px">${vo.name }</div>
+															</td>
+															<td width="65%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
+																<div style="padding: 10px">${vo.departuredate } 출발</div>
+																<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
+																<div style="padding: 10px">경유지</div>
+															</td>
+															<td width="20%" style="text-align: right">
+																<div>
+																	<c:choose>
+																		<c:when test="${vo.category == 'dan' }"><img src="../images/dan.png"></c:when> 
+																		<c:when test="${vo.category == 'jang' }"><img src="../images/jang.png"></c:when>
+																		<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+																	</c:choose>
+																	<c:choose>
+						 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
+																		<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+																		<c:otherwise>함께타요</c:otherwise>									
+																	</c:choose> 
+																</div>
+																<div><font size="5"><fmt:formatNumber value="${vo.price }" type="number"/>원</font></div>
+																<div>
+																	<font size="4">
+																	<c:choose>
+																		<c:when test="${vo.bookedseat == vo.seat }"><font color="red">마감</font></c:when>
+																		<c:otherwise>${vo.bookedseat}/${vo.seat }</c:otherwise>
+																	</c:choose>
+																	</font>
+																</div>
+															</td>
+														</tr>		
+													</table>
+												</td>
+											</tr>
+										</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</table>
 							</div>
 						</div>			
 					</div>		

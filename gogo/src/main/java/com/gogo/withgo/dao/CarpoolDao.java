@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.CarpoolVo;
+import com.gogo.withgo.vo.BookmarkInfoVo;
+import com.gogo.withgo.vo.BookmarkVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Repository
@@ -32,5 +34,20 @@ public class CarpoolDao {
 	
 	public CarpoolMemberVo read(int carno){
 		return template.selectOne(sql+".read", carno);
+	}
+	
+	public void addBookMark(BookmarkVo vo){
+		template.insert(sql+".addBookMark", vo);
+	}
+	
+	public void delBookMark(BookmarkVo vo){
+		template.delete(sql+".delBookMark", vo);
+	}
+	
+//	public List<BookmarkInfoVo> getBookMarks(int mno){
+//		return template.selectList(sql+".getBookMarks", mno);
+//	}
+	public List<BookmarkInfoVo> getBookMarks(int mno){
+		  return template.selectList(sql+".getBookMarks", mno);
 	}
 }

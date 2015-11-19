@@ -33,11 +33,74 @@ body {
 	background-color: #EAEAEA;
 }
 
-#bookmarkck{
+.bookmarkck{
 	position: absolute;
-	margin-left: 93%;
+	margin-left: 92%;
+	cursor: pointer;
 }
 </style>
+<script>
+var xhr; 
+var no;
+
+function bookmarkClick(carno){
+	var mno = document.getElementById("mno").value;
+	if(mno == "" || mno == null){
+		alert("로그인 후 즐겨찾기 가능합니다.");
+		return;
+	}
+	
+	no = carno;
+	var bookmark = document.getElementById("bookmark"+carno);
+	
+	var imgOn = "http://localhost:8080${pageContext.request.contextPath}/images/on.png";
+	var imgOff = "http://localhost:8080${pageContext.request.contextPath}/images/off.png";
+
+	if(bookmark.src == imgOn){
+		//즐겨찾기 취소
+		bookmark.src = imgOff;
+		delBookMark(mno);
+	}else{
+		//즐겨찾기 추가
+		bookmark.src = imgOn;
+		addBookMark(mno);
+	}
+}
+
+function addBookMark(mno){
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/mypage/addBookMark";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = addBookMarkResult;
+	xhr.send("mno="+mno+"&carno="+no);
+}
+
+function addBookMarkResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+		}
+	}
+}
+
+function delBookMark(mno){
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/mypage/delBookMark";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = delBookMarkResult;
+	xhr.send("mno="+mno+"&carno="+no);
+}
+
+function delBookMarkResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -226,7 +289,8 @@ body {
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<input type="checkbox" id="bookmarkck">
+									<input type="hidden" id="mno" value="${memberInfo.mno }">
+									<img src="/withgo/resources/images/off.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
 									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
