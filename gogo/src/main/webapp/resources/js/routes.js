@@ -591,13 +591,13 @@ $(function() {
 			function() {
 				var arrayData = "";
 				if (markerp1 == null) {
-					arrayData =  [ {
+					arrayData = [ {
 						"startlon" : marker1.lonlat.lon,
 						"startlat" : marker1.lonlat.lat
 					}, {
 						"endlon" : marker3.lonlat.lon,
 						"endlat" : marker3.lonlat.lat
-					},{
+					}, {
 						"출발지" : start,
 						"도착지" : end,
 					} ];
@@ -733,23 +733,28 @@ $(function() {
 						"경유지5" : p5
 					} ];
 				}
-
+				
+				/*var o = {
+					"no": 1, 	
+					"arrayData" : arrayData	
+				}*/
+				
 				$.ajax({
 					url : "/withgo/markertest",
-					type: "post",
-					dataType: "json",
-					contentType: 'application/json',
-					data:  JSON.stringify( arrayData ),					
-					success: function( response ){
-						if( response.result == "fail" ) {				
-							console.error( response.message );
+					type : "post",
+					dataType : "json",
+					contentType : 'application/json',
+					data : JSON.stringify(arrayData),
+					success : function(response) {
+						if (response.result == "fail") {
+							console.error(response.message);
 							return;
 						}
-						
-						console.log( response );
+
+						console.log(response);
 					},
-					error: function( jqXHR, status, e ){
-						console.error( status + " : " + e );
+					error : function(jqXHR, status, e) {
+						console.error(status + " : " + e);
 					}
 				});
 			});

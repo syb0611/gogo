@@ -1,8 +1,8 @@
 package com.gogo.withgo.dao;
 
 import java.util.List;
-import java.util.Map;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,7 +19,11 @@ public class MongoDao {
 		return mongoTemplate.findAll(MapVo.class);
 	}
 	
-	public void save( List< Map<String, Object> > requestData){
-		mongoTemplate.save(requestData);
+	public void save(  JSONObject o ){
+		mongoTemplate.save( o );
 	}
+	
+	/*public void find( MapVo map){
+		mongoTemplate.find(query, _class, mapVo);
+	}*/
 }
