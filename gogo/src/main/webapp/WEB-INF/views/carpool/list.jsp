@@ -33,74 +33,11 @@ body {
 	background-color: #EAEAEA;
 }
 
-.bookmarkck{
+#bookmarkck{
 	position: absolute;
-	margin-left: 92%;
-	cursor: pointer;
+	margin-left: 93%;
 }
 </style>
-<script>
-var xhr; 
-var no;
-
-function bookmarkClick(carno){
-	var mno = document.getElementById("mno").value;
-	if(mno == "" || mno == null){
-		alert("로그인 후 즐겨찾기 가능합니다.");
-		return;
-	}
-	
-	no = carno;
-	var bookmark = document.getElementById("bookmark"+carno);
-	
-	var imgOn = "http://localhost:8080${pageContext.request.contextPath}/images/on.png";
-	var imgOff = "http://localhost:8080${pageContext.request.contextPath}/images/off.png";
-
-	if(bookmark.src == imgOn){
-		//즐겨찾기 취소
-		bookmark.src = imgOff;
-		delBookMark(mno);
-	}else{
-		//즐겨찾기 추가
-		bookmark.src = imgOn;
-		addBookMark(mno);
-	}
-}
-
-function addBookMark(mno){
-	xhr = new XMLHttpRequest();
-	var url = "${pageContext.request.contextPath}/mypage/addBookMark";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = addBookMarkResult;
-	xhr.send("mno="+mno+"&carno="+no);
-}
-
-function addBookMarkResult(){
-	if(xhr.readyState == 4){
-		if(xhr.status == 200){
-			var flag = xhr.responseText;
-		}
-	}
-}
-
-function delBookMark(mno){
-	xhr = new XMLHttpRequest();
-	var url = "${pageContext.request.contextPath}/mypage/delBookMark";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = delBookMarkResult;
-	xhr.send("mno="+mno+"&carno="+no);
-}
-
-function delBookMarkResult(){
-	if(xhr.readyState == 4){
-		if(xhr.status == 200){
-			var flag = xhr.responseText;
-		}
-	}
-}
-</script>
 </head>
 <body>
 	<header>
@@ -134,7 +71,7 @@ function delBookMarkResult(){
 	<c:choose>
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
-				style="background-image: url(../images/slide4.jpg); height: 140px;">
+				style="background-image: url(../images/1.png); height: 140px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -149,7 +86,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'jang'}">
 			<div id="heading"
-				style="background-image: url(../images/slide1.jpg); height: 140px;">
+				style="background-image: url(../images/2.jpg); height: 140px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -164,7 +101,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'goschool'}">
 			<div id="heading"
-				style="background-image: url(../images/slide5.jpg); height: 140px;">
+				style="background-image: url(../images/3.jpg); height: 140px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -179,7 +116,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'taxi'}">
 			<div id="heading"
-				style="background-image: url(../images/slide3.jpg); height: 140px;">
+				style="background-image: url(../images/4.png); height: 140px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -249,7 +186,10 @@ function delBookMarkResult(){
 								<input name="smoking" id="smoking" type="radio" value="Y"><span>흡연가능</span> 
 								<br><br>
 							</div>
-							<input type="submit" value="검색하기" />
+							<tr>
+									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="검색하기">
+									</td>
+								</tr>
 						</form>
 					</fieldset>
 				</div>
@@ -289,8 +229,7 @@ function delBookMarkResult(){
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<input type="hidden" id="mno" value="${memberInfo.mno }">
-									<img src="/withgo/resources/images/off.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
+									<input type="checkbox" id="bookmarkck">
 									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
