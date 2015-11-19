@@ -1,6 +1,7 @@
 package com.gogo.withgo.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gogo.withgo.dao.MongoDao;
-import com.gogo.withgo.vo.MarkerList;
 
 @Controller
 public class MapMongoController {
@@ -24,26 +24,15 @@ public class MapMongoController {
 	}
 	
 	@ResponseBody
-	@RequestMapping( "/markertest2" )
-	public Object apiExample2() {
+	@RequestMapping( "/lonlat/markertest" )
+	public Object apiExample3( @RequestBody List< Map<String, Object> > requestData ) {
+		
+		System.out.println( requestData );
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "result", "success" );
 		map.put( "data", null );
 		
 		return map;
-	}
-	
-	@ResponseBody
-	@RequestMapping( "/markertest" )
-	public Object apiExample3( @RequestBody MarkerList list ) {
-		System.out.println( list);
-		dao.save(list);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put( "result", "success" );
-		map.put( "data", list );
-		
-		return map;
-	}
+	}	
 }

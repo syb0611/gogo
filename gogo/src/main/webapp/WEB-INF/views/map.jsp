@@ -8,7 +8,8 @@
 	<script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script src="../js/routes.js"></script>
+	<script src="/withgo/resources/js/routes.js"></script>
+
 </head>
 <body>
  <div id="map_div"></div>

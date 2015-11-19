@@ -98,7 +98,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											marker1 = new Tmap.Marker(lonlat,
 													icon);
@@ -147,7 +147,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											markerp1 = new Tmap.Marker(lonlat,
 													icon);
@@ -195,7 +195,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											markerp2 = new Tmap.Marker(lonlat,
 													icon);
@@ -243,7 +243,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											markerp3 = new Tmap.Marker(lonlat,
 													icon);
@@ -291,7 +291,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											markerp4 = new Tmap.Marker(lonlat,
 													icon);
@@ -340,7 +340,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											markerp5 = new Tmap.Marker(lonlat,
 													icon);
@@ -387,7 +387,7 @@ $(function() {
 											var offset = new Tmap.Pixel(
 													-(size.w / 2), -(size.h));
 											var icon = new Tmap.IconHtml(
-													"<img src= '../images/ico_spot.png'></img>",
+													"<img src= '/withgo/resources/images/ico_spot.png'></img>",
 													size, offset);
 											marker3 = new Tmap.Marker(lonlat,
 													icon);
@@ -741,21 +741,21 @@ $(function() {
 				}
 
 				$.ajax({
-					url : "/withgo/markertest",
-					type : "post",
-					dataType : "json",
-					contentType : "application/json",
-					data : JSON.stringify(arrayData),
-					success : function(response) {
-						if (response.result == "fail") {
-							console.error(response.message);
+					url : "/withgo/lonlat/markertest",
+					type: "post",
+					dataType: "json",
+					contentType: 'application/json',
+					data:  arrayData, 					
+					success: function( response ){
+						if( response.result == "fail" ) {				
+							console.error( response.message );
 							return;
 						}
-
-						console.log(response);
+						
+						console.log( response );
 					},
-					error : function(jqXHR, status, e) {
-						console.error(status + " : " + e);
+					error: function( jqXHR, status, e ){
+						console.error( status + " : " + e );
 					}
 				});
 			});

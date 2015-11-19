@@ -19,6 +19,7 @@
 	<bean id="mypageController" class="com.gogo.withgo.controller.MyPageController" />
 	<bean id="bookingController" class="com.gogo.withgo.controller.BookingController" />
 	<bean id="schoolNameController" class="com.gogo.withgo.controller.SchoolNameController" />
+	<bean id="MapMongoController" class="com.gogo.withgo.controller.MapMongoController" />
 	
 	
 	
