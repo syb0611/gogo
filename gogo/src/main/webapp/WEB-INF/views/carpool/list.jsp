@@ -136,7 +136,7 @@ body {
 			<div class="row">
 				<div class="col-md-3">
 					<fieldset>
-						<legend> 빠른검색 </legend>
+						<legend>검색 </legend>
 						<form action="./example2.php" method="GET">
 								카풀 : 
 								<select name="type">
@@ -146,17 +146,45 @@ body {
 									<option value="school">고스쿨</option>
 								</select>
 							<div>
-								성별 : 
+							<tr>
+									<td><p class="reg_area dt"></p>
+									<input type="text" placeholder="출발지" /></td>
+								</tr>
+							<tr>
+									<td><p class="reg_area dt"></p>
+									<input type="text" placeholder="도착지" /></td>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt"></p>
+									<input type="text" placeholder="경유지" /></td>
+								</tr><br><br>
+								금액 : 
+								<select name="type">
+								<option value="금액">금액</option>
+									<option value="최저">0~3000원</option>
+									<option value="중간">3000~5000원</option>
+									<option value="최고">5000~8000원</option>
+									<option value="더최고">8000원이상</option>
+								</select><br>
+							<!-- 	성별 : 
+								<select name="type">
+									<option value="short">모두</option>
+									<option value="long">여자</option>
+									<option value="taxi">남자</option>					
+								</select> <br> -->
+								<!-- 성별 : 
 								<input name="gender" id="gender" type="radio" checked="checked" value="0"><span>전체</span>
 								<input name="gender" id="gender" type="radio" value="1"><span>남자</span>
-								<input name="gender" id="gender" type="radio" value="2"><span>여자</span>	<br><br> 
-								인증 여부 : 
-								<input name="auth" id="auth" type="checkbox" value="phone"><span>휴대전화</span> 
-								<input name="auth" id="auth" type="checkbox" value="facebook"><span>페이스북</span><br><br> 
+								<input name="gender" id="gender" type="radio" value="2"><span>여자</span>	<br><br>  -->
+								성별 : 
+								<input name="gender" id="gender" type="radio" checked="checked" value="N"><span>모두</span>
+								<input name="gender" id="gender" type="radio" value="W"><span>여자</span> 
+								<input name="gender" id="gender" type="radio" value="M"><span>남자</span> 
+								<br>
 								흡연 여부 : 
 								<input name="smoking" id="smoking" type="radio" checked="checked" value="N"><span>흡연불가</span>
 								<input name="smoking" id="smoking" type="radio" value="Y"><span>흡연가능</span> 
-								<br>
+								<br><br>
 							</div>
 							<input type="submit" value="검색하기" />
 						</form>
