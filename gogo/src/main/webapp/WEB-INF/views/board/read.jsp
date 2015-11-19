@@ -160,10 +160,6 @@ table tr th:last-child{
 	</div>
 	<%@ include file="../footer.jsp"%>
 
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="js/vendor/jquery.gmap3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
 
 </body>
 </html>
