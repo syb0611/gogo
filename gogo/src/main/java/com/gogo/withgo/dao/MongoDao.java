@@ -22,8 +22,10 @@ public class MongoDao {
 	public void save(  JSONObject o ){
 		mongoTemplate.save( o );
 	}
-	
-	/*public void find( MapVo map){
-		mongoTemplate.find(query, _class, mapVo);
-	}*/
 }
+	
+/*	public void find( int b_no){
+		
+		mongoTemplate.find()
+	}*/
+	
