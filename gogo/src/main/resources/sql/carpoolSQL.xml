@@ -63,4 +63,12 @@
 		and C.mno = M.mno
 		and BM.mno=#{mno}
 	</select>
+	
+	<select id="myRegCarpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select C.*, M.* 
+		from carpool C, member M
+		where C.mno = M.mno
+		and C.mno = #{mno}
+		order by carno desc
+	</select>
 </mapper>

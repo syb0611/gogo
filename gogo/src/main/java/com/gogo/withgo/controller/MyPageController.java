@@ -68,7 +68,24 @@ public class MyPageController {
 	}
 	
 	@RequestMapping("/reglist")
-	public String reglist(){
+	public String reglist(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") int type, Model model){
+		HttpSession session = request.getSession(false);
+		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+		if(memberInfo == null){
+			return "redirect:/";
+		}
+		
+		int mno = memberInfo.getMno();
+		
+		if(type == 1){	//내가 쓴 카풀 글
+			List<CarpoolMemberVo> myRegList = cdao.myRegCarpoolList(mno);
+			model.addAttribute("myRegList", myRegList);
+		}else if(type == 2){  //내가 쓴 커뮤니티 글
+			
+		}else if(type == 3){  //내가 쓴 댓글
+			
+		}
+		
 		return "myinfo/reglist";
 	}
 	

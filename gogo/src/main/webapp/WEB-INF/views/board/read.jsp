@@ -54,8 +54,13 @@ function postClick(){
 	document.replyform.submit();
 }
 </script>
+<script>
+function loadReply(){
+	
+}
+</script>
 </head>
-<body>
+<body onload="loadReply()">
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -176,6 +181,24 @@ function postClick(){
 											</td>
 											<td style="vertical-align: middle;">
 												<img src="/withgo/resources/images/postbtn.png" id="postBtn" onclick="postClick()">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<table>
+													<tr>
+														<th>닉네임</th>
+														<td>댓글내용</td>
+													</tr>
+													<tr>
+														<th>닉네임22</th>
+														<td>댓글내용22</td>
+													</tr>
+													<tr>
+														<th>닉네임33</th>
+														<td>댓글내용33</td>
+													</tr>
+												</table>
 											</td>
 										</tr>
 									</table>

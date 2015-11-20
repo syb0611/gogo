@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.BoardVo;
+import com.gogo.withgo.vo.CarpoolMemberVo;
 import com.gogo.withgo.vo.PageVo;
 import com.gogo.withgo.vo.ReplyVo;
 
@@ -58,4 +59,8 @@ public class BoardDao {
 	public void postReply(ReplyVo vo){
 		template.insert(sql+".postReply", vo);
 	}
+	
+//	public List<BoardVo> myRegBoardList(int mno){
+//		return template.selectList(sql+".myRegBoardList", mno);
+//	}
 }

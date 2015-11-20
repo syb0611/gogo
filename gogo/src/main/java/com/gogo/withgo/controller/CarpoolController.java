@@ -23,15 +23,6 @@ public class CarpoolController {
 	@Autowired
 	private CarpoolDao dao;
 	
-//	@RequestMapping("/{category}/list")
-//	public String list(@PathVariable("category") String category, Model model){
-//		List<CarpoolVo> list = dao.list(category);
-//		model.addAttribute("list", list);
-//		model.addAttribute("category", category);
-//		
-//		return "carpool/list";
-//	}
-	
 	@RequestMapping("/writeform")
 	public String writeform(@RequestParam("category") String category, Model model){
 		model.addAttribute("category", category);

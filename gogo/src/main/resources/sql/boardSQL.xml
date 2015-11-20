@@ -45,6 +45,7 @@
 		insert into reply(rno, bno, nickname, replytext, category)
 		values(reply_seq.nextval, #{bno}, #{nickname}, #{replytext}, #{category})
 	</insert>
+	
 </mapper>
 
 
