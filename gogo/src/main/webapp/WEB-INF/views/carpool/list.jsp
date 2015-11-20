@@ -62,6 +62,7 @@ function bookmarkClick(carno){
 }
 
 function addBookMark(carno, mno){
+	
 	xhr = new XMLHttpRequest();
 	var url = "${pageContext.request.contextPath}/mypage/addBookMark";
 	xhr.open("POST", url, true);
@@ -73,6 +74,7 @@ function addBookMark(carno, mno){
 function addBookMarkResult(){
 	if(xhr.readyState == 4){
 		if(xhr.status == 200){
+			alert("add");
 			var flag = xhr.responseText;
 		}
 	}
@@ -90,6 +92,7 @@ function delBookMark(carno, mno){
 function delBookMarkResult(){
 	if(xhr.readyState == 4){
 		if(xhr.status == 200){
+			alert("del");
 			var flag = xhr.responseText;
 		}
 	}

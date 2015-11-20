@@ -45,10 +45,7 @@ public class CarpoolDao {
 		template.delete(sql+".delBookMark", vo);
 	}
 	
-//	public List<BookmarkInfoVo> getBookMarks(int mno){
-//		return template.selectList(sql+".getBookMarks", mno);
-//	}
 	public List<BookmarkInfoVo> getBookMarks(int mno){
-		  return template.selectList(sql+".getBookMarks", mno);
+		return template.selectList(sql+".getBookMarks", mno);
 	}
 }

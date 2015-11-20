@@ -47,8 +47,17 @@
 		where mno=#{mno} and carno=#{carno}
 	</delete>
 	
+<!-- 	<select id="getBookMarks" resultType="com.gogo.withgo.vo.BookmarkInfoVo"> -->
+<!-- 		select BM.*, M.*, C.* -->
+<!-- 		from bookmark BM, member M, carpool C -->
+<!-- 		where BM.carno = C.carno -->
+<!-- 		and C.mno = M.mno -->
+<!-- 		and BM.mno=#{mno} -->
+<!-- 	</select> -->
+	
+	
 	<select id="getBookMarks" resultType="com.gogo.withgo.vo.BookmarkInfoVo">
-		select BM.*, M.*, C.*
+		 select BM.*, M.*, C.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
 		from bookmark BM, member M, carpool C
 		where BM.carno = C.carno
 		and C.mno = M.mno

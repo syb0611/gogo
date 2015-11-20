@@ -3,6 +3,8 @@ package com.gogo.withgo.vo;
 import java.sql.Date;
 
 public class BookmarkInfoVo {
+	private int bookmark;/////////
+	
 	private int bmno;
 	private int mno;
 	private int carno;
@@ -41,12 +43,13 @@ public class BookmarkInfoVo {
 	
 	public BookmarkInfoVo() {}
 
-	public BookmarkInfoVo(int bmno, int mno, int carno, Date bmdate, String email, String pw, String nickname,
+	public BookmarkInfoVo(int bookmark, int bmno, int mno, int carno, Date bmdate, String email, String pw, String nickname,
 			String name, String phone, String birth, int gender, int hascar, String image, Date jdate, String profile,
 			String auth, int authphone, int authemail, String category, String departure, String arrival, String stop1,
 			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat,
 			String memo, Date departuredate, int price, int smoking, int genderlimit, int requestseat) {
 		super();
+		this.bookmark = bookmark;
 		this.bmno = bmno;
 		this.mno = mno;
 		this.carno = carno;
@@ -82,6 +85,14 @@ public class BookmarkInfoVo {
 		this.smoking = smoking;
 		this.genderlimit = genderlimit;
 		this.requestseat = requestseat;
+	}
+
+	public int getBookmark() {
+		return bookmark;
+	}
+
+	public void setBookmark(int bookmark) {
+		this.bookmark = bookmark;
 	}
 
 	public int getBmno() {
