@@ -23,21 +23,22 @@
    <div class="container">
       <div class="row">
          <div class="col-md-7">
+        
             <div class="home-account">
          
                <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-               <a href="${contextPath}/home">홈</a>
+               <a href="${contextPath}/home" class="head">홈</a>&nbsp;&nbsp;&nbsp;
                
                <c:choose>
                   <c:when test="${memberInfo == null }">
-                     <a href="${contextPath}/member/loginform">로그인</a>
-                     <a href="${contextPath}/member/joinform">회원가입</a>
+                     <a href="${contextPath}/member/loginform" class="head">로그인</a>&nbsp;&nbsp;&nbsp;
+                     <a href="${contextPath}/member/joinform" class="head">회원가입</a>
                   </c:when>
                   <c:otherwise>
                      <u>${memberInfo.nickname }</u>님&nbsp;
-                     <a href="${contextPath}/mypage/profile">마이페이지</a>
-                     <a href="${contextPath}/message/mymsg">쪽지함</a>
-                     <a href="${contextPath}/member/logout">로그아웃</a>
+                     <a href="${contextPath}/mypage/profile" class="head">마이페이지</a>&nbsp;&nbsp;
+                     <a href="${contextPath}/message/mymsg" class="head">쪽지함</a>&nbsp;&nbsp;
+                     <a href="${contextPath}/member/logout" class="head">로그아웃</a>
                   </c:otherwise>
                </c:choose>
                
@@ -58,6 +59,7 @@
                        <script src="${contextPath}/resources/js/plugins.js"></script>
                        <script src="${contextPath}/resources/js/main.js"></script>
                  
+            </div>
             </div>
          </div>
       </div>           
