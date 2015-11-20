@@ -28,17 +28,32 @@
 	float: left;
 }
 
-table tr:last-child{
+.lastTd{
 	text-align: right;
 }
 
-table tr th:last-child{
-	height: 200px;
+#postBtn{
+	cursor: pointer;
 }
-
 
 </style>
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script>
+function postClick(){
+	var nickname = document.getElementById("nickname").value;
+	if(nickname == null || nickname == ""){
+		alert("로그인 후 댓글등록이 가능합니다.");
+		return;
+	}
+	
+	var replytext = document.getElementById("replytext").value;
+	if(replytext.trim() == ""){
+		return;
+	}
+	
+	document.replyform.submit();
+}
+</script>
 </head>
 <body>
 	<header>
@@ -99,8 +114,8 @@ table tr th:last-child{
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
 								<div class="category">
 									<c:choose>
-										<c:when test="${category == 'greeting' }"><h4>가입인사</h4></c:when>
-										<c:when test="${category == 'free' }"><h4>자유게시판</h4></c:when>
+										<c:when test="${vo.category == 'greeting' }"><h4>가입인사</h4></c:when>
+										<c:when test="${vo.category == 'free' }"><h4>자유게시판</h4></c:when>
 										<c:otherwise><h4>카풀이용후기</h4></c:otherwise>
 									</c:choose>
 								</div>
@@ -131,14 +146,14 @@ table tr th:last-child{
 										</div>	
 										</tr>
 										<tr>
-											<th style="min-height: 200px;">내용</th>
+											<th style="height: 200px;">내용</th>
 											<td colspan="5">
 												<input type="hidden" name="content" value="${vo.content }">
 												${vo.content }
 											</td>
 										</tr>
 										<tr>
-											<td colspan="6">	
+											<td colspan="6" class="lastTd">	
 												<!-- 글쓴이와 글 읽는 사람이 일치할 경우에 삭제, 수정 가능 -->
 												<c:if test="${vo.nickname == memberInfo.nickname }"> 
 													<input type="button" class="btn btn-default btn-xs" value="삭제" onclick="location.href='${contextPath}/board/delete/${vo.category }/${vo.bno}'">
@@ -150,6 +165,21 @@ table tr th:last-child{
 									</table>
 								</form>
 								
+								<form id="replyform" name="replyform" method="post" action="/withgo/board/postReply">
+									<input type="hidden" id="nickname" name="nickname" value="${memberInfo.nickname }">
+									<input type="hidden" name="category" value="${vo.category }">
+									<input type="hidden" name="bno" value="${vo.bno}">
+									<table class="table table-condensed">
+										<tr>
+											<td width="90%">
+												<textarea class="form-control" rows="3" id="replytext" name="replytext"></textarea>
+											</td>
+											<td style="vertical-align: middle;">
+												<img src="/withgo/resources/images/postbtn.png" id="postBtn" onclick="postClick()">
+											</td>
+										</tr>
+									</table>
+								</form>
 							</div>
 						</div>			
 					</div>		

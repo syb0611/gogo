@@ -64,7 +64,7 @@ public class BookingController {
 		for(int i=0; i<reqList.size(); i++){
 			BookInfoVo vo = reqList.get(i);
 			out.println("<tr>");
-			out.println("<td style='width:10%; text-align: center'>");
+			out.println("<td style='width:20%; text-align: center'>");
 			out.println("<img src='/withgo/resources/images/blankimage.png'>");
 			out.println("</td>");
 			out.println("<td style='width:25%; padding-left: 20px'>"+vo.getName()+"<br>");

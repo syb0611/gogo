@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.gogo.withgo.dao.BoardDao;
 import com.gogo.withgo.vo.BoardVo;
 import com.gogo.withgo.vo.PageVo;
+import com.gogo.withgo.vo.ReplyVo;
 
 @Controller
 @RequestMapping("/board")
@@ -89,7 +90,7 @@ public class BoardController {
 	
 	
 	@RequestMapping("/list")
-	public String ex(@RequestParam("category") String category, @RequestParam(value="page", defaultValue="1") int page, Model model){
+	public String list(@RequestParam("category") String category, @RequestParam(value="page", defaultValue="1") int page, Model model){
 		int listTotal = dao.getTotal(category);
 		PageVo pvo = new PageVo();
 		pvo.setCategory(category);
@@ -100,5 +101,14 @@ public class BoardController {
 		model.addAttribute("pvo", pvo);
 
 		return "board/list";
+	}
+	
+	
+	@RequestMapping("/postReply")
+	public String postReply(ReplyVo vo){
+		//vo -> nickname, category, bno, replytext
+		dao.postReply(vo);
+		
+		return "redirect:/";
 	}
 }

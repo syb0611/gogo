@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.BoardVo;
 import com.gogo.withgo.vo.PageVo;
+import com.gogo.withgo.vo.ReplyVo;
 
 @Repository
 public class BoardDao {
@@ -52,5 +53,9 @@ public class BoardDao {
 	
 	public List<BoardVo> listPage(PageVo pvo){
 		return template.selectList(sql+".listPage", pvo);
+	}
+	
+	public void postReply(ReplyVo vo){
+		template.insert(sql+".postReply", vo);
 	}
 }

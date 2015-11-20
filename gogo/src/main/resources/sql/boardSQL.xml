@@ -40,6 +40,11 @@
 		select B.* from (select A.*, rownum rn from (select * from board where category=#{category} order by bno) A) B
 		where rn between #{bottomNum} and #{topNum} order by rn desc
 	</select>
+	
+	<insert id="postReply">
+		insert into reply(rno, bno, nickname, replytext, category)
+		values(reply_seq.nextval, #{bno}, #{nickname}, #{replytext}, #{category})
+	</insert>
 </mapper>
 
 
