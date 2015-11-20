@@ -91,7 +91,6 @@ public class BoardController {
 	@RequestMapping("/list")
 	public String ex(@RequestParam("category") String category, @RequestParam(value="page", defaultValue="1") int page, Model model){
 		int listTotal = dao.getTotal(category);
-		
 		PageVo pvo = new PageVo();
 		pvo.setCategory(category);
 		pvo.setPage(listTotal, page);

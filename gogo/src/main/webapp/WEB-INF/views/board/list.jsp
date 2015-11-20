@@ -103,14 +103,14 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<div class="category">
 									<div class="categoryTitle">
 									<c:choose>
-										<c:when test="${category == 'greeting' }"><h3>가입인사</h3></c:when>
-										<c:when test="${category == 'free' }"><h3>자유게시판</h3></c:when>
+										<c:when test="${pvo.category == 'greeting' }"><h3>가입인사</h3></c:when>
+										<c:when test="${pvo.category == 'free' }"><h3>자유게시판</h3></c:when>
 										<c:otherwise><h3>카풀이용후기</h3></c:otherwise>
 									</c:choose>
 									</div>
 									<div class="wBtn">
 										<c:if test="${memberInfo != null }">
-											<input type="button" class="btn btn-default btn-sm" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${category }'">
+											<input type="button" class="btn btn-default btn-sm" value="글쓰기" onclick="location.href='${contextPath}/board/writeform?category=${pvo.category }'">
 										</c:if>	
 									</div>
 								</div>
