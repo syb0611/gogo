@@ -7,6 +7,16 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 
+.tx{
+	text-align: center;
+	font-size: 80px;
+	font-family: "NanumGothicBold";
+	color: white;
+	font-weight: bold;
+	text-shadow:3px 3px 3px #c3cdce;
+	
+	
+	}
 .btn_comm a{
 	display: inline-block;
 	width: 200px;

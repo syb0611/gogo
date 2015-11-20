@@ -80,8 +80,14 @@ http://www.templatemo.com/free-website-templates/417-grill
 
             <div id="slider"  style = "background-image:url('images/car6.jpg');width:100%; height:700px;">
                 <form method="post" action="" id="searchForm">
+							
+							
+							
 							<div class="row">
 								<div class="col-sm-4 col-sm-offset-4" id="formDiv">
+								
+									<h1 class="tx" >Welcome!</h1>
+									<br>
 									<input type="text" class="form-control" name="departure" placeholder="출발지">
 									<input type="text" class="form-control" name="arrival" placeholder="도착지">
 									<input type="button" class="btn btn-default form-control" value="검색">
