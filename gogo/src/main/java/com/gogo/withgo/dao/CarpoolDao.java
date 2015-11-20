@@ -28,8 +28,9 @@ public class CarpoolDao {
 	}
 	
 	
-	public List<CarpoolMemberVo> carpoolList(String category){
-		return template.selectList(sql+".carpoolList", category);
+	public List<CarpoolMemberVo> carpoolList(String category, int mno){
+		CarpoolMemberVo vo = new CarpoolMemberVo(category, mno);
+		return template.selectList(sql+".carpoolList", vo);
 	}
 	
 	public CarpoolMemberVo read(int carno){

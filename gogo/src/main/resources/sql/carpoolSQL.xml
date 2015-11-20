@@ -12,13 +12,23 @@
 <!-- 		values(car_seq.nextval, #{category}, #{mno}, #{usertype}, #{departure}, #{arrival}, #{seat}, #{memo}) -->
 <!-- 	</insert> -->
 	
+<!-- 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo"> -->
+<!-- 		select C.*, M.*  -->
+<!-- 		from carpool C, member M -->
+<!-- 		where C.mno = M.mno -->
+<!-- 		and category=#{category} -->
+<!-- 		order by carno desc -->
+<!-- 	</select> -->
+	
+	
 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.* 
+		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
 		from carpool C, member M
 		where C.mno = M.mno
 		and category=#{category}
-		order by carno desc
+		
 	</select>
+	
 	
 	<select id="read" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.*

@@ -33,11 +33,68 @@ body {
 	background-color: #EAEAEA;
 }
 
-#bookmarkck{
+.bookmarkck{
 	position: absolute;
 	margin-left: 93%;
+	cursor: pointer;
 }
 </style>
+<script>
+var xhr;
+var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
+var imgOff = "http://localhost:8080/withgo/resources/images/off.png";
+
+function bookmarkClick(carno){
+	var mno = document.getElementById("mno").value;
+	if(mno == null || mno == ""){
+		alert("로그인 후 즐겨찾기 이용이 가능합니다.");
+		return;
+	}
+	
+	var bookmark = document.getElementById("bookmark"+carno);
+	if(bookmark.src == imgOff){
+		bookmark.src = imgOn;
+		addBookMark(carno, mno);
+	}else if(bookmark.src == imgOn){
+		bookmark.src = imgOff;
+		delBookMark(carno, mno);
+	}
+}
+
+function addBookMark(carno, mno){
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/mypage/addBookMark";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = addBookMarkResult;
+	xhr.send("carno="+carno+"&mno="+mno);
+}
+
+function addBookMarkResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+		}
+	}
+}
+
+function delBookMark(carno, mno){
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/mypage/delBookMark";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = delBookMarkResult;
+	xhr.send("carno="+carno+"&mno="+mno);
+}
+
+function delBookMarkResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -229,7 +286,15 @@ body {
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<input type="checkbox" id="bookmarkck">
+									<input type="hidden" id="mno" value="${memberInfo.mno }">
+									<c:choose>
+										<c:when test="${vo.bookmark == 0 }">
+											<img src="/withgo/resources/images/off.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
+										</c:when>
+										<c:otherwise>
+											<img src="/withgo/resources/images/on.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
+										</c:otherwise>
+									</c:choose>
 									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">

@@ -2,6 +2,9 @@ package com.gogo.withgo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.CarpoolDao;
 import com.gogo.withgo.vo.CarpoolVo;
+import com.gogo.withgo.vo.MemberVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Controller
@@ -49,8 +53,18 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping("/list")
-	public String list(@RequestParam("category") String category, Model model){
-		List<CarpoolMemberVo> list = dao.carpoolList(category);
+	public String list(@RequestParam("category") String category, HttpServletRequest request, Model model){
+		HttpSession session = request.getSession(false);
+		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+		
+		int mno;
+		if(memberInfo == null){
+			mno = 0;
+		}else{
+			mno = memberInfo.getMno();
+		}
+		
+		List<CarpoolMemberVo> list = dao.carpoolList(category, mno);
 		model.addAttribute("list", list);
 		model.addAttribute("category", category);
 		
