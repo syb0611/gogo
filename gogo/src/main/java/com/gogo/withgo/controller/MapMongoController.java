@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gogo.withgo.dao.MongoDao;
+import com.gogo.withgo.vo.MapVo;
 
 @Controller
 public class MapMongoController {
@@ -31,18 +31,21 @@ public class MapMongoController {
 		//int b_no = 10;
 		//MapVo jarray = new MapVo(requestData);
 		System.out.println(requestData);
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		JSONObject o = new JSONObject();
-		o.put( "b_no", 10);
+		/*Map<String, Object> map = new HashMap<String, Object>();*/
+		int a= 1;
+		MapVo o = new MapVo();
+		o.put( "b_no", a++);
 		o.put( "adata", requestData);
 
 		//jarray.put(new JSONObject("{\"b_no\":"+b_no+"}"));
 		dao.save( o );
+		MapVo find = new MapVo();
+		find = dao.findOne(1); 
+		System.out.println(find);
 
 		Map<String, Object> mapResult = new HashMap<String, Object>();
 		mapResult.put( "result", "success" );
-		mapResult.put( "data", null );
+		mapResult.put( "data", find );
 
 		return mapResult;
 	}
