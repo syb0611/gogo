@@ -18,6 +18,10 @@ public class MemberDao {
 		return template.selectOne(sql+".getMember", vo);
 	}
 	
+	public MemberVo getMemberByMno(int mno){
+		return template.selectOne(sql+".getMemberByMno", mno);
+	}
+	
 	public String findEmail(String email){
 		return template.selectOne(sql+".findEmail", email);
 	}
@@ -34,7 +38,13 @@ public class MemberDao {
 		template.delete(sql+".withdraw", email);
 	}
 	
-
+	public void updateMemberInfo(MemberVo vo){
+		template.update(sql+".updateMemberInfo", vo);
+	}
+	
+	public void pwChange(MemberVo vo){
+		template.update(sql+".pwChange", vo);
+	}
 //	public MemberVo getMember(String email, String pw){
 //		String query = "select * from member where email = ? and pw = ?";
 //		MemberVo member = new MemberVo();

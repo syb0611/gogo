@@ -4,6 +4,10 @@
     <select id="getMember" resultType="com.gogo.withgo.vo.MemberVo">
     	select * from member where email=#{email} and pw=#{pw}
     </select>
+    <select id="getMemberByMno" resultType="com.gogo.withgo.vo.MemberVo">
+    	select * from member
+    	where mno=#{mno}
+    </select>
     <select id="findEmail" resultType="String">
     	select email from member where email=#{email}
     </select>
@@ -18,5 +22,14 @@
     	delete from member 
     	where email=#{email}
     </delete>
-    
+    <update id="updateMemberInfo">
+    	update member
+    	set name=#{name}, hascar=#{hascar}, gender=#{gender}, nickname=#{nickname}, phone=#{phone}, profile=#{profile}
+    	where mno=#{mno}
+    </update>
+   <update id="pwChange">
+   		update member
+   		set pw=#{newpw}
+   		where mno=#{mno}
+   </update>
 </mapper>

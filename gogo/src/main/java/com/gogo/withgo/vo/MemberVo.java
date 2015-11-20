@@ -6,6 +6,7 @@ public class MemberVo {
 	private int mno;
 	private String email;
 	private String pw;
+	private String newpw;
 	private String nickname;
 	private String name;
 	private String phone;
@@ -26,12 +27,13 @@ public class MemberVo {
 		this.pw = pw;
 	}
 	
-	public MemberVo(int mno, String email, String pw, String nickname, String name, String phone, String birth,
+	public MemberVo(int mno, String email, String pw, String newpw, String nickname, String name, String phone, String birth,
 			int gender, int hascar, String image, Date jdate, String profile, String auth, int authphone, int authemail) {
 		super();
 		this.mno = mno;
 		this.email = email;
 		this.pw = pw;
+		this.newpw = newpw;
 		this.nickname = nickname;
 		this.name = name;
 		this.phone = phone;
@@ -44,6 +46,14 @@ public class MemberVo {
 		this.auth = auth;
 		this.authphone = authphone;
 		this.authemail = authemail;
+	}
+
+	public String getNewpw() {
+		return newpw;
+	}
+
+	public void setNewpw(String newpw) {
+		this.newpw = newpw;
 	}
 
 	public int getMno() {

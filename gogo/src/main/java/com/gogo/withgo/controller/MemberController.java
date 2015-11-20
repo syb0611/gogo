@@ -2,6 +2,8 @@ package com.gogo.withgo.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -89,17 +91,25 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/pwChange")
-	public String pwChange(@RequestParam("email") String email, @RequestParam("newpw") String newpw){
-//		dao.pwChange(email, newpw);
-//		session.setAttribute("memberInfo.pw", newpw);
+	public String pwChange(HttpServletRequest request, MemberVo vo){
+		HttpSession session = request.getSession(false);
+		
+		dao.pwChange(vo);
+		MemberVo newVo = dao.getMemberByMno(vo.getMno());
+		session.setAttribute("memberInfo", newVo);
 		
 		return "redirect:/mypage/password";
 	}
 	
 	@RequestMapping("/updateProfile")
-	public String updateProfile(MemberVo vo){
+	public String updateProfile(HttpServletRequest request, MemberVo vo){
+		//vo -> name, hascar, gender, nickname, phone, profile,
+		HttpSession session = request.getSession(false);
 		
-		//////////////////
+		dao.updateMemberInfo(vo);
+		MemberVo newVo = dao.getMemberByMno(vo.getMno());
+		session.setAttribute("memberInfo", newVo);
+		
 		return "redirect:/mypage/profile";
 	}
 }

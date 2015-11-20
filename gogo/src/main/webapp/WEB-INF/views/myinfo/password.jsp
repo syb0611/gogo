@@ -50,13 +50,13 @@ button.disabled{cursor:default}
 
 <script>
 function pwck(){
-	if(document.getElementById("mypw").value != document.getElementById("now_pw").value){
+	if(document.getElementById("mypw").value != document.getElementById("nowpw").value){
 		alert("현재 비밀번호가 일치하지 않습니다.");
-		document.getElementById("now_pw").focus();
+		document.getElementById("nowpw").focus();
 		return;
 	}else{
-		var newPwE = document.getElementById("new_pw");
-		var confPwE = document.getElementById("conf_pw");
+		var newPwE = document.getElementById("newpw");
+		var confPwE = document.getElementById("confpw");
 		if(newPwE.value.trim() == ""){
 			alert("새 비밀번호를 입력하세요");
 			newPwE.focus();
@@ -73,8 +73,8 @@ function pwck(){
 			return;
 		}
 		else{
-			document.getElementById("newpw").value = newPwE.value;
-			document.getElementById("pwchangeform").submit();
+			alert("비밀번호가 변경되었습니다.");
+			document.pwchangeform.submit();
 		}
 	}
 }
@@ -152,37 +152,36 @@ function pwck(){
 								
 								<input type="hidden" id="mypw" value="${memberInfo.pw }">
 								
-								<form method="post" action="${contextPath}/member/pwChange" id="pwchangeform">
-								<input type="hidden" name="newpw" id="newpw">
-								<input type="hidden" name="email" value="${memberInfo.email }">
-								<fieldset>
-									<legend>비밀번호 변경</legend>
-										<table style="width:100%; margin-top: 20px">
-											<tr>
-												<td><label id="lb_now_pw" for="now_pw">현재 비밀번호</label></td>
-											</tr>
-											<tr>
-												<td><input type="password" name="now_pw" id="now_pw" class="form-control"></td>
-											</tr>
-											<tr>
-												<td><label id="lb_new_pw" for="new_pw">새 비밀번호</label></td>
-											</tr>
-											<tr>
-												<td><input type="password" id="new_pw" name="new_pw" class="form-control"></td>
-											</tr>
-											<tr>
-												<td><label id="lb_conf_pw" for="conf_pw">새 비밀번호 확인</label></td>
-											</tr>
-											<tr>
-												<td><input type="password" id="conf_pw" class="form-control"></td>
-											</tr>
-											<tr>
-												<td style="padding-top: 10px; text-align: right">
-													<button type="button" class="btn btn-default" onclick="pwck()">확인</button>
-												</td>
-											</tr>
-										</table>
-									</fieldset>
+								<form method="post" action="/withgo/member/pwChange" id="pwchangeform" name="pwchangeform">
+									<input type="hidden" name="mno" value="${memberInfo.mno }">
+									<fieldset>
+										<legend>비밀번호 변경</legend>
+											<table style="width:100%; margin-top: 20px">
+												<tr>
+													<td><label id="lb_now_pw" for="nowpw">현재 비밀번호</label></td>
+												</tr>
+												<tr>
+													<td><input type="password" name="nowpw" id="nowpw" class="form-control"></td>
+												</tr>
+												<tr>
+													<td><label id="lb_new_pw" for="newpw">새 비밀번호</label></td>
+												</tr>
+												<tr>
+													<td><input type="password" id="newpw" name="newpw" class="form-control"></td>
+												</tr>
+												<tr>
+													<td><label id="lb_conf_pw" for="confpw">새 비밀번호 확인</label></td>
+												</tr>
+												<tr>
+													<td><input type="password" id="confpw" class="form-control"></td>
+												</tr>
+												<tr>
+													<td style="padding-top: 10px; text-align: right">
+														<button type="button" class="btn btn-default" onclick="pwck()">확인</button>
+													</td>
+												</tr>
+											</table>
+										</fieldset>
 									</form>
 								</div>
 							</div>

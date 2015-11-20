@@ -1,27 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-<!-- 
-
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
 <head>
 <meta charset="utf-8">
 <title>Contact - Grill Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-
-
-
 <style>
 #heading {
 /* 	background-image: url(images/community.png); */
@@ -64,12 +49,11 @@ fieldset {
 }
 
 </style>
-
-<!-- <script>
+<script>
 function formck(){
-	
+	document.myform.submit();
 }
-</script> -->
+</script>
 </head>
 <body>
 	<header>
@@ -139,7 +123,6 @@ function formck(){
 										<!-- CONTENTS -->
 										<div id="content">
 											<div class="c_header">
-												<br> <br>
 												<legend>개인정보 수정</legend>
 												<p class="contxt">
 													<strong>회원님</strong>의 회원정보입니다.<br> 회원정보는 개인정보취급방침에 따라
@@ -149,14 +132,10 @@ function formck(){
 														onclick="clickcr(this,'inf.privacy','','',event);"><br>개인정보취급방침</a>
 												</p>
 											
-											<form id="myform" method="post"
-												action="${contextPath}/member/updateProfile">
-												<input type="hidden" name="email"
-													value="${memberInfo.email }">
+											<form id="myform" name="myform" method="post"	action="/withgo/member/updateProfile">
+												<input type="hidden" name="mno" value="${memberInfo.mno }">
 												<fieldset>
 													<table border="0" class="tbl_model">
-														<br>
-														<br>
 														<caption>
 															<span class="blind"></span>
 														</caption>
@@ -176,8 +155,7 @@ function formck(){
 
 																		<div class="tdcell">
 																			<p class="contxt_tit">
-																				<input type="text" name="name"
-																					value="${memberInfo.name }">
+																				<input type="text" name="name" value="${memberInfo.name }">
 																			</p>
 																			<p class="contxt_desc">개명으로 이름이 변경된 경우에 한하여 변경이
 																				가능합니다.</p>
@@ -196,21 +174,53 @@ function formck(){
 
 															<tr>
 																<th scope="row">
-																	<div class="thcell">
-																		차량<span class="word_br">유무</span>
-																	</div>
+																	<div class="thcell">차량<span class="word_br">유무</span></div>
 																</th>
 																<td>
 																	<div class="tdcell">
 																		<p class="contxt_tit"></p>
 																		<p class="contxt_desc"></p>
-																		<input name="hascar" type="radio" value="1"><span>있음
-																		</span> <input name="hascar" type="radio" value="0"
-																			checked="checked"><span>없음 </span><br> <br>
-
+																		<c:choose>
+																			<c:when test="${memberInfo.hascar == 1 }">
+																				<input name="hascar" type="radio" value="1" checked="checked"><span>있음</span> 
+																				<input name="hascar" type="radio" value="0"><span>없음 </span>
+																			</c:when>
+																			<c:otherwise>
+																				<input name="hascar" type="radio" value="1"><span>있음</span> 
+																				<input name="hascar" type="radio" value="0" checked="checked"><span>없음 </span>
+																			</c:otherwise>
+																		</c:choose>
+																		
 																		<p class="btn_area_btm">
 																			<a href="javascript:changeName();" class="btn_model"><b
 																				class="btn2">[차량유무 변경]</b></a><br> <br> <br>
+																		</p>
+																	</div>
+																</td>
+															</tr>
+															
+															<tr>
+																<th scope="row">
+																	<div class="thcell">성별</div>
+																</th>
+																<td>
+																	<div class="tdcell">
+																		<p class="contxt_tit"></p>
+																		<p class="contxt_desc"></p>
+																		<c:choose>
+																			<c:when test="${memberInfo.gender == 1}">
+																				<input name="gender" type="radio" value="1" checked="checked"><span>남자</span> 
+																				<input name="gender" type="radio" value="2"><span>여자 </span>
+																			</c:when>
+																			<c:otherwise>
+																				<input name="gender" type="radio" value="1"><span>남자</span> 
+																				<input name="gender" type="radio" value="2" checked="checked"><span>여자 </span>
+																			</c:otherwise>
+																		</c:choose>
+																		
+																		<p class="btn_area_btm">
+																			<a href="javascript:changeName();" class="btn_model"><b
+																				class="btn2">[성별 변경]</b></a><br> <br> <br>
 																		</p>
 																	</div>
 																</td>
@@ -225,8 +235,7 @@ function formck(){
 																<td>
 																	<div class="tdcell">
 																		<p class="contxt_tit">
-																			<input type="text" name="nickname"
-																				value="${memberInfo.nickname }">
+																			<input type="text" name="nickname" value="${memberInfo.nickname }">
 																		</p>
 																		<p class="contxt_desc">위드고 서비스 이용시 사용할 닉네임입니다.</p>
 																		<p class="btn_area_btm">
@@ -245,8 +254,7 @@ function formck(){
 																<td>
 																	<div class="tdcell">
 																		<p id="p_txt_phoneNo" class="contxt_tit">
-																			<input type="text" name="phone"
-																				value="${memberInfo.phone }">
+																			<input type="text" name="phone"	value="${memberInfo.phone }">
 																		</p>
 																		<p class="contxt_desc">아이디, 비밀번호 찾기 등 본인확인이 필요한 경우
 																			사용할 휴대전화입니다.</p>
@@ -269,7 +277,7 @@ function formck(){
 																</th>
 																 <td>
 																	<div class="tdcell">
-																		<textarea name="memo" rows="5" cols="30">${memberInfo.profile }</textarea>
+																		<textarea name="profile" rows="5" cols="30">${memberInfo.profile }</textarea>
 																		<br> <br> <a href="javascript:changeName();"
 																			class="btn_model"><b class="btn2">[수정]</b></a><br>
 																		<br> <br>
@@ -279,8 +287,7 @@ function formck(){
 
 														</tbody>
 													</table>
-													<button type="button" class="btn btn-default form-control"
-														onclick="formck">확인</button>
+													<input type="button" class="btn btn-default form-control" onclick="formck()" value="확인">
 												</fieldset>
 											</form>
 											</div>
