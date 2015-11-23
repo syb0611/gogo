@@ -39,8 +39,7 @@ public class CarpoolController {
 	@RequestMapping("/write")
 	public String write(CarpoolVo vo){
 		dao.write(vo);
-		
-		return "redirect:/carpool/"+vo.getCategory()+"/list";  
+		return "redirect:/carpool/list?category="+vo.getCategory();  
 	}
 	
 	@RequestMapping("/list")

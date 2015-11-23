@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -78,9 +80,49 @@ table.t_ex2 .c2 {
 	margin-top: 30px;
 }
 
+#usertype1{
+	width: 200px;
+	height: 50px;
+	background: #E7E7E7;
+}
 
-/*]]>*/
+#usertype2{
+	width: 200px;
+	height: 50px;
+}
 </style>
+<script>
+function usertypeClick(type){
+	var usertype = document.getElementById("usertype");
+	var type1 = document.getElementById("usertype1");
+	var type2 = document.getElementById("usertype2");
+	
+	if(type == 1){  //타세요
+		usertype.value = 'driver';
+		type1.style.background = '#E7E7E7';
+		type2.style.background = 'white';
+	}else{  //태워주세요
+		usertype.value = 'rider';
+		type2.style.background = '#E7E7E7';
+		type1.style.background = 'white';
+	}
+}
+
+function writeClick(){
+	var form = document.wform;
+	var date_year = form.date_year.value;
+	var date_month = form.date_month.value;
+	var date_day = form.date_day.value;
+	
+	if(date_month < 10) date_month = "0" + date_month;
+	if(date_day < 10) date_day = "0" + date_day;
+	
+	var departuredate = date_year+"/"+date_month+"/"+date_day;
+	form.departuredate.value = departuredate;
+	alert("글 등록이 완료되었습니다.");
+	form.submit();
+}
+</script>
 </head>
 <body>
 	<header>
@@ -136,175 +178,109 @@ table.t_ex2 .c2 {
 		<div class="container">
 			<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-					<form method="post" action="${contextPath}/carpool/write">
+					<form method="post" action="${contextPath}/carpool/write" name="wform" id="wform">
 						<input type="hidden" name="category" value="${category }">
 						<input type="hidden" name="mno" value="${memberInfo.mno}">
-						<center>
 						<table>
-						
 							<div class="btn-group">
-								<button type="button" class="btn btn-default" style="width:200px;height:50px">타세요</button>
-								<button type="button" class="btn btn-default"style="width:200px;height:50px">태워주세요</button>
+								<input type="hidden" name="usertype" id="usertype" value="driver">
+								<button type="button" class="btn btn-default" id="usertype1" onclick="usertypeClick(1)">타세요</button>
+								<button type="button" class="btn btn-default" id="usertype2" onclick="usertypeClick(2)">태워주세요</button>
 							</div>
-							<br><br><br>
 						</table>
-						</center>
 						<article class="con_wrap reg_wrap">
 						<table class="table table-condensed" >
 							<tr>
-								<td><p class="reg_area dt">희망기간<p></td>
-								<td><select name="user_birth_year">
-										<option value="1" selected>1</option>
-										<option value="2" selected>2</option>
-										<option value="3" selected>3</option>
-										<option value="4" selected>4</option>
-										<option value="5" selected>5</option>
-										<option value="6" selected>6</option>
-										<option value="7" selected>7</option>
-										<option value="8" selected>8</option>
-										<option value="9" selected>9</option>
-										<option value="10" selected>10</option>
-										<option value="11" selected>11</option>
-										<option value="12" selected>12</option>
-										
-								</select> 월 <select name="user_birth_month">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-
-								</select> 일   ~  <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-
-								</select> 월 <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-
-								</select> 일 </td>
-								</tr>
-								<tr>
-									<td><p class="reg_area dt">출발지</p></td>
-									<td><input type="text" name="departure" id="loc1" size="17">&nbsp;</td>
-									
-								</tr>
-								<tr>
-									<td><p class="reg_area dt">도착지</p></td>
-									<td><input type="text" name="arrival" id="loc3" size="17"></td>
-								</tr>
-								<tr>
-									<td><p class="reg_area dt">경유지</p></td>
-									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2"></td>
-								</tr>
-								<tr>
-									<td><br></td>
-									<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
-								</tr>
-								<tr>
-									<td><p class="reg_area dt">좌석수</p></td>
-									<td>
-									<input type="number" name="seat" value="1"></td>
-								</tr>
-								<tr>
-									<td><p class="reg_area dt">금액</p></td>
-									<td><input type="text" name="arrival" size="20"></td>
-								</tr>
-								<tr>
+								<td><p class="reg_area dt">출발날짜<p></td>
+								<td>	
+									<input type="hidden" name="departuredate" id="departuredate">
+									<select name="date_year">
+										<c:set var="year" value="<%=new GregorianCalendar().get(Calendar.YEAR) %>"/>
+										<c:forEach var="i" begin="${year }" end="${year+100 }" step="1">
+											<option value="${i}">${i }</option>
+										</c:forEach>
+									</select>년
+									<select name="date_month">
+										<c:forEach var="month" begin="1" end="12" step="1">
+											<option value="${month }">${month }</option>
+										</c:forEach>
+									</select>월
+									<select name="date_day">
+										<c:forEach var="day" begin="1" end="31" step="1">
+											<option value="${day }">${day }</option>
+										</c:forEach>
+									</select>일
+								</td>
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">출발지</p></td>
+								<td><input type="text" name="departure" id="loc1" size="17">&nbsp;</td>
 								
-									<td><p class="reg_area dt">흡연 여부</p></td>
-									
-									<td><p class="reg_area dt"><input type="radio" name="usertype" value="driver"
-										checked="checked"> 흡연자 <input
-										type="radio" name="usertype" value="rider"> 비흡연자 </p></td>
-										
-								</tr>
-								<tr>
-									
-									<td><p class="reg_area dt">성별</p></td>
-									
-									<td><p class="reg_area dt"><input type="radio" name="usertype2" value="gender"
-										checked="checked"> 여자 <input
-										type="radio" name="usertype2" value="gender"> 남자 </p></td>
-								</tr>
-
-								<tr>
-									<td><p class="reg_area dt">추가내용</p></td>
-									<td><textarea name="memo" rows="10" cols="50"></textarea></td>
-								</tr>
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">도착지</p></td>
+								<td><input type="text" name="arrival" id="loc3" size="17"></td>
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">경유지</p></td>
+								<td>
+									<input type="text"  size="17" name="stop1" id="loc2">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop2" id="loc2">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop3" id="loc2">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop4" id="loc2">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop5" id="loc2">
+								</td>
+							</tr>
+							<tr>
+								<td><br></td>
+								<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">좌석수</p></td>
+								<td>
+								<input type="number" name="seat" value="1"></td>
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">금액</p></td>
+								<td><input type="text" name="price" size="20"></td>
+							</tr>
+							<tr>
+							
+								<td><p class="reg_area dt">흡연 여부</p></td>
 								
-								<tr>
-									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;<input
-										type="submit"  class="btn_comm" value="완료"></td>
-								</tr>
-							</table>
-							</article>
-							</form>
+								<td>
+									<p class="reg_area dt">
+										<input type="radio" name="smoking" value="1">흡연자
+										<input type="radio" name="smoking" value="0" checked="checked"> 비흡연자
+									</p>
+								</td>
+									
+							</tr>
+							<tr>
+								<td><p class="reg_area dt">성별</p></td>
+								<td>
+									<p class="reg_area dt">
+										<input type="radio" name="genderlimit" value="0" checked="checked">무관
+										<input type="radio" name="genderlimit" value="1">여성전용
+										<input type="radio" name="genderlimit" value="2">남성전용 
+									</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td><p class="reg_area dt">추가내용</p></td>
+								<td><textarea name="memo" rows="10" cols="50"></textarea></td>
+							</tr>
+							
+							<tr>
+								<td colspan="2" align="center">
+									<input type="reset" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="button" class="btn_comm" value="완료" onclick="writeClick()">
+								</td>
+							</tr>
+						</table>
+						</article>
+					</form>
 					
 				</div>
 				</div>

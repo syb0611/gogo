@@ -7,10 +7,7 @@
 <!-- 		order by carno desc -->
 <!-- 	</select> -->
 	
-<!-- 	<insert id="write"> -->
-<!-- 		insert into carpool(carno, category, mno, usertype, departure, arrival, seat, memo) -->
-<!-- 		values(car_seq.nextval, #{category}, #{mno}, #{usertype}, #{departure}, #{arrival}, #{seat}, #{memo}) -->
-<!-- 	</insert> -->
+
 	
 <!-- 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo"> -->
 <!-- 		select C.*, M.*  -->
@@ -20,6 +17,10 @@
 <!-- 		order by carno desc -->
 <!-- 	</select> -->
 	
+	<insert id="write">
+		insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, stop1, stop2, stop3, stop4, stop5, smoking, genderlimit)
+		values(car_seq.nextval, #{category}, #{mno}, #{departure}, #{arrival}, #{usertype}, #{memo}, #{departuredate}, #{seat}, #{price}, #{stop1}, #{stop2}, #{stop3}, #{stop4}, #{stop5}, #{smoking}, #{genderlimit})
+	</insert>
 	
 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 

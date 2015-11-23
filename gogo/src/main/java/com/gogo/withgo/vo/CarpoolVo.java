@@ -17,7 +17,7 @@ public class CarpoolVo {
 	private int seat;
 	private int bookedseat;
 	private String memo;		
-	private Date departuredate;			
+	private String departuredate;			//Date?String?
 	private int price;
 	private int smoking;
 	private int genderlimit;
@@ -26,7 +26,7 @@ public class CarpoolVo {
 	public CarpoolVo() {}
 
 	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
-			String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo, Date departuredate,
+			String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo, String departuredate,
 			int price, int smoking, int genderlimit, int requestseat) {
 		super();
 		this.carno = carno;
@@ -189,11 +189,11 @@ public class CarpoolVo {
 		this.memo = memo;
 	}
 
-	public Date getDeparturedate() {
+	public String getDeparturedate() {
 		return departuredate;
 	}
 
-	public void setDeparturedate(Date departuredate) {
+	public void setDeparturedate(String departuredate) {
 		this.departuredate = departuredate;
 	}
 
