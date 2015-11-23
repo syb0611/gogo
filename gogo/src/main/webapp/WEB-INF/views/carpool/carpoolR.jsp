@@ -183,6 +183,7 @@ function bookResult(){
 				<div class="col-md-3">
 					<div style="width:100%; height:250px; border:1px solid #C6C6C6">
 						<table style="width:80%; margin: 0 auto; margin-top: 20px;">
+						
 							<tr>
 								<td rowspan="2" style="padding-right: 5px"><img src="../images/blankimage.png" width="80px;"></td>
 								<td>${vo.name }</td>
@@ -227,6 +228,7 @@ function bookResult(){
 						<div style="float:left; margin-right: 20px; margin-bottom: 20px;">
 							<c:choose>
 								<c:when test="${vo.category == 'dan'}">
+								
 									<h3>단기카풀</h3>
 								</c:when>
 								<c:when test="${vo.category == 'jang'}">
@@ -244,6 +246,7 @@ function bookResult(){
 						<br>
 						<div>
 							<table class="table table-condensed">
+							
 								<tr>
 									<th width="20%">출발지</th>
 									<td width="30%">${vo.departure }</td>

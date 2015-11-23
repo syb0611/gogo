@@ -33,71 +33,11 @@ body {
 	background-color: #EAEAEA;
 }
 
-.bookmarkck{
+#bookmarkck{
 	position: absolute;
 	margin-left: 93%;
-	cursor: pointer;
 }
 </style>
-<script>
-var xhr;
-var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
-var imgOff = "http://localhost:8080/withgo/resources/images/off.png";
-
-function bookmarkClick(carno){
-	var mno = document.getElementById("mno").value;
-	if(mno == null || mno == ""){
-		alert("로그인 후 즐겨찾기 이용이 가능합니다.");
-		return;
-	}
-	
-	var bookmark = document.getElementById("bookmark"+carno);
-	if(bookmark.src == imgOff){
-		bookmark.src = imgOn;
-		addBookMark(carno, mno);
-	}else if(bookmark.src == imgOn){
-		bookmark.src = imgOff;
-		delBookMark(carno, mno);
-	}
-}
-
-function addBookMark(carno, mno){
-	
-	xhr = new XMLHttpRequest();
-	var url = "${pageContext.request.contextPath}/mypage/addBookMark";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = addBookMarkResult;
-	xhr.send("carno="+carno+"&mno="+mno);
-}
-
-function addBookMarkResult(){
-	if(xhr.readyState == 4){
-		if(xhr.status == 200){
-			alert("add");
-			var flag = xhr.responseText;
-		}
-	}
-}
-
-function delBookMark(carno, mno){
-	xhr = new XMLHttpRequest();
-	var url = "${pageContext.request.contextPath}/mypage/delBookMark";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = delBookMarkResult;
-	xhr.send("carno="+carno+"&mno="+mno);
-}
-
-function delBookMarkResult(){
-	if(xhr.readyState == 4){
-		if(xhr.status == 200){
-			alert("del");
-			var flag = xhr.responseText;
-		}
-	}
-}
-</script>
 </head>
 <body>
 	<header>
@@ -132,7 +72,7 @@ function delBookMarkResult(){
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
 				style="background-image: url(../images/1.png); height: 140px;">
-				<div class="container">
+							<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
@@ -165,6 +105,7 @@ function delBookMarkResult(){
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
+							
 							<div class="heading-content">
 								<h2>goschool</h2>
 								<span>Home / <a href="${contextPath}/carpool/list?category=goschool">고스쿨</a></span>
@@ -196,15 +137,28 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-3">
 					<fieldset>
-						<legend>검색 </legend>
+						<legend> </legend>
 						<form action="./example2.php" method="GET">
-								카풀 : 
+						<div class="btn-group">
+								
+								<button type="button" class="btn btn-default">전체</button>
+								<button type="button" class="btn btn-default">타세요</button>
+								<button type="button" class="btn btn-default">탈래요</button>
+							</div><br><br>
+							
+							<!-- <div class="btn-group">
+								
+								<button type="button" class="btn btn-default">전체</button>
+								<button type="button" class="btn btn-default">여자　</button>
+								<button type="button" class="btn btn-default">남자　</button>
+							</div> -->
+								<!-- 카풀 : 
 								<select name="type">
 									<option value="short">단기카풀</option>
 									<option value="long">장기카풀</option>
 									<option value="taxi">택시카풀</option>
 									<option value="school">고스쿨</option>
-								</select>
+								</select> -->
 							<div>
 							<tr>
 									<td><p class="reg_area dt"></p>
@@ -214,10 +168,10 @@ function delBookMarkResult(){
 									<td><p class="reg_area dt"></p>
 									<input type="text" placeholder="도착지" /></td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td><p class="reg_area dt"></p>
 									<input type="text" placeholder="경유지" /></td>
-								</tr><br><br>
+								</tr>--><br><br>
 								금액 : 
 								<select name="type">
 								<option value="금액">금액</option>
@@ -248,8 +202,11 @@ function delBookMarkResult(){
 							</div>
 							<tr>
 									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="검색하기">
+									
 									</td>
+									
 								</tr>
+								
 						</form>
 					</fieldset>
 				</div>
@@ -289,15 +246,7 @@ function delBookMarkResult(){
 							<c:forEach items="${list }" var="vo">
 							<tr>
 								<td>
-									<input type="hidden" id="mno" value="${memberInfo.mno }">
-									<c:choose>
-										<c:when test="${vo.bookmark == 0 }">
-											<img src="/withgo/resources/images/off.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
-										</c:when>
-										<c:otherwise>
-											<img src="/withgo/resources/images/on.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
-										</c:otherwise>
-									</c:choose>
+									<input type="checkbox" id="bookmarkck">
 									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
