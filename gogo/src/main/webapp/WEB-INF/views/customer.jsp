@@ -24,9 +24,17 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/slide2.jpg);
-	height: 140px;
+	background-image: url(/withgo/resources/images/gogogo.png);
+	background-size : 100%;
+	height: 150px;
 }
+
+
+/* #slide { */
+/* 	width: 100%; */
+/* 	height:150px; */
+/* } */
+
 </style>
 </head>
 <body>
@@ -75,6 +83,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 	</header>
 
 	<div id="heading">
+<!-- 	<img src="/withgo/resources/images/slide2.jpg" id="slide"> -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

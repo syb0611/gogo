@@ -23,8 +23,9 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(../images/slide2.jpg);
-	height: 140px;
+	background-image: url(../images/gogogo.png);
+	background-size : 100%;
+	height: 150px;
 }
 
 .content{
