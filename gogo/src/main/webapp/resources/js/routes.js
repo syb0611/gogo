@@ -587,177 +587,177 @@ $(function() {
 								});
 					});
 
-	$("#send").click(
-			function() {
-				var arrayData = "";
-				if (markerp1 == null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-					} ];
-				}
-
-				else if (markerp1 != null && markerp2 == null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"p1lon" : markerp1.lonlat.lon,
-						"p1lat" : markerp1.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-						"경유지1" : p1
-					} ];
-				}
-
-				else if (markerp1 != null && markerp2 != null
-						&& markerp3 == null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"p1lon" : markerp1.lonlat.lon,
-						"p1lat" : markerp1.lonlat.lat
-					}, {
-						"p2lon" : markerp2.lonlat.lon,
-						"p2lat" : markerp2.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-						"경유지1" : p1,
-						"경유지2" : p2
-					} ];
-				}
-
-				else if (markerp1 != null && markerp2 != null
-						&& markerp3 != null && markerp4 == null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"p1lon" : markerp1.lonlat.lon,
-						"p1lat" : markerp1.lonlat.lat
-					}, {
-						"p2lon" : markerp2.lonlat.lon,
-						"p2lat" : markerp2.lonlat.lat
-					}, {
-						"p3lon" : markerp3.lonlat.lon,
-						"p3lat" : markerp3.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-						"경유지1" : p1,
-						"경유지2" : p2,
-						"경유지3" : p3
-					} ];
-				}
-
-				else if (markerp1 != null && markerp2 != null
-						&& markerp3 != null && markerp4 != null
-						&& markerp5 == null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"p1lon" : markerp1.lonlat.lon,
-						"p1lat" : markerp1.lonlat.lat
-					}, {
-						"p2lon" : markerp2.lonlat.lon,
-						"p2lat" : markerp2.lonlat.lat
-					}, {
-						"p3lon" : markerp3.lonlat.lon,
-						"p3lat" : markerp3.lonlat.lat
-					}, {
-						"p4lon" : markerp4.lonlat.lon,
-						"p4lat" : markerp4.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-						"경유지1" : p1,
-						"경유지2" : p2,
-						"경유지3" : p3,
-						"경유지4" : p4
-					} ];
-				}
-
-				else if (markerp1 != null && markerp2 != null
-						&& markerp3 != null && markerp4 != null
-						&& markerp5 != null) {
-					arrayData = [ {
-						"startlon" : marker1.lonlat.lon,
-						"startlat" : marker1.lonlat.lat
-					}, {
-						"endlon" : marker3.lonlat.lon,
-						"endlat" : marker3.lonlat.lat
-					}, {
-						"p1lon" : markerp1.lonlat.lon,
-						"p1lat" : markerp1.lonlat.lat
-					}, {
-						"p2lon" : markerp2.lonlat.lon,
-						"p2lat" : markerp2.lonlat.lat
-					}, {
-						"p3lon" : markerp3.lonlat.lon,
-						"p3lat" : markerp3.lonlat.lat
-					}, {
-						"p4lon" : markerp4.lonlat.lon,
-						"p4lat" : markerp4.lonlat.lat
-					}, {
-						"p5lon" : markerp5.lonlat.lon,
-						"p5lat" : markerp5.lonlat.lat
-					}, {
-						"출발지" : start,
-						"도착지" : end,
-						"경유지1" : p1,
-						"경유지2" : p2,
-						"경유지3" : p3,
-						"경유지4" : p4,
-						"경유지5" : p5
-					} ];
-				}
-				
-				/*var o = {
-					"no": 1, 	
-					"arrayData" : arrayData	
-				}*/
-				
-				$.ajax({
-					url : "/withgo/markertest",
-					type : "post",
-					dataType : "json",
-					contentType : 'application/json',
-					data : JSON.stringify(arrayData),
-					success : function(response) {
-						if (response.result == "fail") {
-							console.error(response.message);
-							return;
-						}
-
-						console.log(response);
-					},
-					error : function(jqXHR, status, e) {
-						console.error(status + " : " + e);
-					}
-				});
-			});
+//	$("#send").click(
+//			function() {
+//				var arrayData = "";
+//				if (markerp1 == null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//					} ];
+//				}
+//
+//				else if (markerp1 != null && markerp2 == null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"p1lon" : markerp1.lonlat.lon,
+//						"p1lat" : markerp1.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//						"경유지1" : p1
+//					} ];
+//				}
+//
+//				else if (markerp1 != null && markerp2 != null
+//						&& markerp3 == null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"p1lon" : markerp1.lonlat.lon,
+//						"p1lat" : markerp1.lonlat.lat
+//					}, {
+//						"p2lon" : markerp2.lonlat.lon,
+//						"p2lat" : markerp2.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//						"경유지1" : p1,
+//						"경유지2" : p2
+//					} ];
+//				}
+//
+//				else if (markerp1 != null && markerp2 != null
+//						&& markerp3 != null && markerp4 == null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"p1lon" : markerp1.lonlat.lon,
+//						"p1lat" : markerp1.lonlat.lat
+//					}, {
+//						"p2lon" : markerp2.lonlat.lon,
+//						"p2lat" : markerp2.lonlat.lat
+//					}, {
+//						"p3lon" : markerp3.lonlat.lon,
+//						"p3lat" : markerp3.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//						"경유지1" : p1,
+//						"경유지2" : p2,
+//						"경유지3" : p3
+//					} ];
+//				}
+//
+//				else if (markerp1 != null && markerp2 != null
+//						&& markerp3 != null && markerp4 != null
+//						&& markerp5 == null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"p1lon" : markerp1.lonlat.lon,
+//						"p1lat" : markerp1.lonlat.lat
+//					}, {
+//						"p2lon" : markerp2.lonlat.lon,
+//						"p2lat" : markerp2.lonlat.lat
+//					}, {
+//						"p3lon" : markerp3.lonlat.lon,
+//						"p3lat" : markerp3.lonlat.lat
+//					}, {
+//						"p4lon" : markerp4.lonlat.lon,
+//						"p4lat" : markerp4.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//						"경유지1" : p1,
+//						"경유지2" : p2,
+//						"경유지3" : p3,
+//						"경유지4" : p4
+//					} ];
+//				}
+//
+//				else if (markerp1 != null && markerp2 != null
+//						&& markerp3 != null && markerp4 != null
+//						&& markerp5 != null) {
+//					arrayData = [ {
+//						"startlon" : marker1.lonlat.lon,
+//						"startlat" : marker1.lonlat.lat
+//					}, {
+//						"endlon" : marker3.lonlat.lon,
+//						"endlat" : marker3.lonlat.lat
+//					}, {
+//						"p1lon" : markerp1.lonlat.lon,
+//						"p1lat" : markerp1.lonlat.lat
+//					}, {
+//						"p2lon" : markerp2.lonlat.lon,
+//						"p2lat" : markerp2.lonlat.lat
+//					}, {
+//						"p3lon" : markerp3.lonlat.lon,
+//						"p3lat" : markerp3.lonlat.lat
+//					}, {
+//						"p4lon" : markerp4.lonlat.lon,
+//						"p4lat" : markerp4.lonlat.lat
+//					}, {
+//						"p5lon" : markerp5.lonlat.lon,
+//						"p5lat" : markerp5.lonlat.lat
+//					}, {
+//						"출발지" : start,
+//						"도착지" : end,
+//						"경유지1" : p1,
+//						"경유지2" : p2,
+//						"경유지3" : p3,
+//						"경유지4" : p4,
+//						"경유지5" : p5
+//					} ];
+//				}
+//				
+//				/*var o = {
+//					"no": 1, 	
+//					"arrayData" : arrayData	
+//				}*/
+//				
+//				$.ajax({
+//					url : "/withgo/carpool/write",
+//					type : "post",
+//					dataType : "json",
+//					contentType : 'application/json',
+//					data : JSON.stringify(arrayData),
+//					success : function(response) {
+//						if (response.result == "fail") {
+//							console.error(response.message);
+//							return;
+//						}
+//
+//						console.log(response);
+//					},
+//					error : function(jqXHR, status, e) {
+//						console.error(status + " : " + e);
+//					}
+//				});
+//			});
 });
 
 function initialize() {
@@ -881,4 +881,260 @@ function getPointList(features) {
 	}
 
 	return pointList;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var xhr = null;
+
+function usertypeClick(type){
+	var usertype = document.getElementById("usertype");
+	var type1 = document.getElementById("usertype1");
+	var type2 = document.getElementById("usertype2");
+	
+	if(type == 1){  //타세요
+		usertype.value = 'driver';
+		type1.style.background = '#E7E7E7';
+		type2.style.background = 'white';
+	}else{  //태워주세요
+		usertype.value = 'rider';
+		type2.style.background = '#E7E7E7';
+		type1.style.background = 'white';
+	}
+}
+
+function writeClick(){
+	var form = document.wform;
+	
+	var category = form.category.value;
+	var mno = form.mno.value;
+	var departure = form.departure.value;
+	var arrival = form.arrival.value;
+	var usertype = form.usertype.value;
+	var memo = form.memo.value;
+
+	var date_year = form.date_year.value;
+	var date_month = form.date_month.value;
+	var date_day = form.date_day.value;
+	if(date_month < 10) date_month = "0" + date_month;
+	if(date_day < 10) date_day = "0" + date_day;
+	var departuredate = date_year+"/"+date_month+"/"+date_day;
+	
+	var seat = form.seat.value;
+	var stop1 = form.stop1.value;
+	var stop2 = form.stop2.value;
+	var stop3 = form.stop3.value;
+	var stop4 = form.stop4.value;
+	var stop5 = form.stop5.value;
+	var price = form.price.value;
+	var smoking = form.smoking.value;
+	var genderlimit = form.genderlimit.value;
+	
+	var param = "category="+category+"&mno="+mno+"&departure="+departure+"&arrival="+arrival
+				+"&usertype="+usertype+"&memo="+memo+"&departuredate="+departuredate+"&seat="+seat
+				+"&stop1="+stop1+"&stop2="+stop2+"&stop3="+stop3+"&stop4="+stop4+"&stop5="+stop5
+				+"&price="+price+"&smoking="+smoking+"&genderlimit="+genderlimit;
+	//form.departuredate.value = departuredate;
+	//alert("글 등록이 완료되었습니다.");
+	//form.submit();
+	
+	xhr = new XMLHttpRequest();
+	var url = "/withgo/carpool/write";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = writeResult;
+	xhr.send(param);
+}
+
+function writeResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var carno_seq = xhr.responseText;	//carno_seq
+			alert(carno_seq);
+			saveToMongo(carno_seq);
+		}
+	}
+}
+
+function saveToMongo(seq){
+	alert("seq : "+seq);//////
+	var arrayData = "";
+	if (markerp1 == null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+		} ];
+	}
+
+	else if (markerp1 != null && markerp2 == null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"p1lon" : markerp1.lonlat.lon,
+			"p1lat" : markerp1.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+			"경유지1" : p1
+		} ];
+	}
+
+	else if (markerp1 != null && markerp2 != null
+			&& markerp3 == null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"p1lon" : markerp1.lonlat.lon,
+			"p1lat" : markerp1.lonlat.lat
+		}, {
+			"p2lon" : markerp2.lonlat.lon,
+			"p2lat" : markerp2.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+			"경유지1" : p1,
+			"경유지2" : p2
+		} ];
+	}
+
+	else if (markerp1 != null && markerp2 != null
+			&& markerp3 != null && markerp4 == null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"p1lon" : markerp1.lonlat.lon,
+			"p1lat" : markerp1.lonlat.lat
+		}, {
+			"p2lon" : markerp2.lonlat.lon,
+			"p2lat" : markerp2.lonlat.lat
+		}, {
+			"p3lon" : markerp3.lonlat.lon,
+			"p3lat" : markerp3.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+			"경유지1" : p1,
+			"경유지2" : p2,
+			"경유지3" : p3
+		} ];
+	}
+
+	else if (markerp1 != null && markerp2 != null
+			&& markerp3 != null && markerp4 != null
+			&& markerp5 == null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"p1lon" : markerp1.lonlat.lon,
+			"p1lat" : markerp1.lonlat.lat
+		}, {
+			"p2lon" : markerp2.lonlat.lon,
+			"p2lat" : markerp2.lonlat.lat
+		}, {
+			"p3lon" : markerp3.lonlat.lon,
+			"p3lat" : markerp3.lonlat.lat
+		}, {
+			"p4lon" : markerp4.lonlat.lon,
+			"p4lat" : markerp4.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+			"경유지1" : p1,
+			"경유지2" : p2,
+			"경유지3" : p3,
+			"경유지4" : p4
+		} ];
+	}
+
+	else if (markerp1 != null && markerp2 != null
+			&& markerp3 != null && markerp4 != null
+			&& markerp5 != null) {
+		arrayData = [ {
+			"startlon" : marker1.lonlat.lon,
+			"startlat" : marker1.lonlat.lat
+		}, {
+			"endlon" : marker3.lonlat.lon,
+			"endlat" : marker3.lonlat.lat
+		}, {
+			"p1lon" : markerp1.lonlat.lon,
+			"p1lat" : markerp1.lonlat.lat
+		}, {
+			"p2lon" : markerp2.lonlat.lon,
+			"p2lat" : markerp2.lonlat.lat
+		}, {
+			"p3lon" : markerp3.lonlat.lon,
+			"p3lat" : markerp3.lonlat.lat
+		}, {
+			"p4lon" : markerp4.lonlat.lon,
+			"p4lat" : markerp4.lonlat.lat
+		}, {
+			"p5lon" : markerp5.lonlat.lon,
+			"p5lat" : markerp5.lonlat.lat
+		}, {
+			"출발지" : start,
+			"도착지" : end,
+			"경유지1" : p1,
+			"경유지2" : p2,
+			"경유지3" : p3,
+			"경유지4" : p4,
+			"경유지5" : p5
+		} ];
+	}
+	
+	/*var o = {
+		"no": 1, 	
+		"arrayData" : arrayData	
+	}*/
+	
+	$.ajax({
+		url : "/withgo/carpool/writeMongo",
+		type : "post",
+		dataType : "json",
+		contentType : 'application/json',
+		data : JSON.stringify(arrayData),
+		success : function(response) {
+			if (response.result == "fail") {
+				console.error(response.message);
+				return;
+			}
+
+			console.log(response);
+		},
+		error : function(jqXHR, status, e) {
+			console.error(status + " : " + e);
+		}
+	});
 }

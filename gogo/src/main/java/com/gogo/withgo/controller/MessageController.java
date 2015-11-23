@@ -40,17 +40,25 @@ public class MessageController {
 	}
 	
 	@RequestMapping("/mymsg")
-	public String mymsg(HttpServletRequest request, Model model){
+	public String mymsg(@RequestParam(value="type", defaultValue="1") String type, HttpServletRequest request, Model model){
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		String nickname = memberInfo.getNickname();
-			
-		List<MessageVo> receiveMsgList = dao.getReceiveMsg(nickname);
-		List<MessageVo> sendMsgList = dao.getSendMsg(nickname);
 		
-		model.addAttribute("receiveMsgList", receiveMsgList);
-		model.addAttribute("sendMsgList", sendMsgList);
+		if(type.equals("1")){  //받은 쪽지함
+			List<MessageVo> msgList = dao.getReceiveMsg(nickname);
+			model.addAttribute("msgList", msgList);
+		}else{  //보낸 쪽지함
+			List<MessageVo> msgList = dao.getSendMsg(nickname);
+			model.addAttribute("msgList", msgList);
+		}
+//		List<MessageVo> receiveMsgList = dao.getReceiveMsg(nickname);
+//		List<MessageVo> sendMsgList = dao.getSendMsg(nickname);
+//		
+//		model.addAttribute("receiveMsgList", receiveMsgList);
+//		model.addAttribute("sendMsgList", sendMsgList);
 
+		model.addAttribute("type", type);
 		return "message/mymsg";
 	}
 	

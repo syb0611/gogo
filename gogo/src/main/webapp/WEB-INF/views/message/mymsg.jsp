@@ -72,79 +72,12 @@
 			<div class="col-md-10 col-md-offset-1">	
 				<h2>쪽지함</h2><br>
 				<table class="table table-condensed">
-					<tr>
-						<td colspan="5"><h4>[받은쪽지]</h4></td>
-					</tr>
-					<tr>
-						<th>번호</th>
-						<th>보낸사람</th>
-						<th>제목</th>
-						<th>보낸날짜</th>
-						<th>수신확인</th>
-					</tr>
-					<c:choose>
-						<c:when test="${receiveMsgList == '[]' }">
-							<tr>
-								<td colspan="5" align="center">-</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-						<c:forEach items="${receiveMsgList}" var="receiveMsg">
-							<tr>
-								<td>${receiveMsg.msgno }</td>
-								<td>${receiveMsg.fromname }</td>
-								<td><a href="${contextPath}/message/read?type=receive&msgno=${receiveMsg.msgno}">${receiveMsg.title }</a></td>
-								<td>${receiveMsg.wdate }</td>
-								<c:choose>
-									<c:when test="${receiveMsg.checked == '0'}">
-										<td>안읽음</td>
-									</c:when>
-									<c:otherwise>
-										<td>읽음</td>
-									</c:otherwise>
-								</c:choose>
-							</tr>
-						</c:forEach>
-						</c:otherwise>
-					</c:choose>
-				</table>
-				
-				<table class="table table-condensed">
-					<tr>
-						<td colspan="2"><h4>[보낸쪽지]</h4></td>
-					</tr>
-					<tr>
-						<th>번호</th>
-						<th>받는사람</th>
-						<th>제목</th>
-						<th>보낸날짜</th>
-						<th>수신확인</th>
-					</tr>
-					<c:choose>
-						<c:when test="${sendMsgList == '[]' }">
-							<tr>
-								<td colspan="5" align="center">-</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-						<c:forEach items="${sendMsgList}" var="sendMsg">
-							<tr>
-								<td>${sendMsg.msgno }</td>
-								<td>${sendMsg.toname }</td>
-								<td><a href="${contextPath}/message/read?type=send&msgno=${sendMsg.msgno}">${sendMsg.title }</a></td>
-								<td>${sendMsg.wdate }</td>
-								<c:choose>
-									<c:when test="${sendMsg.checked == '0'}">
-										<td>안읽음</td>
-									</c:when>
-									<c:otherwise>
-										<td>읽음</td>
-									</c:otherwise>
-								</c:choose>
-							</tr>
-						</c:forEach>
-						</c:otherwise>
-					</c:choose>
+					<c:when test="${type == '1' }">	<!-- 받은 쪽지 -->
+					
+					</c:when>
+					<c:otherwise>
+					
+					</c:otherwise>
 				</table>
 			</div>		
 		</div>		

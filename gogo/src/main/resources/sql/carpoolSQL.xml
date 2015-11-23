@@ -17,10 +17,19 @@
 <!-- 		order by carno desc -->
 <!-- 	</select> -->
 	
-	<insert id="write">
-		insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, stop1, stop2, stop3, stop4, stop5, smoking, genderlimit)
+<!-- 	<insert id="write"> -->
+<!-- 		insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, stop1, stop2, stop3, stop4, stop5, smoking, genderlimit) -->
+<!-- 		values(car_seq.nextval, #{category}, #{mno}, #{departure}, #{arrival}, #{usertype}, #{memo}, #{departuredate}, #{seat}, #{price}, #{stop1}, #{stop2}, #{stop3}, #{stop4}, #{stop5}, #{smoking}, #{genderlimit}) -->
+<!-- 	</insert> -->
+	
+	
+	<insert id="write" parameterType="com.gogo.withgo.vo.CarpoolVo">
+    	insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, stop1, stop2, stop3, stop4, stop5, smoking, genderlimit)
 		values(car_seq.nextval, #{category}, #{mno}, #{departure}, #{arrival}, #{usertype}, #{memo}, #{departuredate}, #{seat}, #{price}, #{stop1}, #{stop2}, #{stop3}, #{stop4}, #{stop5}, #{smoking}, #{genderlimit})
-	</insert>
+   		<selectKey resultType="int" keyProperty="carno" order="AFTER">
+   			 SELECT car_seq.currval from dual
+   		</selectKey>
+	</insert> 
 	
 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 

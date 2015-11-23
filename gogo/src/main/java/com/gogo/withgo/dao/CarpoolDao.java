@@ -20,8 +20,13 @@ public class CarpoolDao {
 	private static final String sql = "carpoolSQL"; 
 	
 	
-	public void write(CarpoolVo vo){
+//	public void write(CarpoolVo vo){
+//		template.insert(sql+".write", vo);
+//	}
+	
+	public int write(CarpoolVo vo){
 		template.insert(sql+".write", vo);
+		return vo.getCarno();   //insert한 현재 seq값 
 	}
 	
 	

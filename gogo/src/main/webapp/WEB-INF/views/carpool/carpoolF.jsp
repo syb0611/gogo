@@ -92,36 +92,79 @@ table.t_ex2 .c2 {
 }
 </style>
 <script>
-function usertypeClick(type){
-	var usertype = document.getElementById("usertype");
-	var type1 = document.getElementById("usertype1");
-	var type2 = document.getElementById("usertype2");
-	
-	if(type == 1){  //타세요
-		usertype.value = 'driver';
-		type1.style.background = '#E7E7E7';
-		type2.style.background = 'white';
-	}else{  //태워주세요
-		usertype.value = 'rider';
-		type2.style.background = '#E7E7E7';
-		type1.style.background = 'white';
-	}
-}
+// var xhr = null;
 
-function writeClick(){
-	var form = document.wform;
-	var date_year = form.date_year.value;
-	var date_month = form.date_month.value;
-	var date_day = form.date_day.value;
+// function usertypeClick(type){
+// 	var usertype = document.getElementById("usertype");
+// 	var type1 = document.getElementById("usertype1");
+// 	var type2 = document.getElementById("usertype2");
 	
-	if(date_month < 10) date_month = "0" + date_month;
-	if(date_day < 10) date_day = "0" + date_day;
+// 	if(type == 1){  //타세요
+// 		usertype.value = 'driver';
+// 		type1.style.background = '#E7E7E7';
+// 		type2.style.background = 'white';
+// 	}else{  //태워주세요
+// 		usertype.value = 'rider';
+// 		type2.style.background = '#E7E7E7';
+// 		type1.style.background = 'white';
+// 	}
+// }
+
+// function writeClick(){
+// 	var form = document.wform;
 	
-	var departuredate = date_year+"/"+date_month+"/"+date_day;
-	form.departuredate.value = departuredate;
-	alert("글 등록이 완료되었습니다.");
-	form.submit();
-}
+// 	var category = form.category.value;
+// 	var mno = form.mno.value;
+// 	var departure = form.departure.value;
+// 	var arrival = form.arrival.value;
+// 	var usertype = form.usertype.value;
+// 	var memo = form.memo.value;
+
+// 	var date_year = form.date_year.value;
+// 	var date_month = form.date_month.value;
+// 	var date_day = form.date_day.value;
+// 	if(date_month < 10) date_month = "0" + date_month;
+// 	if(date_day < 10) date_day = "0" + date_day;
+// 	var departuredate = date_year+"/"+date_month+"/"+date_day;
+	
+// 	var seat = form.seat.value;
+// 	var stop1 = form.stop1.value;
+// 	var stop2 = form.stop2.value;
+// 	var stop3 = form.stop3.value;
+// 	var stop4 = form.stop4.value;
+// 	var stop5 = form.stop5.value;
+// 	var price = form.price.value;
+// 	var smoking = form.smoking.value;
+// 	var genderlimit = form.genderlimit.value;
+	
+// 	var param = "category="+category+"&mno="+mno+"&departure="+departure+"&arrival="+arrival
+// 				+"&usertype="+usertype+"&memo="+memo+"&departuredate="+departuredate+"&seat="+seat
+// 				+"&stop1="+stop1+"&stop2="+stop2+"&stop3="+stop3+"&stop4="+stop4+"&stop5="+stop5
+// 				+"&price="+price+"&smoking="+smoking+"&genderlimit="+genderlimit;
+// 	//form.departuredate.value = departuredate;
+// 	//alert("글 등록이 완료되었습니다.");
+// 	//form.submit();
+	
+// 	xhr = new XMLHttpRequest();
+// 	var url = "/withgo/carpool/write";
+// 	xhr.open("POST", url, true);
+// 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+// 	xhr.onreadystatechange = writeResult;
+// 	xhr.send(param);
+// }
+
+// function writeResult(){
+// 	if(xhr.readyState == 4){
+// 		if(xhr.status == 200){
+// 			var carno_seq = xhr.responseText;	//carno_seq
+// 			//alert(carno_seq);
+// 			//saveToMongo(carno_seq);
+// 		}
+// 	}
+// }
+
+
+
 </script>
 </head>
 <body>
@@ -224,11 +267,11 @@ function writeClick(){
 							<tr>
 								<td><p class="reg_area dt">경유지</p></td>
 								<td>
-									<input type="text"  size="17" name="stop1" id="loc2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop2" id="loc2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop3" id="loc2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop4" id="loc2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop5" id="loc2">
+									<input type="text"  size="17" name="stop1" id="pass1">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop2" id="pass2">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop3" id="pass3">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop4" id="pass4">&nbsp;&nbsp;
+									<input type="text"  size="17" name="stop5" id="pass5">
 								</td>
 							</tr>
 							<tr>
