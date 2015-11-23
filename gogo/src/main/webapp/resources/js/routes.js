@@ -587,7 +587,7 @@ $(function() {
 								});
 					});
 
-	$("#example3").click(
+	$("#send").click(
 			function() {
 				var arrayData = "";
 				if (markerp1 == null) {

@@ -19,13 +19,14 @@ http://www.templatemo.com/free-website-templates/417-grill
 <title>main</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-
+<script src="/withgo/resources/js/routes.js"></script>
 
 <style>
 #heading {
 	background-image: url(/withgo/resources/images/zx.jpg);
 	height: 140px;
 }
+
 #formDiv {
 	margin-top: 200px;
 }
@@ -65,46 +66,49 @@ table.t_ex2 .c1 {
 table.t_ex2 .c2 {
 	text-align: left
 }
-#timeline-post{
+
+#timeline-post {
 	margin-top: 30px;
 }
 /*]]>*/
 </style>
 <script>
-var xhr;
+	var xhr;
 
-function checkChange(){
-	xhr= new XMLHttpRequest();
-   	xhr.onreadystatechange=callback;
-   var id=document.getElementById("sel1").value;
-   xhr.open("get","${pageContext.request.contextPath}/school/list?type="+id,true);
-   xhr.send(null);
-}
+	function checkChange() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		var id = document.getElementById("sel1").value;
+		xhr.open("get", "${pageContext.request.contextPath}/school/list?type="
+				+ id, true);
+		xhr.send(null);
+	}
 
-function callback(){
-	if(xhr.readyState==4){
-      if(xhr.status==200){
-    	  var result = xhr.responseText;
-    	  document.getElementById("sel2").innerHTML = result;
-        // document.getElementById("view").innerHTML=
-      }else if(xhr.status==404){
-       //  document.getElementById("view").innerHTML="서버프로그램 없음";
-      }
-   }
-}
+	function callback() {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				var result = xhr.responseText;
+				document.getElementById("sel2").innerHTML = result;
+				// document.getElementById("view").innerHTML=
+			} else if (xhr.status == 404) {
+				//  document.getElementById("view").innerHTML="서버프로그램 없음";
+			}
+		}
+	}
 </script>
 </head>
 <body>
 	<header>
-		<%@ include file="/WEB-INF/views/header.jsp"%>
+		<%@ include file="../header.jsp"%>
 		<div id="main-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="/withgo/resources/images/pool2.jpeg"
-								title="withGoe" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img
+								src="/withgo/resources/images/pool2.jpeg" title="withGoe"
+								alt="Grill Website Template"></a>
 
 						</div>
 					</div>
@@ -136,14 +140,15 @@ function callback(){
 				<div class="col-md-12">
 					<div class="heading-content">
 						<h2>TAXI</h2>
-						<span>Home / <a href="${contextPath}/carpool/list?category=taxi">택시</a></span>
+						<span>Home / <a
+							href="${contextPath}/carpool/list?category=taxi">택시</a></span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	 
+
+
 
 	<div id="timeline-post">
 		<div class="container">
@@ -155,14 +160,18 @@ function callback(){
 						<center>
 						<table>
 						
-							
+							<div class="btn-group">
+								<button type="button" class="btn btn-default" style="width:200px;height:50px">타세요</button>
+								<button type="button" class="btn btn-default"style="width:200px;height:50px">태워주세요</button>
+							</div>
+							<br><br><br>
 						</table>
 						</center>
 						<article class="con_wrap reg_wrap">
 						<table class="table table-condensed" >
 							<tr>
-								<td>출발시간</td>
-								<td>월<select name="user_birth_year">
+								<td><p class="reg_area dt">희망기간<p></td>
+								<td><select name="user_birth_year">
 										<option value="1" selected>1</option>
 										<option value="2" selected>2</option>
 										<option value="3" selected>3</option>
@@ -175,7 +184,8 @@ function callback(){
 										<option value="10" selected>10</option>
 										<option value="11" selected>11</option>
 										<option value="12" selected>12</option>
-								</select> 일<select name="user_birth_month">
+										
+								</select> 월 <select name="user_birth_month">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -208,7 +218,7 @@ function callback(){
 										<option value="30">30</option>
 										<option value="31">31</option>
 
-								</select> 시 <select name="user_birth_day">
+								</select> 일   ~  <select name="user_birth_day">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -222,7 +232,7 @@ function callback(){
 										<option value="11">11</option>
 										<option value="12">12</option>
 
-								</select> 분 <select name="user_birth_day">
+								</select> 월 <select name="user_birth_day">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -254,38 +264,10 @@ function callback(){
 										<option value="29">29</option>
 										<option value="30">30</option>
 										<option value="31">31</option>
-										<option value="32">32</option>
-										<option value="33">33</option>
-										<option value="34">34</option>
-										<option value="35">35</option>
-										<option value="36">36</option>
-										<option value="37">37</option>
-										<option value="38">38</option>
-										<option value="39">39</option>
-										<option value="40">40</option>
-										<option value="41">41</option>
-										<option value="42">42</option>
-										<option value="43">43</option>
-										<option value="44">44</option>
-										<option value="45">45</option>
-										<option value="46">46</option>
-										<option value="47">47</option>
-										<option value="48">48</option>
-										<option value="49">49</option>
-										<option value="50">50</option>
-										<option value="51">51</option>
-										<option value="52">52</option>
-										<option value="53">53</option>
-										<option value="54">54</option>
-										<option value="55">55</option>
-										<option value="56">56</option>
-										<option value="57">57</option>
-										<option value="58">58</option>
-										<option value="59">59</option>
-								</select> 
-											</select></td>
-										</tr>
-										<tr>
+
+								</select> 일 </td>
+								</tr>
+								<tr>
 									<td><p class="reg_area dt">출발지</p></td>
 									<td><input type="text" name="departure" id="loc1" size="17">&nbsp;</td>
 									
@@ -294,70 +276,57 @@ function callback(){
 									<td><p class="reg_area dt">도착지</p></td>
 									<td><input type="text" name="arrival" id="loc3" size="17"></td>
 								</tr>
-										<!-- <tr>
-											<td colspan ="6">경유지
-											<input type="text" id="pass1">
-											<input type="text" id="pass2">
-											<input type="text" id="pass3">
-											</td>
-										</tr> -->
-										<tr>
+								<tr>
 									<td><p class="reg_area dt">경유지</p></td>
 									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2"></td>
 								</tr>
-										<tr>
+								<tr>
 									<td><br></td>
 									<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
 								</tr>
-										<tr>
-											<td colspan ="5"><div id="map_div"></div></td>
-										</tr>
-										<tr>
-											<td>좌석수</td>
-											<td colspan ="4"><input type="number" name="seat" value="1"></td>
-										</tr>
-										<tr>
-											<td>금액</td>
-											<td colspan ="4"><input type="text" name="arrival"></td>
-										</tr>
-										<tr>
-											<!-- 			<td colspan="2"> -->
-											<!-- 				<input type="radio" name="usertype" value="driver" checked="checked">흡연자 -->
-											<!-- 				<input type="radio" name="usertype" value="rider">비흡연자 -->
-											<!-- 			</td> -->
-											<td>흡연 여부</td>
-											<td colspan ="4"><input type="radio" name="usertype" value="driver"
-												checked="checked">흡연자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-												type="radio" name="usertype" value="rider">비흡연자</td>
-										</tr>
-										<tr>
-											<!-- 			<td colspan="2"> -->
-											<!-- 				<input type="radio" name="usertype" value="driver" checked="checked">여자 -->
-											<!-- 				<input type="radio" name="usertype" value="rider">남자 -->
-											<!-- 			</td> -->
-											<td>성별</td>
-											<td colspan ="4"><input type="radio" name="usertype" value="driver"
-												checked="checked">여자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-												type="radio" name="usertype" value="rider">남자</td>
-										</tr>
-		
-										<tr>
-											<td>추가내용</td>
-											<td colspan ="4"><textarea name="memo" rows="10" cols="20"></textarea></td>
-										</tr>
-										<tr>
+								<tr>
+									<td><p class="reg_area dt">좌석수</p></td>
+									<td>
+									<input type="number" name="seat" value="1"></td>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">금액</p></td>
+									<td><input type="text" name="arrival" size="20"></td>
+								</tr>
+								<tr>
+								
+									<td><p class="reg_area dt">흡연 여부</p></td>
+									
+									<td><p class="reg_area dt"><input type="radio" name="usertype" value="driver"
+										checked="checked"> 흡연자 <input
+										type="radio" name="usertype" value="rider"> 비흡연자 </p></td>
+										
+								</tr>
+								<tr>
+									
+									<td><p class="reg_area dt">성별</p></td>
+									
+									<td><p class="reg_area dt"><input type="radio" name="usertype2" value="gender"
+										checked="checked"> 여자 <input
+										type="radio" name="usertype2" value="gender"> 남자 </p></td>
+								</tr>
+
+								<tr>
+									<td><p class="reg_area dt">추가내용</p></td>
+									<td><textarea name="memo" rows="10" cols="50"></textarea></td>
+								</tr>
+								
+								<tr>
 									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;<input
 										type="submit"  class="btn_comm" value="완료"></td>
 								</tr>
-									</table>
-									</form>
-						</div>
-					</div>
+							</table>
+							</article>
+							</form>
 					
 				</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<%@ include file="/WEB-INF/views/footer.jsp"%>
+		</div>	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>
