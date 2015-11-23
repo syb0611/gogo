@@ -56,6 +56,10 @@ public class BoardDao {
 		return template.selectList(sql+".listPage", pvo);
 	}
 	
+	public List<ReplyVo> loadReply(int bno){
+		return template.selectList(sql+".loadReply", bno);
+	}
+	
 	public void postReply(ReplyVo vo){
 		template.insert(sql+".postReply", vo);
 	}

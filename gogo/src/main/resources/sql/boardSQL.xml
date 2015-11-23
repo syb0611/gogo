@@ -46,6 +46,11 @@
 		values(reply_seq.nextval, #{bno}, #{nickname}, #{replytext}, #{category})
 	</insert>
 	
+	<select id="loadReply" resultType="com.gogo.withgo.vo.ReplyVo">
+		select * from reply
+		where bno=#{bno}
+		order by wdate
+	</select>
 </mapper>
 
 

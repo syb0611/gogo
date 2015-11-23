@@ -55,12 +55,33 @@ function postClick(){
 }
 </script>
 <script>
-function loadReply(){
+// var xhr = null;
+
+// function loadReply(){
+// 	var bno = document.getElementById("bno").value;
 	
-}
+// 	xhr = new XMLHttpRequest();
+// 	var url = "/withgo/board/loadReply";
+// 	xhr.open("POST", url, true);
+// 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+// 	xhr.onreadystatechange = loadReplyResult;
+// 	xhr.send("bno="+bno);
+// }
+
+// function loadReplyResult(){
+// 	if(xhr.readyState == 4){
+// 		if(xhr.status == 200){
+// 			var html = xhr.responseText;
+// 			var table = document.getElementById("replyTable");
+// 			var tr = document.createElement("tr");
+// 			tr.innerHTML = html;
+// 			table.appendChild(tr);
+// 		}
+// 	}
+// }
 </script>
 </head>
-<body onload="loadReply()">
+<body>
 	<header>
 		<%@ include file="../header.jsp"%>
 		<div id="main-header">
@@ -128,7 +149,7 @@ function loadReply(){
 									(조회수 : ${vo.hit })	
 								</div>
 								<form method="post" action="${contextPath}/board/updateform">	
-									<input type="hidden" name="bno" value="${vo.bno }">
+									<input type="hidden" name="bno" id="bno" value="${vo.bno }">
 									<input type="hidden" name="category" value="${vo.category }">
 									<table class="table table-condensed">
 										<tr>
@@ -174,7 +195,7 @@ function loadReply(){
 									<input type="hidden" id="nickname" name="nickname" value="${memberInfo.nickname }">
 									<input type="hidden" name="category" value="${vo.category }">
 									<input type="hidden" name="bno" value="${vo.bno}">
-									<table class="table table-condensed">
+									<table class="table table-condensed" id="replyTable">
 										<tr>
 											<td width="90%">
 												<textarea class="form-control" rows="3" id="replytext" name="replytext"></textarea>
@@ -183,24 +204,21 @@ function loadReply(){
 												<img src="/withgo/resources/images/postbtn.png" id="postBtn" onclick="postClick()">
 											</td>
 										</tr>
+										<c:if test="${replyList != '[]' }">
 										<tr>
 											<td colspan="2">
-												<table>
+												<table width="100%">
+												<c:forEach items="${replyList }" var="rvo">
 													<tr>
-														<th>닉네임</th>
-														<td>댓글내용</td>
+														<th width="20%">${rvo.nickname }</th>
+														<td>${rvo.replytext }</td>
+														<td width="10%">${rvo.wdate }</td>
 													</tr>
-													<tr>
-														<th>닉네임22</th>
-														<td>댓글내용22</td>
-													</tr>
-													<tr>
-														<th>닉네임33</th>
-														<td>댓글내용33</td>
-													</tr>
+												</c:forEach>
 												</table>
 											</td>
 										</tr>
+										</c:if>
 									</table>
 								</form>
 							</div>
