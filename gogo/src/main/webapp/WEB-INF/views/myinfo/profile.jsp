@@ -253,7 +253,15 @@ function previewImage(targetObj, previewId){
 
 																	 <div class="col-md-4">
 																	 	<div id="previewId">
-																	 		<img src="/withgo/resources/upload/${memberInfo.image }" id="myImg" width='80px'>
+																	 		<c:choose>
+																	 			<c:when test="${memberInfo.image == null }">
+																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px">
+																	 			</c:when>
+																	 			<c:otherwise>
+																	 				<img src="/withgo/resources/upload/${memberInfo.image }" id="myImg" width='80px'>
+																	 			</c:otherwise>
+																	 		</c:choose>
+																	 		
 																	 	</div>
 																	 	<div id="filebtn">
 																	 		<input type="file" name="uploadfile" id="uploadfile" size="40" onchange="previewImage(this,'previewId')">

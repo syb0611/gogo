@@ -185,7 +185,17 @@ function bookResult(){
 						<table style="width:80%; margin: 0 auto; margin-top: 20px;">
 						
 							<tr>
-								<td rowspan="2" style="padding-right: 5px"><img src="../images/blankimage.png" width="80px;"></td>
+								<td rowspan="2" style="padding-right: 5px">
+									<c:choose>
+										<c:when test="${vo.image == null }">
+											<img src="/withgo/resources/images/blankimage.png" width="80px;">
+										</c:when>
+										<c:otherwise>
+											<img src="/withgo/resources/upload/${vo.image }" width="80px;">
+										</c:otherwise>
+									</c:choose>
+									
+								</td>
 								<td>${vo.name }</td>
 							</tr>
 							<tr>
