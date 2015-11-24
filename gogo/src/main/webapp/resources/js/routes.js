@@ -971,20 +971,22 @@ function saveToMongo(seq){
 	alert("seq : "+seq);//////
 	var arrayData = "";
 	if (markerp1 == null) {
-		arrayData = [ {
+		arrayData = [ {"seq" : seq			
+		},{
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
 			"endlon" : marker3.lonlat.lon,
 			"endlat" : marker3.lonlat.lat
 		}, {
-			"출발지" : start,
+			"mno" : 1,
 			"도착지" : end,
 		} ];
 	}
 
 	else if (markerp1 != null && markerp2 == null) {
-		arrayData = [ {
+		arrayData = [ {"seq" : seq			
+		},{
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
@@ -1002,7 +1004,8 @@ function saveToMongo(seq){
 
 	else if (markerp1 != null && markerp2 != null
 			&& markerp3 == null) {
-		arrayData = [ {
+		arrayData = [ {"seq" : seq			
+		},{
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
@@ -1024,7 +1027,8 @@ function saveToMongo(seq){
 
 	else if (markerp1 != null && markerp2 != null
 			&& markerp3 != null && markerp4 == null) {
-		arrayData = [ {
+		arrayData = [{"seq" : seq			
+		}, {
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
@@ -1051,7 +1055,8 @@ function saveToMongo(seq){
 	else if (markerp1 != null && markerp2 != null
 			&& markerp3 != null && markerp4 != null
 			&& markerp5 == null) {
-		arrayData = [ {
+		arrayData = [ {"seq" : seq			
+		},{
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
@@ -1082,7 +1087,8 @@ function saveToMongo(seq){
 	else if (markerp1 != null && markerp2 != null
 			&& markerp3 != null && markerp4 != null
 			&& markerp5 != null) {
-		arrayData = [ {
+		arrayData = [ {"seq" : seq			
+		},{
 			"startlon" : marker1.lonlat.lon,
 			"startlat" : marker1.lonlat.lat
 		}, {
