@@ -172,7 +172,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'goschool'}">
 			<div id="heading"
-				style="background-image: url(../images/house.png); height: 150px;">
+				style="background-image: url(../images/집.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -188,7 +188,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'taxi'}">
 			<div id="heading"
-				style="background-image: url(../images/plus.png); height: 150px;">
+				style="background-image: url(../images/계.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">

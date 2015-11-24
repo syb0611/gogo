@@ -30,7 +30,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 	
 } */
 #heading {
-	background-image: url(/withgo/resources/images/rororo.png);
+	background-image: url(/withgo/resources/images/돋.png);
 	 background-size : contain;
 	height:150px;
 	/* background-repeat :no-repeat; */
