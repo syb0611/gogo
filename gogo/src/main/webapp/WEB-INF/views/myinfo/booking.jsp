@@ -212,7 +212,7 @@ function rejectResult(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">MYPAGE</h2>
+						<h2 style="color:white; text-shadow:3px 3px 3px gray;">MY PAGE</h2>
 						<a "href="${contextPath}/mypage/booking">예약내역</a>
 					</div>
 				</div>
