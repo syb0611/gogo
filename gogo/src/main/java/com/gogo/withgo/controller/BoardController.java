@@ -1,10 +1,6 @@
 package com.gogo.withgo.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,15 +34,6 @@ public class BoardController {
 		return "board/main";
 	} 
 	
-//	@RequestMapping("/list")
-//	public String list(@RequestParam("category") String category, Model model){
-//		List<BoardVo> list = dao.list(category);
-//		
-//		model.addAttribute("category", category);
-//		model.addAttribute("list", list);
-//		
-//		return "board/list";
-//	}
 	
 	@RequestMapping("/writeform")
 	public String writeform(@RequestParam("category") String category, Model model){
@@ -142,4 +129,7 @@ public class BoardController {
 	}
 	
 
+	
+	
+	
 }
