@@ -142,7 +142,7 @@ function delBookMarkResult(){
 	<c:choose>
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.png);">
+				style="background-image: url(../images/새.png);">
 							<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -157,7 +157,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'jang'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.png); height: 150px; width: 100%;">
+				style="background-image: url(../images/새.png); height: 150px; width: 100%;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
