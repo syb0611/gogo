@@ -132,7 +132,7 @@ function formck(){
 														onclick="clickcr(this,'inf.privacy','','',event);"><br>개인정보취급방침</a>
 												</p>
 											
-											<form id="myform" name="myform" method="post"	action="/withgo/member/updateProfile">
+											<form id="myform" name="myform" method="post" action="/withgo/member/updateProfile" enctype="multipart/form-data">
 												<input type="hidden" name="mno" value="${memberInfo.mno }">
 												<fieldset>
 													<table border="0" class="tbl_model">
@@ -167,7 +167,8 @@ function formck(){
 																	</div>
 
 																	 <div class="col-md-4">
-																		<input type="file" name="imgfile" size=40>
+																	 
+																		<input type="file" name="uploadfile" size=40>
 																	</div>
 																</td>
 															</tr>

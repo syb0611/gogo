@@ -2,6 +2,8 @@ package com.gogo.withgo.vo;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVo {
 	private int mno;
 	private String email;
@@ -14,6 +16,7 @@ public class MemberVo {
 	private int gender;
 	private int hascar;
 	private String image;
+	private MultipartFile uploadfile;
 	private Date jdate;
 	private String profile;
 	private String auth;
@@ -46,6 +49,15 @@ public class MemberVo {
 		this.auth = auth;
 		this.authphone = authphone;
 		this.authemail = authemail;
+	}
+
+	
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
 	}
 
 	public String getNewpw() {

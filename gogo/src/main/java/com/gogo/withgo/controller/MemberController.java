@@ -1,7 +1,13 @@
 package com.gogo.withgo.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.gogo.withgo.dao.MemberDao;
 import com.gogo.withgo.vo.MemberVo;
@@ -103,13 +111,44 @@ public class MemberController {
 	
 	@RequestMapping("/updateProfile")
 	public String updateProfile(HttpServletRequest request, MemberVo vo){
-		//vo -> name, hascar, gender, nickname, phone, profile,
-		HttpSession session = request.getSession(false);
+		final String path = "C:/images/";
+//		//final String path = request.getSession().getServletContext().getResource("/")+"resources/upload/";
+//		
+		MultipartFile uploadFile = null;
+		uploadFile = vo.getUploadfile();
+		if(!uploadFile.isEmpty()){
+			String filename = uploadFile.getOriginalFilename();
+			String type = filename.substring(filename.lastIndexOf("."));
+			String savename = filename+"_"+System.currentTimeMillis()+type;		
+			
+			vo.setImage(savename);
+			
+			File dir = new File(path);
+			if(!dir.isDirectory()){
+				dir.mkdir();
+			}
+			
+			try{
+				uploadFile.transferTo(new File(path+savename));
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else{
+			vo.setImage("");
+		}
 		
+			
 		dao.updateMemberInfo(vo);
 		MemberVo newVo = dao.getMemberByMno(vo.getMno());
+		HttpSession session = request.getSession(false);
 		session.setAttribute("memberInfo", newVo);
 		
+		
+		
+//		Map<String, Object> hmap = new HashMap<String, Object>();
+//		hmap.put("img", vo.getUploadfile().getBytes());
+//		dao.saveImg(hmap);
+
 		return "redirect:/mypage/profile";
 	}
 }

@@ -24,7 +24,7 @@
     </delete>
     <update id="updateMemberInfo">
     	update member
-    	set name=#{name}, hascar=#{hascar}, gender=#{gender}, nickname=#{nickname}, phone=#{phone}, profile=#{profile}
+    	set name=#{name}, hascar=#{hascar}, gender=#{gender}, nickname=#{nickname}, phone=#{phone}, profile=#{profile}, image=#{image}
     	where mno=#{mno}
     </update>
    <update id="pwChange">
@@ -32,4 +32,6 @@
    		set pw=#{newpw}
    		where mno=#{mno}
    </update>
+   
+
 </mapper>
