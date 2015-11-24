@@ -17,8 +17,8 @@
 
 <style>
 #heading {
-	background-image: url(../images/ttt.png);
-	height: 140px;
+	background-image: url(../images/새.png);
+	height: 150px;
 }
 #formDiv {
 	margin-top: 200px;
@@ -136,8 +136,8 @@ function bookResult(){
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
-								title="withGoe" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px"
+								title="withGoe" alt="go home"></a>
 
 						</div>
 					</div>
@@ -170,7 +170,7 @@ function bookResult(){
 				<div class="col-md-12">
 					<div class="heading-content">
 						<h2>CARPOOL</h2>
-						<span>Home / <a href="#">카풀</a></span>
+						
 					</div>
 				</div>
 			</div>

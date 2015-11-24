@@ -22,8 +22,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/ttt.png);
-	height: 140px;
+	background-image: url(/withgo/resources/images/새.png);
+	height: 150px;
 }
 #formDiv {
 	margin-top: 200px;
@@ -102,8 +102,8 @@ function callback(){
 					<div class="col-md-3">
 						<div class="logo">
 
-							<a href="${contextPath}/home"><img src="/withgo/resources/images/pool2.jpeg"
-								title="withGoe" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="/withgo/resources/images/roro.png" width="100px" height="50px"
+								title="withGoe" alt="go home"></a>
 
 						</div>
 					</div>
@@ -135,7 +135,7 @@ function callback(){
 				<div class="col-md-12">
 					<div class="heading-content">
 						<h2>GOSCHOOL CARPOOL</h2>
-						<span>Home / <a href="#">카풀</a></span>
+						
 					</div>
 				</div>
 			</div>

@@ -23,8 +23,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/ttt.png);
-	height: 140px;
+	background-image: url(/withgo/resources/images/새.png);
+	height: 150px;
 }
 
 #formDiv {
@@ -107,7 +107,7 @@ table.t_ex2 .c2 {
 						<div class="logo">
 
 							<a href="${contextPath}/home"><img
-								src="/withgo/resources/images/pool2.jpeg" title="withGoe"
+								src="/withgo/resources/images/roro.png" width="100px" height="50px"title="go home"
 								alt="Grill Website Template"></a>
 
 						</div>
@@ -140,8 +140,8 @@ table.t_ex2 .c2 {
 				<div class="col-md-12">
 					<div class="heading-content">
 						<h2>TAXI</h2>
-						<span>Home / <a
-							href="${contextPath}/carpool/list?category=taxi">택시</a></span>
+						
+							
 					</div>
 				</div>
 			</div>
