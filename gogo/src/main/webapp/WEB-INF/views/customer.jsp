@@ -24,9 +24,17 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/gogogo.png);
-	background-size : 100%;
-	height: 150px;
+	background-image: url(/withgo/resources/images/ttt.png);
+	 background-size : contain;
+	height:150px;
+	/* background-repeat :no-repeat; */
+ 	max-width : 100%;
+/* 	position: fixed; 
+    top: -50%; 
+    left: -50%;
+    width: 200%;        
+    height: 200%; 
+	 */
 }
 
 
@@ -49,8 +57,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="images/pool2.jpeg"
-								title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="images/roro.png" width="100px" height="50px"
+								title="Grill Template" alt="withGo"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -69,14 +77,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-2">
-						<div class="search-box">
-							<form name="search_form" method="get" class="search_form">
-								<input id="search" type="text" /> <input type="submit"
-									id="search-button" />
-							</form>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -152,9 +153,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 				</div>
 
 				<div class="col-md-9">
-					<h3>목록</h3>
-
-					<p>줄줄줄~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+					
 
 
 				</div>

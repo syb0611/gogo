@@ -22,10 +22,20 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 
 <style>
-#heading {
-	background-image: url(../images/gogogo.png);
-	background-size : 100%;
+/* #heading {
+	background-image: url(/withgo/resources/images/tt.PNG);
+	background-size : auto 100%;
 	height: 150px;
+	background-repeat :repeat-x;
+	
+} */
+#heading {
+	background-image: url(/withgo/resources/images/rororo.png);
+	 background-size : contain;
+	height:150px;
+	/* background-repeat :no-repeat; */
+ 	max-width : 100%;
+	
 }
 
 .content{
@@ -57,7 +67,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px" title="Grill Template" alt="Grill Website Template"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
