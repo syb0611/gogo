@@ -84,7 +84,6 @@
 							<input type="text" class="form-control" name="departure" placeholder="출발지">
 							<input type="text" class="form-control" name="arrival" placeholder="도착지">
 							<input type="button" class="btn btn-default form-control" value="검색" onclick="goSearch()">
-							<img src="C:\images\down.png">
 						</div>
 					</div>
 				</form>
