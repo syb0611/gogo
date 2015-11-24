@@ -110,10 +110,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/updateProfile")
-	public String updateProfile(HttpServletRequest request, MemberVo vo){
+	public String updateProfile(HttpServletRequest request, MemberVo vo) throws MalformedURLException{
 		final String path = "C:/images/";
-//		//final String path = request.getSession().getServletContext().getResource("/")+"resources/upload/";
-//		
+		//final String path = "/resources/upload/";
+		
 		MultipartFile uploadFile = null;
 		uploadFile = vo.getUploadfile();
 		if(!uploadFile.isEmpty()){
@@ -128,11 +128,11 @@ public class MemberController {
 				dir.mkdir();
 			}
 			
-			try{
-				uploadFile.transferTo(new File(path+savename));
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+//			try{
+//				uploadFile.transferTo(new File(path+savename));
+//			}catch(Exception e){
+//				e.printStackTrace();
+//			}
 		}else{
 			vo.setImage("");
 		}
