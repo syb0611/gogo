@@ -121,7 +121,6 @@ public class MemberController {
 			String type = filename.substring(filename.lastIndexOf("."));
 			String savename = filename+"_"+System.currentTimeMillis()+type;		
 			
-			System.out.println(savename); ///////////////////
 			vo.setImage(savename);
 			
 			File dir = new File(path);
