@@ -294,8 +294,11 @@ function bookResult(){
 										<div style="height:300px">지도</div>
 									</td>
 								</tr>
+								
 								<tr>
+								
 									<th>추가내용</th>
+									
 									<td colspan="3">
 										<textarea rows="15" cols="40" readonly="readonly" style="border:1px solid #D8D8D8">${vo.memo }</textarea>
 									</td>

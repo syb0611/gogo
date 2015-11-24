@@ -210,7 +210,8 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-3">
 					<fieldset>
-						<legend> </legend>
+				<legend>  </legend>
+						
 						<form action="./example2.php" method="GET">
 						<div class="btn-group">
 								

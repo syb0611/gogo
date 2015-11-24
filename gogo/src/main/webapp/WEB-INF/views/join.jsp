@@ -292,7 +292,7 @@ function formCheck(){
 					</tr>
 					<tr>
 						<td colspan="3">
-							<input type="button" class="btn btn-default" value="가입" onclick="formCheck()">
+							<input type="button"  class="btn btn-default" value="가입" onclick="formCheck()">
 						</td>
 					</tr>
 				</table>
