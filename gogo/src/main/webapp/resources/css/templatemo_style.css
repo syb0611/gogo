@@ -62,6 +62,7 @@ p {
 #top-header {
   background-color: #333;
   color: #fff;
+  text-align: right;  
 }
 
 .home-account a {
