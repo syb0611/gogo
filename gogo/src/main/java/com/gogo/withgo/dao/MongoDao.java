@@ -29,8 +29,8 @@ public class MongoDao {
 		return mongoTemplate.findAll(JSONObject.class);
 	}
 
-	public MapVo findOne(int b_no) {
-		Query query = Query.query(Criteria.where("b_no").is(b_no));
+	public MapVo findOne(int seq) {
+		Query query = Query.query(Criteria.where("seq").is(seq));
 		return mongoTemplate.findOne(query, MapVo.class);
 	}
 }

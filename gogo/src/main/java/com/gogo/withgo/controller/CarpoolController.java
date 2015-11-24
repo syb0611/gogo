@@ -65,9 +65,7 @@ public class CarpoolController {
 	public String writeMongo(@RequestBody List< Map<String, Object> > requestData){
 		System.out.println(requestData);
 		
-		int a= 1;
 		MapVo o = new MapVo();
-		o.put( "b_no", a++);
 		o.put( "adata", requestData);
 
 		mdao.save( o );
