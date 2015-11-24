@@ -84,8 +84,8 @@
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
 								<div class="category">
 									<c:choose>
-										<c:when test="${pvo.category == 'notice' }"><h3>공지사항</h3></c:when>
-										<c:when test="${pvo.category == 'qna' }"><h3>자주묻는질문</h3></c:when>
+										<c:when test="${category == 'notice' }"><h3>공지사항</h3></c:when>
+										<c:when test="${category == 'qna' }"><h3>자주묻는질문</h3></c:when>
 										<c:otherwise><h3>건의게시판</h3></c:otherwise>
 									</c:choose>
 								</div>
