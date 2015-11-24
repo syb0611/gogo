@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<!-- 
 
-Grill Template 
-
-http://www.templatemo.com/free-website-templates/417-grill
-
--->
     <head>
         <meta charset="utf-8">
         <title>main</title>
@@ -19,9 +9,7 @@ http://www.templatemo.com/free-website-templates/417-grill
         <meta name="viewport" content="width=device-width">
         
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    
-             
+      
         <style>
         #formDiv{
 			margin-top: 200px;
@@ -38,11 +26,20 @@ http://www.templatemo.com/free-website-templates/417-grill
 		
 		table,tr,td {border:1px solid #000000}
         </style>
+        <script>
+        function goSearch(){
+        	var form = document.searchForm;
+        	var departure = form.departure.value.trim();
+        	var arrival = form.arrival.value.trim();
+        	
+        	if(departure == "" || arrival == ""){
+        		return;
+        	}
+        	form.submit();
+        }
+        </script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
 
             <header>
                 <%@ include file="header.jsp" %>
@@ -78,21 +75,18 @@ http://www.templatemo.com/free-website-templates/417-grill
             </header>
             
 
-            <div id="slider"  style = "background-image:url('images/car666.jpg');width:2000px; height:700px;">
-                <form method="post" action="" id="searchForm">
-							
-							
-							
-							<div class="row">
-								<div class="col-sm-4 col-sm-offset-4" id="formDiv">
-								
-									<h1 class="tx" ></h1>
-									<br>
-									<input type="text" class="form-control" name="departure" placeholder="출발지">
-									<input type="text" class="form-control" name="arrival" placeholder="도착지">
-									<input type="button" class="btn btn-default form-control" value="검색">
-								</div>
-							</div>
+            <div id="slider"  style = "background-image:url('images/car6.jpg');width:100%; height:700px;">
+                <form method="post" action="/withgo/carpool/searchAll" name="searchForm" id="searchForm">	
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-4" id="formDiv">	
+							<h1 class="tx" ></h1>
+							<br>
+							<input type="text" class="form-control" name="departure" placeholder="출발지">
+							<input type="text" class="form-control" name="arrival" placeholder="도착지">
+							<input type="button" class="btn btn-default form-control" value="검색" onclick="goSearch()">
+							<img src="C:\images\down.png">
+						</div>
+					</div>
 				</form>
 			 </div>
  

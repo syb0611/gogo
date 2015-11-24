@@ -111,8 +111,8 @@ public class MemberController {
 	
 	@RequestMapping("/updateProfile")
 	public String updateProfile(HttpServletRequest request, MemberVo vo) throws MalformedURLException{
-		final String path = "C:/images/";
-		//final String path = "/resources/upload/";
+		//final String path = "C:/images/";
+		final String path = "C:/Users/bitbit/git/gogo/gogo/src/main/webapp/resources/upload/";
 		
 		MultipartFile uploadFile = null;
 		uploadFile = vo.getUploadfile();
@@ -121,6 +121,7 @@ public class MemberController {
 			String type = filename.substring(filename.lastIndexOf("."));
 			String savename = filename+"_"+System.currentTimeMillis()+type;		
 			
+			System.out.println(savename); ///////////////////
 			vo.setImage(savename);
 			
 			File dir = new File(path);
@@ -128,11 +129,11 @@ public class MemberController {
 				dir.mkdir();
 			}
 			
-//			try{
-//				uploadFile.transferTo(new File(path+savename));
-//			}catch(Exception e){
-//				e.printStackTrace();
-//			}
+			try{
+				uploadFile.transferTo(new File(path+savename));
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}else{
 			vo.setImage("");
 		}
@@ -144,11 +145,9 @@ public class MemberController {
 		session.setAttribute("memberInfo", newVo);
 		
 		
-		
-//		Map<String, Object> hmap = new HashMap<String, Object>();
-//		hmap.put("img", vo.getUploadfile().getBytes());
-//		dao.saveImg(hmap);
 
 		return "redirect:/mypage/profile";
 	}
+	
+	
 }

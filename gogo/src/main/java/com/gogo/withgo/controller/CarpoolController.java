@@ -100,4 +100,12 @@ public class CarpoolController {
 		model.addAttribute("vo", vo);
 		return "carpool/carpoolR";
 	}
+	
+	
+	
+	@RequestMapping("/searchAll")
+	public String searchAll(@RequestParam("departure") String departure, @RequestParam("arrival") String arrival){
+		///////////////////////////////////////////////
+		return "redirect:/";
+	}
 }

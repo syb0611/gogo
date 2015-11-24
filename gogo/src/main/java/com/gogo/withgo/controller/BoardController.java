@@ -97,28 +97,6 @@ public class BoardController {
 		return "board/list";
 	}
 	
-//	@RequestMapping("/loadReply")
-//	public void loadReply(HttpServletResponse response, @RequestParam("bno") int bno) throws IOException{
-//		response.setCharacterEncoding("UTF-8");
-//		List<ReplyVo> replyList = dao.loadReply(bno);
-//		PrintWriter out = response.getWriter();
-//		
-//		//out.println("<tr>");
-//		out.println("<td colspan='2'>");
-//		out.println("<table width='100%'>");
-//		for(int i=0; i<replyList.size(); i++){
-//			ReplyVo vo = replyList.get(i);
-//			out.println("<tr>");
-//			out.println("<th width='20%'>"+vo.getNickname()+"</th>");
-//			out.println("<td>"+vo.getReplytext()+"</td>");
-//			out.println("<td style='width:10%;'>"+vo.getWdate()+"</td>");
-//			out.println("</tr>");
-//		}
-//		out.println("</table>");
-//		out.println("</td>");
-//		//out.println("</tr>");
-//		out.close();
-//	}
 	
 	@RequestMapping("/postReply")
 	public String postReply(ReplyVo vo, Model model){
@@ -129,7 +107,6 @@ public class BoardController {
 	}
 	
 
-	
 	
 	
 }
