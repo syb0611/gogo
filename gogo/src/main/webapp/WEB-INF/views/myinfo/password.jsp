@@ -26,9 +26,9 @@ button.disabled{cursor:default}
 
 
 #heading {
-/* 	background-image: url(images/community.png); */
-	background-color: gray;
-	height: 140px;
+ 	background-image: url(/withgo/resources/images/새.png); 
+	
+	height: 150px;
 }
 
 .content{
@@ -89,7 +89,7 @@ function pwck(){
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px" title="Grill Template" alt="go home"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -119,8 +119,8 @@ function pwck(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>MYPAGE</h2>
-						<span>Mypage / <a href="${contextPath}/mypage/password">비밀번호변경</a></span>
+						<h2 style="color:white; text-shadow:3px 3px 3px gray;">MY PAGE</h2>
+						<a href="${contextPath}/mypage/password">비밀번호변경</a>
 					</div>
 				</div>
 			</div>
