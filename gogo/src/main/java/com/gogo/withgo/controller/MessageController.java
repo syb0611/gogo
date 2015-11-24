@@ -8,9 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gogo.withgo.dao.MessageDao;
@@ -52,11 +50,6 @@ public class MessageController {
 			List<MessageVo> msgList = dao.getSendMsg(nickname);
 			model.addAttribute("msgList", msgList);
 		}
-//		List<MessageVo> receiveMsgList = dao.getReceiveMsg(nickname);
-//		List<MessageVo> sendMsgList = dao.getSendMsg(nickname);
-//		
-//		model.addAttribute("receiveMsgList", receiveMsgList);
-//		model.addAttribute("sendMsgList", sendMsgList);
 
 		model.addAttribute("type", type);
 		return "message/mymsg";
