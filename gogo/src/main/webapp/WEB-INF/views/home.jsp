@@ -78,7 +78,7 @@ http://www.templatemo.com/free-website-templates/417-grill
             </header>
             
 
-            <div id="slider"  style = "background-image:url('images/car6.jpg');width:100%; height:700px;">
+            <div id="slider"  style = "background-image:url('images/car666.jpg');width:2000px; height:700px;">
                 <form method="post" action="" id="searchForm">
 							
 							
