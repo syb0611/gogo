@@ -17,7 +17,7 @@
 
 <style>
 #heading {
-	background-image: url(../images/zx.jpg);
+	background-image: url(../images/ttt.png);
 	height: 140px;
 }
 #formDiv {

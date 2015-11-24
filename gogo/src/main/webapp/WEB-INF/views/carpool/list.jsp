@@ -8,6 +8,17 @@ url
 body {
 	font-family: '맑은 고딕';
 }
+
+
+#heading {
+	background-image: url(/withgo/resources/images/ttt.png);
+	 background-size : contain;
+	height:150px;
+	/* background-repeat :no-repeat; */
+ 	max-width : 100%;
+	
+}
+
 </style>
 
 <head>
@@ -131,7 +142,7 @@ function delBookMarkResult(){
 	<c:choose>
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
-				style="background-image: url(../images/1.png); height: 140px;">
+				style="background-image: url(../images/ttt.png);">
 							<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -146,7 +157,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'jang'}">
 			<div id="heading"
-				style="background-image: url(../images/2.jpg); height: 140px;">
+				style="background-image: url(../images/ttt.png); height: 150px; width: 100%;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -161,7 +172,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'goschool'}">
 			<div id="heading"
-				style="background-image: url(../images/3.jpg); height: 140px;">
+				style="background-image: url(../images/ttt.jpg); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -177,7 +188,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'taxi'}">
 			<div id="heading"
-				style="background-image: url(../images/4.png); height: 140px;">
+				style="background-image: url(../images/ttt.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">

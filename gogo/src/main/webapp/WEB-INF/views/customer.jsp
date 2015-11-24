@@ -24,7 +24,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/ttt.png);
+	background-image: url(/withgo/resources/images/house.png);
 	 background-size : contain;
 	height:150px;
 	/* background-repeat :no-repeat; */

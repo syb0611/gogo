@@ -31,7 +31,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/zx.jpg);
+	background-image: url(/withgo/resources/images/ttt.png);
 	height: 140px;
 }
 #formDiv {
