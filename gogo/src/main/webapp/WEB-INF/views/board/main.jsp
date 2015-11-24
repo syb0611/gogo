@@ -93,8 +93,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>Community</h2>
-						<span>Home / <a href="${contextPath}/board/main">커뮤니티</a></span>
+						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;" align="center">Community</h2>
+						
 					</div>
 				</div>
 			</div>

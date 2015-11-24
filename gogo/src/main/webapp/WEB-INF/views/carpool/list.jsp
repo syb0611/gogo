@@ -118,7 +118,7 @@ function delBookMarkResult(){
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px"
 								title="Grill Template" alt="Grill Website Template"></a>
 						</div>
 					</div>
@@ -147,8 +147,8 @@ function delBookMarkResult(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2>short-term carpool</h2>
-								<span>Home / <a href="${contextPath}/carpool/list?category=dan">단기카풀</a></span>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">short-term carpool</h2>
+								
 							</div>
 						</div>
 					</div>
@@ -162,8 +162,8 @@ function delBookMarkResult(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2>Long-term carpool</h2>
-								<span>Home / <a href="${contextPath}/carpool/list?category=jang">장기카풀</a></span>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">Long-term carpool</h2>
+								
 							</div>
 						</div>
 					</div>
@@ -172,14 +172,14 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'goschool'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.jpg); height: 150px;">
+				style="background-image: url(../images/house.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							
 							<div class="heading-content">
-								<h2>goschool</h2>
-								<span>Home / <a href="${contextPath}/carpool/list?category=goschool">고스쿨</a></span>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">goschool</h2>
+								
 							</div>
 						</div>
 					</div>
@@ -188,13 +188,13 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'taxi'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.png); height: 150px;">
+				style="background-image: url(../images/plus.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2>TAXI CARPOOL</h2>
-								<span>Home / <a href="${contextPath}/carpool/list?category=taxi">TAXI</a></span>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">TAXI CARPOOL</h2>
+								
 							</div>
 						</div>
 					</div>

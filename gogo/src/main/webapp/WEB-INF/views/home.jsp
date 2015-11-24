@@ -52,7 +52,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                             <div class="col-md-3">
                                 <div class="logo">
                                 
-                                    <a href="${contextPath}/home"><img src="images/pool2.jpeg" title="withGo" alt="Grill Website Template" ></a>
+                                    <a href="${contextPath}/home"><img src="images/roro.png" width="100px" height="50px" title="withGo" alt="Grill Website Template" ></a>
                                
                                 </div>
                             </div>

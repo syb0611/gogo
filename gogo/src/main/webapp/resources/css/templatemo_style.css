@@ -164,9 +164,12 @@ p {
 .heading-content {
   text-align: center;
   margin-top: 35px;
-  color:#ff8000;
+ 
 }
 
+.heading-content h2{
+	 color:#d7d7d7;
+}
 /*-- End Heading --*/
 
 

@@ -24,7 +24,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(/withgo/resources/images/house.png);
+	background-image: url(/withgo/resources/images/too.png);
 	 background-size : contain;
 	height:150px;
 	/* background-repeat :no-repeat; */
@@ -89,8 +89,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>customer service center</h2>
-						<span>Home / <a href="single-post.html">고객센터</a></span>
+						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">service center</h2>
+						
 					</div>
 				</div>
 			</div>

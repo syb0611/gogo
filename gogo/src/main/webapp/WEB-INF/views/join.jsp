@@ -13,7 +13,7 @@
 
 <style>
 #heading {
-/* 	background-image: url(images/community.png); */
+ 	background-image: url(images/back.png); 
 	background-color: gray;
 	height: 140px;
 }
