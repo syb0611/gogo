@@ -13,8 +13,8 @@
 
 <style>
 #heading {
- 	background-image: url(images/back.png); 
-	background-color: gray;
+ 	background-image: url(/withgo/resources/images/에이.png); 
+
 	height: 140px;
 }
 
@@ -183,7 +183,7 @@ function formCheck(){
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px" title="Grill Template" alt="go home"></a>
 						</div>
 					</div>
 					<div class="col-md-7">

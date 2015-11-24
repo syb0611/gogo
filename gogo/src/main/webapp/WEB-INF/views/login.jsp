@@ -17,8 +17,8 @@ body {
 }
 
 #heading {
-	background-image: url(../images/slide1.jpg);
-	height: 140px;
+	background-image: url(/withgo/resources/images/에이.png);
+	height: 150px;
 }
 
 #loginForm span {
@@ -34,8 +34,8 @@ body {
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg"
-								title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px"
+								title="Grill Template" alt="go home"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
