@@ -149,7 +149,7 @@ function delBookMarkResult(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:gray;text-shadow:3px 3px 3px #c3cdce;">short-term carpool</h2>
+								<h2 style="color:white;text-shadow:3px 3px 3px #c3cdce;">short-term carpool</h2>
 								
 							</div>
 						</div>
@@ -164,7 +164,7 @@ function delBookMarkResult(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:gray; text-shadow:3px 3px 3px #c3cdce;">Long-term carpool</h2>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">Long-term carpool</h2>
 								
 							</div>
 						</div>
@@ -180,7 +180,7 @@ function delBookMarkResult(){
 						<div class="col-md-12">
 							
 							<div class="heading-content">
-								<h2 style="color:gray; text-shadow:3px 3px 3px #c3cdce;">goschool</h2>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">goschool</h2>
 								
 							</div>
 						</div>
@@ -195,7 +195,7 @@ function delBookMarkResult(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:gray; text-shadow:3px 3px 3px #c3cdce;">TAXI CARPOOL</h2>
+								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">TAXI CARPOOL</h2>
 								
 							</div>
 						</div>

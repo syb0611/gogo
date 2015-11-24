@@ -85,7 +85,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2 style="color:gray; text-shadow:3px 3px 3px #c3cdce;">service center</h2>
+						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">service center</h2>
 						
 					</div>
 				</div>
