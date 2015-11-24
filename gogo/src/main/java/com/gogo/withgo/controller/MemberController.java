@@ -111,8 +111,8 @@ public class MemberController {
 	
 	@RequestMapping("/updateProfile")
 	public String updateProfile(HttpServletRequest request, MemberVo vo) throws MalformedURLException{
-		//final String path = "C:/images/";
-		final String path = "/resources/upload/";
+		final String path = "C:/images/";
+		//final String path = "/resources/upload/";
 		
 		MultipartFile uploadFile = null;
 		uploadFile = vo.getUploadfile();
