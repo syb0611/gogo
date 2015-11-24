@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -119,7 +121,7 @@ function delBookMarkResult(){
 					<div class="col-md-3">
 						<div class="logo">
 							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px"
-								title="Grill Template" alt="Grill Website Template"></a>
+								title="Grill Template" alt="go home"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -142,12 +144,12 @@ function delBookMarkResult(){
 	<c:choose>
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.png);">
+				style="background-image: url(../images/새.png);">
 							<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">short-term carpool</h2>
+								<h2 style="color:white;text-shadow:3px 3px 3px #c3cdce;"></h2>
 								
 							</div>
 						</div>
@@ -157,7 +159,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'jang'}">
 			<div id="heading"
-				style="background-image: url(../images/ttt.png); height: 150px; width: 100%;">
+				style="background-image: url(../images/새.png); height: 150px; width: 100%;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -315,10 +317,8 @@ function delBookMarkResult(){
 							</c:when>
 							<c:otherwise>
 							<c:forEach items="${list }" var="vo">
-							
 							<tr>
 								<td>
-								<div style="font-family: 휴먼엽서체;font-size:7px;" >
 									<input type="hidden" id="mno" value="${memberInfo.mno }">
 									<c:choose>
 										<c:when test="${vo.bookmark == 0 }">
@@ -340,7 +340,6 @@ function delBookMarkResult(){
 												<div style="padding: 10px">경유지</div>
 											</td>
 											<td width="20%" style="text-align: right">
-											
 												<div>
 													<c:choose>
 														<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
@@ -391,3 +390,10 @@ function delBookMarkResult(){
 
 </body>
 </html>
+
+
+
+
+
+
+

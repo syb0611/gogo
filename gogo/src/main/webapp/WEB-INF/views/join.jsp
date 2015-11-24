@@ -13,7 +13,7 @@
 
 <style>
 #heading {
- 	background-image: url(/withgo/resources/images/에이.png); 
+ 	background-image: url(/withgo/resources/images/가입.png); 
 
 	height: 140px;
 }
@@ -209,8 +209,8 @@ function formCheck(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>REGISTER</h2>
-						<span>Home / 회원가입 </span>
+						<h2></h2>
+						
 					</div>
 				</div>
 			</div>

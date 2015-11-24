@@ -17,7 +17,7 @@ body {
 }
 
 #heading {
-	background-image: url(/withgo/resources/images/에이.png);
+	background-image: url(/withgo/resources/images/로그인.png);
 	height: 150px;
 }
 
@@ -66,8 +66,8 @@ body {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>Login Form</h2>
-						<span>Home / <a href="loginForm">로그인</a></span>
+						<h2></h2>
+						
 					</div>
 				</div>
 			</div>
