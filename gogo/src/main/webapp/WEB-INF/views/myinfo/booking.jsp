@@ -315,7 +315,7 @@ function rejectResult(){
 																		
 																			예약요청<br>${vo1.requestseat }건<br>
 																			<div style="margin-top: 10px;">
-																				<img src="${contextPath}/images/down.png" id="icon${vo1.carno}" width="30px" style="cursor: pointer;" onclick="iconClick(${vo1.carno})">
+																				<img src="/withgo/resources/images/down.png" id="icon${vo1.carno}" style="cursor: pointer; width: 30px" onclick="iconClick(${vo1.carno})">
 																			</div>
 																		</td>
 																	</tr>
