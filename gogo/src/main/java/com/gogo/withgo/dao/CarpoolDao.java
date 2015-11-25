@@ -10,6 +10,7 @@ import com.gogo.withgo.vo.CarpoolVo;
 import com.gogo.withgo.vo.PageVo;
 import com.gogo.withgo.vo.BookmarkInfoVo;
 import com.gogo.withgo.vo.BookmarkVo;
+import com.gogo.withgo.vo.CPageVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Repository
@@ -31,7 +32,7 @@ public class CarpoolDao {
 //		CarpoolMemberVo vo = new CarpoolMemberVo(category, mno);
 //		return template.selectList(sql+".carpoolList", vo);
 //	}
-	public List<CarpoolMemberVo> carpoolList(PageVo pvo){
+	public List<CarpoolMemberVo> carpoolList(CPageVo pvo){
 		return template.selectList(sql+".carpoolList", pvo);
 	}
 	

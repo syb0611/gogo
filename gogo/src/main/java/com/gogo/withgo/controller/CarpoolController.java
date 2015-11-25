@@ -24,6 +24,7 @@ import com.gogo.withgo.vo.CarpoolVo;
 import com.gogo.withgo.vo.MapVo;
 import com.gogo.withgo.vo.MemberVo;
 import com.gogo.withgo.vo.PageVo;
+import com.gogo.withgo.vo.CPageVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Controller
@@ -127,7 +128,7 @@ public class CarpoolController {
 		
 		////////////////////
 		int listTotal = dao.getTotal(category);
-		PageVo pvo = new PageVo();
+		CPageVo pvo = new CPageVo();
 		pvo.setCategory(category);
 		pvo.setMno(mno);
 		pvo.setPage(listTotal, page);
@@ -135,6 +136,7 @@ public class CarpoolController {
 		List<CarpoolMemberVo> list = dao.carpoolList(pvo);
 //		List<CarpoolMemberVo> list = dao.carpoolList(category, mno);
 		model.addAttribute("list", list);
+		model.addAttribute("pvo", pvo);
 		model.addAttribute("category", category);
 		
 		return "carpool/list";
