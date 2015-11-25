@@ -23,6 +23,7 @@ import com.gogo.withgo.dao.MongoDao;
 import com.gogo.withgo.vo.CarpoolVo;
 import com.gogo.withgo.vo.MapVo;
 import com.gogo.withgo.vo.MemberVo;
+import com.gogo.withgo.vo.PageVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Controller
@@ -90,8 +91,29 @@ public class CarpoolController {
 		return "carpool/carpoolR";
 	}
 	
+//	@RequestMapping("/list")
+//	public String list(@RequestParam("category") String category, HttpServletRequest request, Model model){
+//		HttpSession session = request.getSession(false);
+//		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+//		
+//		int mno;
+//		if(memberInfo == null){
+//			mno = 0;
+//		}else{
+//			mno = memberInfo.getMno();
+//		}
+//		
+//		List<CarpoolMemberVo> list = dao.carpoolList(category, mno);
+//		model.addAttribute("list", list);
+//		model.addAttribute("category", category);
+//		
+//		return "carpool/list";
+//	}
+	
+
+	
 	@RequestMapping("/list")
-	public String list(@RequestParam("category") String category, HttpServletRequest request, Model model){
+	public String list(@RequestParam("category") String category, @RequestParam(value="page", defaultValue="1") int page, HttpServletRequest request, Model model){
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
@@ -102,14 +124,24 @@ public class CarpoolController {
 			mno = memberInfo.getMno();
 		}
 		
-		List<CarpoolMemberVo> list = dao.carpoolList(category, mno);
+		
+		////////////////////
+		int listTotal = dao.getTotal(category);
+		PageVo pvo = new PageVo();
+		pvo.setCategory(category);
+		pvo.setMno(mno);
+		pvo.setPage(listTotal, page);
+		
+		List<CarpoolMemberVo> list = dao.carpoolList(pvo);
+//		List<CarpoolMemberVo> list = dao.carpoolList(category, mno);
 		model.addAttribute("list", list);
 		model.addAttribute("category", category);
 		
 		return "carpool/list";
 	}
 	
-
+	
+	
 	
 	@RequestMapping("/searchAll")
 	public String searchAll(HttpServletRequest request, CarpoolVo vo, Model model){

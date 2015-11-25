@@ -5,6 +5,7 @@ public class PageVo {
 	private final int pagerow = 10;
 	
 	private String category;
+	private int mno;///////////////
 	
 	private int listTotal;
 	private int totalPage;
@@ -112,6 +113,14 @@ public class PageVo {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public int getMno() {
+		return mno;
+	}
+
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
 	
 	

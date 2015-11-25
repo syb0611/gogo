@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.CarpoolVo;
+import com.gogo.withgo.vo.PageVo;
 import com.gogo.withgo.vo.BookmarkInfoVo;
 import com.gogo.withgo.vo.BookmarkVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
@@ -26,10 +27,16 @@ public class CarpoolDao {
 	}
 	
 	
-	public List<CarpoolMemberVo> carpoolList(String category, int mno){
-		CarpoolMemberVo vo = new CarpoolMemberVo(category, mno);
-		return template.selectList(sql+".carpoolList", vo);
+//	public List<CarpoolMemberVo> carpoolList(String category, int mno){
+//		CarpoolMemberVo vo = new CarpoolMemberVo(category, mno);
+//		return template.selectList(sql+".carpoolList", vo);
+//	}
+	public List<CarpoolMemberVo> carpoolList(PageVo pvo){
+		return template.selectList(sql+".carpoolList", pvo);
 	}
+	
+	
+	
 	
 	public CarpoolMemberVo read(int carno){
 		return template.selectOne(sql+".read", carno);
@@ -71,4 +78,12 @@ public class CarpoolDao {
 	public List<CarpoolMemberVo> search4(CarpoolVo vo){
 		return template.selectList(sql+".search4", vo);
 	}
+
+
+
+	public int getTotal(String category){
+		return template.selectOne(sql+".total", category);
+	}
+
+
 }
