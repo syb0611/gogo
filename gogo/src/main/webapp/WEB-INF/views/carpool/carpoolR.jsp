@@ -293,6 +293,7 @@ function bookResult(){
 									<td>
 										<c:choose>
 											<c:when test="${vo.genderlimit == '0' }">없음</c:when>
+											<c:when test="${vo.genderlimit == '1' }">남성전용</c:when>
 											<c:otherwise>여성전용</c:otherwise>
 										</c:choose>
 									</td>

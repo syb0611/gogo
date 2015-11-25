@@ -130,10 +130,35 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping("/search")
-	public String search(CarpoolVo vo, Model model){
+	public String search(HttpServletRequest request, CarpoolVo vo, Model model){
+		HttpSession session = request.getSession(false);
+		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
+		if(memberInfo == null){
+			vo.setMno(0);
+		}else{
+			vo.setMno(memberInfo.getMno());
+		}
 		
+		String usertype = vo.getUsertype();
+		int pricerange = vo.getPricerange();
+		List<CarpoolMemberVo> searchList = null;
 		
-		return "redirect:/";
+		if(usertype.equals("all")){ //분류(usertype) 전체
+			if(pricerange == 0){ //금액 전체
+				searchList = dao.search1(vo);
+			}else{ //금액 범위 있는 경우
+				searchList = dao.search2(vo);
+			}	
+		}else{ 
+			if(pricerange == 0){ 
+				searchList = dao.search3(vo);
+			}else{ 
+				searchList = dao.search4(vo);
+			}	
+		}
+		
+		model.addAttribute("searchList", searchList);
+		return "carpool/search";
 	}
 }

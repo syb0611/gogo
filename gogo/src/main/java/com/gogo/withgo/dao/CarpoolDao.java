@@ -54,4 +54,21 @@ public class CarpoolDao {
 	public List<CarpoolMemberVo> searchAll(CarpoolVo vo){
 		return template.selectList(sql+".searchAllList", vo);
 	}
+	
+	
+	public List<CarpoolMemberVo> search1(CarpoolVo vo){
+		return template.selectList(sql+".search1", vo);
+	}
+	
+	public List<CarpoolMemberVo> search2(CarpoolVo vo){
+		return template.selectList(sql+".search2", vo);
+	}
+	
+	public List<CarpoolMemberVo> search3(CarpoolVo vo){
+		return template.selectList(sql+".search3", vo);
+	}
+	
+	public List<CarpoolMemberVo> search4(CarpoolVo vo){
+		return template.selectList(sql+".search4", vo);
+	}
 }

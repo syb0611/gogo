@@ -241,7 +241,6 @@ function delBookMarkResult(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-				<div style="height:40px;"></div>
 				<div style="width:240px; height:350px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
 					<div  style="width:200px; height:320px;  margin-left:20px;">
 					<fieldset>	
@@ -301,7 +300,7 @@ function delBookMarkResult(){
 				</div>
 				
 				<div class="col-md-9">
-					<div style="height:40px;">
+					<div>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
 							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${category }'">
@@ -312,13 +311,13 @@ function delBookMarkResult(){
 			
 					<table class="table table-condensed">
 						<c:choose>
-							<c:when test="${list == '[]' }">
+							<c:when test="${searchList == '[]' }">
 							<tr>
 								<td colspan="7">등록된 글이 없습니다.</td>
 							</tr>
 							</c:when>
 							<c:otherwise>
-							<c:forEach items="${list }" var="vo">
+							<c:forEach items="${searchList }" var="vo">
 							<tr>
 								<td>
 									<input type="hidden" id="mno" value="${memberInfo.mno }">
