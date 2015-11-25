@@ -111,7 +111,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4 style="font-weight:600;" >공지사항</h4></span>
+											<span class="categoryTitle"><h4>< 공지사항 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/customer/list?category=notice">더보기...</a>
 											</span>
@@ -141,7 +141,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4 style="font-weight:600;">자주묻는질문</h4></span>
+											<span class="categoryTitle"><h4>< 자주묻는질문 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/customer/list?category=qna">더보기...</a>
 											</span>
@@ -174,7 +174,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4 style="font-weight:600;">건의게시판</h4></span>
+											<span class="categoryTitle"><h4>< 건의게시판 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/customer/list?category=inquiry">더보기...</a>
 											</span>

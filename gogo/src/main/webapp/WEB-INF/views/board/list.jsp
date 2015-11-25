@@ -103,9 +103,9 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<div class="category">
 									<div class="categoryTitle">
 									<c:choose>
-										<c:when test="${pvo.category == 'greeting' }"><h3>가입인사</h3></c:when>
-										<c:when test="${pvo.category == 'free' }"><h3>자유게시판</h3></c:when>
-										<c:otherwise><h3>카풀이용후기</h3></c:otherwise>
+										<c:when test="${pvo.category == 'greeting' }"><img src="/withgo/resources/images/가입인사2.png"  width="131px" height="38px"></c:when>
+										<c:when test="${pvo.category == 'free' }"><img src="/withgo/resources/images/자유.png"  width="143px" height="38px"></c:when>
+										<c:otherwise><img src="/withgo/resources/images/후기.png"  width="147px" height="38px"></c:otherwise>
 									</c:choose>
 									</div>
 									<div class="wBtn">

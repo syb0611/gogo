@@ -119,7 +119,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4>가입인사</h4></span>
+											<span class="categoryTitle"><h4>< 가입인사 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/board/list?category=greeting">더보기...</a>
 											</span>
@@ -149,7 +149,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4>자유게시판</h4></span>
+											<span class="categoryTitle"><h4 >< 자유게시판 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/board/list?category=free">더보기...</a>
 											</span>
@@ -182,7 +182,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<table class="table table-condensed">
 									<tr>
 										<td colspan="2" class="tableHeading">
-											<span class="categoryTitle"><h4>카풀이용후기</h4></span>
+											<span class="categoryTitle"><h4>< 카풀이용후기 ></h4></span>
 											<span class="more">
 												<a href="${contextPath}/board/list?category=review">더보기...</a>
 											</span>
