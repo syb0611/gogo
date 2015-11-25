@@ -83,17 +83,18 @@
 		order by carno desc
 	</select>
 	
-	
 	<select id="search1" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
 		from carpool C, member M
-		where C.mno = M.mno 
-		and category=#{category} 
-		 and
+		where C.mno = M.mno and 
+		category=#{category} and
+		genderlimit=#{genderlimit} and
+		smoking=#{smoking} and
 		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
 		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
 		or (stop3=#{departure} and arrival=#{arrival}))
+		
 	</select>
 	
 	<select id="search2" resultType="com.gogo.withgo.vo.CarpoolMemberVo">

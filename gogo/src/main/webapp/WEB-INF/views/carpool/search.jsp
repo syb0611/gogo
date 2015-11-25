@@ -172,11 +172,10 @@ function delBookMarkResult(){
 			</div>
 		</div>
 	</header>
-
 	<c:choose>
 		<c:when test="${category == 'dan'}">
 			<div id="heading"
-				style="background-image: url(../images/새.png);">
+				style="background-image: url(/withgo/resources/images/새.png);">
 							<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -191,7 +190,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'jang'}">
 			<div id="heading"
-				style="background-image: url(../images/새.png); height: 150px; width: 100%;">
+				style="background-image: url(/withgo/resources/images/새.png); height: 150px; width: 100%;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -206,7 +205,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'goschool'}">
 			<div id="heading"
-				style="background-image: url(../images/집.png); height: 150px;">
+				style="background-image: url(/withgo/resources/images/집.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -222,7 +221,7 @@ function delBookMarkResult(){
 		</c:when>
 		<c:when test="${category == 'taxi'}">
 			<div id="heading"
-				style="background-image: url(../images/계.png); height: 150px;">
+				style="background-image: url(/withgo/resources/images/계.png); height: 150px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -303,7 +302,7 @@ function delBookMarkResult(){
 					<div>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
-							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${category }'">
+							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${vo.category }'">
 						</c:if>
 						</div>
 					</div>
@@ -347,15 +346,15 @@ function delBookMarkResult(){
 											</td>
 											<td >
 												<div style="padding: 10px">${vo.departuredate } 출발</div>
-												<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
+												<div style="padding: 10px">${vo.departure } <img src="/withgo/resources/images/a.png" width="15px"> ${vo.arrival }</div>
 												<div style="padding: 10px">경유지</div>
 											</td>
 											<td width="20%" style="text-align: right">
 												<div>
 													<c:choose>
-														<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
-														<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
-														<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+														<c:when test="${vo.category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
+														<c:when test="${vo.category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
+														<c:otherwise><img src="/withgo/resources/images/taxiimg.png"></c:otherwise>
 													</c:choose>
 													<c:choose>
 		 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 

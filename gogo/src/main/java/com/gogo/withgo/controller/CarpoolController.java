@@ -155,9 +155,11 @@ public class CarpoolController {
 				searchList = dao.search3(vo);
 			}else{ 
 				searchList = dao.search4(vo);
+				System.out.println("444444444");
 			}	
 		}
 		
+		model.addAttribute("category", vo.getCategory());
 		model.addAttribute("searchList", searchList);
 		return "carpool/search";
 	}
