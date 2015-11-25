@@ -38,6 +38,10 @@
 	margin-left: 93%;
 	cursor: pointer;
 }
+
+#pic{
+	border-radius: 10px;
+}
 </style>
 <script>
 var xhr;
@@ -186,7 +190,17 @@ function delBookMarkResult(){
 													<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
 														<tr>
 															<td width="15%" align="center">
-																<div><img src="../images/blankimage.png" width="80px"></div>
+																<div>
+																	<c:choose>
+																		<c:when test="${vo.image == null }">
+																			<img src="/withgo/resources/images/blankimage.png" width="80px" id="pic">
+																		</c:when>
+																		<c:otherwise>
+																			<img src="/withgo/upload/${vo.image }" width="80px" id="pic">
+																		</c:otherwise>
+																	</c:choose>
+																	
+																</div>
 																<div style="margin-top: 5px">${vo.name }</div>
 															</td>
 															<td width="65%" style="padding-left: 20px; line-height: 100%; vertical-align: top">

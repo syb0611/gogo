@@ -56,6 +56,10 @@ body {
 	background: #425051;
 /* 	font-weight: bold; */
 }
+
+#pic{
+	border-radius: 10px;
+}
 </style>
 <script>
 var xhr;
@@ -336,10 +340,10 @@ function delBookMarkResult(){
 												<div>
 													<c:choose>
 														<c:when test="${vo.image == null }">
-															<img src="/withgo/resources/images/blankimage.png" width="80px">
+															<img src="/withgo/resources/images/blankimage.png" width="80px" id="pic">
 														</c:when>
 														<c:otherwise>
-															<img src="/withgo/upload/${vo.image }" width="80px">
+															<img src="/withgo/upload/${vo.image }" width="80px" id="pic">
 														</c:otherwise>
 													</c:choose>
 													
@@ -349,7 +353,7 @@ function delBookMarkResult(){
 											<td >
 												<div style="padding: 10px">${vo.departuredate } 출발</div>
 												<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
-												<div style="padding: 10px">경유지</div>
+												<div style="padding: 10px">경유: ${vo.stop1 }&nbsp;&nbsp;${vo.stop2 }&nbsp;&nbsp;${vo.stop3 }</div>
 											</td>
 											<td width="20%" style="text-align: right">
 												<div>

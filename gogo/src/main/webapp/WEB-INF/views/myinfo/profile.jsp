@@ -52,6 +52,10 @@ fieldset {
 	text-align: center;
 	margin-bottom: 20px;
 }
+
+#pic{
+	border-radius: 10px;
+}
 </style>
 <script>
 var first = 0;
@@ -255,10 +259,10 @@ function previewImage(targetObj, previewId){
 																	 	<div id="previewId">
 																	 		<c:choose>
 																	 			<c:when test="${memberInfo.image == null }">
-																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px">
+																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px" id="pic">
 																	 			</c:when>
 																	 			<c:otherwise>
-																	 				<img src="/withgo/upload/${memberInfo.image }" id="myImg" width='80px'>
+																	 				<img src="/withgo/upload/${memberInfo.image }" id="myImg" width='80px' id="pic">
 																	 			</c:otherwise>
 																	 		</c:choose>
 																	 		

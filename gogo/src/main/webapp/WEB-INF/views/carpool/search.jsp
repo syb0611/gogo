@@ -56,6 +56,10 @@ body {
 	background: #425051;
 /* 	font-weight: bold; */
 }
+
+#pic{
+	border-radius: 10px;
+}
 </style>
 <script>
 var xhr;
@@ -240,6 +244,7 @@ function delBookMarkResult(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
+				<div style="height:40px;"></div>
 				<div style="width:240px; height:350px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
 					<div  style="width:200px; height:320px;  margin-left:20px;">
 					<fieldset>	
@@ -299,7 +304,7 @@ function delBookMarkResult(){
 				</div>
 				
 				<div class="col-md-9">
-					<div>
+					<div style="height:40px;">
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
 							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${vo.category }'">
@@ -334,10 +339,10 @@ function delBookMarkResult(){
 												<div>
 													<c:choose>
 														<c:when test="${vo.image == null }">
-															<img src="/withgo/resources/images/blankimage.png" width="80px">
+															<img src="/withgo/resources/images/blankimage.png" width="80px" id="pic">
 														</c:when>
 														<c:otherwise>
-															<img src="/withgo/upload/${vo.image }" width="80px">
+															<img src="/withgo/upload/${vo.image }" width="80px" id="pic">
 														</c:otherwise>
 													</c:choose>
 													
