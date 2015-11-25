@@ -6,9 +6,39 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
+.pt{
+	font-family: "NanumGothicBold";
+	font-size: 15px;
+}
 
 .ex{
 	color:#fbf7ee;
+}
+
+div#select_box {
+    position: relative;
+    width: 200px;
+    height: 35px;
+    background: url(/withgo/resources/images/select_arrow.png) 180px center no-repeat; /* 화살표 이미지 */
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+}
+div#select_box label {
+    position: absolute;
+    font-size: 14px;
+    color: #737373;
+    top: 8px;
+    left: 12px;
+    letter-spacing: 1px;
+}
+div#select_box select#color {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
 }
 
 

@@ -9,6 +9,8 @@
 
 
 <style>
+
+
 @import
 url
 (http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
@@ -62,6 +64,16 @@ body {
 }
 </style>
 <script>
+jQuery(document).ready(function(){
+    
+    var select = $("select#color");
+    
+    select.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+});
+
 var xhr;
 var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
 var imgOff = "http://localhost:8080/withgo/resources/images/off.png";
@@ -254,14 +266,14 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-3">
 				<div style="height:40px;"></div>
-				<div style="width:240px; height:330px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
+				<div style="width:240px; height:330px; border:2px solid #C6C6C6;  border-radius: 7px; ">
 					<div  style="width:200px; height:320px;  margin-left:20px;">
 					<fieldset>	
 						<form action="/withgo/carpool/search" method="post" name="f">
 							<div class="btn-group" style="margin-bottom: 10px">
 								<input type="hidden" name="category" value="${category }">
 								<input type="hidden" name="usertype" id="usertype" value="all"><br>
-								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
+								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">;전체</button>
 								<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
 								<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
 							</div>
@@ -275,31 +287,36 @@ function delBookMarkResult(){
 								</tr>
 								<tr>
 									<td style="height:50px" >
-										금액 : 
-										<select name="pricerange">
+										
+										<div id="select_box">
+										<label for="color">금액</label>
+										<select name="pricerange" id="color">
 											<option value="0">금액</option>
 											<option value="1">0~3000원</option>
 											<option value="2">3000~5000원</option>
 											<option value="3">5000~8000원</option>
 											<option value="4">8000원이상</option>
 										</select>
+										</div>
 									</td>
 								</tr>
+								
 								<tr>
-									<td style="height:30px">
+									<td class="pt" style="height:30px; font-weight: 700;">
 										성별 : 
-										<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
-										<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-										<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+										<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+										<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+										<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
 									</td>
 								</tr>
 								<tr>
-									<td style="height:30px">
+									<td class="pt" style="height:30px; font-weight: 700;">
 										흡연 : 
-										<input name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
-										<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
+										<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
+										<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
 									</td>
 								</tr>
+								
 								<tr>
 									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
 								</tr>
