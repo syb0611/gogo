@@ -11,8 +11,6 @@ public class CarpoolVo {
 	private String stop1;
 	private String stop2;
 	private String stop3;
-	private String stop4;
-	private String stop5;
 	private String usertype;  	//driver(타세요) or rider(태워주세요) or together(함께타요)
 	private int seat;
 	private int bookedseat;
@@ -26,7 +24,7 @@ public class CarpoolVo {
 	public CarpoolVo() {}
 
 	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
-			String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo, String departuredate,
+			String stop3, String usertype, int seat, int bookedseat, String memo, String departuredate,
 			int price, int smoking, int genderlimit, int requestseat) {
 		super();
 		this.carno = carno;
@@ -37,8 +35,6 @@ public class CarpoolVo {
 		this.stop1 = stop1;
 		this.stop2 = stop2;
 		this.stop3 = stop3;
-		this.stop4 = stop4;
-		this.stop5 = stop5;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.bookedseat = bookedseat;
@@ -141,21 +137,6 @@ public class CarpoolVo {
 		this.stop3 = stop3;
 	}
 
-	public String getStop4() {
-		return stop4;
-	}
-
-	public void setStop4(String stop4) {
-		this.stop4 = stop4;
-	}
-
-	public String getStop5() {
-		return stop5;
-	}
-
-	public void setStop5(String stop5) {
-		this.stop5 = stop5;
-	}
 
 	public int getSmoking() {
 		return smoking;

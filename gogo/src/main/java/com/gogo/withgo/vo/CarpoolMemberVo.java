@@ -13,8 +13,6 @@ public class CarpoolMemberVo {
 	private String stop1;
 	private String stop2;
 	private String stop3;
-	private String stop4;
-	private String stop5;
 	private String usertype;  
 	private int seat; 
 	private int bookedseat;
@@ -47,7 +45,7 @@ public class CarpoolMemberVo {
 	}
 
 	public CarpoolMemberVo(int bookmark, int carno, String category, int mno, String departure, String arrival, String stop1,
-			String stop2, String stop3, String stop4, String stop5, String usertype, int seat, int bookedseat, String memo,
+			String stop2, String stop3, String usertype, int seat, int bookedseat, String memo,
 			Date departuredate, int price, int smoking, int genderlimit, String email, String pw, String nickname, String name,
 			String phone, String birth, int gender, int hascar, String image, Date jdate, String profile, String auth,
 			int authphone, int authemail, int requestseat) {
@@ -61,8 +59,6 @@ public class CarpoolMemberVo {
 		this.stop1 = stop1;
 		this.stop2 = stop2;
 		this.stop3 = stop3;
-		this.stop4 = stop4;
-		this.stop5 = stop5;
 		this.usertype = usertype;
 		this.seat = seat;
 		this.bookedseat = bookedseat;
@@ -214,22 +210,6 @@ public class CarpoolMemberVo {
 
 	public void setStop3(String stop3) {
 		this.stop3 = stop3;
-	}
-
-	public String getStop4() {
-		return stop4;
-	}
-
-	public void setStop4(String stop4) {
-		this.stop4 = stop4;
-	}
-
-	public String getStop5() {
-		return stop5;
-	}
-
-	public void setStop5(String stop5) {
-		this.stop5 = stop5;
 	}
 
 	public String getUsertype() {
