@@ -91,7 +91,15 @@ function typeClick(n){
 
 }
 
-
+function checkform(){
+	var form = document.f;
+	var de = form.departure.value.trim();
+	var arr = form.arrival.value.trim();
+	
+	if(de == "" || arr == "") return;
+	
+	form.submit();
+}
 
 function bookmarkClick(carno){
 	var mno = document.getElementById("mno").value;
@@ -293,7 +301,7 @@ function delBookMarkResult(){
 									</td>
 								</tr>
 								<tr>
-									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="submit()"></td>
+									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
 								</tr>
 							</table>
 							</div>
