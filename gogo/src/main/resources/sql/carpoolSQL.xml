@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="carpoolSQL">
-<!-- 	<select id="list" resultType="com.gogo.withgo.vo.CarpoolVo"> -->
-<!-- 		select * from carpool -->
-<!-- 		where category=#{category} -->
-<!-- 		order by carno desc -->
-<!-- 	</select> -->
-	
-
-	
 <!-- 	<select id="carpoolList" resultType="com.gogo.withgo.vo.CarpoolMemberVo"> -->
 <!-- 		select C.*, M.*  -->
 <!-- 		from carpool C, member M -->
@@ -35,10 +27,19 @@
 		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
 		from carpool C, member M
 		where C.mno = M.mno
-		and category=#{category}
-		
+		and category=#{category}	
 	</select>
 	
+	<select id="searchAllList" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+		from carpool C, member M
+		where C.mno = M.mno and 
+		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
+		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
+		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
+		or (stop3=#{departure} and arrival=#{arrival}))
+		
+	</select>
 	
 	<select id="read" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
 		select C.*, M.*
@@ -81,4 +82,7 @@
 		and C.mno = #{mno}
 		order by carno desc
 	</select>
+	
+	
+	
 </mapper>

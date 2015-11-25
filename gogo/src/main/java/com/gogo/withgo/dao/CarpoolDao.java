@@ -20,10 +20,6 @@ public class CarpoolDao {
 	private static final String sql = "carpoolSQL"; 
 	
 	
-//	public void write(CarpoolVo vo){
-//		template.insert(sql+".write", vo);
-//	}
-	
 	public int write(CarpoolVo vo){
 		template.insert(sql+".write", vo);
 		return vo.getCarno();   //insert한 현재 seq값 
@@ -53,5 +49,9 @@ public class CarpoolDao {
 	
 	public List<CarpoolMemberVo> myRegCarpoolList(int mno){
 		return template.selectList(sql+".myRegCarpoolList", mno);
+	}
+	
+	public List<CarpoolMemberVo> searchAll(CarpoolVo vo){
+		return template.selectList(sql+".searchAllList", vo);
 	}
 }

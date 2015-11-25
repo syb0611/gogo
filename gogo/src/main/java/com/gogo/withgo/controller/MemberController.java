@@ -120,7 +120,6 @@ public class MemberController {
 			String filename = uploadFile.getOriginalFilename();
 			String type = filename.substring(filename.lastIndexOf("."));
 			String savename = filename+"_"+System.currentTimeMillis()+type;		
-			
 			vo.setImage(savename);
 			
 			File dir = new File(path);

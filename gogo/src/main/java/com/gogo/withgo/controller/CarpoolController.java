@@ -73,7 +73,12 @@ public class CarpoolController {
 		return "redirect:/carpool/list?category="+ct;
 	}
 	
-	
+	@RequestMapping("/read")
+	public String read(@RequestParam("category") String category, @RequestParam("no") int carno, Model model){
+		CarpoolMemberVo vo = dao.read(carno);
+		model.addAttribute("vo", vo);
+		return "carpool/carpoolR";
+	}
 	
 	@RequestMapping("/list")
 	public String list(@RequestParam("category") String category, HttpServletRequest request, Model model){
@@ -94,18 +99,21 @@ public class CarpoolController {
 		return "carpool/list";
 	}
 	
-	@RequestMapping("/read")
-	public String read(@RequestParam("category") String category, @RequestParam("no") int carno, Model model){
-		CarpoolMemberVo vo = dao.read(carno);
-		model.addAttribute("vo", vo);
-		return "carpool/carpoolR";
-	}
-	
-	
+
 	
 	@RequestMapping("/searchAll")
-	public String searchAll(@RequestParam("departure") String departure, @RequestParam("arrival") String arrival){
-		///////////////////////////////////////////////
+	public String searchAll(HttpServletRequest request, CarpoolVo vo, Model model){
+		HttpSession session = request.getSession(false);
+		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+		
+		if(memberInfo == null){
+			vo.setMno(0);
+		}else{
+			vo.setMno(memberInfo.getMno());
+		}
+		
+		List<CarpoolMemberVo> searchList = dao.searchAll(vo);
+		model.addAttribute("searchList", searchList);
 		return "redirect:/";
 	}
 }
