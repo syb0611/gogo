@@ -17,6 +17,7 @@ public class CarpoolVo {
 	private String memo;		
 	private String departuredate;			//Date?String?
 	private int price;
+	private int pricerange;/////////////////////////
 	private int smoking;
 	private int genderlimit;
 	private int requestseat;
@@ -25,7 +26,7 @@ public class CarpoolVo {
 
 	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
 			String stop3, String usertype, int seat, int bookedseat, String memo, String departuredate,
-			int price, int smoking, int genderlimit, int requestseat) {
+			int price, int smoking, int genderlimit, int requestseat, int pricerange) {
 		super();
 		this.carno = carno;
 		this.category = category;
@@ -44,9 +45,18 @@ public class CarpoolVo {
 		this.smoking = smoking;
 		this.genderlimit = genderlimit;
 		this.requestseat = requestseat;
+		this.pricerange = pricerange;
 	}
 
 	
+	public int getPricerange() {
+		return pricerange;
+	}
+
+	public void setPricerange(int pricerange) {
+		this.pricerange = pricerange;
+	}
+
 	public int getRequestseat() {
 		return requestseat;
 	}

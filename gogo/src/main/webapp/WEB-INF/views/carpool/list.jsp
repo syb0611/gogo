@@ -1,8 +1,13 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<head>
+<meta charset="utf-8">
+<title>About - Grill Template</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+
+
 <style>
 @import
 url
@@ -21,16 +26,6 @@ body {
 	
 }
 
-</style>
-
-<head>
-<meta charset="utf-8">
-<title>About - Grill Template</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width">
-
-
-<style>
 #timeline-post{
 	margin-top: 30px;
 }
@@ -51,11 +46,48 @@ body {
 	margin-left: 93%;
 	cursor: pointer;
 }
+
+#usertype1{
+	color: white;
+ 	background: #995051; 	
+}
+#usertype2, #usertype3{
+	color: white;
+	background: #425051;
+/* 	font-weight: bold; */
+}
 </style>
 <script>
 var xhr;
 var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
 var imgOff = "http://localhost:8080/withgo/resources/images/off.png";
+
+function typeClick(n){
+	var usertype = document.getElementById("usertype");
+	var type1 = document.getElementById("usertype1");
+	var type2 = document.getElementById("usertype2");
+	var type3 = document.getElementById("usertype3");
+
+	if(n == 1) { // 전체
+		usertype.value = 'all';
+		type1.style.background = '#995051';
+		type2.style.background = '#425051';
+		type3.style.background = '#425051';
+	} else if(n == 2){ // 타세요
+		usertype.value = 'driver';
+		type1.style.background = '#425051';
+		type2.style.background = '#995051';
+		type3.style.background = '#425051';
+	}else{
+		usertype.value = 'rider';
+		type1.style.background = '#425051';
+		type2.style.background = '#425051';
+		type3.style.background = '#995051';
+	}
+
+}
+
+
 
 function bookmarkClick(carno){
 	var mno = document.getElementById("mno").value;
@@ -209,101 +241,60 @@ function delBookMarkResult(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<fieldset>
-				<legend>  </legend>
-						
-						<form action="./example2.php" method="GET">
-						<div class="btn-group">
-								
-								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">전체</button>
-								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">타세요</button>
-								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">탈래요</button>
-							</div><br><br>
-							
-							<!-- <div class="btn-group">
-								
-								<button type="button" class="btn btn-default">전체</button>
-								<button type="button" class="btn btn-default">여자　</button>
-								<button type="button" class="btn btn-default">남자　</button>
-							</div> -->
-								<!-- 카풀 : 
-								<select name="type">
-									<option value="short">단기카풀</option>
-									<option value="long">장기카풀</option>
-									<option value="taxi">택시카풀</option>
-									<option value="school">고스쿨</option>
-								</select> -->
-							<div>
-							<tr>
-									<td><p class="reg_area dt"></p>
-									<input type="text" placeholder="출발지"  /></td>
-								</tr>
-							<tr>
-									<td><p class="reg_area dt"></p>
-									<input type="text" placeholder="도착지" /></td>
-								</tr>
-								<!-- <tr>
-									<td><p class="reg_area dt"></p>
-									<input type="text" placeholder="경유지" /></td>
-								</tr>--><br><br>
-								금액 : 
-								<select name="type">
-								<option value="금액">금액</option>
-									<option value="최저">0~3000원</option>
-									<option value="중간">3000~5000원</option>
-									<option value="최고">5000~8000원</option>
-									<option value="더최고">8000원이상</option>
-								</select><br><br>
-							<!-- 	성별 : 
-								<select name="type">
-									<option value="short">모두</option>
-									<option value="long">여자</option>
-									<option value="taxi">남자</option>					
-								</select> <br> -->
-								<!-- 성별 : 
-								<input name="gender" id="gender" type="radio" checked="checked" value="0"><span>전체</span>
-								<input name="gender" id="gender" type="radio" value="1"><span>남자</span>
-								<input name="gender" id="gender" type="radio" value="2"><span>여자</span>	<br><br>  -->
-								성별 : 
-								<input name="gender" id="gender" type="radio" checked="checked" value="N" ><span>전체   </span>
-								<input name="gender" id="gender" type="radio" value="W"><span>여자   </span>
-								<input name="gender" id="gender" type="radio" value="M"><span>남자</span> 
-								<br><br>
-								흡연 : 
-								<input name="smoking" id="smoking" type="radio" checked="checked" value="A"><span>전체</span>
-								<input name="smoking" id="smoking" type="radio" value="N"><span>불가</span>
-								<input name="smoking" id="smoking" type="radio" value="Y"><span>가능</span> 
-								<br>
+					<fieldset>	
+						<form action="/withgo/carpool/search" method="post" name="f">
+							<div class="btn-group" style="margin-bottom: 10px">
+								<input type="hidden" name="usertype" id="usertype" value="all">
+								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
+								<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
+								<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
 							</div>
-							<tr>
-									<td colspan="2" align="center"><input type="submit" class="btn_commm" value="검색하기">
-									
-									</td>
-									
+							<div>
+							<table>
+								<tr>
+									<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></td>
 								</tr>
-								
+								<tr>
+									<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></td>
+								</tr>
+								<tr>
+									<td style="height:50px">
+										금액 : 
+										<select name="price">
+											<option value="0">금액</option>
+											<option value="1">0~3000원</option>
+											<option value="2">3000~5000원</option>
+											<option value="3">5000~8000원</option>
+											<option value="4">8000원이상</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td style="height:30px">
+										성별 : 
+										<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+										<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+										<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+									</td>
+								</tr>
+								<tr>
+									<td style="height:30px">
+										흡연 : 
+										<input name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
+										<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><input type="submit" class="btn_commm" value="검색하기"></td>
+								</tr>
+							</table>
+							</div>
 						</form>
 					</fieldset>
 				</div>
 				
 				<div class="col-md-9">
 					<div>
-						<%-- <div style="float: left;">
-						<c:choose>
-							<c:when test="${category == 'dan'}">
-								<h4>단기카풀</h4>
-							</c:when>
-							<c:when test="${category == 'jang'}">
-								<h4>장기카풀</h4>
-							</c:when>
-							<c:when test="${category == 'goschool'}">
-								<h4>고스쿨</h4>
-							</c:when>
-							<c:when test="${category == 'taxi'}">
-								<h4>택시</h4>
-							</c:when>
-						</c:choose>
-						</div> --%>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
 							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${category }'">
@@ -311,18 +302,16 @@ function delBookMarkResult(){
 						</div>
 					</div>
 					
-									
-					
+			
 					<table class="table table-condensed">
 						<c:choose>
 							<c:when test="${list == '[]' }">
+							<tr>
 								<td colspan="7">등록된 글이 없습니다.</td>
+							</tr>
 							</c:when>
 							<c:otherwise>
 							<c:forEach items="${list }" var="vo">
-							
-							
-							
 							<tr>
 								<td>
 									<input type="hidden" id="mno" value="${memberInfo.mno }">
@@ -343,14 +332,14 @@ function delBookMarkResult(){
 															<img src="/withgo/resources/images/blankimage.png" width="80px">
 														</c:when>
 														<c:otherwise>
-															<img src="/withgo/resources/upload/${vo.image }" width="80px">
+															<img src="/withgo/upload/${vo.image }" width="80px">
 														</c:otherwise>
 													</c:choose>
 													
 												</div>
 												<div style="margin-top: 5px">${vo.name }</div>
 											</td>
-											<td width="65%" style="padding-left: 20px; line-height: 100%; vertical-align: top">
+											<td >
 												<div style="padding: 10px">${vo.departuredate } 출발</div>
 												<div style="padding: 10px">${vo.departure } <img src="../images/a.png" width="15px"> ${vo.arrival }</div>
 												<div style="padding: 10px">경유지</div>
@@ -379,11 +368,6 @@ function delBookMarkResult(){
 												</div>
 											</td>
 										</tr>		
-<!-- 										<tr>	 -->
-<!-- 											<td width="20%"> -->
-<%-- 												<c:if test="${vo.authemail == 1 }">이메일인증</c:if> --%>
-<%-- 												<c:if test="${vo.authphone == 1 }">핸드폰인증</c:if> --%>
-<!-- 											</td> -->
 									</table>
 									
 								</td>
@@ -394,9 +378,6 @@ function delBookMarkResult(){
 					</table>
 				</div>
 			</div>
-
-			<div class="space50"></div>
-
 
 		</div>
 	</div>

@@ -54,6 +54,16 @@ public class CarpoolController {
 	public void write(CarpoolVo vo, HttpServletResponse response) throws IOException{
 		ct = vo.getCategory();
 		PrintWriter out = response.getWriter();
+		
+		//////////////
+		int price = vo.getPrice();
+		if(price<=3000) vo.setPricerange(1);
+		else if(price<=5000) vo.setPricerange(2);
+		else if(price<=8000) vo.setPricerange(3);
+		else vo.setPricerange(4);
+		
+		///////////////
+		
 		int carno_seq = dao.write(vo);
 		//System.out.println("seq : "+carno_seq);
 		out.print(carno_seq);
@@ -117,5 +127,13 @@ public class CarpoolController {
 		
 		model.addAttribute("searchInput", vo);
 		return "carpool/searchAllList";
+	}
+	
+	@RequestMapping("/search")
+	public String search(CarpoolVo vo, Model model){
+		
+		
+		
+		return "redirect:/";
 	}
 }
