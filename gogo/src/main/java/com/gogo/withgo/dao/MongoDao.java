@@ -30,7 +30,12 @@ public class MongoDao {
 	}
 
 	public MapVo findOne(int seq) {
-		Query query = Query.query(Criteria.where("seq").is(seq));
+		Query query = Query.query(Criteria.where("map.adata.seq").is(seq));
+		return mongoTemplate.findOne(query, MapVo.class);
+	}
+	
+	public MapVo findOne(String seq) {
+		Query query = Query.query(Criteria.where("map.adata.seq").is(seq));
 		return mongoTemplate.findOne(query, MapVo.class);
 	}
 }

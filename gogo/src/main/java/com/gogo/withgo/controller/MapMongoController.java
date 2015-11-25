@@ -53,7 +53,7 @@ public class MapMongoController {
 	
 	@ResponseBody
 	@RequestMapping(value="/markertest/{seq}", method=RequestMethod.GET)
-	public String setRotue(@PathVariable int seq){
+	public String setRotue(@PathVariable String seq){
 		return dao.findOne(seq).toString();
 	}
 }
