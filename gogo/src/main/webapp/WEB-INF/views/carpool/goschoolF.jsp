@@ -92,6 +92,9 @@ function callback(){
    }
 }
 </script>
+<script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/withgo/resources/js/routes.js"></script>
 </head>
 <body>
 	<header>
@@ -325,7 +328,7 @@ function callback(){
 													</select>
 												</span>
 												<span>
-													<select name="sel2" id="sel2">
+													<select name="sel2" id="loc3">
 														<option value="seoul"></option>
 													</select>
 												</span>
