@@ -269,9 +269,7 @@ table.t_ex2 .c2 {
 								<td>
 									<input type="text"  size="17" name="stop1" id="pass1">&nbsp;&nbsp;
 									<input type="text"  size="17" name="stop2" id="pass2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop3" id="pass3">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop4" id="pass4">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop5" id="pass5">
+									<input type="text"  size="17" name="stop3" id="pass3">
 								</td>
 							</tr>
 							<tr>

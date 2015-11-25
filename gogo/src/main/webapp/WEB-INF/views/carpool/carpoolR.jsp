@@ -269,8 +269,6 @@ function bookResult(){
 										<c:if test="${vo.stop1 != null }">#${vo.stop1 }&nbsp;&nbsp;</c:if>
 										<c:if test="${vo.stop2 != null }">#${vo.stop2 }&nbsp;&nbsp;</c:if>
 										<c:if test="${vo.stop3 != null }">#${vo.stop3 }&nbsp;&nbsp;</c:if>
-										<c:if test="${vo.stop4 != null }">#${vo.stop4 }&nbsp;&nbsp;</c:if>
-										<c:if test="${vo.stop5 != null }">#${vo.stop5 }&nbsp;&nbsp;</c:if>
 									</td>
 								</tr>
 								<tr>

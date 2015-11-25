@@ -417,6 +417,7 @@ $(function() {
 									}
 								});
 					});
+});
 
 	function initialize() {
 		map = new Tmap.Map({
@@ -666,7 +667,7 @@ $(function() {
 				"경유지3" : p3
 			} ];
 		}
-	}
+
 
 	/*
 	 * var o = { "no": 1, "arrayData" : arrayData }
@@ -690,4 +691,4 @@ $(function() {
 			console.error(status + " : " + e);
 		}
 	});
-});
+}
