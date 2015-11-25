@@ -594,7 +594,7 @@ $(function() {
 				"endlon" : marker3.lonlat.lon,
 				"endlat" : marker3.lonlat.lat
 			}, {
-				"mno" : 1,
+				"출발지" : start,
 				"도착지" : end,
 			} ];
 		}

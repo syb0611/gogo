@@ -13,7 +13,8 @@
 <script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="../js/routes.js"></script>
+<script src="/withgo/resources/js/jquery-2.1.4.js"></script>
+
 
 <style>
 #heading {
@@ -300,7 +301,7 @@ function bookResult(){
 								</tr>
 								<tr>
 									<td colspan="4">
-										<div style="height:300px">지도</div>
+										<div id="map_return"></div>
 									</td>
 								</tr>
 								
@@ -320,5 +321,6 @@ function bookResult(){
 		</div>
 	</div>
 	<%@ include file="../footer.jsp"%>
+	<script src="/withgo/resources/js/seeroutes.js"></script>
 </body>
 </html>

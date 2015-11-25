@@ -23,13 +23,8 @@ var p1 = null;
 var p2 = null;
 var p3 = null;
 
-var markerp1;
-var markerp2;
-var markerp3;
-var markerp4;
-var markerp5;
-
-
+var carno = document.getElementById("carno").value;
+console.log(carno);
 $('document').ready(function() {
 	initialize();
 	$.ajax({
@@ -37,13 +32,49 @@ $('document').ready(function() {
 			request.setRequestHeader("Accept", "application/json");
 		},
 		async : true,
-		url : "/withgo/markertest/27",
+		url : "/withgo/markertest/"+carno,
 		type : "get",
 		data : "",
 		dataType : "json",
 		contentType : 'application/json',
 		success : function(response) {
-			console.log(response);
+			console.log(response.adata.length);
+			if (response.adata.length<5){
+				slat=response.adata[1].startlat;
+				slon=response.adata[1].startlon;
+				elat=response.adata[2].endlat;
+				elon=response.adata[2].endlon;				
+			}
+			else if(response.adata.length<6){
+				slat=response.adata[1].startlat;
+				slon=response.adata[1].startlon;
+				elat=response.adata[2].endlat;
+				elon=response.adata[2].endlon;
+				p1lat=response.adata[3].p1lat;
+				p1lon=response.adata[3].p1lon;
+			}
+			else if(response.adata.length<7){
+				slat=response.adata[1].startlat;
+				slon=response.adata[1].startlon;
+				elat=response.adata[2].endlat;
+				elon=response.adata[2].endlon;
+				p1lat=response.adata[3].p1lat;
+				p1lon=response.adata[3].p1lon;
+				p2lat=response.adata[4].p2lat;
+				p2lon=response.adata[4].p2lon;
+			}
+			else{
+				slat=response.adata[1].startlat;
+				slon=response.adata[1].startlon;
+				elat=response.adata[2].endlat;
+				elon=response.adata[2].endlon;
+				p1lat=response.adata[3].p1lat;
+				p1lon=response.adata[3].p1lon;
+				p2lat=response.adata[4].p2lat;
+				p2lon=response.adata[4].p2lon;
+				p3lat=response.adata[5].p3lat;
+				p3lon=response.adata[5].p3lon;
+			}
 			
 			slat=response.adata[1].startlat;
 			slon=response.adata[1].startlon;
@@ -76,13 +107,73 @@ $('document').ready(function() {
 			var data = "";
 			if (p1lat == null) {
 				data = "callback=&bizAppId=5d5accbf-7745-315f-9ccc-fedc53a0f0b1&version=1&passList=&endX="
-						+ elon
-						+ "&endY="
-						+ elat
-						+ "&startX="
-						+ slon
-						+ "&startY=" + slat;
-			}
+					+ elon
+					+ "&endY="
+					+ elat
+					+ "&startX="
+					+ slon
+					+ "&startY=" + slat;
+
+		} else if (p1lat != null && p2lat == null) {
+			data = "callback=&bizAppId=5d5accbf-7745-315f-9ccc-fedc53a0f0b1&version=1&passList="
+					+ p1lon
+					+ ","
+					+ p1lat
+					+
+
+					"&endX="
+					+ elon
+					+ "&endY="
+					+ elat
+					+ "&startX="
+					+ slon
+					+ "&startY="
+					+ slat;
+		} else if (p1lat != null && p2lat != null
+				&& p3lat == null) {
+			data = "callback=&bizAppId=5d5accbf-7745-315f-9ccc-fedc53a0f0b1&version=1&passList="
+					+ p1lon
+					+ ","
+					+ p1lat
+					+ "_"
+					+ p2lon
+					+ ","
+					+ p2lat
+					+
+
+					"&endX="
+					+ elon
+					+ "&endY="
+					+ elat
+					+ "&startX="
+					+ slon
+					+ "&startY="
+					+ slat;
+		} else if (p1lat != null && p2lat != null
+				&& p3lat != null) {
+			data = "callback=&bizAppId=5d5accbf-7745-315f-9ccc-fedc53a0f0b1&version=1&passList="
+					+ p1lon
+					+ ","
+					+ p1lat
+					+ "_"
+					+ p2lon
+					+ ","
+					+ p2lat
+					+ "_"
+					+ p3lon
+					+ ","
+					+ p3lat
+					+
+
+					"&endX="
+					+ elon
+					+ "&endY="
+					+ elat
+					+ "&startX="
+					+ slon
+					+ "&startY="
+					+ slat;
+		}
 			$
 					.ajax({
 						beforeSend : function(request) {
@@ -150,7 +241,7 @@ function initialize() {
 	var pointList = [];
 	var count = features.length;
 	var index = 0;
-	if (markerp1 != null && markerp2 == null) {
+	if (p1lon != null && p2lon == null) {
 		for (var i = 0; i < count - 3; i++) {
 			var geometry = features[i].geometry;
 			if (geometry.type == "Point") {
@@ -166,7 +257,7 @@ function initialize() {
 				}
 			}
 		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 == null) {
+	} else if (p1lon != null && p2lon != null && p3lon == null) {
 		for (var i = 0; i < count - 5; i++) {
 			var geometry = features[i].geometry;
 			if (geometry.type == "Point") {
@@ -182,43 +273,8 @@ function initialize() {
 				}
 			}
 		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 != null
-			&& markerp4 == null) {
+	} else if (p1lon != null && p2lon != null && p3lon != null) {
 		for (var i = 0; i < count - 6; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
-					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-				}
-			}
-		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 != null
-			&& markerp4 != null && markerp5 == null) {
-		for (var i = 0; i < count - 9; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
-					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-				}
-			}
-		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 != null
-			&& markerp4 != null && markerp5 != null) {
-		for (var i = 0; i < count - 11; i++) {
 			var geometry = features[i].geometry;
 			if (geometry.type == "Point") {
 				var lon = geometry.coordinates[0];
