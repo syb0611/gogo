@@ -103,9 +103,9 @@ http://www.templatemo.com/free-website-templates/417-grill
 								<div class="category">
 									<div class="categoryTitle">
 									<c:choose>
-										<c:when test="${pvo.category == 'notice' }"><h3>공지사항</h3></c:when>
-										<c:when test="${pvo.category == 'qna' }"><h3>자주묻는질문</h3></c:when>
-										<c:otherwise><h3>건의게시판</h3></c:otherwise>
+										<c:when test="${pvo.category == 'notice' }"><img src="/withgo/resources/images/공지사항.png"  width="131px" height="42px"></c:when>
+										<c:when test="${pvo.category == 'qna' }"><img src="/withgo/resources/images/자주묻는1.png"  width="145px" height="40px"></c:when>
+										<c:otherwise><img src="/withgo/resources/images/건의.png"  width="131px" height="38px"></c:otherwise>
 									</c:choose>
 									</div>
 									<div class="wBtn">
