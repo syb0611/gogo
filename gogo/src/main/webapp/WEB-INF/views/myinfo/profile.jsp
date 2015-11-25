@@ -258,7 +258,7 @@ function previewImage(targetObj, previewId){
 																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px">
 																	 			</c:when>
 																	 			<c:otherwise>
-																	 				<img src="/withgo/resources/upload/${memberInfo.image }" id="myImg" width='80px'>
+																	 				<img src="/withgo/upload/${memberInfo.image }" id="myImg" width='80px'>
 																	 			</c:otherwise>
 																	 		</c:choose>
 																	 		
