@@ -77,6 +77,7 @@ body {
 
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1">
+			<div style="margin-top:50px"></div>
 			<h2>로그인</h2>
 			
 			<form id="loginForm" method="post"
