@@ -239,7 +239,7 @@ $(function() {
 									});
 						}
 					});
-	
+
 	$("#loc3")
 			.focusout(
 					function() {
@@ -361,8 +361,7 @@ $(function() {
 									+ marker1.lonlat.lon
 									+ "&startY="
 									+ marker1.lonlat.lat;
-							}
-						
+						}
 
 						$
 								.ajax({
@@ -419,270 +418,260 @@ $(function() {
 								});
 					});
 
+	function initialize() {
+		map = new Tmap.Map({
+			div : "map_div",
+			width : '100%',
+			height : '400px'
+		});
+		map.addLayer(markerLayer);
+		var lonlat = new Tmap.LonLat(lon1, lat1);
+		map.setCenter(lonlat, 15);
+	}
 
-function initialize() {
-	map = new Tmap.Map({
-		div : "map_div",
-		width : '100%',
-		height : '400px'
+	$('document').ready(function() {
+		initialize();
 	});
-	map.addLayer(markerLayer);
-	var lonlat = new Tmap.LonLat(lon1, lat1);
-	map.setCenter(lonlat, 15);
-}
 
-$('document').ready(function() {
-	initialize();
-});
-
-function getPointList(features) {
-	var pointList = [];
-	var count = features.length;
-	var index = 0;
-	if (markerp1 != null && markerp2 == null) {
-		for (var i = 0; i < count - 3; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
+	function getPointList(features) {
+		var pointList = [];
+		var count = features.length;
+		var index = 0;
+		if (markerp1 != null && markerp2 == null) {
+			for (var i = 0; i < count - 3; i++) {
+				var geometry = features[i].geometry;
+				if (geometry.type == "Point") {
+					var lon = geometry.coordinates[0];
+					var lat = geometry.coordinates[1];
 					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+				} else {
+					var countCoordinates = geometry.coordinates.length;
+					for (var j = 0; j < countCoordinates; j++) {
+						var lon = geometry.coordinates[j][0];
+						var lat = geometry.coordinates[j][1];
+						pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+					}
+				}
+			}
+		} else if (markerp1 != null && markerp2 != null && markerp3 == null) {
+			for (var i = 0; i < count - 5; i++) {
+				var geometry = features[i].geometry;
+				if (geometry.type == "Point") {
+					var lon = geometry.coordinates[0];
+					var lat = geometry.coordinates[1];
+					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+				} else {
+					var countCoordinates = geometry.coordinates.length;
+					for (var j = 0; j < countCoordinates; j++) {
+						var lon = geometry.coordinates[j][0];
+						var lat = geometry.coordinates[j][1];
+						pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+					}
+				}
+			}
+		} else if (markerp1 != null && markerp2 != null && markerp3 != null) {
+			for (var i = 0; i < count - 6; i++) {
+				var geometry = features[i].geometry;
+				if (geometry.type == "Point") {
+					var lon = geometry.coordinates[0];
+					var lat = geometry.coordinates[1];
+					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+				} else {
+					var countCoordinates = geometry.coordinates.length;
+					for (var j = 0; j < countCoordinates; j++) {
+						var lon = geometry.coordinates[j][0];
+						var lat = geometry.coordinates[j][1];
+						pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+					}
+				}
+			}
+		} else {
+			for (var i = 0; i < count; i++) {
+				var geometry = features[i].geometry;
+				if (geometry.type == "Point") {
+					var lon = geometry.coordinates[0];
+					var lat = geometry.coordinates[1];
+					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+				} else {
+					var countCoordinates = geometry.coordinates.length;
+					for (var j = 0; j < countCoordinates; j++) {
+						var lon = geometry.coordinates[j][0];
+						var lat = geometry.coordinates[j][1];
+						pointList[index++] = new Tmap.Geometry.Point(lon, lat);
+					}
 				}
 			}
 		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 == null) {
-		for (var i = 0; i < count - 5; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
-					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-				}
+
+		return pointList;
+	}
+
+	var xhr = null;
+
+	function usertypeClick(type) {
+		var usertype = document.getElementById("usertype");
+		var type1 = document.getElementById("usertype1");
+		var type2 = document.getElementById("usertype2");
+
+		if (type == 1) { // 타세요
+			usertype.value = 'driver';
+			type1.style.background = '#E7E7E7';
+			type2.style.background = 'white';
+		} else { // 태워주세요
+			usertype.value = 'rider';
+			type2.style.background = '#E7E7E7';
+			type1.style.background = 'white';
+		}
+	}
+
+	function writeClick() {
+		var form = document.wform;
+
+		var category = form.category.value;
+		var mno = form.mno.value;
+		var departure = form.departure.value;
+		var arrival = form.arrival.value;
+		var usertype = form.usertype.value;
+		var memo = form.memo.value;
+
+		var date_year = form.date_year.value;
+		var date_month = form.date_month.value;
+		var date_day = form.date_day.value;
+		if (date_month < 10)
+			date_month = "0" + date_month;
+		if (date_day < 10)
+			date_day = "0" + date_day;
+		var departuredate = date_year + "/" + date_month + "/" + date_day;
+
+		var seat = form.seat.value;
+		var stop1 = form.stop1.value;
+		var stop2 = form.stop2.value;
+		var stop3 = form.stop3.value;
+		var price = form.price.value;
+		var smoking = form.smoking.value;
+		var genderlimit = form.genderlimit.value;
+
+		var param = "category=" + category + "&mno=" + mno + "&departure="
+				+ departure + "&arrival=" + arrival + "&usertype=" + usertype
+				+ "&memo=" + memo + "&departuredate=" + departuredate
+				+ "&seat=" + seat + "&stop1=" + stop1 + "&stop2=" + stop2
+				+ "&stop3=" + stop3 + "&price=" + price + "&smoking=" + smoking + "&genderlimit="
+				+ genderlimit;
+		// form.departuredate.value = departuredate;
+		// alert("글 등록이 완료되었습니다.");
+		// form.submit();
+
+		xhr = new XMLHttpRequest();
+		var url = "/withgo/carpool/write";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-Type',
+				'application/x-www-form-urlencoded');
+		xhr.onreadystatechange = writeResult;
+		xhr.send(param);
+	}
+
+	function writeResult() {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				var carno_seq = xhr.responseText; // carno_seq
+				alert(carno_seq);
+				saveToMongo(carno_seq);
 			}
 		}
-	} else if (markerp1 != null && markerp2 != null && markerp3 != null) {
-		for (var i = 0; i < count - 6; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
-					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-				}
-			}
-		}
-	} else {
-		for (var i = 0; i < count; i++) {
-			var geometry = features[i].geometry;
-			if (geometry.type == "Point") {
-				var lon = geometry.coordinates[0];
-				var lat = geometry.coordinates[1];
-				pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-			} else {
-				var countCoordinates = geometry.coordinates.length;
-				for (var j = 0; j < countCoordinates; j++) {
-					var lon = geometry.coordinates[j][0];
-					var lat = geometry.coordinates[j][1];
-					pointList[index++] = new Tmap.Geometry.Point(lon, lat);
-				}
-			}
-		}
 	}
 
-	return pointList;
-}
+	function saveToMongo(seq) {
+		alert("seq : " + seq);// ////
+		var arrayData = "";
+		if (markerp1 == null) {
+			arrayData = [ {
+				"seq" : seq
+			}, {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"mno" : 1,
+				"도착지" : end,
+			} ];
+		}
 
+		else if (markerp1 != null && markerp2 == null) {
+			arrayData = [ {
+				"seq" : seq
+			}, {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat
+			}, {
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1" : p1
+			} ];
+		}
 
+		else if (markerp1 != null && markerp2 != null && markerp3 == null) {
+			arrayData = [ {
+				"seq" : seq
+			}, {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat
+			}, {
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1" : p1,
+				"경유지2" : p2
+			} ];
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-var xhr = null;
-
-function usertypeClick(type){
-	var usertype = document.getElementById("usertype");
-	var type1 = document.getElementById("usertype1");
-	var type2 = document.getElementById("usertype2");
-	
-	if(type == 1){  //타세요
-		usertype.value = 'driver';
-		type1.style.background = '#E7E7E7';
-		type2.style.background = 'white';
-	}else{  //태워주세요
-		usertype.value = 'rider';
-		type2.style.background = '#E7E7E7';
-		type1.style.background = 'white';
-	}
-}
-
-function writeClick(){
-	var form = document.wform;
-	
-	var category = form.category.value;
-	var mno = form.mno.value;
-	var departure = form.departure.value;
-	var arrival = form.arrival.value;
-	var usertype = form.usertype.value;
-	var memo = form.memo.value;
-
-	var date_year = form.date_year.value;
-	var date_month = form.date_month.value;
-	var date_day = form.date_day.value;
-	if(date_month < 10) date_month = "0" + date_month;
-	if(date_day < 10) date_day = "0" + date_day;
-	var departuredate = date_year+"/"+date_month+"/"+date_day;
-	
-	var seat = form.seat.value;
-	var stop1 = form.stop1.value;
-	var stop2 = form.stop2.value;
-	var stop3 = form.stop3.value;
-	var stop4 = form.stop4.value;
-	var stop5 = form.stop5.value;
-	var price = form.price.value;
-	var smoking = form.smoking.value;
-	var genderlimit = form.genderlimit.value;
-	
-	var param = "category="+category+"&mno="+mno+"&departure="+departure+"&arrival="+arrival
-				+"&usertype="+usertype+"&memo="+memo+"&departuredate="+departuredate+"&seat="+seat
-				+"&stop1="+stop1+"&stop2="+stop2+"&stop3="+stop3+"&stop4="+stop4+"&stop5="+stop5
-				+"&price="+price+"&smoking="+smoking+"&genderlimit="+genderlimit;
-	//form.departuredate.value = departuredate;
-	//alert("글 등록이 완료되었습니다.");
-	//form.submit();
-	
-	xhr = new XMLHttpRequest();
-	var url = "/withgo/carpool/write";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = writeResult;
-	xhr.send(param);
-}
-
-function writeResult(){
-	if(xhr.readyState == 4){
-		if(xhr.status == 200){
-			var carno_seq = xhr.responseText;	//carno_seq
-			alert(carno_seq);
-			saveToMongo(carno_seq);
+		else if (markerp1 != null && markerp2 != null && markerp3 != null) {
+			arrayData = [ {
+				"seq" : seq
+			}, {
+				"startlon" : marker1.lonlat.lon,
+				"startlat" : marker1.lonlat.lat
+			}, {
+				"endlon" : marker3.lonlat.lon,
+				"endlat" : marker3.lonlat.lat
+			}, {
+				"p1lon" : markerp1.lonlat.lon,
+				"p1lat" : markerp1.lonlat.lat
+			}, {
+				"p2lon" : markerp2.lonlat.lon,
+				"p2lat" : markerp2.lonlat.lat
+			}, {
+				"p3lon" : markerp3.lonlat.lon,
+				"p3lat" : markerp3.lonlat.lat
+			}, {
+				"출발지" : start,
+				"도착지" : end,
+				"경유지1" : p1,
+				"경유지2" : p2,
+				"경유지3" : p3
+			} ];
 		}
 	}
-}
 
-function saveToMongo(seq){
-	alert("seq : "+seq);// ////
-	var arrayData = "";
-	if (markerp1 == null) {
-		arrayData = [ {"seq" : seq			
-		},{
-			"startlon" : marker1.lonlat.lon,
-			"startlat" : marker1.lonlat.lat
-		}, {
-			"endlon" : marker3.lonlat.lon,
-			"endlat" : marker3.lonlat.lat
-		}, {
-			"mno" : 1,
-			"도착지" : end,
-		} ];
-	}
+	/*
+	 * var o = { "no": 1, "arrayData" : arrayData }
+	 */
 
-	else if (markerp1 != null && markerp2 == null) {
-		arrayData = [ {"seq" : seq			
-		},{
-			"startlon" : marker1.lonlat.lon,
-			"startlat" : marker1.lonlat.lat
-		}, {
-			"endlon" : marker3.lonlat.lon,
-			"endlat" : marker3.lonlat.lat
-		}, {
-			"p1lon" : markerp1.lonlat.lon,
-			"p1lat" : markerp1.lonlat.lat
-		}, {
-			"출발지" : start,
-			"도착지" : end,
-			"경유지1" : p1
-		} ];
-	}
-
-	else if (markerp1 != null && markerp2 != null
-			&& markerp3 == null) {
-		arrayData = [ {"seq" : seq			
-		},{
-			"startlon" : marker1.lonlat.lon,
-			"startlat" : marker1.lonlat.lat
-		}, {
-			"endlon" : marker3.lonlat.lon,
-			"endlat" : marker3.lonlat.lat
-		}, {
-			"p1lon" : markerp1.lonlat.lon,
-			"p1lat" : markerp1.lonlat.lat
-		}, {
-			"p2lon" : markerp2.lonlat.lon,
-			"p2lat" : markerp2.lonlat.lat
-		}, {
-			"출발지" : start,
-			"도착지" : end,
-			"경유지1" : p1,
-			"경유지2" : p2
-		} ];
-	}
-
-	else if (markerp1 != null && markerp2 != null
-			&& markerp3 != null) {
-		arrayData = [{"seq" : seq			
-		}, {
-			"startlon" : marker1.lonlat.lon,
-			"startlat" : marker1.lonlat.lat
-		}, {
-			"endlon" : marker3.lonlat.lon,
-			"endlat" : marker3.lonlat.lat
-		}, {
-			"p1lon" : markerp1.lonlat.lon,
-			"p1lat" : markerp1.lonlat.lat
-		}, {
-			"p2lon" : markerp2.lonlat.lon,
-			"p2lat" : markerp2.lonlat.lat
-		}, {
-			"p3lon" : markerp3.lonlat.lon,
-			"p3lat" : markerp3.lonlat.lat
-		}, {
-			"출발지" : start,
-			"도착지" : end,
-			"경유지1" : p1,
-			"경유지2" : p2,
-			"경유지3" : p3
-		} ];
-	}
-	}
-	
-	/*var o = {
-		"no": 1, 	
-		"arrayData" : arrayData	
-	}*/
-	
 	$.ajax({
 		url : "/withgo/carpool/writeMongo",
 		type : "post",
