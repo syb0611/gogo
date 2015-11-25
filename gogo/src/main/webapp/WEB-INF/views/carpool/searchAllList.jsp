@@ -215,7 +215,7 @@ function delBookMarkResult(){
 				</div>
 				
 				<div class="col-md-9">	
-					출발 ${searchInput.departure } - 도착 ${searchInput.arrival } 검색결과 
+					출발 <b>${searchInput.departure }</b> - 도착 <b>${searchInput.arrival }</b> 검색결과 
 					<table class="table table-condensed">
 						<c:choose>
 							<c:when test="${searchList == '[]' }">
@@ -245,7 +245,7 @@ function delBookMarkResult(){
 															<img src="/withgo/resources/images/blankimage.png" width="80px" id="pic">
 														</c:when>
 														<c:otherwise>
-															<img src="/withgo/resources/upload/${vo.image }" width="80px" id="pic">
+															<img src="/withgo/upload/${vo.image }" width="80px" id="pic">
 														</c:otherwise>
 													</c:choose>
 													
@@ -262,8 +262,8 @@ function delBookMarkResult(){
 											<td width="20%" style="text-align: right">
 												<div>
 													<c:choose>
-														<c:when test="${category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
-														<c:when test="${category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
+														<c:when test="${vo.category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
+														<c:when test="${vo.category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
 														<c:otherwise><img src="/withgo/resources/images/taxiimg.png"></c:otherwise>
 													</c:choose>
 													<c:choose>

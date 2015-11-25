@@ -125,7 +125,8 @@ public class CarpoolController {
 		List<CarpoolMemberVo> searchList = dao.searchAll(vo);
 		model.addAttribute("searchList", searchList);
 		
-		model.addAttribute("searchInput", vo);
+		
+		//model.addAttribute("searchInput", vo);
 		return "carpool/searchAllList";
 	}
 	
