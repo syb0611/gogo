@@ -241,10 +241,12 @@ function delBookMarkResult(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
+				<div style="width:240px; height:350px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
+					<div  style="width:200px; height:320px;  margin-left:20px;">
 					<fieldset>	
 						<form action="/withgo/carpool/search" method="post" name="f">
 							<div class="btn-group" style="margin-bottom: 10px">
-								<input type="hidden" name="usertype" id="usertype" value="all">
+								<input type="hidden" name="usertype" id="usertype" value="all"><br>
 								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
 								<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
 								<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
@@ -258,9 +260,9 @@ function delBookMarkResult(){
 									<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></td>
 								</tr>
 								<tr>
-									<td style="height:50px">
+									<td style="height:50px" >
 										금액 : 
-										<select name="price">
+										<select name="pricerange">
 											<option value="0">금액</option>
 											<option value="1">0~3000원</option>
 											<option value="2">3000~5000원</option>
@@ -291,6 +293,9 @@ function delBookMarkResult(){
 							</div>
 						</form>
 					</fieldset>
+					</div>
+				</div>
+				
 				</div>
 				
 				<div class="col-md-9">
