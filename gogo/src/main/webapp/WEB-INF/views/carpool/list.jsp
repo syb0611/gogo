@@ -242,7 +242,7 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-3">
 				<div style="height:40px;"></div>
-				<div style="width:240px; height:350px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
+				<div style="width:240px; height:330px; border:2px solid #C6C6C6; background-color:#fbf7ee; border-radius: 7px; ">
 					<div  style="width:200px; height:320px;  margin-left:20px;">
 					<fieldset>	
 						<form action="/withgo/carpool/search" method="post" name="f">
@@ -285,11 +285,11 @@ function delBookMarkResult(){
 									<td style="height:30px">
 										흡연 : 
 										<input name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
-										<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
+										<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
 									</td>
 								</tr>
 								<tr>
-									<td align="center"><input type="submit" class="btn_commm" value="검색하기"></td>
+									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="submit()"></td>
 								</tr>
 							</table>
 							</div>
