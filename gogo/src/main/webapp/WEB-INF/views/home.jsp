@@ -76,7 +76,7 @@
             
 
             <div id="slider"  style = "background-image:url('images/car6.jpg');width:100%; height:700px;">
-                <form method="post" action="/withgo/carpool/searchAll" name="searchForm" id="searchForm">	
+                <form method="get" action="/withgo/carpool/searchAll" name="searchForm" id="searchForm">	
 					<div class="row">
 						<div class="col-sm-3 col-sm-offset-4" id="formDiv">	
 							<h1 class="tx" ></h1>

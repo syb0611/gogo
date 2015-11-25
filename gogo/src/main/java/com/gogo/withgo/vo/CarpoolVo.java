@@ -24,6 +24,11 @@ public class CarpoolVo {
 	
 	public CarpoolVo() {}
 
+	public CarpoolVo(String departure, String arrival){
+		this.departure = departure;
+		this.arrival = arrival;
+	}
+	
 	public CarpoolVo(int carno, String category, int mno, String departure, String arrival, String stop1, String stop2,
 			String stop3, String usertype, int seat, int bookedseat, String memo, String departuredate,
 			int price, int smoking, int genderlimit, int requestseat, int pricerange) {

@@ -6,6 +6,8 @@ public class CPageVo {
 	
 	private String category;
 	private int mno;///////////////
+	private String departure;/////////////
+	private String arrival;////////////////
 	
 	private int listTotal;
 	private int totalPage;
@@ -121,6 +123,22 @@ public class CPageVo {
 
 	public void setMno(int mno) {
 		this.mno = mno;
+	}
+
+	public String getDeparture() {
+		return departure;
+	}
+
+	public void setDeparture(String departure) {
+		this.departure = departure;
+	}
+
+	public String getArrival() {
+		return arrival;
+	}
+
+	public void setArrival(String arrival) {
+		this.arrival = arrival;
 	}
 	
 	

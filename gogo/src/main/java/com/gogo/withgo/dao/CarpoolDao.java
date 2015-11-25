@@ -59,9 +59,15 @@ public class CarpoolDao {
 		return template.selectList(sql+".myRegCarpoolList", mno);
 	}
 	
-	public List<CarpoolMemberVo> searchAll(CarpoolVo vo){
-		return template.selectList(sql+".searchAllList", vo);
+//	public List<CarpoolMemberVo> searchAll(CarpoolVo vo){
+//		return template.selectList(sql+".searchAllList", vo);
+//	}
+	public List<CarpoolMemberVo> searchAll(CPageVo pvo){	
+		return template.selectList(sql+".searchAllList", pvo);
 	}
+	
+	
+	
 	
 	
 	public List<CarpoolMemberVo> search1(CarpoolVo vo){
@@ -86,5 +92,8 @@ public class CarpoolDao {
 		return template.selectOne(sql+".total", category);
 	}
 
-
+	public int searchAllTotal(String departure, String arrival){
+		CarpoolVo vo = new CarpoolVo(departure, arrival);
+		return template.selectOne(sql+".searchAllTotal", vo);
+	}
 }
