@@ -96,6 +96,9 @@ table.t_ex2 .c2 {
 		}
 	}
 </script>
+<script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/withgo/resources/js/routes.js"></script>
 </head>
 <body>
 	<header>
