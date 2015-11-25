@@ -531,7 +531,19 @@ $(function() {
 		var category = form.category.value;
 		var mno = form.mno.value;
 		var departure = form.departure.value;
+		
+		if(departure.trim() == ""){
+			alert("출발지를 입력하세요.");
+			form.departure.focus();
+			return;
+		}
 		var arrival = form.arrival.value;
+		if(arrival.trim() == ""){
+			alert("도착지를 입력하세요.");
+			form.arrival.focus();
+			return;
+		}
+		
 		var usertype = form.usertype.value;
 		var memo = form.memo.value;
 
@@ -549,6 +561,11 @@ $(function() {
 		var stop2 = form.stop2.value;
 		var stop3 = form.stop3.value;
 		var price = form.price.value;
+		if(price.trim() == ""){
+			alert("금액을 입력하세요.");
+			form.price.focus();
+			return;
+		}
 		var smoking = form.smoking.value;
 		var genderlimit = form.genderlimit.value;
 
@@ -575,14 +592,18 @@ $(function() {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				var carno_seq = xhr.responseText; // carno_seq
-				alert(carno_seq);
+				//alert(carno_seq);
 				saveToMongo(carno_seq);
+				alert("글이 등록되었습니다.");
+				
+				var category = document.wform.category.value;
+				location.href="/withgo/carpool/list?category="+category;
 			}
 		}
 	}
 
 	function saveToMongo(seq) {
-		alert("seq : " + seq);// ////
+		//alert("seq : " + seq);// ////
 		var arrayData = "";
 		if (markerp1 == null) {
 			arrayData = [ {
