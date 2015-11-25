@@ -17,6 +17,10 @@
 <script src="/withgo/resources/js/vendor/jquery.gmap3.min.js"></script>
 <script src="/withgo/resources/js/plugins.js"></script>
 <script src="/withgo/resources/js/main.js"></script>
+<script src="/withgo/resources/js/bootstrap.js"></script>
+
+
+
 
 
 
