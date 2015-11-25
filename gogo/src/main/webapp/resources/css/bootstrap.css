@@ -6,6 +6,12 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
+
+.ex{
+	color:white;
+}
+
+
 .head{
 	font-family: "NanumGothicBold";
 	color: #ff8000;
@@ -27,7 +33,7 @@
 	width: 200px;
 }
 .btn_comm .btn_prev{
-	background-color: #c3cdce;
+	background-color: #394546;
 }
 .btn_comm .btn_next{
 	background-color: #4fbdc4;
@@ -46,6 +52,17 @@
 	width: 150px;
 	text-align: center;
 	background-color: #ff6c26;
+	border-radius: 7px;
+	color:white;
+	text-border:3px;
+	font-size: 14px;
+}
+.btn_commm{
+	height: 35px;
+	margin-top: 20px;
+	width: 180px;
+	text-align: center;
+	background-color: #ec7600;
 	border-radius: 7px;
 	color:white;
 	text-border:3px;

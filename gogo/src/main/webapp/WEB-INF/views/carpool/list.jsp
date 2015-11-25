@@ -215,9 +215,9 @@ function delBookMarkResult(){
 						<form action="./example2.php" method="GET">
 						<div class="btn-group">
 								
-								<button type="button" class="btn btn-default">전체</button>
-								<button type="button" class="btn btn-default">타세요</button>
-								<button type="button" class="btn btn-default">탈래요</button>
+								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">전체</button>
+								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">타세요</button>
+								<button type="button" class="btn btn-default" style="color:white; font-weight: bold; background-color:#425051;">탈래요</button>
 							</div><br><br>
 							
 							<!-- <div class="btn-group">
@@ -236,7 +236,7 @@ function delBookMarkResult(){
 							<div>
 							<tr>
 									<td><p class="reg_area dt"></p>
-									<input type="text" placeholder="출발지" /></td>
+									<input type="text" placeholder="출발지"  /></td>
 								</tr>
 							<tr>
 									<td><p class="reg_area dt"></p>
@@ -253,7 +253,7 @@ function delBookMarkResult(){
 									<option value="중간">3000~5000원</option>
 									<option value="최고">5000~8000원</option>
 									<option value="더최고">8000원이상</option>
-								</select><br>
+								</select><br><br>
 							<!-- 	성별 : 
 								<select name="type">
 									<option value="short">모두</option>
@@ -265,17 +265,18 @@ function delBookMarkResult(){
 								<input name="gender" id="gender" type="radio" value="1"><span>남자</span>
 								<input name="gender" id="gender" type="radio" value="2"><span>여자</span>	<br><br>  -->
 								성별 : 
-								<input name="gender" id="gender" type="radio" checked="checked" value="N"><span>모두</span>
-								<input name="gender" id="gender" type="radio" value="W"><span>여자</span> 
+								<input name="gender" id="gender" type="radio" checked="checked" value="N" ><span>전체   </span>
+								<input name="gender" id="gender" type="radio" value="W"><span>여자   </span>
 								<input name="gender" id="gender" type="radio" value="M"><span>남자</span> 
-								<br>
-								흡연 여부 : 
-								<input name="smoking" id="smoking" type="radio" checked="checked" value="N"><span>흡연불가</span>
-								<input name="smoking" id="smoking" type="radio" value="Y"><span>흡연가능</span> 
 								<br><br>
+								흡연 : 
+								<input name="smoking" id="smoking" type="radio" checked="checked" value="A"><span>전체</span>
+								<input name="smoking" id="smoking" type="radio" value="N"><span>불가</span>
+								<input name="smoking" id="smoking" type="radio" value="Y"><span>가능</span> 
+								<br>
 							</div>
 							<tr>
-									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="검색하기">
+									<td colspan="2" align="center"><input type="submit" class="btn_commm" value="검색하기">
 									
 									</td>
 									
