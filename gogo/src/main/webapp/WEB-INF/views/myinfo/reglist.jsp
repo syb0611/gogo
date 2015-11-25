@@ -76,16 +76,12 @@ background-image: url(/withgo/resources/images/새.png);
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-								<li><a href="${contextPath}/carpool/list?category=dan"><font
-										size=3>단기카풀</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=jang"><font
-										size=3>장기카풀</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=goschool"><font
-										size=3>고 스쿨</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=taxi"><font
-										size=3>택시카풀</font></a></li>
-								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
-								<li><a href="customer"><font size=3>고객센터</font></a></li>
+								<li><a href="/withgo/carpool/list?category=dan"><font size=3>단기카풀</font></a></li>
+								<li><a href="/withgo/carpool/list?category=jang"><font size=3>장기카풀</font></a></li>
+								<li><a href="/withgo/carpool/list?category=goschool"><font size=3>고 스쿨</font></a></li>
+								<li><a href="/withgo/carpool/list?category=taxi"><font size=3>택시카풀</font></a></li>
+								<li><a href="/withgo/board/main"><font size=3>커뮤니티</font></a></li>
+								<li><a href="/withgo/customer"><font size=3>고객센터</font></a></li>
 							</ul>
 						</div>
 					</div>
