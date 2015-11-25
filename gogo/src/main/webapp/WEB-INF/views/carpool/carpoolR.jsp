@@ -66,6 +66,10 @@ table.t_ex2 .c2 {
 #timeline-post{
 	margin-top: 50px;
 }
+
+#pic{
+	border-radius: 10px;
+}
 </style>
 <script>
 var xhr;
@@ -188,10 +192,10 @@ function bookResult(){
 								<td rowspan="2" style="padding-right: 5px">
 									<c:choose>
 										<c:when test="${vo.image == null }">
-											<img src="/withgo/resources/images/blankimage.png" width="80px;">
+											<img src="/withgo/resources/images/blankimage.png" width="80px;" id="pic">
 										</c:when>
 										<c:otherwise>
-											<img src="/withgo/resources/upload/${vo.image }" width="80px;">
+											<img src="/withgo/upload/${vo.image }" width="80px;" id="pic">
 										</c:otherwise>
 									</c:choose>
 									
