@@ -273,7 +273,7 @@ function delBookMarkResult(){
 							<div class="btn-group" style="margin-bottom: 10px">
 								<input type="hidden" name="category" value="${category }">
 								<input type="hidden" name="usertype" id="usertype" value="all"><br>
-								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">;전체</button>
+								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
 								<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
 								<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
 							</div>

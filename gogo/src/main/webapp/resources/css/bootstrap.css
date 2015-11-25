@@ -2674,6 +2674,7 @@ textarea.input-lg, select[multiple].input-lg {
 	font-size: 18px;
 	line-height: 1.33;
 	border-radius: 6px;
+	
 }
 
 .btn-sm, .btn-group-sm>.btn {
@@ -3711,6 +3712,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
+	
 }
 
 .btn-group>.btn, .btn-group-vertical>.btn {

@@ -142,115 +142,125 @@ table.t_ex2 .c2 {
 		</div>
 	</div>
 
-	<div id="timeline-post">
-		<div class="container">
-			<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-					<form method="post" action="${contextPath}/carpool/write" name="wform" id="wform">
-						<input type="hidden" name="category" value="${category }">
-						<input type="hidden" name="mno" value="${memberInfo.mno}">
-						<table>
-							<div class="btn-group">
-								<input type="hidden" name="usertype" id="usertype" value="driver">
-								<button type="button" class="btn btn-default" id="usertype1" onclick="usertypeClick(1)">타세요</button>
-								<button type="button" class="btn btn-default" id="usertype2" onclick="usertypeClick(2)">태워주세요</button>
-							</div>
-						</table>
-						<article class="con_wrap reg_wrap">
-						<table class="table table-condensed" >
-							<tr>
-								<td><p class="reg_area dt">출발날짜<p></td>
-								<td>	
-									<input type="hidden" name="departuredate" id="departuredate">
-									<select name="date_year">
-										<c:set var="year" value="<%=new GregorianCalendar().get(Calendar.YEAR) %>"/>
-										<c:forEach var="i" begin="${year }" end="${year+100 }" step="1">
-											<option value="${i}">${i }</option>
-										</c:forEach>
-									</select>년
-									<select name="date_month">
-										<c:forEach var="month" begin="1" end="12" step="1">
-											<option value="${month }">${month }</option>
-										</c:forEach>
-									</select>월
-									<select name="date_day">
-										<c:forEach var="day" begin="1" end="31" step="1">
-											<option value="${day }">${day }</option>
-										</c:forEach>
-									</select>일
-								</td>
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">출발지</p></td>
-								<td><input type="text" name="departure" id="loc1" size="17">&nbsp;</td>
-								
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">도착지</p></td>
-								<td><input type="text" name="arrival" id="loc3" size="17"></td>
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">경유지</p></td>
-								<td>
-									<input type="text"  size="17" name="stop1" id="pass1">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop2" id="pass2">&nbsp;&nbsp;
-									<input type="text"  size="17" name="stop3" id="pass3">
-								</td>
-							</tr>
-							<tr>
-								<td><br></td>
-								<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">좌석수</p></td>
-								<td>
-								<input type="number" name="seat" value="1"></td>
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">금액</p></td>
-								<td><input type="text" name="price" size="20">원</td>
-							</tr>
-							<tr>
+	<div>
+		<div id="timeline-post">
+			<div class="container">
+				<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+						<form method="post" action="${contextPath}/carpool/write" name="wform" id="wform">
+							<input type="hidden" name="category" value="${category }">
+							<input type="hidden" name="mno" value="${memberInfo.mno}">
+							<table>
+								<div style="text-align: center; font-family:NanumGothicBold;">
 							
-								<td><p class="reg_area dt">흡연 여부</p></td>
-								
-								<td>
-									<p class="reg_area dt">
-										<input type="radio" name="smoking" value="1">흡연자
-										<input type="radio" name="smoking" value="0" checked="checked"> 비흡연자
-									</p>
-								</td>
+									<input type="hidden" name="usertype" id="usertype" value="driver">
 									
-							</tr>
-							<tr>
-								<td><p class="reg_area dt">성별</p></td>
-								<td>
-									<p class="reg_area dt">
-										<input type="radio" name="genderlimit" value="0" checked="checked">무관
-										<input type="radio" name="genderlimit" value="1">여성전용
-										<input type="radio" name="genderlimit" value="2">남성전용 
-									</p>
-								</td>
-							</tr>
-
-							<tr>
-								<td><p class="reg_area dt">추가내용</p></td>
-								<td><textarea name="memo" rows="10" cols="50"></textarea></td>
-							</tr>
-							
-							<tr>
-								<td colspan="2" align="center">
-									<input type="reset" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
-									<input type="button" class="btn_comm" value="완료" onclick="writeClick()">
-								</td>
-							</tr>
-						</table>
-						</article>
-					</form>
-					
+									<button type="button" class="btn btn-default" id="usertype1" onclick="usertypeClick(1)"><img src="/withgo/resources/images/check.png" width="30px" height="30px">&nbsp;타세요</button>
+									<button type="button" class="btn btn-default" id="usertype2" onclick="usertypeClick(2)"><img src="/withgo/resources/images/check.png" width="30px" height="30px">&nbsp;태워주세요</button>
+								
+								</div>
+							</table>
+							<article class="con_wrap reg_wrap">
+							<table class="table table-condensed" >
+								<br>
+								<tr>
+									<td><p class="reg_area dt">출발날짜<p></td>
+									<td>	
+										<input type="hidden" name="departuredate" id="departuredate">
+										<select name="date_year">
+											<c:set var="year" value="<%=new GregorianCalendar().get(Calendar.YEAR) %>"/>
+											<c:forEach var="i" begin="${year }" end="${year+100 }" step="1">
+												<option value="${i}">${i }</option>
+											</c:forEach>
+										</select> 년 
+										<select name="date_month">
+											<c:forEach var="month" begin="1" end="12" step="1">
+												<option value="${month }">${month }</option>
+											</c:forEach>
+										</select> 월 
+										<select name="date_day">
+											<c:forEach var="day" begin="1" end="31" step="1">
+												<option value="${day }">${day }</option>
+											</c:forEach>
+										</select> 일
+									</td>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">출발지</p></td>
+									<td><input placeholder=" 예: 강남역" style="color:gray;" type="text" name="departure" id="loc1" size="17">&nbsp;</td>
+									
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">도착지</p></td>
+									<td><input placeholder=" 예: 종각역" type="text" name="arrival" id="loc3" size="17"></td>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">경유지</p></td>
+									<td>
+										<input placeholder=" 예: 신분당역" type="text"  size="17" name="stop1" id="pass1">&nbsp;&nbsp;
+										<input type="text"  size="17" name="stop2" id="pass2">&nbsp;&nbsp;
+										<input type="text"  size="17" name="stop3" id="pass3">
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+									<div id="map_div"></div>
+									<div style="text-align:right;">
+									<input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
+									</div>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">좌석수</p></td>
+									<td>
+									<input type="number" name="seat" value="1"></td>
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">금액</p></td>
+									<td><input type="text" name="price" size="20">원</td>
+								</tr>
+								<tr>
+								
+									<td><p class="reg_area dt">흡연 여부</p></td>
+									
+									<td>
+										<p class="reg_area dt">
+											<input type="radio" name="smoking" value="1"> 흡연자 
+											<input type="radio" name="smoking" value="0" checked="checked"> 비흡연자
+										</p>
+									</td>
+										
+								</tr>
+								<tr>
+									<td><p class="reg_area dt">성별</p></td>
+									<td>
+										<p class="reg_area dt">
+											<input type="radio" name="genderlimit" value="0" checked="checked"> 무관 
+											<input type="radio" name="genderlimit" value="1"> 여성전용 
+											<input type="radio" name="genderlimit" value="2"> 남성전용 
+										</p>
+									</td>
+								</tr>
+	
+								<tr>
+									<td><p class="reg_area dt">추가내용</p></td>
+									<td><textarea placeholder=" 추가내용을 입력하세요" name="memo" rows="10" cols="50"></textarea></td>
+								</tr>
+								
+								<tr>
+									<td colspan="2" align="center">
+										<input type="reset" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="button" class="btn_comm" value="완료" onclick="writeClick()">
+									</td>
+								</tr>
+							</table>
+							</article>
+						</form>
+						
+					</div>
+					</div>
 				</div>
-				</div>
-			</div>
+		</div>
 		</div>
 	<%@ include file="../footer.jsp"%>
 </body>
