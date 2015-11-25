@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width">
 <style>
 #heading {
-/* 	background-image: url(images/community.png); */
-	background-color: gray;
-	height: 140px;
+ 	background-image: url(/withgo/resources/images/에이.png); 
+
+	height: 150px;
 }
 
 .content{
@@ -148,7 +148,7 @@ function previewImage(targetObj, previewId){
 				<div class="row">
 					<div class="col-md-3">
 						<div class="logo">
-							<a href="${contextPath}/home"><img src="../images/pool2.jpeg" title="Grill Template" alt="Grill Website Template"></a>
+							<a href="${contextPath}/home"><img src="../images/roro.png" width="100px" height="50px" title="Grill Template" alt="go home"></a>
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -178,7 +178,7 @@ function previewImage(targetObj, previewId){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>MYPAGE</h2>
+						<h2>MY PAGE</h2>
 						<span>Mypage / <a href="${contextPath}/mypage/profile">기본정보</a></span>
 					</div>
 				</div>
