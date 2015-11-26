@@ -46,8 +46,11 @@ table.t_ex2 {
 	text-align: right
 }
 
+.t_ex2, .t_ex2 tr, .t_ex2 td{
+	border: 1px solid gray;
+}
 .t_ex2 td, .t_ex2 th {
-	border: 1px solid #070C03;
+	
 	padding: 10px
 }
 
@@ -66,6 +69,16 @@ table.t_ex2 .c2 {
 }
 #timeline-post{
 	margin-top: 30px;
+}
+#usertype1 {
+	width: 200px;
+	height: 50px;
+	background: #E7E7E7;
+}
+
+#usertype2 {
+	width: 200px;
+	height: 50px;
 }
 /*]]>*/
 </style>
@@ -145,71 +158,40 @@ function callback(){
 		</div>
 	</div>
 	
-	
+	<div>
 	<div id="timeline-post">
 		<div class="container">
 			<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-					<form method="post" action="${contextPath}/carpool/write">
+					<form method="post" action="${contextPath}/carpool/write"
+					name="wform" id="wform">
 						<input type="hidden" name="category" value="${category }">
 						<input type="hidden" name="mno" value="${memberInfo.mno}">
-						<center>
-						<table>
 						
-							<div class="btn-group">
-								<button type="button" class="btn btn-default" style="width:200px;height:50px">타세요</button>
-								<button type="button" class="btn btn-default"style="width:200px;height:50px">태워주세요</button>
-							</div>
-							<br><br><br>
+						<table>
+						<div style="text-align: center; font-family: NanumGothicBold;">
+
+									<input type="hidden" name="usertype" id="usertype"
+										value="driver">
+
+									<button type="button" class="btn btn-default" id="usertype1"
+										onclick="usertypeClick(1)">
+										<img src="/withgo/resources/images/check.png" width="30px"
+											height="30px">&nbsp;타세요
+									</button>
+									<button type="button" class="btn btn-default" id="usertype2"
+										onclick="usertypeClick(2)">
+										<img src="/withgo/resources/images/check.png" width="30px"
+											height="30px">&nbsp;태워주세요
+									</button>
+
+								</div>
+							
 						</table>
-						</center>
+					
 						<article class="con_wrap reg_wrap">
-						<table class="table table-condensed" >
-	
-	 
-
-	<%-- <div id="timeline-post">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<fieldset>
-						<legend> </legend>
-						<form action="./example2.php" method="GET">
-							<p>
-								카풀 : <select name="type">
-									<option value="short">단기카풀</option>
-									<option value="long">장기카풀</option>
-									<option value="taxi">택시카풀</option>
-									<option value="school">고스쿨</option>
-								</select>
-							<div>
-								성별 : <input name="ss" id="ss" type="radio" checked="" value="1"><span>남자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>여자</span>
-								<input name="ss" id="ss" type="radio" value="1"><span>모두</span>
-								<br> <br> 인증 여부 : <input name="sss" id="sss"
-									type="checkbox" checked="" value="3"><span>휴대전화
-									인증</span> <input name="sss" id="sss" type="checkbox" value="3"><span>페이스북
-									인증</span><br> <br> 흡연 여부 : <input name="ss" id="ss"
-									type="radio" checked="" value="2"><span>흡연 가능</span> <input
-									name="ss" id="ss" type="radio" value="2"><span>흡연
-									불가</span> <br>
-
-
-							</div>
-							</p>
-							<input type="submit" value="검색하기" />
-						</form>
-					</fieldset>
-				</div>
-				<div class="col-md-10">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-							<h3>GoSchool</h3>
-		
-							<form method="post" action="${contextPath}/carpool/write">
-								<input type="hidden" name="category" value="${category }">
-								<input type="hidden" name="mno" value="${memberInfo.mno}">
-									<table class="table table-condensed" > --%>
+						<table class="table table-condensed">
+	                        <br>
 							<tr>
 								<td><p class="reg_area dt">희망기간<p></td>
 								<td><select name="user_birth_year">
@@ -306,12 +288,12 @@ function callback(){
 										<option value="30">30</option>
 										<option value="31">31</option>
 								</select> 
-											</select></td>
+											</td>
 										</tr>
 										<tr>
-											<td colspan ="5">
+											<td colspan ="2">
 												출발지 <input type="text"  id="loc1">
-												<input type="button" class="btn_comm1" value="경로검색" id="route" />
+												<!-- <input type="button" class="btn_comm1" value="경로검색" id="route" /> -->
 												도착지
 												<span>
 													<select name="sel1" id="sel1" onchange="checkChange()">
@@ -335,14 +317,22 @@ function callback(){
 											</td>
 										</tr>
 										<tr>
-											<td colspan ="6">경유지
+											<td colspan ="2">경유지
 											<input type="text" id="pass1">
 											<input type="text" id="pass2">
 											<input type="text" id="pass3">
 											</td>
 										</tr>
 										<tr>
-											<td colspan ="5"><div id="map_div"></div></td>
+										<td colspan ="2">
+											
+											<div id="map_div" w></div>
+											<div style="text-align: right;">
+												<input type="button" class="btn_comm1" value="경로검색"
+													id="route" />
+										</td>
+										</div>
+													
 										</tr>
 										<tr>
 											<td>좌석수</td>
