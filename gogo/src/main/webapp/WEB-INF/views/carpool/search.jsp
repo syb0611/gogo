@@ -381,7 +381,10 @@ function delBookMarkResult(){
 				</div>
 				
 				<div class="col-md-9">
-					<div style="height:40px;">
+					<div style="height:40px; line-height: 40px;">
+						<div style="float: left;">
+							출발 <b>${carpoolvo.departure }</b> - 도착 <b>${carpoolvo.arrival }</b> 검색결과 
+						</div>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
 							<input type="button" class="btn btn-default" value="글 등록" onclick="location.href='${contextPath}/carpool/writeform?category=${vo.category }'">

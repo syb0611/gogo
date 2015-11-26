@@ -52,6 +52,16 @@ body {
 	cursor: pointer;
 }
 
+#usertype1{
+	color: white;
+ 	background: #995051; 	
+}
+#usertype2, #usertype3{
+	color: white;
+	background: #425051;
+/* 	font-weight: bold; */
+}
+
 #pic{
 	border-radius: 10px;
 }
@@ -60,6 +70,51 @@ body {
 var xhr;
 var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
 var imgOff = "http://localhost:8080/withgo/resources/images/off.png";
+
+
+function typeClick(n){
+	var usertype = document.getElementById("usertype");
+	var type1 = document.getElementById("usertype1");
+	var type2 = document.getElementById("usertype2");
+	var type3 = document.getElementById("usertype3");
+
+	if(n == 1) { // 전체
+		usertype.value = 'all';
+		type1.style.background = '#995051';
+		type2.style.background = '#425051';
+		type3.style.background = '#425051';
+	} else if(n == 2){ // 타세요
+		usertype.value = 'driver';
+		type1.style.background = '#425051';
+		type2.style.background = '#995051';
+		type3.style.background = '#425051';
+	}else{
+		usertype.value = 'rider';
+		type1.style.background = '#425051';
+		type2.style.background = '#425051';
+		type3.style.background = '#995051';
+	}
+
+}
+
+function checkform(){
+	var form = document.f;
+	var de = form.departure.value.trim();
+	var arr = form.arrival.value.trim();
+	
+	if(de == "" || arr == "") return;
+	
+	form.submit();
+}
+
+
+function selOption(){
+	var sel = document.getElementById("color");
+	var plabel = document.getElementById("plabel");
+	
+	plabel.innerHTML = sel.options[sel.value].innerHTML;
+	sel.options[sel.value].setAttribute("selected", "selected");
+}
 
 function bookmarkClick(carno){
 	var mno = document.getElementById("mno").value;
@@ -162,60 +217,74 @@ function delBookMarkResult(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<fieldset>
-					<legend>  </legend>		
-						<form action="./example2.php" method="GET">
-						<div class="btn-group">
-							<button type="button" class="btn btn-default">전체</button>
-							<button type="button" class="btn btn-default">타세요</button>
-							<button type="button" class="btn btn-default">탈래요</button>
-						</div>	
-						<div>
-						<table>
-							<tr>
-								<td><p class="reg_area dt"></p><input type="text" placeholder="출발지" /></td>
-							</tr>
-							<tr>
-								<td><p class="reg_area dt"></p><input type="text" placeholder="도착지" /></td>
-							</tr>
-							<tr>
-								<td>
-								금액 : 
-								<select name="type">
-								<option value="금액">금액</option>
-									<option value="최저">0~3000원</option>
-									<option value="중간">3000~5000원</option>
-									<option value="최고">5000~8000원</option>
-									<option value="더최고">8000원이상</option>
-								</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-								성별 : 
-								<input name="gender" id="gender" type="radio" checked="checked" value="N"><span>모두</span>
-								<input name="gender" id="gender" type="radio" value="W"><span>여자</span> 
-								<input name="gender" id="gender" type="radio" value="M"><span>남자</span> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-								흡연 여부 : 
-								<input name="smoking" id="smoking" type="radio" checked="checked" value="N"><span>흡연불가</span>
-								<input name="smoking" id="smoking" type="radio" value="Y"><span>흡연가능</span> 
-								</td>
-							</tr>
-							<tr>
-								<td align="center"><input type="submit" class="btn_comm" value="검색하기"></td>
-							</tr>
-						</table>
-						</div>		
-						</form>
-					</fieldset>
+					<div style="height:40px;"></div>
+					<div style="width:240px; height:330px; border:2px solid #C6C6C6;  border-radius: 7px; ">
+						<div  style="width:200px; height:320px;  margin-left:20px;">
+							<fieldset>	
+								<form action="/withgo/carpool/search" method="post" name="f">
+									<div class="btn-group" style="margin-bottom: 10px">
+										<input type="hidden" name="category" value="${category }">
+										<input type="hidden" name="usertype" id="usertype" value="all"><br>
+										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
+										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
+										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
+									</div>
+									<div>
+									<table>
+										<tr>
+											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></td>
+										</tr>
+										<tr>
+											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></td>
+										</tr>
+										<tr>
+											<td style="height:50px" >
+												
+												<div id="select_box">
+												<label for="color" id="plabel">금액</label>
+												<select name="pricerange" id="color" onchange="selOption()">
+													<option value="0">금액</option>
+													<option value="1">0~3000원</option>
+													<option value="2">3000~5000원</option>
+													<option value="3">5000~8000원</option>
+													<option value="4">8000원이상</option>
+												</select>
+												</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td class="pt" style="height:30px; font-weight: 700;">
+												성별 : 
+												<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+												<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+												<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+											</td>
+										</tr>
+										<tr>
+											<td class="pt" style="height:30px; font-weight: 700;">
+												흡연 : 
+												<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
+												<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
+											</td>
+										</tr>
+										
+										<tr>
+											<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
+										</tr>
+									</table>
+									</div>
+								</form>
+							</fieldset>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col-md-9">	
-					출발 <b>${pvo.departure }</b> - 도착 <b>${pvo.arrival }</b> 검색결과 
+					<div style="height:40px;">
+						출발 <b>${pvo.departure }</b> - 도착 <b>${pvo.arrival }</b> 검색결과 
+					</div>
+					
 					<table class="table table-condensed">
 						<c:choose>
 							<c:when test="${searchList == '[]' }">
