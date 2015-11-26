@@ -232,10 +232,10 @@ function delBookMarkResult(){
 									<div>
 									<table>
 										<tr>
-											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></td>
+											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" value="${pvo.departure }" /></td>
 										</tr>
 										<tr>
-											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></td>
+											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival" value="${pvo.arrival }"/></td>
 										</tr>
 										<tr>
 											<td style="height:50px" >

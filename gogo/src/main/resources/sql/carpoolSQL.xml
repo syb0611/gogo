@@ -41,8 +41,8 @@
 		(select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking, C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
 		from carpool C, member M
 		where C.mno = M.mno
-		and category=#{category}) AA) BB
-		where rn between #{bottomNum} and #{topNum}
+		and category=#{category} order by carno) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
 	</select>
 	
 	
