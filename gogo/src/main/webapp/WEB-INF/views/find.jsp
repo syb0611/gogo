@@ -122,7 +122,7 @@ function findPwCk(){
 			<div style="margin-top:20px"></div>
 			<div class="row">
 				<div class="col-md-11 col-md-offset-1">
-					<h3>아이디/비밀번호 찾기</h3>
+					<img src="/withgo/resources/images/아이디비밀2.png"  width="200px" height="38px">
 				</div>
 			</div>
 			<div style="margin-top:20px"></div>
@@ -131,18 +131,20 @@ function findPwCk(){
 					<form action="/withgo/member/findId" method="post" name="idform">
 						<table width="100%">
 							<tr>
-								<td colspan="2">- 아이디(이메일) 찾기 -</td>
+								<td colspan="2"><img src="/withgo/resources/images/아이디111.PNG"  width="131px" height="28px">
 							</tr>
+							
 							<tr>
-								<td>닉네임</td>
+								<td><strong>닉네임</strong></td>
 								<td><input type="text" name="nickname" placeholder="닉네임" class="form-control"></td>
 							</tr>
+							
 							<tr>
-								<td>핸드폰</td>
+								<td><strong>핸드폰</strong></td>
 								<td><input type="text" name="phone" placeholder="핸드폰" class="form-control"></td>
 							</tr>
 							<tr>
-								<td>비밀번호</td>
+								<td><strong>비밀번호</strong></td>
 								<td><input type="password" name="pw" placeholder="비밀번호" class="form-control"></td>
 							</tr>
 							<c:if test="${res == 'idF' }">
@@ -151,8 +153,8 @@ function findPwCk(){
 							</tr>
 							</c:if>
 							<tr>
-								<td colspan="2" height="60px">
-									<input type="button" class="form-control" onclick="findIdCk()" value="아이디 찾기">
+								<td colspan="2" height="60px" align="right">
+									<input type="button"  style="width:150px;height:40px"  class="form-control" onclick="findIdCk()" value="아이디 찾기">
 								</td>
 							</tr>
 						</table>
@@ -163,14 +165,14 @@ function findPwCk(){
 					<form action="/withgo/member/findPw" method="post" name="pwform">
 						<table width="100%">
 							<tr>
-								<td colspan="2">- 비밀번호 찾기 -</td>
+								<td colspan="2"><img src="/withgo/resources/images/비번111.PNG"  width="131px" height="28px">
 							</tr>
 							<tr>
-								<td>아이디</td>
+								<td><strong>아이디</strong></td>
 								<td><input type="text" name="email" placeholder="아이디" class="form-control"></td>
 							</tr>
 							<tr>
-								<td>핸드폰</td>
+								<td><strong>핸드폰</strong></td>
 								<td><input type="text" name="phone" placeholder="핸드폰" class="form-control"></td>
 							</tr>
 							<c:if test="${res == 'pwF' }">
@@ -179,8 +181,12 @@ function findPwCk(){
 							</tr>
 							</c:if>
 							<tr>
-								<td colspan="2" height="60px">
-									<input type="button" class="form-control" onclick="findPwCk()" value="비밀번호 찾기">
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="2" height="60px" align="right">
+								<input type="button"  style="width:150px;height:40px"  class="form-control" onclick="findPwCk()" value="비밀번호 찾기">
+									
 								</td>
 							</tr>
 							
