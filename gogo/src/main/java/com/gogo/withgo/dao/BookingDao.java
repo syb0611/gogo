@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gogo.withgo.vo.BookInfoVo;
 import com.gogo.withgo.vo.BookingVo;
+import com.gogo.withgo.vo.CPageVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
 @Repository
@@ -30,13 +31,23 @@ public class BookingDao {
 		template.update(sql+".updateRequestNumUp", vo);
 	}
 	
-	public List<CarpoolMemberVo> bookingList1(int resmem){
-		return template.selectList(sql+".bookingList1", resmem);
+//	public List<CarpoolMemberVo> bookingList1(int resmem){
+//		return template.selectList(sql+".bookingList1", resmem);
+//	}
+	public List<CarpoolMemberVo> bookingList1(CPageVo pvo){
+		return template.selectList(sql+".bookingList1", pvo);
 	}
 	
-	public List<BookInfoVo> bookingList2(int reqmem){
-		return template.selectList(sql+".bookingList2", reqmem);
+	
+	
+//	public List<BookInfoVo> bookingList2(int reqmem){
+//		return template.selectList(sql+".bookingList2", reqmem);
+//	}
+	public List<BookInfoVo> bookingList2(CPageVo pvo){
+		return template.selectList(sql+".bookingList2", pvo);
 	}
+	
+	
 	
 	public int getRequestCnt(int mno){
 		return template.selectOne(sql+".getRequestCnt", mno);
@@ -60,5 +71,13 @@ public class BookingDao {
 	public void reject(BookingVo vo){
 		template.update(sql+".reject", vo);
 		template.update(sql+".requestNumDown", vo);
+	}
+	
+	public int bookingTotal1(int mno){
+		return template.selectOne(sql+".bookingTotal1", mno);
+	}
+	
+	public int bookingTotal2(int mno){
+		return template.selectOne(sql+".bookingTotal2", mno);
 	}
 }

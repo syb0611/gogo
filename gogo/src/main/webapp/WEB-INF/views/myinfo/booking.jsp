@@ -362,9 +362,9 @@ function rejectResult(){
 																					<td width="25%" style="text-align: right; padding-right: 15px">
 																						<div>
 																							<c:choose>
-																								<c:when test="${category == 'dan' }"><img src="${contextPath}/images/dan.png"></c:when> 
-																								<c:when test="${category == 'jang' }"><img src="${contextPath}/images/jang.png"></c:when>
-																								<c:otherwise><img src="${contextPath}/images/taxiimgpng"></c:otherwise>
+																								<c:when test="${category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
+																								<c:when test="${category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
+																								<c:otherwise><img src="/withgo/resources/images/taxiimg.png"></c:otherwise>
 																							</c:choose>
 																							<c:choose>
 												 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
@@ -396,7 +396,7 @@ function rejectResult(){
 																						<input type="submit" id="cancelbtn" class="btn btn-primary btn-xs" value="취소">
 																					</form>
 																				</c:when>
-																				<c:when test="${vo.status == -1 }">거절</c:when>
+																				<c:when test="${vo.status == -1 }"><span style="color: red; font-weight: bold">거절</span></c:when>
 																				<c:otherwise>수락</c:otherwise>
 																			</c:choose>
 																		</td>
@@ -413,7 +413,33 @@ function rejectResult(){
 									</c:otherwise>
 								</c:choose>
 
-								
+								<div>
+									<span class="page">
+										<c:if test="${pvo.curPage <= pvo.totalPage }">
+										<ul class="pagination">
+											<c:if test="${pvo.curBlock != 1 }">
+												<li><a href="/withgo/mypage/booking?type=${type }&page=${pvo.firstPage-1}">&laquo;</a></li>
+											</c:if>
+											<c:forEach var="pageno" begin="${pvo.firstPage }" end="${pvo.lastPage }">
+												<c:if test="${pageno <= pvo.totalPage }">
+													<c:choose>
+														<c:when test="${pageno == pvo.curPage }">
+															<li class="active"><a href="#">${pageno }</a>
+														</c:when>
+														<c:otherwise>
+															<li><a href="/withgo/mypage/booking?type=${type }&page=${pageno}">${pageno }</a></li>
+														</c:otherwise>
+													</c:choose>
+													
+												</c:if>
+											</c:forEach>
+											<c:if test="${pvo.curBlock != pvo.lastBlock }">
+												<li><a href="/withgo/mypage/booking?type=${type }&page=${pvo.lastPage+1}">&raquo;</a></li>
+											</c:if>
+										</ul>
+										</c:if>
+									</span>						
+								</div>	
 								
 							</div>
 						</div>			

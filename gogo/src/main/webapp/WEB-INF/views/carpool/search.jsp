@@ -149,6 +149,14 @@ function delBookMarkResult(){
 		}
 	}
 }
+
+function selOption(){
+	var sel = document.getElementById("color");
+	var plabel = document.getElementById("plabel");
+	
+	plabel.innerHTML = sel.options[sel.value].innerHTML;
+	sel.options[sel.value].setAttribute("selected", "selected");
+}
 </script>
 </head>
 <body>
@@ -289,46 +297,24 @@ function delBookMarkResult(){
 								</tr>
 								<tr>
 									<td style="height:50px" >
-										금액 : 
-										<select name="pricerange">
+										<div id="select_box">
+										<label for="color" id="plabel">
 											<c:choose>
-												<c:when test="${carpoolvo.pricerange == 1 }">
-													<option value="0">전체금액</option>
-													<option value="1" selected="selected">0~3000원</option>
-													<option value="2">3000~5000원</option>
-													<option value="3">5000~8000원</option>
-													<option value="4">8000원이상</option>
-												</c:when>
-												<c:when test="${carpoolvo.pricerange == 2 }">
-													<option value="0">전체금액</option>
-													<option value="1">0~3000원</option>
-													<option value="2" selected="selected">3000~5000원</option>
-													<option value="3">5000~8000원</option>
-													<option value="4">8000원이상</option>
-												</c:when>
-												<c:when test="${carpoolvo.pricerange == 3 }">
-													<option value="0">전체금액</option>
-													<option value="1">0~3000원</option>
-													<option value="2">3000~5000원</option>
-													<option value="3" selected="selected">5000~8000원</option>
-													<option value="4">8000원이상</option>
-												</c:when>
-												<c:when test="${carpoolvo.pricerange == 4 }">
-													<option value="0">전체금액</option>
-													<option value="1">0~3000원</option>
-													<option value="2">3000~5000원</option>
-													<option value="3">5000~8000원</option>
-													<option value="4" selected="selected">8000원이상</option>
-												</c:when>
-												<c:otherwise>
-													<option value="0" selected="selected">전체금액</option>
-													<option value="1">0~3000원</option>
-													<option value="2">3000~5000원</option>
-													<option value="3">5000~8000원</option>
-													<option value="4">8000원이상</option>
-												</c:otherwise>
+												<c:when test="${carpoolvo.pricerange == 1 }">0~3000원</c:when>
+												<c:when test="${carpoolvo.pricerange == 2 }">3000~5000원</c:when>
+												<c:when test="${carpoolvo.pricerange == 3 }">5000~8000원</c:when>
+												<c:when test="${carpoolvo.pricerange == 4 }">8000원이상</c:when>
+												<c:otherwise>금액</c:otherwise>
 											</c:choose>
+										</label> 
+										<select name="pricerange" id="color" onchange="selOption()">
+											<option value="0">금액</option>
+											<option value="1">0~3000원</option>
+											<option value="2">3000~5000원</option>
+											<option value="3">5000~8000원</option>
+											<option value="4">8000원이상</option>
 										</select>
+										</div>
 									</td>
 								</tr>
 								<tr>

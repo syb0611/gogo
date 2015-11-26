@@ -29,20 +29,46 @@
 		where carno=#{carno}
 	</update>
 	
+<!-- 	<select id="bookingList1" resultType="com.gogo.withgo.vo.CarpoolMemberVo"> -->
+<!-- 		select C.*, M.* -->
+<!-- 		from carpool C, member M -->
+<!-- 		where C.mno = M.mno -->
+<!-- 		and C.mno=#{resmem} -->
+<!-- 	</select> -->
 	<select id="bookingList1" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.*
+		select BB.* from (select AA.*, rownum rn from
+		(select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking, C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail
 		from carpool C, member M
 		where C.mno = M.mno
-		and C.mno=#{resmem}
+		and C.mno=#{mno}) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
 	</select>
 	
+	
+	
+	
+<!-- 	<select id="bookingList2" resultType="com.gogo.withgo.vo.BookInfoVo"> -->
+<!-- 		select B.*, C.*, M.* -->
+<!-- 		from booking B, carpool C, member M -->
+<!-- 		where B.carno = C.carno  -->
+<!-- 		and B.resmem = M.mno -->
+<!-- 		and B.reqmem = #{reqmem} -->
+<!-- 	</select> -->
 	<select id="bookingList2" resultType="com.gogo.withgo.vo.BookInfoVo">
-		select B.*, C.*, M.*
+		select BB.* from (select AA.*, rownum rn from
+		(select B.bookno, B.reqmem, B.status, B.bdate, B.resmem, C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking, C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail
 		from booking B, carpool C, member M
 		where B.carno = C.carno 
 		and B.resmem = M.mno
-		and B.reqmem = #{reqmem}
+		and B.reqmem = #{mno}) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
+	
+	
+		
 	</select>
+
+
+
 
 	<select id="getRequestCnt" resultType="int">
 		select count(*) from booking
@@ -84,4 +110,20 @@
 		set status = -1
 		where carno=#{carno} and reqmem=#{reqmem}
 	</update>
+	
+	
+	<select id="bookingTotal1" resultType="int">
+		select count(*)
+		from carpool C, member M
+		where C.mno = M.mno
+		and C.mno=#{resmem}
+	</select>
+	
+	<select id="bookingTotal2" resultType="int">
+		select count(*)
+		from booking B, carpool C, member M
+		where B.carno = C.carno 
+		and B.resmem = M.mno
+		and B.reqmem = #{reqmem}
+	</select>
 </mapper>

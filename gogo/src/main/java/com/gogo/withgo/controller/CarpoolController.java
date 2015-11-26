@@ -63,10 +63,7 @@ public class CarpoolController {
 		else if(price<=8000) vo.setPricerange(3);
 		else vo.setPricerange(4);
 		
-		///////////////
-		
 		int carno_seq = dao.write(vo);
-		//System.out.println("seq : "+carno_seq);
 		out.print(carno_seq);
 		out.close();
 	}

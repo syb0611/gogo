@@ -40,8 +40,33 @@ public class MyPageController {
 		return "myinfo/password";
 	}
 	
+//	@RequestMapping("/booking")
+//	public String booking(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") String type, Model model){
+//		HttpSession session = request.getSession(false);
+//		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+//		
+//		if(memberInfo == null){
+//			return "redirect:/";
+//		}
+//		
+//		int mno = memberInfo.getMno();
+//
+//		int requestCnt = bdao.getRequestCnt(mno);
+//		model.addAttribute("requestCnt", requestCnt);
+//		
+//		if(type.equals("1")){	//받은 예약
+//			List<CarpoolMemberVo> booklist = bdao.bookingList1(mno);	
+//			model.addAttribute("booklist", booklist);
+//		}else{	//한 예약
+//			List<BookInfoVo> booklist = bdao.bookingList2(mno);
+//			model.addAttribute("booklist", booklist);
+//		}
+//		
+//		model.addAttribute("type", type);
+//		return "myinfo/booking";
+//	}
 	@RequestMapping("/booking")
-	public String booking(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") String type, Model model){
+	public String booking(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") String type, @RequestParam(value="page", defaultValue="1") int page, Model model){
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
@@ -54,17 +79,32 @@ public class MyPageController {
 		int requestCnt = bdao.getRequestCnt(mno);
 		model.addAttribute("requestCnt", requestCnt);
 		
+		CPageVo pvo = new CPageVo();
+		pvo.setMno(mno);
+		
 		if(type.equals("1")){	//받은 예약
-			List<CarpoolMemberVo> booklist = bdao.bookingList1(mno);	
+			int bookingTotal1 = bdao.bookingTotal1(mno);
+			pvo.setPage(bookingTotal1, page);
+			
+			List<CarpoolMemberVo> booklist = bdao.bookingList1(pvo);	
+			//List<CarpoolMemberVo> booklist = bdao.bookingList1(mno);	
 			model.addAttribute("booklist", booklist);
 		}else{	//한 예약
-			List<BookInfoVo> booklist = bdao.bookingList2(mno);
+			int bookingTotal2 = bdao.bookingTotal2(mno);
+			pvo.setPage(bookingTotal2, page);
+			
+			List<BookInfoVo> booklist = bdao.bookingList2(pvo);
 			model.addAttribute("booklist", booklist);
 		}
-		
+	
+		model.addAttribute("pvo", pvo);
 		model.addAttribute("type", type);
 		return "myinfo/booking";
 	}
+	
+	
+	
+	
 	
 	
 	@RequestMapping("/reglist")
