@@ -239,6 +239,36 @@ function delBookMarkResult(){
 										</c:otherwise>
 									</c:choose>
 								</table>
+								
+								
+								<div>
+									<span class="page">
+										<c:if test="${pvo.curPage <= pvo.totalPage }">
+										<ul class="pagination">
+											<c:if test="${pvo.curBlock != 1 }">
+												<li><a href="/withgo/mypage/bookmark?page=${pvo.firstPage-1}">&laquo;</a></li>
+											</c:if>
+											<c:forEach var="pageno" begin="${pvo.firstPage }" end="${pvo.lastPage }">
+												<c:if test="${pageno <= pvo.totalPage }">
+													<c:choose>
+														<c:when test="${pageno == pvo.curPage }">
+															<li class="active"><a href="#">${pageno }</a>
+														</c:when>
+														<c:otherwise>
+															<li><a href="/withgo/mypage/bookmark?page=${pageno}">${pageno }</a></li>
+														</c:otherwise>
+													</c:choose>
+													
+												</c:if>
+											</c:forEach>
+											<c:if test="${pvo.curBlock != pvo.lastBlock }">
+												<li><a href="/withgo/mypage/bookmark?page=${pvo.lastPage+1}">&raquo;</a></li>
+											</c:if>
+										</ul>
+										</c:if>
+									</span>
+									
+								</div>	
 							</div>
 						</div>			
 					</div>		

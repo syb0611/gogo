@@ -66,27 +66,6 @@ public class MyPageController {
 		return "myinfo/booking";
 	}
 	
-//	@RequestMapping("/reglist")
-//	public String reglist(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") int type, Model model){
-//		HttpSession session = request.getSession(false);
-//		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
-//		if(memberInfo == null){
-//			return "redirect:/";
-//		}
-//		
-//		int mno = memberInfo.getMno();
-//		
-//		if(type == 1){	//내가 쓴 카풀 글
-//			List<CarpoolMemberVo> myRegList = cdao.myRegCarpoolList(mno);
-//			model.addAttribute("myRegList", myRegList);
-//		}else if(type == 2){  //내가 쓴 커뮤니티 글
-//			
-//		}else if(type == 3){  //내가 쓴 댓글
-//			
-//		}
-//		
-//		return "myinfo/reglist";
-//	}
 	
 	@RequestMapping("/reglist")
 	public String reglist(HttpServletRequest request, @RequestParam(value="type", defaultValue="1") int type, @RequestParam(value="page", defaultValue="1") int page, Model model){
@@ -104,7 +83,6 @@ public class MyPageController {
 		pvo.setMno(mno);
 		
 		if(type == 1){	//내가 쓴 카풀 글
-			//List<CarpoolMemberVo> myRegList = cdao.myRegCarpoolList(mno);
 			List<CarpoolMemberVo> myRegList = cdao.myRegCarpoolList(pvo);
 			
 			model.addAttribute("myRegList", myRegList);
@@ -119,12 +97,9 @@ public class MyPageController {
 	}
 	
 	
-	
-	
-	
-	
+
 	@RequestMapping("/bookmark")
-	public String bookmark(HttpServletRequest request, Model model){
+	public String bookmark(HttpServletRequest request, @RequestParam(value="page", defaultValue="1") int page, Model model){
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
@@ -134,8 +109,14 @@ public class MyPageController {
 		
 		int mno = memberInfo.getMno();
 		
-		List<BookmarkInfoVo> bmList = cdao.getBookMarks(mno);
+		int bookmarkTotal = cdao.bookmarkTotal(mno);
+		CPageVo pvo = new CPageVo();
+		pvo.setMno(mno);
+		pvo.setPage(bookmarkTotal, page);
+		List<BookmarkInfoVo> bmList = cdao.getBookMarks(pvo);
+
 		model.addAttribute("bmList", bmList);
+		model.addAttribute("pvo", pvo);
 		
 		return "myinfo/bookmark";
 	}

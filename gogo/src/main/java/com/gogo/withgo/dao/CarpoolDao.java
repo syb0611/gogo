@@ -51,24 +51,24 @@ public class CarpoolDao {
 		template.delete(sql+".delBookMark", vo);
 	}
 	
-	public List<BookmarkInfoVo> getBookMarks(int mno){
-		return template.selectList(sql+".getBookMarks", mno);
+//	public List<BookmarkInfoVo> getBookMarks(int mno){
+//		return template.selectList(sql+".getBookMarks", mno);
+//	}
+	public List<BookmarkInfoVo> getBookMarks(CPageVo pvo){
+		return template.selectList(sql+".getBookMarks", pvo);
 	}
 	
-//	public List<CarpoolMemberVo> myRegCarpoolList(int mno){
-//		return template.selectList(sql+".myRegCarpoolList", mno);
-//	}
+	
+	
+	
+	
+	
+
 	public List<CarpoolMemberVo> myRegCarpoolList(CPageVo pvo){
 		return template.selectList(sql+".myRegCarpoolList", pvo);
 	}
 	
-	
-	
-	
-	
-//	public List<CarpoolMemberVo> searchAll(CarpoolVo vo){
-//		return template.selectList(sql+".searchAllList", vo);
-//	}
+
 	public List<CarpoolMemberVo> searchAll(CPageVo pvo){	
 		return template.selectList(sql+".searchAllList", pvo);
 	}
@@ -106,5 +106,9 @@ public class CarpoolDao {
 	
 	public int reglistTotal(int mno){
 		return template.selectOne(sql+".reglistTotal", mno);
+	}
+	
+	public int bookmarkTotal(int mno){
+		return template.selectOne(sql+".bookmarkTotal", mno);
 	}
 }
