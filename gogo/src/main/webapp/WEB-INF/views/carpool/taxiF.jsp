@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,6 +71,16 @@ table.t_ex2 .c2 {
 
 #timeline-post {
 	margin-top: 30px;
+}
+#usertype1 {
+	width: 200px;
+	height: 50px;
+	background: #E7E7E7;
+}
+
+#usertype2 {
+	width: 200px;
+	height: 50px;
 }
 /*]]>*/
 </style>
@@ -160,115 +172,53 @@ table.t_ex2 .c2 {
 					<form method="post" action="${contextPath}/carpool/write">
 						<input type="hidden" name="category" value="${category }">
 						<input type="hidden" name="mno" value="${memberInfo.mno}">
-						<center>
+						
 						<table>
 						
-							<div class="btn-group">
-								<button type="button" class="btn btn-default" style="width:200px;height:50px">타세요</button>
-								<button type="button" class="btn btn-default"style="width:200px;height:50px">태워주세요</button>
-							</div>
-							<br><br><br>
+							<div style="text-align: center; font-family: NanumGothicBold;">
+
+									<input type="hidden" name="usertype" id="usertype"
+										value="driver">
+
+									<button type="button" class="btn btn-default" id="usertype1"
+										onclick="usertypeClick(1)">
+										<img src="/withgo/resources/images/check.png" width="30px"
+											height="30px">&nbsp;타세요
+									</button>
+									<button type="button" class="btn btn-default" id="usertype2"
+										onclick="usertypeClick(2)">
+										<img src="/withgo/resources/images/check.png" width="30px"
+											height="30px">&nbsp;태워주세요
+									</button>
+
+								</div>
+							
 						</table>
-						</center>
+				
 						<article class="con_wrap reg_wrap">
 						<table class="table table-condensed" >
-							<tr>
-								<td><p class="reg_area dt">희망기간<p></td>
-								<td><select name="user_birth_year">
-										<option value="1" selected>1</option>
-										<option value="2" selected>2</option>
-										<option value="3" selected>3</option>
-										<option value="4" selected>4</option>
-										<option value="5" selected>5</option>
-										<option value="6" selected>6</option>
-										<option value="7" selected>7</option>
-										<option value="8" selected>8</option>
-										<option value="9" selected>9</option>
-										<option value="10" selected>10</option>
-										<option value="11" selected>11</option>
-										<option value="12" selected>12</option>
-										
-								</select> 월 <select name="user_birth_month">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-
-								</select> 일   ~  <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-
-								</select> 월 <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-
-								</select> 일 </td>
+							<br>
+								<tr>
+									<td><p class="reg_area dt">출발날짜<p></td>
+									<td>	
+										<input type="hidden" name="departuredate" id="departuredate">
+										<select name="date_year">
+											<c:set var="year" value="<%=new GregorianCalendar().get(Calendar.YEAR) %>"/>
+											<c:forEach var="i" begin="${year }" end="${year+100 }" step="1">
+												<option value="${i}">${i }</option>
+											</c:forEach>
+										</select> 년 
+										<select name="date_month">
+											<c:forEach var="month" begin="1" end="12" step="1">
+												<option value="${month }">${month }</option>
+											</c:forEach>
+										</select> 월 
+										<select name="date_day">
+											<c:forEach var="day" begin="1" end="31" step="1">
+												<option value="${day }">${day }</option>
+											</c:forEach>
+										</select> 일
+									</td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">출발지</p></td>
@@ -285,7 +235,11 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><br></td>
-									<td><div id="map_div"></div><br><input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
+									<td>
+									<div id="map_div"></div>
+									<div style="text-align:right;">
+									<input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
+									</div>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">좌석수</p></td>

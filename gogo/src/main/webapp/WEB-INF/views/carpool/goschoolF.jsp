@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -192,107 +194,32 @@ function callback(){
 						<article class="con_wrap reg_wrap">
 						<table class="table table-condensed">
 	                        <br>
-							<tr>
-								<td><p class="reg_area dt">희망기간<p></td>
-								<td><select name="user_birth_year">
-										<option value="1" selected>1</option>
-										<option value="2" selected>2</option>
-										<option value="3" selected>3</option>
-										<option value="4" selected>4</option>
-										<option value="5" selected>5</option>
-										<option value="6" selected>6</option>
-										<option value="7" selected>7</option>
-										<option value="8" selected>8</option>
-										<option value="9" selected>9</option>
-										<option value="10" selected>10</option>
-										<option value="11" selected>11</option>
-										<option value="12" selected>12</option>
-										
-								</select> 월 <select name="user_birth_month">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-
-								</select> 일   ~  <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-
-								</select> 월 <select name="user_birth_day">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-								</select> 
-											</td>
-										</tr>
+								<tr>
+									<td><p class="reg_area dt">출발날짜<p></td>
+									<td>	
+										<input type="hidden" name="departuredate" id="departuredate">
+										<select name="date_year">
+											<c:set var="year" value="<%=new GregorianCalendar().get(Calendar.YEAR) %>"/>
+											<c:forEach var="i" begin="${year }" end="${year+100 }" step="1">
+												<option value="${i}">${i }</option>
+											</c:forEach>
+										</select> 년 
+										<select name="date_month">
+											<c:forEach var="month" begin="1" end="12" step="1">
+												<option value="${month }">${month }</option>
+											</c:forEach>
+										</select> 월 
+										<select name="date_day">
+											<c:forEach var="day" begin="1" end="31" step="1">
+												<option value="${day }">${day }</option>
+											</c:forEach>
+										</select> 일
+									</td>
+								</tr>
 										<tr>
-											<td colspan ="2">
-												출발지 <input type="text"  id="loc1">
+											<td>출발지</td>
+											<td>
+												<input type="text"  id="loc1">
 												<!-- <input type="button" class="btn_comm1" value="경로검색" id="route" /> -->
 												도착지
 												<span>
@@ -310,21 +237,23 @@ function callback(){
 													</select>
 												</span>
 												<span>
-													<select name="sel2" id="loc3">
+													<select name="sel2" id="sel2">
 														<option value="seoul"></option>
 													</select>
 												</span>
 											</td>
 										</tr>
 										<tr>
-											<td colspan ="2">경유지
+											<td>경유지</td>
+											<td>
 											<input type="text" id="pass1">
 											<input type="text" id="pass2">
 											<input type="text" id="pass3">
 											</td>
 										</tr>
 										<tr>
-										<td colspan ="2">
+											<td></td>
+										<td>
 											
 											<div id="map_div" w></div>
 											<div style="text-align: right;">
@@ -336,11 +265,11 @@ function callback(){
 										</tr>
 										<tr>
 											<td>좌석수</td>
-											<td colspan ="4"><input type="number" name="seat" value="1"></td>
+											<td><input type="number" name="seat" value="1"></td>
 										</tr>
 										<tr>
 											<td>금액</td>
-											<td colspan ="4"><input type="text" name="arrival"></td>
+											<td><input type="text" name="arrival"></td>
 										</tr>
 										<tr>
 											<!-- 			<td colspan="2"> -->
@@ -348,7 +277,7 @@ function callback(){
 											<!-- 				<input type="radio" name="usertype" value="rider">비흡연자 -->
 											<!-- 			</td> -->
 											<td>흡연 여부</td>
-											<td colspan ="4"><input type="radio" name="usertype" value="driver"
+											<td><input type="radio" name="usertype" value="driver"
 												checked="checked">흡연자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 												type="radio" name="usertype" value="rider">비흡연자</td>
 										</tr>
@@ -358,14 +287,14 @@ function callback(){
 											<!-- 				<input type="radio" name="usertype" value="rider">남자 -->
 											<!-- 			</td> -->
 											<td>성별</td>
-											<td colspan ="4"><input type="radio" name="usertype" value="driver"
+											<td><input type="radio" name="usertype" value="driver"
 												checked="checked">여자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 												type="radio" name="usertype" value="rider">남자</td>
 										</tr>
 		
 										<tr>
 											<td>추가내용</td>
-											<td colspan ="4"><textarea name="memo" rows="10" cols="20"></textarea></td>
+											<td><textarea name="memo" rows="10" cols="20"></textarea></td>
 										</tr>
 										<tr>
 									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;<input
