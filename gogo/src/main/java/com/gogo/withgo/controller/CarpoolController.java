@@ -168,16 +168,58 @@ public class CarpoolController {
 		return "carpool/searchAllList";
 	}
 	
+//	@RequestMapping("/search")
+//	public String search(HttpServletRequest request, CarpoolVo vo, Model model){
+//		HttpSession session = request.getSession(false);
+//		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
+//		
+//		if(memberInfo == null){
+//			vo.setMno(0);
+//		}else{
+//			vo.setMno(memberInfo.getMno());
+//		}
+//		
+//		String usertype = vo.getUsertype();
+//		int pricerange = vo.getPricerange();
+//		List<CarpoolMemberVo> searchList = null;
+//		
+//		if(usertype.equals("all")){ //분류(usertype) 전체
+//			if(pricerange == 0){ //금액 전체
+//				searchList = dao.search1(vo);
+//			}else{ //금액 범위 있는 경우
+//				searchList = dao.search2(vo);
+//			}	
+//		}else{ 
+//			if(pricerange == 0){ 
+//				searchList = dao.search3(vo);
+//			}else{ 
+//				searchList = dao.search4(vo);
+//			}	
+//		}
+//		
+//		model.addAttribute("carpoolvo", vo);
+//		//model.addAttribute("category", vo.getCategory());
+//		model.addAttribute("searchList", searchList);
+//		return "carpool/search";
+//	}
 	@RequestMapping("/search")
-	public String search(HttpServletRequest request, CarpoolVo vo, Model model){
+	public String search(HttpServletRequest request, CarpoolVo vo, @RequestParam(value="page", defaultValue="1") int page, Model model){
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
+		CPageVo pvo = new CPageVo();
 		if(memberInfo == null){
-			vo.setMno(0);
+			pvo.setMno(0);
 		}else{
-			vo.setMno(memberInfo.getMno());
+			pvo.setMno(memberInfo.getMno());
 		}
+		pvo.setCategory(vo.getCategory());
+		pvo.setGenderlimit(vo.getGenderlimit());
+		pvo.setSmoking(vo.getSmoking());
+		pvo.setDeparture(vo.getDeparture());
+		pvo.setArrival(vo.getArrival());
+		pvo.setPricerange(vo.getPricerange());
+		pvo.setUsertype(vo.getUsertype());
 		
 		String usertype = vo.getUsertype();
 		int pricerange = vo.getPricerange();
@@ -185,19 +227,28 @@ public class CarpoolController {
 		
 		if(usertype.equals("all")){ //분류(usertype) 전체
 			if(pricerange == 0){ //금액 전체
-				searchList = dao.search1(vo);
+				int searchTotal1 = dao.searchTotal1(vo);
+				pvo.setPage(searchTotal1, page);
+				searchList = dao.search1(pvo);
 			}else{ //금액 범위 있는 경우
-				searchList = dao.search2(vo);
+				int searchTotal2 = dao.searchTotal2(vo);
+				pvo.setPage(searchTotal2, page);
+				searchList = dao.search2(pvo);
 			}	
 		}else{ 
 			if(pricerange == 0){ 
-				searchList = dao.search3(vo);
+				int searchTotal3 = dao.searchTotal3(vo);
+				pvo.setPage(searchTotal3, page);
+				searchList = dao.search3(pvo);
 			}else{ 
-				searchList = dao.search4(vo);
+				int searchTotal4 = dao.searchTotal4(vo);
+				pvo.setPage(searchTotal4, page);
+				searchList = dao.search4(pvo);
 			}	
 		}
 		
 		model.addAttribute("carpoolvo", vo);
+		model.addAttribute("pvo", pvo);
 		//model.addAttribute("category", vo.getCategory());
 		model.addAttribute("searchList", searchList);
 		return "carpool/search";

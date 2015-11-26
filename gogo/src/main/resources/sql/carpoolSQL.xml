@@ -150,8 +150,8 @@
 		and BM.mno=#{mno}
 	</select>
 	
-	<select id="search1" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+	<select id="searchTotal1" resultType="int">
+		select count(*)
 		from carpool C, member M
 		where C.mno = M.mno and 
 		category=#{category} and
@@ -161,11 +161,9 @@
 		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
 		or (stop3=#{departure} and arrival=#{arrival}))
-		
 	</select>
-	
-	<select id="search2" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+	<select id="searchTotal2" resultType="int">
+		select count(*)
 		from carpool C, member M
 		where C.mno = M.mno 
 		and category=#{category} 
@@ -177,9 +175,8 @@
 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
 		or (stop3=#{departure} and arrival=#{arrival}))
 	</select>
-	
-	<select id="search3" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+	<select id="searchTotal3" resultType="int">
+		select count(*)
 		from carpool C, member M
 		where C.mno = M.mno 
 		and category=#{category} 
@@ -191,9 +188,8 @@
 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
 		or (stop3=#{departure} and arrival=#{arrival}))
 	</select>
-	
-	<select id="search4" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
-		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+	<select id="searchTotal4" resultType="int">
+		select count(*)
 		from carpool C, member M
 		where C.mno = M.mno 
 		and category=#{category} 
@@ -205,6 +201,80 @@
 		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
 		or (stop3=#{departure} and arrival=#{arrival}))
+	</select>
+	
+	
+	
+<!-- 	<select id="search1" resultType="com.gogo.withgo.vo.CarpoolMemberVo"> -->
+<!-- 		select C.*, M.*, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark  -->
+<!-- 		from carpool C, member M -->
+<!-- 		where C.mno = M.mno and  -->
+<!-- 		category=#{category} and -->
+<!-- 		genderlimit=#{genderlimit} and -->
+<!-- 		smoking=#{smoking} and -->
+<!-- 		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival})  -->
+<!-- 		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival}) -->
+<!-- 		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival}) -->
+<!-- 		or (stop3=#{departure} and arrival=#{arrival}))	 -->
+<!-- 	</select> -->
+	<select id="search1" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select BB.* from (select AA.*, rownum rn from (select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking,C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+		from carpool C, member M
+		where C.mno = M.mno and 
+		category=#{category} and
+		genderlimit=#{genderlimit} and
+		smoking=#{smoking} and
+		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
+		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
+		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
+		or (stop3=#{departure} and arrival=#{arrival}))	) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
+	</select>
+
+	<select id="search2" resultType="com.gogo.withgo.vo.CarpoolMemberVo">	
+		select BB.* from (select AA.*, rownum rn from (select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking,C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+		from carpool C, member M
+		where C.mno = M.mno 
+		and category=#{category} 
+		and genderlimit=#{genderlimit} 
+		and pricerange=#{pricerange}
+		and smoking=#{smoking} and
+		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
+		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
+		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
+		or (stop3=#{departure} and arrival=#{arrival}))) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
+	</select>
+
+	<select id="search3" resultType="com.gogo.withgo.vo.CarpoolMemberVo">		
+		select BB.* from (select AA.*, rownum rn from (select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking,C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+		from carpool C, member M
+		where C.mno = M.mno 
+		and category=#{category} 
+		and genderlimit=#{genderlimit} 
+		and usertype=#{usertype}<!--  --> 
+		and smoking=#{smoking} and
+		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
+		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
+		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
+		or (stop3=#{departure} and arrival=#{arrival}))) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
+	</select>
+	
+	<select id="search4" resultType="com.gogo.withgo.vo.CarpoolMemberVo">
+		select BB.* from (select AA.*, rownum rn from (select C.carno, C.category, C.mno, C.departure, C.arrival, C.usertype, C.memo, C.departuredate, C.seat, C.stop1, C.stop2, C.stop3, C.price, C.smoking,C.genderlimit, C.bookedseat, C.requestseat, M.email,  M.pw, M.nickname, M.name, M.phone, M.birth, M.gender, M.hascar, M.image, M.jdate, M.profile, M.auth, M.authphone, M.authemail, (select count(*) from bookmark where bookmark.carno=C.carno and mno=#{mno}) bookmark 
+		from carpool C, member M
+		where C.mno = M.mno 
+		and category=#{category} 
+		and genderlimit=#{genderlimit} 
+		and usertype=#{usertype} 
+		and pricerange=#{pricerange}
+		and smoking=#{smoking} and
+		((departure=#{departure} and arrival=#{arrival}) or (departure=#{departure} and stop1=#{arrival}) or (departure=#{departure} and stop2=#{arrival}) or (departure=#{departure} and stop3=#{arrival}) 
+		or (stop1=#{departure} and stop2=#{arrival}) or (stop1=#{departure} and stop3=#{arrival}) or (stop1=#{departure} and arrival=#{arrival})
+		or (stop2=#{departure} and stop3=#{arrival}) or (stop2=#{departure} and arrival=#{arrival})
+		or (stop3=#{departure} and arrival=#{arrival}))) AA) BB
+		where rn between #{bottomNum} and #{topNum} order by rn desc
 	</select>
 	
 </mapper>

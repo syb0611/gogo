@@ -77,20 +77,23 @@ public class CarpoolDao {
 	
 	
 	
-	public List<CarpoolMemberVo> search1(CarpoolVo vo){
-		return template.selectList(sql+".search1", vo);
+//	public List<CarpoolMemberVo> search1(CarpoolVo vo){
+//		return template.selectList(sql+".search1", vo);
+//	}
+	public List<CarpoolMemberVo> search1(CPageVo pvo){
+		return template.selectList(sql+".search1", pvo);
+	}
+
+	public List<CarpoolMemberVo> search2(CPageVo pvo){
+		return template.selectList(sql+".search2", pvo);
 	}
 	
-	public List<CarpoolMemberVo> search2(CarpoolVo vo){
-		return template.selectList(sql+".search2", vo);
+	public List<CarpoolMemberVo> search3(CPageVo pvo){
+		return template.selectList(sql+".search3", pvo);
 	}
 	
-	public List<CarpoolMemberVo> search3(CarpoolVo vo){
-		return template.selectList(sql+".search3", vo);
-	}
-	
-	public List<CarpoolMemberVo> search4(CarpoolVo vo){
-		return template.selectList(sql+".search4", vo);
+	public List<CarpoolMemberVo> search4(CPageVo pvo){
+		return template.selectList(sql+".search4", pvo);
 	}
 
 
@@ -110,5 +113,21 @@ public class CarpoolDao {
 	
 	public int bookmarkTotal(int mno){
 		return template.selectOne(sql+".bookmarkTotal", mno);
+	}
+	
+	public int searchTotal1(CarpoolVo vo){
+		return template.selectOne(sql+".searchTotal1", vo);
+	}
+	
+	public int searchTotal2(CarpoolVo vo){
+		return template.selectOne(sql+".searchTotal2", vo);
+	}
+	
+	public int searchTotal3(CarpoolVo vo){
+		return template.selectOne(sql+".searchTotal3", vo);
+	}
+	
+	public int searchTotal4(CarpoolVo vo){
+		return template.selectOne(sql+".searchTotal4", vo);
 	}
 }

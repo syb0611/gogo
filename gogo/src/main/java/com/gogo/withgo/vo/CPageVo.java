@@ -8,6 +8,10 @@ public class CPageVo {
 	private int mno;///////////////
 	private String departure;/////////////
 	private String arrival;////////////////
+	private int genderlimit;
+	private int smoking;
+	private int pricerange;
+	private String usertype;
 	
 	private int listTotal;
 	private int totalPage;
@@ -139,6 +143,38 @@ public class CPageVo {
 
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
+	}
+
+	public int getGenderlimit() {
+		return genderlimit;
+	}
+
+	public void setGenderlimit(int genderlimit) {
+		this.genderlimit = genderlimit;
+	}
+
+	public int getSmoking() {
+		return smoking;
+	}
+
+	public void setSmoking(int smoking) {
+		this.smoking = smoking;
+	}
+
+	public int getPricerange() {
+		return pricerange;
+	}
+
+	public void setPricerange(int pricerange) {
+		this.pricerange = pricerange;
+	}
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 	
 	
