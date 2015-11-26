@@ -152,7 +152,8 @@ function callback(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>GOSCHOOL CARPOOL</h2>
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">w r i t e - f o r m</h2>
+								<span style="color:gray;">' 고스쿨 ' 서비스 이용을 위한 등록하기 페이지 입니다. </span>
 						
 					</div>
 				</div>
