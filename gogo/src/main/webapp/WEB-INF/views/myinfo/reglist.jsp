@@ -204,7 +204,6 @@ background-image: url(/withgo/resources/images/새.png);
 															<li><a href="/withgo/mypage/reglist?&page=${pageno}">${pageno }</a></li>
 														</c:otherwise>
 													</c:choose>
-													
 												</c:if>
 											</c:forEach>
 											<c:if test="${pvo.curBlock != pvo.lastBlock }">

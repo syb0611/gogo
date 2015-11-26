@@ -146,33 +146,26 @@ public class CarpoolController {
 	
 	@RequestMapping("/searchAll")
 	public String searchAll(HttpServletRequest request, @RequestParam("departure") String departure, @RequestParam("arrival") String arrival, @RequestParam(value="page", defaultValue="1") int page, Model model){
-		//CarpoolVo vo = new CarpoolVo(departure, arrival);
 		CPageVo pvo = new CPageVo();///////////
 		HttpSession session = request.getSession(false);
 		MemberVo memberInfo = (MemberVo)session.getAttribute("memberInfo");
 		
 		if(memberInfo == null){
-		//	vo.setMno(0);
 			pvo.setMno(0);
 		}else{
-		//	vo.setMno(memberInfo.getMno());
 			pvo.setMno(memberInfo.getMno());
 		}
 		
 		pvo.setDeparture(departure);
 		pvo.setArrival(arrival);
 		
-		///////////////////////
-		int listTotal = dao.searchAllTotal(departure, arrival);
 
+		int listTotal = dao.searchAllTotal(departure, arrival);
 		pvo.setPage(listTotal, page);
 		
 		List<CarpoolMemberVo> searchList = dao.searchAll(pvo);
 		
-		
-		//List<CarpoolMemberVo> searchList = dao.searchAll(vo);
 		model.addAttribute("searchList", searchList);
-		
 		model.addAttribute("pvo", pvo);
 		//model.addAttribute("searchInput", vo);
 		return "carpool/searchAllList";
