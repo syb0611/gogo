@@ -218,7 +218,7 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">금액</p></td>
-									<td><input type="text" name="price" size="20">원</td>
+									<td><input type="text" name="price" size="20"> 원</td>
 								</tr>
 								<tr>
 								
@@ -226,7 +226,7 @@ table.t_ex2 .c2 {
 									
 									<td>
 										<p class="reg_area dt">
-											<input type="radio" name="smoking" value="1"> 흡연자 
+											<input type="radio" name="smoking" value="1"> 흡연자  
 											<input type="radio" name="smoking" value="0" checked="checked"> 비흡연자
 										</p>
 									</td>
@@ -237,8 +237,8 @@ table.t_ex2 .c2 {
 									<td>
 										<p class="reg_area dt">
 											<input type="radio" name="genderlimit" value="0" checked="checked"> 무관 
-											<input type="radio" name="genderlimit" value="1"> 여성전용 
-											<input type="radio" name="genderlimit" value="2"> 남성전용 
+											<input type="radio" name="genderlimit" value="1"> 여성
+											<input type="radio" name="genderlimit" value="2"> 남성 
 										</p>
 									</td>
 								</tr>
