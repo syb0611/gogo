@@ -47,15 +47,10 @@ body {
 	cursor: pointer;
 }
 
-#usertype1{
-	color: white;
- 	background: #995051; 	
+#usertype1, #usertype2, #usertype3{
+	color: white;	
 }
-#usertype2, #usertype3{
-	color: white;
-	background: #425051;
-/* 	font-weight: bold; */
-}
+
 
 #pic{
 	border-radius: 10px;
@@ -185,7 +180,7 @@ function delBookMarkResult(){
 		</div>
 	</header>
 	<c:choose>
-		<c:when test="${category == 'dan'}">
+		<c:when test="${carpoolvo.category == 'dan'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/새.png);">
 							<div class="container">
@@ -200,7 +195,7 @@ function delBookMarkResult(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${category == 'jang'}">
+		<c:when test="${carpoolvo.category == 'jang'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/새.png); height: 150px; width: 100%;">
 				<div class="container">
@@ -215,7 +210,7 @@ function delBookMarkResult(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${category == 'goschool'}">
+		<c:when test="${carpoolvo.category == 'goschool'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/집.png); height: 150px;">
 				<div class="container">
@@ -231,7 +226,7 @@ function delBookMarkResult(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${category == 'taxi'}">
+		<c:when test="${carpoolvo.category == 'taxi'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/계.png); height: 150px;">
 				<div class="container">
@@ -258,45 +253,119 @@ function delBookMarkResult(){
 					<fieldset>	
 						<form action="/withgo/carpool/search" method="post" name="f">
 							<div class="btn-group" style="margin-bottom: 10px">
-								<input type="hidden" name="category" value="${category }">
+								<input type="hidden" name="category" value="${carpoolvo.category }">
 								<input type="hidden" name="usertype" id="usertype" value="all"><br>
-								<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)">전체</button>
-								<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)">타세요</button>
-								<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)">탈래요</button>
+								<c:choose>
+									<c:when test="${carpoolvo.usertype == 'driver' }">
+										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)" style="background: #425051">전체</button>
+										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)" style="background: #995051">타세요</button>
+										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)" style="background: #425051">탈래요</button>
+									</c:when>
+									<c:when test="${carpoolvo.usertype == 'rider' }">
+										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)" style="background: #425051">전체</button>
+										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)" style="background: #425051">타세요</button>
+										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)" style="background: #995051">탈래요</button>
+									</c:when>
+									<c:otherwise>
+										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)" style="background: #995051">전체</button>
+										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)" style="background: #425051">타세요</button>
+										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)" style="background: #425051">탈래요</button>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div>
 							<table>
 								<tr>
-									<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></td>
+									<td>
+										<p class="reg_area dt"></p>
+										<input type="text" class="form-control" placeholder="출발지" value="${carpoolvo.departure }" name="departure" />
+									</td>
 								</tr>
 								<tr>
-									<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></td>
+									<td>
+										<p class="reg_area dt"></p>
+										<input type="text" class="form-control" placeholder="도착지" value="${carpoolvo.arrival }" name="arrival"/>
+									</td>
 								</tr>
 								<tr>
 									<td style="height:50px" >
 										금액 : 
 										<select name="pricerange">
-											<option value="0">금액</option>
-											<option value="1">0~3000원</option>
-											<option value="2">3000~5000원</option>
-											<option value="3">5000~8000원</option>
-											<option value="4">8000원이상</option>
+											<c:choose>
+												<c:when test="${carpoolvo.pricerange == 1 }">
+													<option value="0">전체금액</option>
+													<option value="1" selected="selected">0~3000원</option>
+													<option value="2">3000~5000원</option>
+													<option value="3">5000~8000원</option>
+													<option value="4">8000원이상</option>
+												</c:when>
+												<c:when test="${carpoolvo.pricerange == 2 }">
+													<option value="0">전체금액</option>
+													<option value="1">0~3000원</option>
+													<option value="2" selected="selected">3000~5000원</option>
+													<option value="3">5000~8000원</option>
+													<option value="4">8000원이상</option>
+												</c:when>
+												<c:when test="${carpoolvo.pricerange == 3 }">
+													<option value="0">전체금액</option>
+													<option value="1">0~3000원</option>
+													<option value="2">3000~5000원</option>
+													<option value="3" selected="selected">5000~8000원</option>
+													<option value="4">8000원이상</option>
+												</c:when>
+												<c:when test="${carpoolvo.pricerange == 4 }">
+													<option value="0">전체금액</option>
+													<option value="1">0~3000원</option>
+													<option value="2">3000~5000원</option>
+													<option value="3">5000~8000원</option>
+													<option value="4" selected="selected">8000원이상</option>
+												</c:when>
+												<c:otherwise>
+													<option value="0" selected="selected">전체금액</option>
+													<option value="1">0~3000원</option>
+													<option value="2">3000~5000원</option>
+													<option value="3">5000~8000원</option>
+													<option value="4">8000원이상</option>
+												</c:otherwise>
+											</c:choose>
 										</select>
 									</td>
 								</tr>
 								<tr>
 									<td style="height:30px">
 										성별 : 
-										<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
-										<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-										<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+										<c:choose>
+											<c:when test="${carpoolvo.genderlimit == 1 }">
+												<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
+												<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="1"><span>남자</span> 
+											</c:when>
+											<c:when test="${carpoolvo.genderlimit == 2 }">
+												<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
+												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="2"><span>여자  </span>
+												<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+											</c:when>
+											<c:otherwise>
+												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+												<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+												<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+											</c:otherwise>
+										</c:choose>
 									</td>
 								</tr>
 								<tr>
 									<td style="height:30px">
 										흡연 : 
-										<input name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
-										<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
+										<c:choose>
+											<c:when test="${carpoolvo.smoking == 1 }">
+												<input name="smoking" id="smoking" type="radio" value="0"><span>불가</span>
+												<input name="smoking" id="smoking" type="radio" value="1" checked="checked"><span>가능</span> 
+											</c:when>
+											<c:otherwise>
+												<input name="smoking" id="smoking" type="radio" value="0"  checked="checked"><span>불가</span>
+												<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
+											</c:otherwise>
+										</c:choose>
 									</td>
 								</tr>
 								<tr>
@@ -341,7 +410,7 @@ function delBookMarkResult(){
 											<img src="/withgo/resources/images/on.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
 										</c:otherwise>
 									</c:choose>
-									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${category}&no=${vo.carno }'">		
+									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${carpoolvo.category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
 												<div>

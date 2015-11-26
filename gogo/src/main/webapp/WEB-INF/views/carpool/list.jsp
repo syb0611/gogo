@@ -62,17 +62,9 @@ body {
 #pic{
 	border-radius: 10px;
 }
+
 </style>
 <script>
-jQuery(document).ready(function(){
-    
-    var select = $("select#color");
-    
-    select.change(function(){
-        var select_name = $(this).children("option:selected").text();
-        $(this).siblings("label").text(select_name);
-    });
-});
 
 var xhr;
 var imgOn = "http://localhost:8080/withgo/resources/images/on.png";
@@ -165,6 +157,14 @@ function delBookMarkResult(){
 			var flag = xhr.responseText;
 		}
 	}
+}
+
+function selOption(){
+	var sel = document.getElementById("color");
+	var plabel = document.getElementById("plabel");
+	
+	plabel.innerHTML = sel.options[sel.value].innerHTML;
+	sel.options[sel.value].setAttribute("selected", "selected");
 }
 </script>
 </head>
@@ -289,8 +289,8 @@ function delBookMarkResult(){
 									<td style="height:50px" >
 										
 										<div id="select_box">
-										<label for="color">금액</label>
-										<select name="pricerange" id="color">
+										<label for="color" id="plabel">금액</label>
+										<select name="pricerange" id="color" onchange="selOption()">
 											<option value="0">금액</option>
 											<option value="1">0~3000원</option>
 											<option value="2">3000~5000원</option>

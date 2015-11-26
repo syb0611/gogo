@@ -23,7 +23,6 @@ import com.gogo.withgo.dao.MongoDao;
 import com.gogo.withgo.vo.CarpoolVo;
 import com.gogo.withgo.vo.MapVo;
 import com.gogo.withgo.vo.MemberVo;
-import com.gogo.withgo.vo.PageVo;
 import com.gogo.withgo.vo.CPageVo;
 import com.gogo.withgo.vo.CarpoolMemberVo;
 
@@ -165,16 +164,10 @@ public class CarpoolController {
 		
 		///////////////////////
 		int listTotal = dao.searchAllTotal(departure, arrival);
-		
-		//pvo.setCategory(category);
-		//pvo.setMno(mno);
+
 		pvo.setPage(listTotal, page);
 		
 		List<CarpoolMemberVo> searchList = dao.searchAll(pvo);
-		////////////
-		
-		
-		
 		
 		
 		//List<CarpoolMemberVo> searchList = dao.searchAll(vo);
@@ -211,11 +204,11 @@ public class CarpoolController {
 				searchList = dao.search3(vo);
 			}else{ 
 				searchList = dao.search4(vo);
-				System.out.println("444444444");
 			}	
 		}
 		
-		model.addAttribute("category", vo.getCategory());
+		model.addAttribute("carpoolvo", vo);
+		//model.addAttribute("category", vo.getCategory());
 		model.addAttribute("searchList", searchList);
 		return "carpool/search";
 	}
