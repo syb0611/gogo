@@ -179,7 +179,8 @@ function goMsg(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2>CARPOOL</h2>
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">s h o r t - t e r m</h2>
+								<span style="color:gray;">' 단기카풀 ' 은 7일에서 30일 이내의 카풀이용 기한을 두는 카테고리 입니다. </span>
 						
 					</div>
 				</div>

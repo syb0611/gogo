@@ -195,7 +195,8 @@ function selOption(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:white;text-shadow:3px 3px 3px #c3cdce;">short-term carpool</h2>
+								<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">s h o r t - t e r m</h2>
+								<span style="color:gray;">' 단기카풀 ' 은 7일에서 30일 이내의 카풀이용 기한을 두는 카테고리 입니다. </span>
 								
 							</div>
 						</div>
@@ -210,7 +211,8 @@ function selOption(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">Long-term carpool</h2>
+								<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">l o n g - t e r m</h2>
+								<span style="color:gray;">' 장기카풀 ' 은 30일 이상의 카풀이용 기한을 두는 카테고리 입니다. </span>
 								
 							</div>
 						</div>
@@ -226,7 +228,8 @@ function selOption(){
 						<div class="col-md-12">
 							
 							<div class="heading-content">
-								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">goschool</h2>
+								<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">g o - s c h o o l</h2>
+								<span style="color:gray;">' 고스쿨 ' 은 전국 대학교를 목적지로 하는 학생들을 위한 카테고리 입니다. </span>
 								
 							</div>
 						</div>
@@ -241,7 +244,8 @@ function selOption(){
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading-content">
-								<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">TAXI CARPOOL</h2>
+								<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">t a x i</h2>
+								<span style="color:gray;">' 택시카풀 ' 은 택시를 함께 이용하고 싶은 사람들을 위한 카테고리 입니다 . </span>
 								
 							</div>
 						</div>
@@ -283,77 +287,46 @@ function selOption(){
 							</div>
 							<div>
 							<table>
-								<tr>
-									<td>
-										<p class="reg_area dt"></p>
-										<input type="text" class="form-control" placeholder="출발지" value="${carpoolvo.departure }" name="departure" />
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p class="reg_area dt"></p>
-										<input type="text" class="form-control" placeholder="도착지" value="${carpoolvo.arrival }" name="arrival"/>
-									</td>
-								</tr>
-								<tr>
-									<td style="height:50px" >
-										<div id="select_box">
-										<label for="color" id="plabel">
-											<c:choose>
-												<c:when test="${carpoolvo.pricerange == 1 }">0~3000원</c:when>
-												<c:when test="${carpoolvo.pricerange == 2 }">3000~5000원</c:when>
-												<c:when test="${carpoolvo.pricerange == 3 }">5000~8000원</c:when>
-												<c:when test="${carpoolvo.pricerange == 4 }">8000원이상</c:when>
-												<c:otherwise>금액</c:otherwise>
-											</c:choose>
-										</label> 
-										<select name="pricerange" id="color" onchange="selOption()">
-											<option value="0">금액</option>
-											<option value="1">0~3000원</option>
-											<option value="2">3000~5000원</option>
-											<option value="3">5000~8000원</option>
-											<option value="4">8000원이상</option>
-										</select>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td style="height:30px">
-										성별 : 
-										<c:choose>
-											<c:when test="${carpoolvo.genderlimit == 1 }">
-												<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
-												<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="1"><span>남자</span> 
-											</c:when>
-											<c:when test="${carpoolvo.genderlimit == 2 }">
-												<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
-												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="2"><span>여자  </span>
-												<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
-											</c:when>
-											<c:otherwise>
-												<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
-												<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-												<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
-											</c:otherwise>
-										</c:choose>
-									</td>
-								</tr>
-								<tr>
-									<td style="height:30px">
-										흡연 : 
-										<c:choose>
-											<c:when test="${carpoolvo.smoking == 1 }">
-												<input name="smoking" id="smoking" type="radio" value="0"><span>불가</span>
-												<input name="smoking" id="smoking" type="radio" value="1" checked="checked"><span>가능</span> 
-											</c:when>
-											<c:otherwise>
-												<input name="smoking" id="smoking" type="radio" value="0"  checked="checked"><span>불가</span>
-												<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
-											</c:otherwise>
-										</c:choose>
-									</td>
-								</tr>
+								
+									<tr>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></div></td>
+									</tr>
+									<tr>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></div></td>
+									</tr>
+									<tr>
+										<td style="height:50px">
+											
+											<div id="select_box">
+											<label for="color" id="plabel">금액</label>
+											<select name="pricerange" id="color" onchange="selOption()">
+												<option value="0">금액</option>
+												<option value="1">0~3000원</option>
+												<option value="2">3000~5000원</option>
+												<option value="3">5000~8000원</option>
+												<option value="4">8000원이상</option>
+											</select>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="pt" style="height:30px; font-weight: 700;">
+											성별 : 
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+										</td>
+									</tr>
+									<tr>
+										<td class="pt" style="height:30px; font-weight: 700;">
+											흡연 : 
+											<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
+											<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
+										</td>
+									</tr>
+							
+								
 								<tr>
 									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
 								</tr>

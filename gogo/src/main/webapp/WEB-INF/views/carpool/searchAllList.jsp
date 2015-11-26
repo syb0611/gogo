@@ -206,7 +206,8 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2 style="color:white;text-shadow:3px 3px 3px #c3cdce;">카풀 빠른 검색</h2>	
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">s e a r c h - r e s u l t</h2>
+								<span style="color:gray;">' 빠른검색 ' 결과 입니다. </span>
 					</div>
 				</div>
 			</div>
@@ -231,48 +232,50 @@ function delBookMarkResult(){
 									</div>
 									<div>
 									<table>
-										<tr>
-											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" value="${pvo.departure }" /></td>
-										</tr>
-										<tr>
-											<td><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival" value="${pvo.arrival }"/></td>
-										</tr>
-										<tr>
-											<td style="height:50px" >
-												
-												<div id="select_box">
-												<label for="color" id="plabel">금액</label>
-												<select name="pricerange" id="color" onchange="selOption()">
-													<option value="0">금액</option>
-													<option value="1">0~3000원</option>
-													<option value="2">3000~5000원</option>
-													<option value="3">5000~8000원</option>
-													<option value="4">8000원이상</option>
-												</select>
-												</div>
-											</td>
-										</tr>
-										
-										<tr>
-											<td class="pt" style="height:30px; font-weight: 700;">
-												성별 : 
-												<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
-												<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-												<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
-											</td>
-										</tr>
-										<tr>
-											<td class="pt" style="height:30px; font-weight: 700;">
-												흡연 : 
-												<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
-												<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
-											</td>
-										</tr>
-										
-										<tr>
-											<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
-										</tr>
-									</table>
+								
+									<tr>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></div></td>
+									</tr>
+									<tr>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></div></td>
+									</tr>
+									<tr>
+										<td style="height:50px">
+											
+											<div id="select_box">
+											<label for="color" id="plabel">금액</label>
+											<select name="pricerange" id="color" onchange="selOption()">
+												<option value="0">금액</option>
+												<option value="1">0~3000원</option>
+												<option value="2">3000~5000원</option>
+												<option value="3">5000~8000원</option>
+												<option value="4">8000원이상</option>
+											</select>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="pt" style="height:30px; font-weight: 700;">
+											성별 : 
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+										</td>
+									</tr>
+									<tr>
+										<td class="pt" style="height:30px; font-weight: 700;">
+											흡연 : 
+											<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
+											<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
+										</td>
+									</tr>
+							
+								
+								<tr>
+									<td align="center"><img style="cursor:pointer;" src="/withgo/resources/images/검색1.png"  width="131px" height="37px" onclick="checkform()"></td>
+								</tr>
+							</table>
 									</div>
 								</form>
 							</fieldset>
