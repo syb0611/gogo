@@ -12,9 +12,14 @@
 }
 
 .ex{
-	color:#fdfbf7;
+	color:#ffc58a;
 }
-
+.bannerr{
+	color:#db5c09;
+	font-family: "NanumGothicBold";
+	text-align: left;
+	
+}
 div#select_box {
     position: relative;
     width: 190px;
