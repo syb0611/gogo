@@ -249,17 +249,17 @@ function goMsg(){
 							<c:choose>
 								<c:when test="${vo.category == 'dan'}">
 								
-									<h3>단기카풀</h3>
+									<img src="/withgo/resources/images/이거.png"  width="131px" height="40px">
 								</c:when>
 								<c:when test="${vo.category == 'jang'}">
-									<h3>장기카풀</h3>
+									<img src="/withgo/resources/images/장기장기.png"  width="131px" height="38px">
 								</c:when>
 							</c:choose>
 						</div>
 						<div>
 							<c:choose>
-								<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
-								<c:when test="${vo.usertype == 'rider' }">태워주세요</c:when> 
+								<c:when test="${vo.usertype == 'driver' }"><img src="/withgo/resources/images/타라.png"  width="75px" height="35px"></c:when> 
+								<c:when test="${vo.usertype == 'rider' }"><img src="/withgo/resources/images/태워줭.png"  width="95px" height="35px"></c:when> 
 								<c:otherwise>함께타요</c:otherwise>									
 							</c:choose> 
 						</div>
