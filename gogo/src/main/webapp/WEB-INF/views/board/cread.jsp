@@ -115,9 +115,9 @@ function postClick(){
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
 								<div class="category">
 									<c:choose>
-										<c:when test="${vo.category == 'notice' }"><h4>공지사항</h4></c:when>
-										<c:when test="${vo.category == 'qna' }"><h4>자주묻는질문</h4></c:when>
-										<c:otherwise><h4>건의게시판</h4></c:otherwise>
+										<c:when test="${vo.category == 'notice' }"><img src="/withgo/resources/images/공지사항.png"  width="131px" height="38px"></c:when>
+										<c:when test="${vo.category == 'qna' }"><img src="/withgo/resources/images/자주묻1.png"  width="131px" height="38px"></c:when>
+										<c:otherwise><img src="/withgo/resources/images/건의게시판.png"  width="131px" height="38px"></c:otherwise>
 									</c:choose>
 								</div>
 								<div class="hit">
