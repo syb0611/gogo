@@ -20,7 +20,7 @@ http://www.templatemo.com/free-website-templates/417-grill
 
 <style>
 #heading {
-	background-image: url(../images/새.png);
+	background-image: url(/withgo/resources/images/돋.png);
 	height: 150px;
 }
 

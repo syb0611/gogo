@@ -10,7 +10,7 @@
 
 <style>
 #heading {
-/* 	background-image: url(images/community.png); */
+background-image: url(/withgo/resources/images/돋.png);
 	background-color: gray;
 	height: 140px;
 }

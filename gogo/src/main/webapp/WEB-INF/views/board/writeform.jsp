@@ -11,7 +11,7 @@
 
 <style>
 #heading {
- 	background-image: url(/withgo/resources/images/새.png);
+ 	background-image: url(/withgo/resources/images/돋.png);
 
 	height: 150px;
 }
