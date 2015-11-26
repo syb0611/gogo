@@ -99,7 +99,7 @@ function callback(){
 	if(xhr.readyState==4){
       if(xhr.status==200){
     	  var result = xhr.responseText;
-    	  document.getElementById("sel2").innerHTML = result;
+    	  document.getElementById("loc3").innerHTML = result;
         // document.getElementById("view").innerHTML=
       }else if(xhr.status==404){
        //  document.getElementById("view").innerHTML="서버프로그램 없음";
@@ -237,8 +237,8 @@ function callback(){
 													</select>
 												</span>
 												<span>
-													<select name="sel2" id="sel2">
-														<option value="seoul"></option>
+													<select name="sel2" id="loc3">
+														<option value=""></option>
 													</select>
 												</span>
 											</td>
