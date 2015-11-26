@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,6 +63,44 @@ public class MemberController {
 		return "redirect:/home";
 	}
 	
+	@RequestMapping("/findform")
+	public String findform(){
+		return "find";
+	}
+	
+	@RequestMapping("/findId")
+	public String findId(MemberVo vo, Model model){
+		String id = dao.findId(vo);
+		if(id == null || id == ""){
+			model.addAttribute("res", "idF");
+			return "find";
+		}else{
+			model.addAttribute("findId", id);
+			return "login";
+		}
+	}
+	
+	@RequestMapping("/findPw")
+	public String findPw(MemberVo vo, Model model){
+		String pw = dao.findPw(vo);
+		if(pw == null || pw == ""){
+			model.addAttribute("res", "pwF");
+			return "find";
+		}else{
+			model.addAttribute("findInfo", vo);
+			return "newpw";
+		}
+	}
+	
+	@RequestMapping("/pwUpdate")
+	public void pwUpdate(HttpServletResponse response, MemberVo vo) throws IOException{
+		
+		PrintWriter out = response.getWriter();
+		out.print("success");
+		out.close();
+		dao.pwUpdate(vo);
+	}
+	
 	@RequestMapping("/join")
 	public String join(MemberVo vo){
 		dao.join(vo);
@@ -73,7 +112,7 @@ public class MemberController {
 		PrintWriter out = response.getWriter();
 		
 		String checkEmail = dao.findEmail(email);
-		if(checkEmail == null) out.print("false");
+		if(checkEmail == null) out.print("pwF");
 		else out.print("true");
 		
 		out.close();

@@ -25,6 +25,50 @@ body {
 	float: right;
 }
 </style>
+<script>
+var xhr = null;
+
+function pwck(){
+	var f = document.pwform;
+	if(f.pw.value.trim() == ""){
+		alert("새로운 비밀번호를 입력하세요.");
+		f.pw.focus();
+		return;
+	}
+	if(f.pw2.value.trim() == ""){
+		alert("비밀번호를 확인하세요.");
+		f.pw2.focus();
+		return;
+	}
+	if(f.pw.value != f.pw2.value){
+		alert("비밀번호가 일치하지 않습니다.");
+		f.pw2.focus();
+		return;
+	}
+	
+	
+	var email = f.email.value;
+	var phone = f.phone.value;
+	var pw = f.pw.value;
+	
+	xhr = new XMLHttpRequest();
+	var url = "${pageContext.request.contextPath}/member/pwUpdate";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = pwUpdateResult;
+	xhr.send("email="+email+"&phone="+phone+"&pw="+pw);
+}
+
+function pwUpdateResult(){
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			var flag = xhr.responseText;
+			alert("비밀번호가 변경되었습니다.");
+			location.href="/withgo/member/loginform";
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -78,23 +122,21 @@ body {
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1">
 			<div style="margin-top:50px"></div>
-			<h2>로그인</h2>
+			<h2>새로운 비밀번호 설정</h2>
 			
-			<form id="loginForm" method="post"
-				action="${contextPath}/member/login">
+			<form id="pwform" name="pwform" method="post" action="">
+				<input type="hidden" name="email" value="${findInfo.email }">
+				<input type="hidden" name="phone" value="${findInfo.phone }">
 				<div class="form-group">
-					<label for="inputEmail">이메일 입력</label> <input type="email"
-						class="form-control" name="email" placeholder="이메일" value="${findId }">
+					<label for="newpw">새로운 비밀번호</label> 
+					<input type="password" class="form-control" name="pw" placeholder="새로운 비밀번호">
 				</div>
 				<div class="form-group">
-					<label for="inputPassword">비밀번호 입력</label> <input type="password"
-						class="form-control" name="pw" placeholder="비밀번호">
+					<label for="newpw">새로운 비밀번호 확인</label> 
+					<input type="password" class="form-control" name="pw2" placeholder="새로운 비밀번호 확인">
 				</div>
 				<div class="form-group">
-					<span><label style="cursor: pointer" onclick="location.href='/withgo/member/findform'">아이디/비밀번호찾기</label></span> <input type="submit"
-						class="btn btn-primary form-control" value="로그인"> <input
-						type="button" class="btn btn-default form-control" value="회원가입"
-						onclick="location.href='${contextPath}/member/joinform'">
+					<input type="button" class="btn btn-primary form-control" value="비밀번호 저장" onclick="pwck()">
 				</div>
 			</form>
 		</div>

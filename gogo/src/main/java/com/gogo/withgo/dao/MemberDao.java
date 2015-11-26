@@ -57,4 +57,16 @@ public class MemberDao {
 //		return member;
 //	}
 	
+	
+	public String findId(MemberVo vo){
+		return template.selectOne(sql+".findId", vo);
+	}
+	
+	public String findPw(MemberVo vo){
+		return template.selectOne(sql+".findPw", vo);
+	}
+	
+	public void pwUpdate(MemberVo vo){
+		template.update(sql+".pwUpdate", vo);
+	}
 }
