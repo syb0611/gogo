@@ -17,9 +17,9 @@
 
 div#select_box {
     position: relative;
-    width: 200px;
+    width: 190px;
     height: 35px;
-    background: url(/withgo/resources/images/select_arrow.png) 180px center no-repeat; /* 화살표 이미지 */
+    background: url(/withgo/resources/images/select_arrow.png) 160px center no-repeat; /* 화살표 이미지 */
     border: 1px solid #c0c0c0;
     border-radius: 3px;
 }
