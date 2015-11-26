@@ -141,8 +141,8 @@ function delBookMarkResult(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2  style="color:white; text-shadow:3px 3px 3px gray;">MY PAGE</h2>
-						 <a href="${contextPath}/mypage/bookmark">즐겨찾기</a>
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">m y p a g e</h2>
+								<span style="color:gray;">' 마이페이지 ' 는  내 정보를 확인,수정,삭제 할 수 있는 페이지 입니다.  </span>
 					</div>
 				</div>
 			</div>
