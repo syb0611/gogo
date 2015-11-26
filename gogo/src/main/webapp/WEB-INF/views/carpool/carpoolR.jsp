@@ -198,10 +198,10 @@ function goMsg(){
 								<td rowspan="2" style="padding-right: 5px">
 									<c:choose>
 										<c:when test="${vo.image == null }">
-											<img src="/withgo/resources/images/blankimage.png" width="80px;" id="pic">
+											<img src="/withgo/resources/images/blankimage.png" width="80px;" height="80px" id="pic">
 										</c:when>
 										<c:otherwise>
-											<img src="/withgo/upload/${vo.image }" width="80px;" id="pic">
+											<img src="/withgo/upload/${vo.image }" width="80px;" height="80px" id="pic">
 										</c:otherwise>
 									</c:choose>
 									

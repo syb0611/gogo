@@ -255,10 +255,10 @@ function previewImage(targetObj, previewId){
 																	 	<div id="previewId">
 																	 		<c:choose>
 																	 			<c:when test="${memberInfo.image == null }">
-																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px" id="pic">
+																	 				<img src="/withgo/resources/images/blankimage.png" id="myImg" width="80px"  height="80px" id="pic">
 																	 			</c:when>
 																	 			<c:otherwise>
-																	 				<img src="/withgo/upload/${memberInfo.image }" id="myImg" width='80px' id="pic">
+																	 				<img src="/withgo/upload/${memberInfo.image }" id="myImg" width='80px'  height="80px" id="pic">
 																	 			</c:otherwise>
 																	 		</c:choose>
 																	 		
