@@ -191,7 +191,7 @@ function goMsg(){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<div style="width:100%; height:250px; border:1px solid #C6C6C6">
+					<div style="width:100%; height:230px; border:2px solid #C6C6C6; border-radius: 3px; background:#fdfbf7;">
 						<table style="width:80%; margin: 0 auto; margin-top: 20px;">
 						
 							<tr>
