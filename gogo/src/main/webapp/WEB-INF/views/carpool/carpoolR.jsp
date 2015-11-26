@@ -255,6 +255,12 @@ function goMsg(){
 								<c:when test="${vo.category == 'jang'}">
 									<img src="/withgo/resources/images/장기장기.png"  width="131px" height="38px">
 								</c:when>
+								<c:when test="${vo.category == 'taxi'}">
+									<img src="/withgo/resources/images/taxicar.png"  width="131px" height="38px">
+								</c:when>
+								<c:otherwise>
+									<img src="/withgo/resources/images/goschoolcar.png"  width="131px" height="38px">
+								</c:otherwise>
 							</c:choose>
 						</div>
 						<div>

@@ -188,7 +188,7 @@ function selOption(){
 		</div>
 	</header>
 	<c:choose>
-		<c:when test="${carpoolvo.category == 'dan'}">
+		<c:when test="${pvo.category == 'dan'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/새.png);">
 							<div class="container">
@@ -204,7 +204,7 @@ function selOption(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${carpoolvo.category == 'jang'}">
+		<c:when test="${pvo.category == 'jang'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/새.png); height: 150px; width: 100%;">
 				<div class="container">
@@ -220,7 +220,7 @@ function selOption(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${carpoolvo.category == 'goschool'}">
+		<c:when test="${pvo.category == 'goschool'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/집.png); height: 150px;">
 				<div class="container">
@@ -237,7 +237,7 @@ function selOption(){
 				</div>
 			</div>
 		</c:when>
-		<c:when test="${carpoolvo.category == 'taxi'}">
+		<c:when test="${pvo.category == 'taxi'}">
 			<div id="heading"
 				style="background-image: url(/withgo/resources/images/계.png); height: 150px;">
 				<div class="container">
@@ -265,15 +265,15 @@ function selOption(){
 					<fieldset>	
 						<form action="/withgo/carpool/search" method="post" name="f">
 							<div class="btn-group" style="margin-bottom: 10px">
-								<input type="hidden" name="category" value="${carpoolvo.category }">
+								<input type="hidden" name="category" value="${pvo.category }">
 								<input type="hidden" name="usertype" id="usertype" value="all"><br>
 								<c:choose>
-									<c:when test="${carpoolvo.usertype == 'driver' }">
+									<c:when test="${pvo.usertype == 'driver' }">
 										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)" style="background: #425051">전체</button>
 										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)" style="background: #995051">타세요</button>
 										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)" style="background: #425051">탈래요</button>
 									</c:when>
-									<c:when test="${carpoolvo.usertype == 'rider' }">
+									<c:when test="${pvo.usertype == 'rider' }">
 										<button type="button" class="btn btn-default" id="usertype1" onclick="typeClick(1)" style="background: #425051">전체</button>
 										<button type="button" class="btn btn-default" id="usertype2" onclick="typeClick(2)" style="background: #425051">타세요</button>
 										<button type="button" class="btn btn-default" id="usertype3" onclick="typeClick(3)" style="background: #995051">탈래요</button>
@@ -289,16 +289,24 @@ function selOption(){
 							<table>
 								
 									<tr>
-										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></div></td>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" value="${pvo.departure }"/></div></td>
 									</tr>
 									<tr>
-										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></div></td>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival" value="${pvo.arrival }"/></div></td>
 									</tr>
 									<tr>
 										<td style="height:50px">
 											
 											<div id="select_box">
-											<label for="color" id="plabel">금액</label>
+											<label for="color" id="plabel">
+												<c:choose>
+													<c:when test="${pvo.pricerange == 1 }">0~3000원</c:when>
+													<c:when test="${pvo.pricerange == 2 }">3000~5000원</c:when>
+													<c:when test="${pvo.pricerange == 3 }">5000~8000원</c:when>
+													<c:when test="${pvo.pricerange == 4 }">8000원이상</c:when>
+													<c:otherwise>금액</c:otherwise>
+												</c:choose>
+											</label> 
 											<select name="pricerange" id="color" onchange="selOption()">
 												<option value="0">금액</option>
 												<option value="1">0~3000원</option>
@@ -313,16 +321,38 @@ function selOption(){
 									<tr>
 										<td class="pt" style="height:30px; font-weight: 700;">
 											성별 : 
-											<input class="pt" name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
-											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
-											<input class="pt" name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+											<c:choose>
+												<c:when test="${pvo.genderlimit == 1 }">
+													<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
+													<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+													<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="1"><span>남자</span> 
+												</c:when>
+												<c:when test="${pvo.genderlimit == 2 }">
+													<input name="genderlimit" id="genderlimit" type="radio" value="0" ><span>전체   </span>
+													<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="2"><span>여자  </span>
+													<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+												</c:when>
+												<c:otherwise>
+													<input name="genderlimit" id="genderlimit" type="radio" checked="checked" value="0" ><span>전체   </span>
+													<input name="genderlimit" id="genderlimit" type="radio" value="2"><span>여자  </span>
+													<input name="genderlimit" id="genderlimit" type="radio" value="1"><span>남자</span> 
+												</c:otherwise>
+											</c:choose>
 										</td>
 									</tr>
 									<tr>
 										<td class="pt" style="height:30px; font-weight: 700;">
 											흡연 : 
-											<input class="pt" name="smoking" id="smoking" type="radio" value="0" checked="checked"><span>불가</span>
-											<input class="pt" name="smoking" id="smoking" type="radio" value="1"><span>가능</span><br><br>
+											<c:choose>
+												<c:when test="${pvo.smoking == 1 }">
+													<input name="smoking" id="smoking" type="radio" value="0"><span>불가</span>
+													<input name="smoking" id="smoking" type="radio" value="1" checked="checked"><span>가능</span> 
+												</c:when>
+												<c:otherwise>
+													<input name="smoking" id="smoking" type="radio" value="0"  checked="checked"><span>불가</span>
+													<input name="smoking" id="smoking" type="radio" value="1"><span>가능</span> 
+												</c:otherwise>
+											</c:choose>
 										</td>
 									</tr>
 							
@@ -342,7 +372,7 @@ function selOption(){
 				<div class="col-md-9">
 					<div style="height:40px; line-height: 40px;">
 						<div style="float: left;">
-							출발 <b>${carpoolvo.departure }</b> - 도착 <b>${carpoolvo.arrival }</b> 검색결과 
+							출발 <b>${pvo.departure }</b> - 도착 <b>${pvo.arrival }</b> 검색결과 
 						</div>
 						<div style="float: right;">
 						<c:if test="${memberInfo != null }">
@@ -372,7 +402,7 @@ function selOption(){
 											<img src="/withgo/resources/images/on.png" class="bookmarkck" id="bookmark${vo.carno }" onclick="bookmarkClick(${vo.carno})">
 										</c:otherwise>
 									</c:choose>
-									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${carpoolvo.category}&no=${vo.carno }'">		
+									<table class="listTable" onclick="location.href='${contextPath}/carpool/read?category=${pvo.category}&no=${vo.carno }'">		
 										<tr>
 											<td width="15%" align="center">
 												<div>

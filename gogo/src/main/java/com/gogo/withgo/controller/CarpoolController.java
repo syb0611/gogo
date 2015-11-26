@@ -247,7 +247,7 @@ public class CarpoolController {
 			}	
 		}
 		
-		model.addAttribute("carpoolvo", vo);
+		//model.addAttribute("carpoolvo", vo);
 		model.addAttribute("pvo", pvo);
 		//model.addAttribute("category", vo.getCategory());
 		model.addAttribute("searchList", searchList);

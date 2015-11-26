@@ -391,9 +391,10 @@ function selOption(){
 											<td width="20%" style="text-align: right">
 												<div>
 													<c:choose>
-														<c:when test="${category == 'dan' }"><img src="../images/dan.png"></c:when> 
-														<c:when test="${category == 'jang' }"><img src="../images/jang.png"></c:when>
-														<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+														<c:when test="${category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
+														<c:when test="${category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
+														<c:when test="${category == 'taxi' }"><img src="/withgo/resources/images/taxiimg.png"></c:when>
+														<c:otherwise><img src="/withgo/resources/images/goschool.png"></c:otherwise>
 													</c:choose>
 													<c:choose>
 		 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
