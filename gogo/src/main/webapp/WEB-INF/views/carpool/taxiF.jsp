@@ -232,7 +232,7 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">경유지</p></td>
-									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2"></td>
+									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;</td>
 								</tr>
 								<tr>
 									<td><br></td>
@@ -241,24 +241,29 @@ table.t_ex2 .c2 {
 									<div style="text-align:right;">
 									<input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
 									</div>
+									<tr>
+											<td>거리</td>
+											<td>
+												<input type="text"  id="loc1">
+												예상금액
+												<input type="text"  id="loc1">		
+								</tr>
+									<tr>
+									<td><p class="reg_area dt">거리</p></td>
+									<td><input type="text" name="arrival" size="20"></td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">좌석수</p></td>
 									<td>
 									<input type="number" name="seat" value="1"></td>
 								</tr>
-								<tr>
-									<td><p class="reg_area dt">금액</p></td>
-									<td><input type="text" name="arrival" size="20"></td>
-								</tr>
-								<tr>
 								
+								<tr>
 									<td><p class="reg_area dt">흡연 여부</p></td>
 									
 									<td><p class="reg_area dt"><input type="radio" name="usertype" value="driver"
 										checked="checked"> 흡연자 <input
 										type="radio" name="usertype" value="rider"> 비흡연자 </p></td>
-										
 								</tr>
 								<tr>
 									

@@ -73,7 +73,6 @@ table.t_ex2 .c2 {
 	margin-top: 30px;
 }
 #usertype1 {
-	width: 200px;
 	height: 50px;
 	background: #E7E7E7;
 }
@@ -221,7 +220,7 @@ function callback(){
 											<td>출발지</td>
 											<td>
 												<input type="text"  id="loc1">
-												<!-- <input type="button" class="btn_comm1" value="경로검색" id="route" /> -->
+												
 												도착지
 												<span>
 													<select name="sel1" id="sel1" onchange="checkChange()">
