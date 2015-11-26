@@ -93,7 +93,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;" align="center">Community</h2>
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">c o m m u n i t y</h2>
+								<span style="color:gray;">' 커뮤니티 ' 는  위드고 회원이 함께 소통하는 커뮤니티 공간입니다.  </span>
 						
 					</div>
 				</div>
