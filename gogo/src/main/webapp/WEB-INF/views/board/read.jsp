@@ -140,9 +140,9 @@ function postClick(){
 							<div class="col-md-offset-1 col-md-10 col-sm-12">
 								<div class="category">
 									<c:choose>
-										<c:when test="${vo.category == 'greeting' }"><h4>가입인사</h4></c:when>
-										<c:when test="${vo.category == 'free' }"><h4>자유게시판</h4></c:when>
-										<c:otherwise><h4>카풀이용후기</h4></c:otherwise>
+										<c:when test="${vo.category == 'greeting' }"><img src="/withgo/resources/images/가입인사2.png"  width="131px" height="38px"></c:when>
+										<c:when test="${vo.category == 'free' }"><img src="/withgo/resources/images/자유.png"  width="143px" height="38px"></c:when>
+										<c:otherwise><img src="/withgo/resources/images/후기.png"  width="147px" height="38px"></c:otherwise>
 									</c:choose>
 								</div>
 								<div class="hit">
