@@ -85,7 +85,8 @@ http://www.templatemo.com/free-website-templates/417-grill
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-content">
-						<h2 style="color:white; text-shadow:3px 3px 3px #c3cdce;">service center</h2>
+						<h2 style="color:#ec7600; text-align:center; font-weight: 800; text-shadow:1px 1px 1px #ffc58a;">s e r v i c e</h2>
+								<span style="color:gray;">' 고객센터 ' 는 보다 나은 서비스를 제공하기 위한 카테고리 입니다 . </span>
 						
 					</div>
 				</div>
