@@ -30,7 +30,7 @@
 								도와주는 웹사이트 입니다.
 							<hr>
 							<br>
-							<br>문의메일 <a rel="nofollow" href="http://unsplash.com">abcd@gmail.com</a><br>업무시간
+							<br>문의메일 <a rel="nofollow" href="http://gmail.com">abcd@gmail.com</a><br>업무시간
 							: 평일 오전 8시~오후 5시(주말,공휴일 휴무) .
 							</p>
 						</div>
@@ -67,9 +67,8 @@
 						<div class="more-info">
 							<h4 class="footer-title">More info</h4>
 							<p>
-								사업자 등록번호 : 206-86-64536<br> 사업자정보확인 : 사업자정보확인<br>
-								통신판매업 신고번호 : 제2014-서울중구-0427호<br> 주소 : 서울 중구 필동2가 82-1
-								동국대학교<Br>충무로관 신관 .
+								사업자 등록번호 : 123-45-67890<br> 사업자정보확인 : 사업자정보확인<br>
+								통신판매업 신고번호 : 제2015-서울강남구-0427호<br> 주소 : 서울시 서초구 서초동 비트빌.
 							</p>
 							<ul>
 								<li><i class="fa fa-phone"></i>010-020-0340</li>
@@ -83,7 +82,7 @@
 			</div>
 			<div class="bottom-footer">
 				<p>
-					<span>Copyright © 2084 <a href="#">Your Company Name</a> |
+					<span>Copyright ⓒ 2084 <a href="#">Your Company Name</a> |
 						Design: <a rel="nofollow" href="http://www.templatemo.com"
 						target="_parent"><span class="blue">template</span><span
 							class="green">mo</span></a></span>
