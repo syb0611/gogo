@@ -242,15 +242,12 @@ table.t_ex2 .c2 {
 									<input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
 									</div>
 									<tr>
-											<td>거리</td>
-											<td>
-												<input type="text"  id="loc1">
-												예상금액
-												<input type="text"  id="loc1">		
+									<td><p class="reg_area dt">거리</p></td>
+									<td><span id="meter"></span></td>	
 								</tr>
 									<tr>
-									<td><p class="reg_area dt">거리</p></td>
-									<td><input type="text" name="arrival" size="20"></td>
+									<td><p class="reg_area dt">예상금액</p></td>
+									<td><span id="money"></span></td>
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">좌석수</p></td>

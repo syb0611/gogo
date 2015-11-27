@@ -406,14 +406,12 @@ $(function() {
 												.round(response.features[0].properties.totalTime / 60);
 										tmoney = response.features[0].properties.taxiFare;
 
-										/*
-										 * document.getElementById('meter').innerHTML =
-										 * miter1 + "Km";
-										 * document.getElementById('time').innerHTML =
-										 * sec1 + "분";
-										 * document.getElementById('money').innerHTML =
-										 * tmoney + "원";
-										 */
+										
+										 document.getElementById('meter').innerHTML =
+										 miter1 + "Km";
+										 document.getElementById('money').innerHTML =
+										 tmoney + "원";
+										
 									}
 								});
 					});
