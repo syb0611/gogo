@@ -115,19 +115,19 @@ public class CarpoolDao {
 		return template.selectOne(sql+".bookmarkTotal", mno);
 	}
 	
-	public int searchTotal1(CarpoolVo vo){
-		return template.selectOne(sql+".searchTotal1", vo);
+	public int searchTotal1(CPageVo pvo){
+		return template.selectOne(sql+".searchTotal1", pvo);
 	}
 	
-	public int searchTotal2(CarpoolVo vo){
-		return template.selectOne(sql+".searchTotal2", vo);
+	public int searchTotal2(CPageVo pvo){
+		return template.selectOne(sql+".searchTotal2", pvo);
 	}
 	
-	public int searchTotal3(CarpoolVo vo){
-		return template.selectOne(sql+".searchTotal3", vo);
+	public int searchTotal3(CPageVo pvo){
+		return template.selectOne(sql+".searchTotal3", pvo);
 	}
 	
-	public int searchTotal4(CarpoolVo vo){
-		return template.selectOne(sql+".searchTotal4", vo);
+	public int searchTotal4(CPageVo pvo){
+		return template.selectOne(sql+".searchTotal4", pvo);
 	}
 }

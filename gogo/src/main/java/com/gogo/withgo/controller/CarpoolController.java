@@ -227,21 +227,21 @@ public class CarpoolController {
 		
 		if(usertype.equals("all")){ //분류(usertype) 전체
 			if(pricerange == 0){ //금액 전체
-				int searchTotal1 = dao.searchTotal1(vo);
+				int searchTotal1 = dao.searchTotal1(pvo);
 				pvo.setPage(searchTotal1, page);
 				searchList = dao.search1(pvo);
 			}else{ //금액 범위 있는 경우
-				int searchTotal2 = dao.searchTotal2(vo);
+				int searchTotal2 = dao.searchTotal2(pvo);
 				pvo.setPage(searchTotal2, page);
 				searchList = dao.search2(pvo);
 			}	
 		}else{ 
 			if(pricerange == 0){ 
-				int searchTotal3 = dao.searchTotal3(vo);
+				int searchTotal3 = dao.searchTotal3(pvo);
 				pvo.setPage(searchTotal3, page);
 				searchList = dao.search3(pvo);
 			}else{ 
-				int searchTotal4 = dao.searchTotal4(vo);
+				int searchTotal4 = dao.searchTotal4(pvo);
 				pvo.setPage(searchTotal4, page);
 				searchList = dao.search4(pvo);
 			}	

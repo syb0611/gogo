@@ -16,8 +16,8 @@
 	
 	
 	<insert id="write" parameterType="com.gogo.withgo.vo.CarpoolVo">
-    	insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, stop1, stop2, stop3, smoking, genderlimit)
-		values(car_seq.nextval, #{category}, #{mno}, #{departure}, #{arrival}, #{usertype}, #{memo}, #{departuredate}, #{seat}, #{price}, #{stop1}, #{stop2}, #{stop3}, #{smoking}, #{genderlimit})
+    	insert into carpool(carno, category, mno, departure, arrival, usertype, memo, departuredate, seat, price, pricerange, stop1, stop2, stop3, smoking, genderlimit)
+		values(car_seq.nextval, #{category}, #{mno}, #{departure}, #{arrival}, #{usertype}, #{memo}, #{departuredate}, #{seat}, #{price}, #{pricerange}, #{stop1}, #{stop2}, #{stop3}, #{smoking}, #{genderlimit})
    		<selectKey resultType="int" keyProperty="carno" order="AFTER">
    			 SELECT car_seq.currval from dual
    		</selectKey>

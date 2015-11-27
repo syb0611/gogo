@@ -410,7 +410,7 @@ $(function() {
 										 document.getElementById('meter').innerHTML =
 										 miter1 + "Km";
 										 document.getElementById('money').innerHTML =
-										 tmoney + "원";
+										 tmoney;
 										
 									}
 								});

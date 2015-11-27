@@ -85,28 +85,83 @@ table.t_ex2 .c2 {
 /*]]>*/
 </style>
 <script>
-	var xhr;
+var xhr;
 
-	function checkChange() {
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = callback;
-		var id = document.getElementById("sel1").value;
-		xhr.open("get", "${pageContext.request.contextPath}/school/list?type="
-				+ id, true);
-		xhr.send(null);
-	}
+function checkChange() {
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = callback;
+	var id = document.getElementById("sel1").value;
+	xhr.open("get", "${pageContext.request.contextPath}/school/list?type="
+			+ id, true);
+	xhr.send(null);
+}
 
-	function callback() {
-		if (xhr.readyState == 4) {
-			if (xhr.status == 200) {
-				var result = xhr.responseText;
-				document.getElementById("sel2").innerHTML = result;
-				// document.getElementById("view").innerHTML=
-			} else if (xhr.status == 404) {
-				//  document.getElementById("view").innerHTML="서버프로그램 없음";
-			}
+function callback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var result = xhr.responseText;
+			document.getElementById("sel2").innerHTML = result;
+			// document.getElementById("view").innerHTML=
+		} else if (xhr.status == 404) {
+			//  document.getElementById("view").innerHTML="서버프로그램 없음";
 		}
 	}
+}
+
+function formcheck(){
+	var form = document.wform;
+	
+	var category = form.category.value;
+	var mno = form.mno.value;
+	var usertype = form.usertype.value;
+	
+	var date_year = form.date_year.value;
+	var date_month = form.date_month.value;
+	var date_day = form.date_day.value;
+	if (date_month < 10)
+		date_month = "0" + date_month;
+	if (date_day < 10)
+		date_day = "0" + date_day;
+	var departuredate = date_year + "/" + date_month + "/" + date_day;
+	
+	var departure = form.departure.value.trim();
+	if(departure == ""){
+		alert("출발지를 입력하세요.");
+		form.departure.focus();
+		return;
+	}
+	
+	var arrival = form.arrival.value;
+	if(arrival == "" || arrival == null){
+		alert("도착지를 선택하세요.");
+		form.sel2.focus();
+		return;
+	}
+	
+	var stop1 = form.stop1.value;
+	var stop2 = form.stop2.value;
+	var stop3 = form.stop3.value;
+	var seat = form.seat.value;
+	var price = form.price.value;
+	price = document.getElementById("money").innerHTML;
+	var smoking = form.smoking.value;
+	var genderlimit = form.genderlimit.value;
+	var memo = form.memo.value;
+	
+	var param = "category=" + category + "&mno=" + mno + "&departure="
+				+ departure + "&arrival=" + arrival + "&usertype=" + usertype
+				+ "&memo=" + memo + "&departuredate=" + departuredate
+				+ "&seat=" + seat + "&stop1=" + stop1 + "&stop2=" + stop2
+				+ "&stop3=" + stop3 + "&price=" + price + "&smoking=" + smoking + "&genderlimit="
+				+ genderlimit;
+	
+	xhr = new XMLHttpRequest();
+	var url = "/withgo/carpool/write";
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onreadystatechange = writeResult;
+	xhr.send(param);
+}
 </script>
 <script type="text/javascript"	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=5d5accbf-7745-315f-9ccc-fedc53a0f0b1"></script>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -131,16 +186,12 @@ table.t_ex2 .c2 {
 					<div class="col-md-7">
 						<div class="main-menu">
 							<ul>
-								<li><a href="${contextPath}/carpool/list?category=dan"><font
-										size=3>단기카풀</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=jang"><font
-										size=3>장기카풀</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=goschool"><font
-										size=3>고 스쿨</font></a></li>
-								<li><a href="${contextPath}/carpool/list?category=taxi"><font
-										size=3>택시카풀</font></a></li>
-								<li><a href="${contextPath}/board/main"><font size=3>커뮤니티</font></a></li>
-								<li><a href="customer"><font size=3>고객센터</font></a></li>
+								<li><a href="/withgo/carpool/list?category=dan"><font size=3>단기카풀</font></a></li>
+								<li><a href="/withgo/carpool/list?category=jang"><font size=3>장기카풀</font></a></li>
+								<li><a href="/withgo/carpool/list?category=goschool"><font size=3>고 스쿨</font></a></li>
+								<li><a href="/withgo/carpool/list?category=taxi"><font size=3>택시카풀</font></a></li>
+								<li><a href="/withgo/board/main"><font size=3>커뮤니티</font></a></li>
+								<li><a href="/withgo/customer"><font size=3>고객센터</font></a></li>
 							</ul>
 						</div>
 
@@ -165,40 +216,30 @@ table.t_ex2 .c2 {
 	</div>
 
 
-
 	<div id="timeline-post">
 		<div class="container">
 			<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-					<form method="post" action="${contextPath}/carpool/write">
+					<form method="post" name="wform">
 						<input type="hidden" name="category" value="${category }">
 						<input type="hidden" name="mno" value="${memberInfo.mno}">
 						
 						<table>
-						
-							<div style="text-align: center; font-family: NanumGothicBold;">
-
-									<input type="hidden" name="usertype" id="usertype"
-										value="driver">
-
-									<button type="button" class="btn btn-default" id="usertype1"
-										onclick="usertypeClick(1)">
-										<img src="/withgo/resources/images/check.png" width="30px"
-											height="30px">&nbsp;타세요
+							<tr>
+							<td>
+								<div style="text-align: center; font-family: NanumGothicBold;">
+									<input type="hidden" name="usertype" id="usertype" value="together">
+	
+									<button type="button" class="btn btn-default">
+										<img src="/withgo/resources/images/check.png" width="30px" height="30px">&nbsp;함께타요
 									</button>
-									<button type="button" class="btn btn-default" id="usertype2"
-										onclick="usertypeClick(2)">
-										<img src="/withgo/resources/images/check.png" width="30px"
-											height="30px">&nbsp;태워주세요
-									</button>
-
 								</div>
-							
+							</td>
+							</tr>
 						</table>
 				
 						<article class="con_wrap reg_wrap">
-						<table class="table table-condensed" >
-							<br>
+						<table class="table table-condensed">
 								<tr>
 									<td><p class="reg_area dt">출발날짜<p></td>
 									<td>	
@@ -232,21 +273,30 @@ table.t_ex2 .c2 {
 								</tr>
 								<tr>
 									<td><p class="reg_area dt">경유지</p></td>
-									<td><input type="text" name="pass" id="loc2" size="17">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;<input type="text"  size="17" name="pass" id="loc2">&nbsp;&nbsp;</td>
+									<td>
+										<input type="text" name="stop1" id="loc2" size="17">&nbsp;&nbsp;
+										<input type="text"  size="17" name="stop2" id="loc2">&nbsp;&nbsp;
+										<input type="text"  size="17" name="stop3" id="loc2">&nbsp;&nbsp;
+									</td>
 								</tr>
 								<tr>
-									<td><br></td>
+									<td></td>
 									<td>
-									<div id="map_div"></div>
-									<div style="text-align:right;">
-									<input type="button" class="btn_comm1" value="경로검색" id="route" /></td>
-									</div>
-									<tr>
+										<div id="map_div"></div>
+										<div style="text-align:right;">
+											<input type="button" class="btn_comm1" value="경로검색" id="route" />
+										</div>
+									</td>
+								</tr>
+								<tr>
 									<td><p class="reg_area dt">거리</p></td>
 									<td><span id="meter"></span></td>	
 								</tr>
-									<tr>
-									<td><p class="reg_area dt">예상금액</p></td>
+								<tr>
+									<td>
+										<input type="hidden" name="price">
+										<p class="reg_area dt">예상금액</p>
+									</td>
 									<td><span id="money"></span></td>
 								</tr>
 								<tr>
@@ -254,21 +304,22 @@ table.t_ex2 .c2 {
 									<td>
 									<input type="number" name="seat" value="1"></td>
 								</tr>
-								
 								<tr>
 									<td><p class="reg_area dt">흡연 여부</p></td>
 									
-									<td><p class="reg_area dt"><input type="radio" name="usertype" value="driver"
-										checked="checked"> 흡연자 <input
-										type="radio" name="usertype" value="rider"> 비흡연자 </p></td>
+									<td><p class="reg_area dt">
+										<input type="radio" name="smoking" value="1" checked="checked"> 흡연자 
+										<input type="radio" name="smoking" value="0"> 비흡연자 </p></td>
 								</tr>
 								<tr>
 									
 									<td><p class="reg_area dt">성별</p></td>
 									
-									<td><p class="reg_area dt"><input type="radio" name="usertype2" value="gender"
-										checked="checked"> 여자 <input
-										type="radio" name="usertype2" value="gender"> 남자 </p></td>
+									<td><p class="reg_area dt">
+										<input type="radio" name="genderlimit" value="0" checked="checked"> 무관 
+										<input type="radio" name="genderlimit" value="2"> 여자 
+										<input type="radio" name="genderlimit" value="gender"> 남자 </p>
+									</td>
 								</tr>
 
 								<tr>
@@ -277,12 +328,13 @@ table.t_ex2 .c2 {
 								</tr>
 								
 								<tr>
-									<td colspan="2" align="center"><input type="submit" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;<input
-										type="submit"  class="btn_comm" value="완료"></td>
+									<td colspan="2" align="center">
+										<input type="reset" class="btn_comm" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="button"  class="btn_comm" value="완료" onclick="formcheck()"></td>
 								</tr>
 							</table>
-							</article>
-							</form>
+						</article>
+					</form>
 					
 				</div>
 				</div>

@@ -293,7 +293,6 @@ function selOption(){
 									</tr>
 									<tr>
 										<td style="height:50px">
-											
 											<div id="select_box">
 											<label for="color" id="plabel">금액</label>
 											<select name="pricerange" id="color" onchange="selOption()">
