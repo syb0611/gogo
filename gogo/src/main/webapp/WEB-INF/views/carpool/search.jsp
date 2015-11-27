@@ -421,7 +421,7 @@ function selOption(){
 											<td >
 												<div style="padding: 10px">${vo.departuredate } 출발</div>
 												<div style="padding: 10px">${vo.departure } <img src="/withgo/resources/images/a.png" width="15px"> ${vo.arrival }</div>
-												<div style="padding: 10px">경유지</div>
+												<div style="padding: 10px">경유: ${vo.stop1 }&nbsp;&nbsp;${vo.stop2 }&nbsp;&nbsp;${vo.stop3 }</div>
 											</td>
 											<td width="20%" style="text-align: right">
 												<div>

@@ -234,10 +234,10 @@ function delBookMarkResult(){
 									<table>
 								
 									<tr>
-										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" /></div></td>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="출발지" name="departure" value="${pvo.departure }"/></div></td>
 									</tr>
 									<tr>
-										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival"/></div></td>
+										<td><div style="width:190px;"><p class="reg_area dt"></p><input type="text" class="form-control" placeholder="도착지" name="arrival" value="${pvo.arrival }"/></div></td>
 									</tr>
 									<tr>
 										<td style="height:50px">

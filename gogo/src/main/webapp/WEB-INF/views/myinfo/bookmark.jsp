@@ -211,9 +211,10 @@ function delBookMarkResult(){
 															<td width="20%" style="text-align: right">
 																<div>
 																	<c:choose>
-																		<c:when test="${vo.category == 'dan' }"><img src="../images/dan.png"></c:when> 
-																		<c:when test="${vo.category == 'jang' }"><img src="../images/jang.png"></c:when>
-																		<c:otherwise><img src="../images/taxiimgpng"></c:otherwise>
+																		<c:when test="${vo.category == 'dan' }"><img src="/withgo/resources/images/dan.png"></c:when> 
+																		<c:when test="${vo.category == 'jang' }"><img src="/withgo/resources/images/jang.png"></c:when>
+																		<c:when test="${vo.category == 'goschool' }"><img src="/withgo/resources/images/goschool.png"></c:when>
+																		<c:otherwise><img src="/withgo/resources/images/taxiimg.png"></c:otherwise>
 																	</c:choose>
 																	<c:choose>
 						 												<c:when test="${vo.usertype == 'driver' }">타세요</c:when> 
