@@ -318,7 +318,7 @@ function formcheck(){
 									<td><p class="reg_area dt">
 										<input type="radio" name="genderlimit" value="0" checked="checked"> 무관 
 										<input type="radio" name="genderlimit" value="2"> 여자 
-										<input type="radio" name="genderlimit" value="gender"> 남자 </p>
+										<input type="radio" name="genderlimit" value="1"> 남자 </p>
 									</td>
 								</tr>
 

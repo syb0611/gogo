@@ -220,8 +220,8 @@ table.t_ex2 .c2 {
 									<td>
 										<p class="reg_area dt">
 											<input type="radio" name="genderlimit" value="0" checked="checked"> 무관 
-											<input type="radio" name="genderlimit" value="1"> 여성
-											<input type="radio" name="genderlimit" value="2"> 남성 
+											<input type="radio" name="genderlimit" value="2"> 여성
+											<input type="radio" name="genderlimit" value="1"> 남성 
 										</p>
 									</td>
 								</tr>
